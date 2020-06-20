@@ -10,9 +10,9 @@
 <body>
 	<%
 		if (session.getAttribute("UserType") == null){
-			response.sendRedirect("login");
+			response.sendRedirect(request.getContextPath()+ "/login");
 		} else if (((UserType) session.getAttribute("UserType")) != UserType.COOK) {
-			response.sendRedirect("login");
+			response.sendRedirect(request.getContextPath()+ "/login");
 		}
 	%>
 	<h1>This is the main page for the cook</h1>

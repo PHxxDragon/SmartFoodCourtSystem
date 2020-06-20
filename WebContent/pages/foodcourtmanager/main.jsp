@@ -10,11 +10,11 @@
 <body>
 	<%
 		if (session.getAttribute("UserType") == null){
-			response.sendRedirect("login");
+			response.sendRedirect(request.getContextPath() + "/login");
 		} else if (((UserType) session.getAttribute("UserType")) != UserType.FC_MANAGER) {
-			response.sendRedirect("login");
+			response.sendRedirect(request.getContextPath() + "/login");
 		}
 	%>
-	<h1>This is the main page for the it</h1>
+	<h1>This is the main page for the food court manager</h1>
 </body>
 </html>

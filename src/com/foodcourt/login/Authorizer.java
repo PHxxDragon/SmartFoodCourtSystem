@@ -25,8 +25,6 @@ public class Authorizer extends HttpServlet {
 			return UserType.FC_MANAGER;
 		} else if (username.equals("it")) {
 			return UserType.IT;
-		} else if (username.equals("customer")) {
-			return UserType.CUSTOMER;
 		} else if (username.equals("vd_owner")) {
 			return UserType.VD_OWNER;
 		} else {
@@ -46,6 +44,7 @@ public class Authorizer extends HttpServlet {
 		if (!verify(username, password)) {
 			//redirect to login
 			response.sendRedirect("login");
+			return;
 		}
 		
 		UserType userType = getUserType(username, password);

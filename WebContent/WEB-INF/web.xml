@@ -15,23 +15,23 @@
   </servlet>
   <servlet>
   	<servlet-name>customer-main</servlet-name>
-  	<jsp-file>/pages/main/customer.jsp</jsp-file>
+  	<jsp-file>/pages/customer/main.jsp</jsp-file>
   </servlet>
   <servlet>
   	<servlet-name>cook-main</servlet-name>
-  	<jsp-file>/pages/main/cook.jsp</jsp-file>
+  	<jsp-file>/pages/cook/main.jsp</jsp-file>
   </servlet>
   <servlet>
   	<servlet-name>fcmanager-main</servlet-name>
-  	<jsp-file>/pages/main/fcmanager.jsp</jsp-file>
+  	<jsp-file>/pages/foodcourtmanager/main.jsp</jsp-file>
   </servlet>
   <servlet>
   	<servlet-name>it-main</servlet-name>
-  	<jsp-file>/pages/main/it.jsp</jsp-file>
+  	<jsp-file>/pages/it/main.jsp</jsp-file>
   </servlet>
   <servlet>
   	<servlet-name>vdowner-main</servlet-name>
-  	<jsp-file>/pages/main/vdowner.jsp</jsp-file>
+  	<jsp-file>/pages/vendorowner/main.jsp</jsp-file>
   </servlet>
   
   <servlet-mapping>
