@@ -41,6 +41,14 @@
   <servlet-name>viewOrder</servlet-name>
   <jsp-file>/pages/cook/view_order.jsp</jsp-file>
   </servlet>
+    <servlet>
+  <servlet-name>viewPaidOrder</servlet-name>
+  <jsp-file>/pages/customer/view_paidorder.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>digitalSlip</servlet-name>
+  	<jsp-file>/pages/customer/digital_slip.jsp</jsp-file>
+  </servlet>
   
   <filter>
   	<filter-name>cook-filter</filter-name>
@@ -98,6 +106,14 @@
   <servlet-mapping>
   	<servlet-name>viewOrder</servlet-name>
   	<url-pattern>/cook/view_orderJSP</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  	<servlet-name>viewPaidOrder</servlet-name>
+  	<url-pattern>/customer/view_paidorderJSP</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>digitalSlip</servlet-name>
+  	<url-pattern>/customer/digitalSlip</url-pattern>
   </servlet-mapping>
   
   <filter-mapping>

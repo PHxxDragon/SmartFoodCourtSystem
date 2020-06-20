@@ -42,7 +42,7 @@ public class Order {
 		
 	}
 	
-	private int orderID;
+	private long orderID;
 	private long userID;
 	private long saleVendorID;
 	private List<OrderEntry> orderEntries;
@@ -86,7 +86,7 @@ public class Order {
 	public void setOrderEntries(List<OrderEntry> orderEntries) {
 		this.orderEntries = orderEntries;
 	}
-	public int getOrderID() {
+	public long getOrderID() {
 		return orderID;
 	}
 	public void setOrderID(int orderID) {
