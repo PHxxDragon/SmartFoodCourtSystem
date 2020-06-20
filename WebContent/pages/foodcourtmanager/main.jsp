@@ -12,5 +12,6 @@
 	<form action="manage_accounts" method="get">
 		<button name="manageAccount_btn" type="submit">Manage Accounts</button>
 	</form>
+
 </body>
 </html>

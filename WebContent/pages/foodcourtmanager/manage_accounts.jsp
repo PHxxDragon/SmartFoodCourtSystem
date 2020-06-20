@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.foodcourt.common.UserType" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,15 +9,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>This is the main page for managing accounts</h1>
-	testing
-	<input type="checkbox" name="account0">
-	<label for="account0">This is account0</label><br>
-	<input type="checkbox" name="account1">
-	<label for="account1">This is account1</label><br>
-	<input type="checkbox" name="account2">
-	<label for="account2">This is account2</label><br>
-	<button type="submit" name="removeAccounts_btn">Remove accounts</button>
+<table>
+		<c:forEach items = "${Users}" var="user">
+		<tr>
+			<td><c:out value="User ID : ${user.getUserID()}"/></td>
+			<td><c:out value="Username : ${user.getUsername()}" /> </td>
+			<td><c:out value="Type : ${user.getUserType()}" /> </td>
+			<td>
+			<form action="manage_accounts" method="post">
+				<button type="submit" name="remove" value="${user.userID}">Remove</button>
+			</form> 
+			</td>
+		</tr>
+		</c:forEach>
+	</table>
 	
 </body>
 </html>
