@@ -3,9 +3,9 @@ package com.foodcourt.common.model;
 import com.foodcourt.common.UserType;
 
 public class User {
-	private long userID;
-	private String username;
-	private UserType userType;
+	protected long userID;
+	protected String username;
+	protected UserType userType;
 	
 	public User() {
 		

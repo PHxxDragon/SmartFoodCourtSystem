@@ -24,9 +24,9 @@ public class Order {
 		}
 	}
 	
-	private long userID;
-	private long saleVendorID;
-	private List<OrderEntry> orderEntries;
+	protected long userID;
+	protected long saleVendorID;
+	protected List<OrderEntry> orderEntries;
 	
 	public Order() {
 		

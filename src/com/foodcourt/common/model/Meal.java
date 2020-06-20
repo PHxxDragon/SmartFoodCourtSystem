@@ -2,8 +2,8 @@ package com.foodcourt.common.model;
 
 public class Meal {
 	
-	private int id;
-	private int price;
+	protected int id;
+	protected int price;
 	
 	public Meal() {
 		

@@ -3,17 +3,18 @@ package com.foodcourt.vendorowner.model;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.UUID;
+import com.foodcourt.common.model.Meal;
 
 public class Vendor {
-	private UUID ID;
+	private int id;
 	private String name;
 	private List<Meal> menu;
 	public Vendor(String vendor_name){
 		this.name = vendor_name;
 		this.menu = new ArrayList<Meal>();
 	}
-	public UUID getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 	public String getName() {
 		return name;
@@ -21,20 +22,20 @@ public class Vendor {
 	public void setName(String vendor_name) {
 		name = vendor_name;
 	}
-	public boolean addMeal(Meal new_meal) {
+	public void addMeal(Meal new_meal) {
 		menu.add(new_meal);
 	}
-	public Meal removeMeal(UUID mealID) {
+	public Meal removeMeal(int mealID) {
 		for (int i = 0; i < menu.size(); i++) {
-			if (menu.get(i).getID() == mealID) {
+			if (menu.get(i).getId() == mealID) {
 				return menu.remove(i);
 			}
 		}
 		return null;
 	}
-	public Meal getMeal(UUID mealID) {
+	public Meal getMeal(int mealID) {
 		for (Meal temp_meal : menu) {
-			if (temp_meal.getID() == mealID) return temp_meal;
+			if (temp_meal.getId() == mealID) return temp_meal;
 		}
 		return null;
 	}
