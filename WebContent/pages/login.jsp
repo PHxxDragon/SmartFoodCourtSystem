@@ -13,13 +13,5 @@
 		Enter Password: <input type="password" name="password"> <br>
 		<input type="submit" value="Log in">
 	</form>
-	
-	<% 
-	String msg = (String) request.getAttribute("msg");
-	if (msg != null) {
-		System.out.println(msg);
-		out.println(msg);
-	}
-	%>
 </body>
 </html>

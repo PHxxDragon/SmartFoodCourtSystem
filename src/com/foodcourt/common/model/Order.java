@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Order {
 	public static class OrderEntry {
-		public Meal meal;
-		public int quantity;
+		private Meal meal;
+		private int quantity;
 		
 		public OrderEntry() {
 			
@@ -22,23 +22,44 @@ public class Order {
 			this.meal = new Meal(orderEntry.meal);
 			this.quantity = orderEntry.quantity;
 		}
+
+		public Meal getMeal() {
+			return meal;
+		}
+
+		public void setMeal(Meal meal) {
+			this.meal = meal;
+		}
+
+		public int getQuantity() {
+			return quantity;
+		}
+
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
+		}
+		
+		
 	}
 	
-	protected long userID;
-	protected long saleVendorID;
-	protected List<OrderEntry> orderEntries;
+	private long orderID;
+	private long userID;
+	private long saleVendorID;
+	private List<OrderEntry> orderEntries;
 	
 	public Order() {
 		
 	}
 	
-	public Order(long userID, long saleVendorID, List<OrderEntry> orderEntries) {
+	public Order(int orderID, long userID, long saleVendorID, List<OrderEntry> orderEntries) {
+		this.orderID = orderID;
 		this.userID = userID;
 		this.saleVendorID = saleVendorID;
 		this.orderEntries = orderEntries;
 	}
 	
 	public Order(Order order) {
+		orderID = order.orderID;
 		userID = order.userID;
 		saleVendorID = order.saleVendorID;
 		orderEntries = new ArrayList<OrderEntry>(); 
@@ -65,5 +86,13 @@ public class Order {
 	public void setOrderEntries(List<OrderEntry> orderEntries) {
 		this.orderEntries = orderEntries;
 	}
+	public long getOrderID() {
+		return orderID;
+	}
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
+	}
+	
+	
 	
 }
