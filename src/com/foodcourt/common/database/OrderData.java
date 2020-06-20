@@ -79,11 +79,21 @@ public class OrderData {
 		return orders;
 	}
 	
+	public void confirmOrder(long orderID) {
+		for (Order o: pendingOrders) {
+			if (o.getOrderID() == orderID) {
+				pendingOrders.remove(o);
+				return;
+			}
+		}
+	}
+	
 	
 	//========================================
 	
 	private void init() {
 		Order order1 = new Order();
+		order1.setOrderID(1);
 		order1.setUserID(1);
 		order1.setSaleVendorID(1);
 		List<OrderEntry> orderEntries = new ArrayList<OrderEntry>();
@@ -95,6 +105,7 @@ public class OrderData {
 		addOrder(order1);
 		
 		order1 = new Order();
+		order1.setOrderID(2);
 		order1.setUserID(1);
 		order1.setSaleVendorID(1);
 		orderEntries = new ArrayList<OrderEntry>();
@@ -106,6 +117,7 @@ public class OrderData {
 		addOrder(order1);
 		
 		order1 = new Order();
+		order1.setOrderID(3);
 		order1.setUserID(2);
 		order1.setSaleVendorID(1);
 		orderEntries = new ArrayList<OrderEntry>();

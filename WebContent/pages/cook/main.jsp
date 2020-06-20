@@ -8,13 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		if (session.getAttribute("UserType") == null){
-			response.sendRedirect(request.getContextPath()+ "/login");
-		} else if (((UserType) session.getAttribute("UserType")) != UserType.COOK) {
-			response.sendRedirect(request.getContextPath()+ "/login");
-		}
-	%>
 	<h1>This is the main page for the cook</h1>
+	<form action="<%=request.getContextPath()%>/viewProfile" method="post">
+		<button type="submit" value="viewProfile" name="viewProfile">View Profile</button>
+	</form>
+	<form action="viewOrder" method="post">
+		<button type="submit" value="viewOrder" name="viewOrder">View Order</button>
+	</form>
+	<form action="notifyOOS" method="post">
+		<button type="submit" value="notifyOOS" name="notifyOOS">Notify out of stock</button>
+	</form>
 </body>
 </html>

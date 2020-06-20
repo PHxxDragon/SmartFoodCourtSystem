@@ -8,13 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		if (session.getAttribute("UserType") == null){
-			response.sendRedirect(request.getContextPath() + "/login");
-		} else if (((UserType) session.getAttribute("UserType")) != UserType.FC_MANAGER) {
-			response.sendRedirect(request.getContextPath() + "/login");
-		}
-	%>
 	<h1>This is the main page for the food court manager</h1>
 	<form action="manage_accounts" method="get">
 		<button name="manageAccount_btn" type="submit">Manage Accounts</button>

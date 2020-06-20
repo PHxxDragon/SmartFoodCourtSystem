@@ -8,13 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		if (session.getAttribute("UserType") == null){
-			response.sendRedirect(request.getContextPath() + "/login");
-		} else if (((UserType) session.getAttribute("UserType")) != UserType.CUSTOMER) {
-			response.sendRedirect(request.getContextPath() + "/login");
-		}
-	%>
 	<h1>This is the main page for the customer</h1>
 </body>
 </html>

@@ -21,4 +21,8 @@ public class OrderDao {
 	public void addPendingOrder(Order order) {
 		OrderData.getInstance().addPendingOrder(order);
 	}
+	
+	public void confirmPendingOrder(long orderID) {
+		OrderData.getInstance().confirmOrder(orderID);
+	}
 }
