@@ -26,9 +26,9 @@ public class TestServlet extends HttpServlet {
 			out.println("saleid : " + o.getSaleVendorID());
 			out.println("userid : " + o.getUserID());
 			for (OrderEntry oe: o.getOrderEntries()) {
-				out.println("mealid : " + oe.meal.getId());
-				out.println("mealprice : " + oe.meal.getPrice());
-				out.println("quantity : "+ oe.quantity);
+				out.println("mealid : " + oe.getMeal().getId());
+				out.println("mealprice : " + oe.getMeal().getPrice());
+				out.println("quantity : "+ oe.getQuantity());
 				out.println();
 			}
 			out.println();
@@ -40,9 +40,9 @@ public class TestServlet extends HttpServlet {
 			out.println("saleid : " + o.getSaleVendorID());
 			out.println("userid : " + o.getUserID());
 			for (OrderEntry oe: o.getOrderEntries()) {
-				out.println("mealid : " + oe.meal.getId());
-				out.println("mealprice : " + oe.meal.getPrice());
-				out.println("quantity : "+ oe.quantity);
+				out.println("mealid : " + oe.getMeal().getId());
+				out.println("mealprice : " + oe.getMeal().getPrice());
+				out.println("quantity : "+ oe.getQuantity());
 				out.println();
 			}
 			out.println();
@@ -54,9 +54,9 @@ public class TestServlet extends HttpServlet {
 			out.println("saleid : " + o.getSaleVendorID());
 			out.println("userid : " + o.getUserID());
 			for (OrderEntry oe: o.getOrderEntries()) {
-				out.println("mealid : " + oe.meal.getId());
-				out.println("mealprice : " + oe.meal.getPrice());
-				out.println("quantity : "+ oe.quantity);
+				out.println("mealid : " + oe.getMeal().getId());
+				out.println("mealprice : " + oe.getMeal().getPrice());
+				out.println("quantity : "+ oe.getQuantity());
 				out.println();
 			}
 			out.println();

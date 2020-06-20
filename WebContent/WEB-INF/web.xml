@@ -37,6 +37,31 @@
   	<servlet-name>test</servlet-name>
   	<servlet-class>com.foodcourt.test.TestServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>viewOrder</servlet-name>
+  <jsp-file>/pages/cook/view_order.jsp</jsp-file>
+  </servlet>
+  
+  <filter>
+  	<filter-name>cook-filter</filter-name>
+  	<filter-class>com.foodcourt.filter.CookFilter</filter-class>
+  </filter>
+    <filter>
+  	<filter-name>customer-filter</filter-name>
+  	<filter-class>com.foodcourt.filter.CustomerFilter</filter-class>
+  </filter>
+    <filter>
+  	<filter-name>fcmanager-filter</filter-name>
+  	<filter-class>com.foodcourt.filter.FCManagerFilter</filter-class>
+  </filter>
+    <filter>
+  	<filter-name>it-filter</filter-name>
+  	<filter-class>com.foodcourt.filter.ItFilter</filter-class>
+  </filter>
+    <filter>
+  	<filter-name>vdowner-filter</filter-name>
+  	<filter-class>com.foodcourt.filter.VDOwnerFilter</filter-class>
+  </filter>
   
   <servlet-mapping>
   	<servlet-name>login</servlet-name>
@@ -70,5 +95,30 @@
   	<servlet-name>test</servlet-name>
   	<url-pattern>/test</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>viewOrder</servlet-name>
+  	<url-pattern>/cook/view_orderJSP</url-pattern>
+  </servlet-mapping>
+  
+  <filter-mapping>
+  	<filter-name>cook-filter</filter-name>
+  	<url-pattern>/cook/*</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>customer-filter</filter-name>
+  	<url-pattern>/customer/*</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>fcmanager-filter</filter-name>
+  	<url-pattern>/fcmanager/*</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>it-filter</filter-name>
+  	<url-pattern>/it/*</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>vdowner-filter</filter-name>
+  	<url-pattern>/vendorowner/*</url-pattern>
+  </filter-mapping>
   
 </web-app>
