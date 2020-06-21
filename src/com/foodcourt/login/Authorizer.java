@@ -1,6 +1,7 @@
 package com.foodcourt.login;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.UserType;
+import com.foodcourt.common.dao.UserDao;
+import com.foodcourt.common.model.User;
 
 @WebServlet("/authendication")
 public class Authorizer extends HttpServlet {
@@ -33,8 +36,17 @@ public class Authorizer extends HttpServlet {
 	}
 	
 	private boolean verify(String username, String password) {
-		if (password.equals("1234")) return true;
-		return false;
+		UserDao userDao = new UserDao();
+		boolean kt=false;
+		List<User> users = userDao.getUsers();
+		for (int i = 0; i < users.size(); i++)
+		{
+		
+		if (password.equals(users.get(i).getpassword()) && username.equals(users.get(i).getUsername()))
+		kt=true;
+		else kt=false;
+		}
+		return kt;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
