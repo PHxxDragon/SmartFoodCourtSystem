@@ -5,13 +5,16 @@ import java.util.List;
 
 import com.foodcourt.common.UserType;
 import com.foodcourt.common.model.User;
+
 public class UserData {
 	List<User> users;
 	private static UserData instance;
+
 	public static UserData getInstance() {
 		if (instance == null) instance = new UserData();
 		return instance;
 	}
+
 	private UserData () {
 		users = new ArrayList<User>();
 		init();
@@ -76,6 +79,6 @@ public class UserData {
 		customer.setUserID(5);
 		customer.setUserType(UserType.CUSTOMER);
 		addNewUser(customer);
-}
+	}
 }
 	

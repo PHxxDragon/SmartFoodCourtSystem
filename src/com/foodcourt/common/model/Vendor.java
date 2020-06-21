@@ -8,6 +8,7 @@ public class Vendor {
 	private long ownerID;
 	private String name;
 	private List<Meal> menu;
+
 	public Vendor(String vendor_name, int id, long ownerID){
 		this.id = id;
 		this.name = vendor_name;

@@ -13,6 +13,7 @@ public class UserDao {
 	public List<User> getUsers() {
 		return UserData.getInstance().getUsers();
 	}
+	
 	public User getUserFromUsername(String username) {
 		return UserData.getInstance().getUserFromUsername(username);
 	}

@@ -39,6 +39,7 @@ public class Authorizer extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
 		session.setAttribute("UserType", user.getUserType());
+
 		
 		switch(user.getUserType()) {
 		case CUSTOMER:
