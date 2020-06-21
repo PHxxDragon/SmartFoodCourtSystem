@@ -20,7 +20,10 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<button type="submit" name="remove">Remove</button>
-</form> 	
+	<button type="submit" name="btn" value = "remove">Remove</button>
+	 <!-- <button type="submit" name="btn" value = "add">Add new</button> -->
+</form>
+<!-- HARDCODED PATH, CHANGE IF POSSIBLE -->
+<a href="../pages/foodcourtmanager/add_user_form.jsp"><button>Add new</button></a>
 </body>
 </html>
