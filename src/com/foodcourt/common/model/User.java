@@ -3,10 +3,13 @@ package com.foodcourt.common.model;
 import com.foodcourt.common.UserType;
 
 public class User {
-	protected long userID;
-	protected String username;
-	protected UserType userType;
-	
+	private long userID;
+	private String username;
+	private UserType userType;
+	private String password;
+	private String email;
+	private String name;
+
 	public User() {
 		
 	}
@@ -40,5 +43,23 @@ public class User {
 	}
 	public void setUserType(UserType userType) {
 		this.userType = userType;
+	}
+	public String getpassword() {
+		return password;
+	}
+	public void setpassword(String password) {
+		this.password = password;
+	}
+	public String getemail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getname() {
+		return name;
+	}
+	public void setname(String name) {
+		this.name = name;
 	}
 }

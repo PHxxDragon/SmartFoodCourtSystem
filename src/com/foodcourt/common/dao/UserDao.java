@@ -1,5 +1,15 @@
 package com.foodcourt.common.dao;
 
-public class UserDao {
+import java.util.List;
 
+import com.foodcourt.common.database.UserData;
+import com.foodcourt.common.model.User;
+
+public class UserDao {
+	public void addNewUser(User user) {
+		UserData.getInstance().addNewUser(user);
+	}
+	public List<User> getUsers() {
+		return UserData.getInstance().getUsers();
+	}
 }
