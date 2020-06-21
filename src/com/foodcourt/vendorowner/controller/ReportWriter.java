@@ -4,17 +4,15 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.foodcourt.common.UserType;
-import com.foodcourt.common.model.Vendor;
-import com.foodcourt.common.model.VendorOwner;
+import com.foodcourt.common.model.User;
 import com.foodcourt.vendorowner.compile.CompileReportCSV;
 import com.foodcourt.vendorowner.compile.ICompileReport;
 
@@ -43,11 +41,13 @@ public class ReportWriter extends HttpServlet {
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Expires", "-1");
 		
-		VendorOwner owner = new VendorOwner(1,"vendorowner",UserType.VD_OWNER);
-		Vendor vendor = new Vendor("vendor_name",1);
-		owner.setVendor(vendor);
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
 		
-		ICompileReport compiler = new CompileReportCSV(owner, new Date(), new Date());
+		String s1 = request.getParameter("input_start_date");
+		String s2 = request.getParameter("input_end_date");
+		
+		ICompileReport compiler = new CompileReportCSV(user, s1, s2);
 		String content = compiler.compile().toString();
 		InputStream is = new ByteArrayInputStream(content.getBytes());
 		int read = 0;

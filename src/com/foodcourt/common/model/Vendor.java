@@ -5,12 +5,14 @@ import java.util.ArrayList;
 
 public class Vendor {
 	private int id = 0;
+	private long ownerID;
 	private String name;
 	private List<Meal> menu;
-	public Vendor(String vendor_name, int id){
+	public Vendor(String vendor_name, int id, long ownerID){
 		this.id = id;
 		this.name = vendor_name;
 		this.menu = new ArrayList<Meal>();
+		this.ownerID = ownerID;
 	}
 	public int getId() {
 		return id;
@@ -38,5 +40,21 @@ public class Vendor {
 		}
 		return null;
 	}
+	public long getOwnerID() {
+		return ownerID;
+	}
+	public void setOwnerID(long ownerID) {
+		this.ownerID = ownerID;
+	}
+	public List<Meal> getMenu() {
+		return menu;
+	}
+	public void setMenu(List<Meal> menu) {
+		this.menu = menu;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 }
