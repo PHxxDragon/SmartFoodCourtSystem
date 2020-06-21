@@ -7,6 +7,7 @@ public class Vendor {
 	private int id = 0;
 	private String name;
 	private List<Meal> menu;
+	
 	public Vendor(String vendor_name, int id){
 		this.id = id;
 		this.name = vendor_name;

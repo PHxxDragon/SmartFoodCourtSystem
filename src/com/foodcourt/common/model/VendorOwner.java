@@ -4,8 +4,12 @@ import com.foodcourt.common.UserType;
 
 public class VendorOwner extends User {
 	private Vendor vendor;
-	public VendorOwner(long userID, String username, UserType userType) {
+	public VendorOwner() {
 		super();
+	}
+	
+	public VendorOwner(long userID, String username, UserType userType) {
+		super(userID, username, userType);
 	}
 	public Vendor getVendor() {
 		return vendor;

@@ -12,7 +12,7 @@
 			<label for="start_date">Start date:</label>
 			<input type="date" id="start_date" name="input_start_date"
 					>
-			<label for="end_date">Start date:</label>
+			<label for="end_date">End date:</label>
 			<input type="date" id="end_date" name="input_end_date"
 					>
 			<button id="btn_compile" type="submit">Compile</button>

@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.UserType;
 import com.foodcourt.common.model.Vendor;
@@ -43,10 +44,10 @@ public class ReportWriter extends HttpServlet {
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Expires", "-1");
 		
-		VendorOwner owner = new VendorOwner(1,"vendorowner",UserType.VD_OWNER);
-		Vendor vendor = new Vendor("vendor_name",1);
-		owner.setVendor(vendor);
+		HttpSession session = request.getSession();
+		VendorOwner owner = (VendorOwner) session.getAttribute("user");
 		
+		System.out.println(request.getParameter("input_start_date"));
 		ICompileReport compiler = new CompileReportCSV(owner, new Date(), new Date());
 		String content = compiler.compile().toString();
 		InputStream is = new ByteArrayInputStream(content.getBytes());
