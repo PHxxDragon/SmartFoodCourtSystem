@@ -3,19 +3,18 @@ package com.foodcourt.vendorowner.controller;
 import java.io.IOException;
 // import java.io.InputStream;
 // import java.io.OutputStream;
-import javax.servlet.ServletContext;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.foodcourt.vendorowner.model.*;
-
 /**
  * Servlet implementation class MakeReportController
  */
-@WebServlet("/MakeReportController")
+@WebServlet("/vdowner/MakeReportController")
 public class MakeReportController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,18 +30,8 @@ public class MakeReportController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String param = (String)request.getParameter("filetype");
-		
-		ICompileReport compiler = new CompileReportCSV();
-		String filename = "test.csv";
-		String result = ;
-		
-		response.setContentType("text/csv");
-		response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
-		response.setHeader("Cache-Control", "no-cache");
-		response.setHeader("Expires", "-1");
-		
-		response.getOutputStream().write(result.getBytes());
+		RequestDispatcher rd_compile = request.getRequestDispatcher("/vdowner/ReportWriter");
+		rd_compile.forward(request, response);
 	}
 
 	/**

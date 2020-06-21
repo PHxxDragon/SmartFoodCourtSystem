@@ -1,5 +1,7 @@
 package com.foodcourt.vendorowner.model;
 
+import java.lang.StringBuffer;
+
 public interface ICompileReport {
-	public String compile();
+	public StringBuffer compile();
 }

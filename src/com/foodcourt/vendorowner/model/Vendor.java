@@ -2,14 +2,14 @@ package com.foodcourt.vendorowner.model;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.UUID;
 import com.foodcourt.common.model.Meal;
 
 public class Vendor {
-	private int id;
+	private int id = 0;
 	private String name;
 	private List<Meal> menu;
-	public Vendor(String vendor_name){
+	public Vendor(String vendor_name, int id){
+		this.id = id;
 		this.name = vendor_name;
 		this.menu = new ArrayList<Meal>();
 	}

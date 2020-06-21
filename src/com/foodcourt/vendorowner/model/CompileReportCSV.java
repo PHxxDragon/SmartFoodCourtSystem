@@ -1,9 +1,8 @@
 package com.foodcourt.vendorowner.model;
 
 import java.util.Date;
-import java.util.Map;
-import java.util.HashMap;
 import java.text.SimpleDateFormat;
+import java.lang.StringBuffer;
 
 public class CompileReportCSV implements ICompileReport {
 	private Date start_date;
@@ -16,12 +15,12 @@ public class CompileReportCSV implements ICompileReport {
 		this.end_date = end;
 	}
 	@Override
-	public String compile() {
-		String result = "";
+	public StringBuffer compile() {
+		StringBuffer result = new StringBuffer();
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-		result.concat("date,revenue,profit,\"avg review score\"\n");
-		result.concat("\"" + formatter.format(date) + "\",1000,1000,4.5");
+		result.append("date,revenue,profit,\"avg review score\"\n");
+		result.append("\"" + formatter.format(date) + "\",1000,1000,4.5");
 		return result;
 	}
 }

@@ -34,6 +34,15 @@
   	<jsp-file>/pages/vendorowner/main.jsp</jsp-file>
   </servlet>
    <servlet>
+  	<servlet-name>vdowner-make-report</servlet-name>
+  	<jsp-file>/pages/vendorowner/make_report.jsp</jsp-file>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>makeReport</servlet-name>
+  	<jsp-file>/pages/vendorowner/make_report.jsp</jsp-file>
+  </servlet>
+   <servlet>
   	<servlet-name>test</servlet-name>
   	<servlet-class>com.foodcourt.test.TestServlet</servlet-class>
   </servlet>
@@ -99,6 +108,11 @@
   	<servlet-name>vdowner-main</servlet-name>
   	<url-pattern>/vdowner/main</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>vdowner-make-report</servlet-name>
+  	<url-pattern>/vdowner/MakeReportJSP</url-pattern>
+  </servlet-mapping>
+  
     <servlet-mapping>
   	<servlet-name>test</servlet-name>
   	<url-pattern>/test</url-pattern>
