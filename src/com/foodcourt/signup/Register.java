@@ -2,8 +2,6 @@ package com.foodcourt.signup;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,12 +33,18 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter out = response.getWriter();
+		response.sendRedirect("Register");
+	}
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
-		
-		//out.println("Welcome " + name);
 		
 		User user = new User();
         user.setname(name);
@@ -49,20 +53,8 @@ public class Register extends HttpServlet {
         user.setUserType(UserType.CUSTOMER);
         UserDao userDao = new UserDao();
 		userDao.addNewUser(user);
-		
-		
-		
-		
-		  response.sendRedirect("signupsuccess");
-}
-	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.sendRedirect("signupsuccess");
 	}
 
 }

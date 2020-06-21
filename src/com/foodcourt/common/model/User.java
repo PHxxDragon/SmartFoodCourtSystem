@@ -14,16 +14,13 @@ public class User {
 		
 	}
 	
-	public User(long userID, String username, UserType userType) {
-		this.userID = userID;
-		this.username = username;
-		this.userType = userType;
-	}
-	
 	public User(User user) {
 		this.userID = user.userID;
 		this.username = user.username;
 		this.userType = user.userType;
+		this.password = user.password;
+		this.email = user.email;
+		this.name= user.name;
 	}
 	
 	public long getUserID() {

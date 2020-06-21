@@ -41,6 +41,10 @@
   	<servlet-name>vdowner-make-report</servlet-name>
   	<jsp-file>/pages/vendorowner/make_report.jsp</jsp-file>
   </servlet>
+     <servlet>
+  	<servlet-name>view-profile</servlet-name>
+  	<jsp-file>/pages/view_profile.jsp</jsp-file>
+  </servlet>
   
   <servlet>
   	<servlet-name>makeReport</servlet-name>
@@ -82,6 +86,10 @@
     <filter>
   	<filter-name>vdowner-filter</filter-name>
   	<filter-class>com.foodcourt.filter.VDOwnerFilter</filter-class>
+  </filter>
+    <filter>
+  	<filter-name>profile-filter</filter-name>
+  	<filter-class>com.foodcourt.filter.ProfileFilter</filter-class>
   </filter>
   
   <servlet-mapping>
@@ -137,6 +145,12 @@
   	<servlet-name>digitalSlip</servlet-name>
   	<url-pattern>/customer/digitalSlip</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+  	<servlet-name>view-profile</servlet-name>
+  	<url-pattern>/view_profileJSP</url-pattern>
+  </servlet-mapping>
+  
+  
   
   <filter-mapping>
   	<filter-name>cook-filter</filter-name>
@@ -157,6 +171,14 @@
     <filter-mapping>
   	<filter-name>vdowner-filter</filter-name>
   	<url-pattern>/vendorowner/*</url-pattern>
+  </filter-mapping>
+      <filter-mapping>
+  	<filter-name>profile-filter</filter-name>
+  	<url-pattern>/view_profileJSP</url-pattern>
+  </filter-mapping>
+        <filter-mapping>
+  	<filter-name>profile-filter</filter-name>
+  	<url-pattern>/profile</url-pattern>
   </filter-mapping>
   
 </web-app>

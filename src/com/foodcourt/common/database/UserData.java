@@ -26,6 +26,16 @@ public class UserData {
 		}
 		return users;
 	}
+	
+	public User getUserFromUsername(String username) {
+		for (User u: users) {
+			if (u.getUsername().equals(username)) {
+				return new User(u);
+			}
+		}
+		return null;
+	}
+	
 	private void init() {
 		User cook = new User();
 		cook.setname("cook");
@@ -35,21 +45,21 @@ public class UserData {
 		addNewUser(cook);
 		
 		User manager = new User();
-		manager.setname("FC_MANAGER");
+		manager.setname("fc_manager");
         manager.setpassword("1234");
         manager.setUsername("FC_MANAGER");
         manager.setUserType(UserType.FC_MANAGER);
 		addNewUser(manager);
 		
 		User it = new User();
-		it.setname("IT");
+		it.setname("it");
         it.setpassword("1234");
         it.setUsername("IT");
         it.setUserType(UserType.IT);
 		addNewUser(it);
 		
 		User owner = new User();
-		owner.setname("VD_OWNER");
+		owner.setname("vd_owner");
 		owner.setpassword("1234");
 		owner.setUsername("owner");
 		owner.setUserType(UserType.VD_OWNER);
