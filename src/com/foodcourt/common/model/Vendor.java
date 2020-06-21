@@ -14,7 +14,19 @@ public class Vendor {
 		this.menu = new ArrayList<Meal>();
 		this.ownerID = ownerID;
 	}
-	public int getId() {
+	public Vendor(){
+		this.id = 0;
+		this.name = "";
+		this.menu = new ArrayList<Meal>();
+		this.ownerID = 0;
+	}
+	public Vendor(Vendor vendor) {
+		this.id = vendor.id;
+		this.ownerID = vendor.ownerID;
+		this.name = vendor.name;
+		this.menu =  new ArrayList<Meal>(vendor.menu);
+	}
+	public int getID() {
 		return id;
 	}
 	public String getName() {
@@ -52,7 +64,7 @@ public class Vendor {
 	public void setMenu(List<Meal> menu) {
 		this.menu = menu;
 	}
-	public void setId(int id) {
+	public void setID(int id) {
 		this.id = id;
 	}
 	

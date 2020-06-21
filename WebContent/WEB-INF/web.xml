@@ -34,6 +34,10 @@
   	<jsp-file>/pages/foodcourtmanager/manage_accounts.jsp</jsp-file>
   </servlet>
   <servlet>
+  	<servlet-name>fcmanager-manage_vendors</servlet-name>
+  	<jsp-file>/pages/foodcourtmanager/manage_vendors.jsp</jsp-file>
+  </servlet>
+  <servlet>
   	<servlet-name>it-main</servlet-name>
   	<jsp-file>/pages/it/main.jsp</jsp-file>
   </servlet>
@@ -123,6 +127,10 @@
   <servlet-mapping>
   	<servlet-name>fcmanager-manage_accounts</servlet-name>
   	<url-pattern>/fcmanager/manage_accountsJSP</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>fcmanager-manage_vendors</servlet-name>
+  	<url-pattern>/fcmanager/manage_vendorsJSP</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>it-main</servlet-name>
