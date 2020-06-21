@@ -41,6 +41,7 @@ public class UserData {
 		cook.setname("cook");
         cook.setpassword("1234");
         cook.setUsername("cook");
+        cook.setUserID(1);
         cook.setUserType(UserType.COOK);
 		addNewUser(cook);
 		
@@ -48,6 +49,7 @@ public class UserData {
 		manager.setname("fc_manager");
         manager.setpassword("1234");
         manager.setUsername("FC_MANAGER");
+        manager.setUserID(2);
         manager.setUserType(UserType.FC_MANAGER);
 		addNewUser(manager);
 		
@@ -55,12 +57,14 @@ public class UserData {
 		it.setname("it");
         it.setpassword("1234");
         it.setUsername("IT");
+        it.setUserID(4);
         it.setUserType(UserType.IT);
 		addNewUser(it);
 		
 		User owner = new User();
 		owner.setname("vd_owner");
 		owner.setpassword("1234");
+		owner.setUserID(3);
 		owner.setUsername("owner");
 		owner.setUserType(UserType.VD_OWNER);
 		addNewUser(owner);
@@ -69,6 +73,7 @@ public class UserData {
 		customer.setname("customer");
 		customer.setpassword("1234");
 		customer.setUsername("customer");
+		customer.setUserID(5);
 		customer.setUserType(UserType.CUSTOMER);
 		addNewUser(customer);
 }
