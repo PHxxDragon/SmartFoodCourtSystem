@@ -3,6 +3,7 @@ package com.foodcourt.common.database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.foodcourt.common.model.User;
 import com.foodcourt.common.model.Vendor;
 
 public class VendorData {
@@ -20,6 +21,21 @@ public class VendorData {
 			return instance;
 		}
 		return instance;
+	}
+	
+	public void addNewVendor(Vendor vendor) {
+		vendors.add(new Vendor(vendor));
+	}
+	public List<Vendor> getVendors(){
+		List<Vendor> vendor = new ArrayList<Vendor>();
+		for (Vendor o: vendors) {
+			vendor.add(new Vendor(o));
+		}
+		return vendor;
+	}
+	
+	public void removeVendorFromID(Integer ID) {
+		vendors.removeIf((n) -> n.getId() == ID);
 	}
 	
 	public Vendor getVendorByUserid(long userID) {

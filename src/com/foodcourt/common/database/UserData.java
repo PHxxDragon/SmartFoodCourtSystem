@@ -22,12 +22,15 @@ public class UserData {
 	public void addNewUser(User user) {
 		users.add(new User(user));
 	}
+	public void removeUserFromID(Integer ID) {
+		users.removeIf((n) -> n.getUserID() == ID);
+	}
 	public List<User> getUsers(){
-		List<User> users = new ArrayList<User>();
+		List<User> user = new ArrayList<User>();
 		for (User o: users) {
-			users.add(new User(o));
+			user.add(new User(o));
 		}
-		return users;
+		return user;
 	}
 	
 	public User getUserFromUsername(String username) {
@@ -41,6 +44,7 @@ public class UserData {
 	
 	private void init() {
 		User cook = new User();
+		cook.setUserID(0);
 		cook.setname("cook");
         cook.setpassword("1234");
         cook.setUsername("cook");
@@ -49,6 +53,7 @@ public class UserData {
 		addNewUser(cook);
 		
 		User manager = new User();
+		manager.setUserID(1);
 		manager.setname("fc_manager");
         manager.setpassword("1234");
         manager.setUsername("FC_MANAGER");
@@ -57,6 +62,7 @@ public class UserData {
 		addNewUser(manager);
 		
 		User it = new User();
+		it.setUserID(2);
 		it.setname("it");
         it.setpassword("1234");
         it.setUsername("IT");
@@ -65,6 +71,7 @@ public class UserData {
 		addNewUser(it);
 		
 		User owner = new User();
+		owner.setUserID(3);
 		owner.setname("vd_owner");
 		owner.setpassword("1234");
 		owner.setUserID(3);
@@ -73,6 +80,7 @@ public class UserData {
 		addNewUser(owner);
 		
 		User customer = new User();
+		customer.setUserID(4);
 		customer.setname("customer");
 		customer.setpassword("1234");
 		customer.setUsername("customer");
