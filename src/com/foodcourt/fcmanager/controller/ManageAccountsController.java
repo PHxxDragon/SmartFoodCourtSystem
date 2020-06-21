@@ -29,15 +29,17 @@ public class ManageAccountsController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//supposed to remove all matching ID in array
-		//here remove the user next to the button
-		String value = (String) request.getParameter("remove");
-		if (value.length() > 0) {
-			ArrayList<Integer> userID = new ArrayList<Integer>();
-			userID.add(Integer.parseInt(value));
-			UserDao userDao = new UserDao();
-			userDao.removeUser(userID);
+		String[] list =  request.getParameterValues("userlist");
+		if (list == null) {
+			doGet(request, response);
+			return;
 		}
+		ArrayList<Integer> userID = new ArrayList<Integer>();
+		UserDao userDao = new UserDao();
+		for (int i = 0; i < list.length; i++) {
+			if (list[i].length() > 0) userID.add(Integer.parseInt(list[i]));
+		}
+		userDao.removeUser(userID);
 		doGet(request, response);
 	}
 }

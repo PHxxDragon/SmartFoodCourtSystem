@@ -9,20 +9,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table>
+<form action="manage_accounts" method="post">
+	<table>
 		<c:forEach items = "${Users}" var="user">
-		<tr>
-			<td><c:out value="User ID : ${user.getUserID()}"/></td>
-			<td><c:out value="Username : ${user.getUsername()}" /> </td>
-			<td><c:out value="Type : ${user.getUserType()}" /> </td>
-			<td>
-			<form action="manage_accounts" method="post">
-				<button type="submit" name="remove" value="${user.userID}">Remove</button>
-			</form> 
-			</td>
-		</tr>
+			<tr>
+				<td><input type = "checkbox" name = "userlist" value = "${user.getUserID()}"></td>		
+				<td><c:out value="| User ID : ${user.getUserID()} "/> </td>
+				<td><c:out value="| Username : ${user.getUsername()} " /> </td>
+				<td><c:out value="| Type : ${user.getUserType()} |" /> </td>
+			</tr>
 		</c:forEach>
 	</table>
-	
+	<button type="submit" name="remove">Remove</button>
+</form> 	
 </body>
 </html>
