@@ -13,8 +13,8 @@
 	<table>
 		<c:forEach items = "${Vendors}" var="vendor">
 			<tr>
-				<td><input type = "checkbox" name = "vendorlist" value = "${vendor.getID()}"></td>		
-				<td><c:out value="| Vendor ID : ${vendor.getID()} "/> </td>
+				<td><input type = "checkbox" name = "vendorlist" value = "${vendor.getId()}"></td>		
+				<td><c:out value="| Vendor ID : ${vendor.getId()} "/> </td>
 				<td><c:out value="| Owner ID : ${vendor.getOwnerID()} " /> </td>
 				<td><c:out value="| Name : ${vendor.getName()} |" /> </td>
 			</tr>

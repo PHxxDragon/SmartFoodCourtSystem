@@ -26,7 +26,7 @@ public class Vendor {
 		this.name = vendor.name;
 		this.menu =  new ArrayList<Meal>(vendor.menu);
 	}
-	public int getID() {
+	public int getId() {
 		return id;
 	}
 	public String getName() {
@@ -64,7 +64,7 @@ public class Vendor {
 	public void setMenu(List<Meal> menu) {
 		this.menu = menu;
 	}
-	public void setID(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

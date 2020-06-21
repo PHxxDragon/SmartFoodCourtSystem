@@ -35,7 +35,7 @@ public class VendorData {
 	}
 	
 	public void removeVendorFromID(Integer ID) {
-		vendors.removeIf((n) -> n.getID() == ID);
+		vendors.removeIf((n) -> n.getId() == ID);
 	}
 	
 	public Vendor getVendorByUserid(long userID) {

@@ -51,7 +51,7 @@ public class ManageVendorsController extends HttpServlet {
 			return;
 		case "add":
 			Vendor newVendor = new Vendor();
-			newVendor.setID(Integer.parseInt(request.getParameter("id")));
+			newVendor.setId(Integer.parseInt(request.getParameter("id")));
 			newVendor.setOwnerID(Integer.parseInt(request.getParameter("ownerid")));
 			newVendor.setName(request.getParameter("name"));
 			vendorDao.addNewVendor(newVendor);
