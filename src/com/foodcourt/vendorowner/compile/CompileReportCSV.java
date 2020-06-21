@@ -1,6 +1,9 @@
-package com.foodcourt.vendorowner.model;
+package com.foodcourt.vendorowner.compile;
 
 import java.util.Date;
+
+import com.foodcourt.common.model.VendorOwner;
+
 import java.text.SimpleDateFormat;
 import java.lang.StringBuffer;
 

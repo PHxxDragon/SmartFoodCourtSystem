@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.foodcourt.common.UserType;
-import com.foodcourt.vendorowner.model.CompileReportCSV;
-import com.foodcourt.vendorowner.model.ICompileReport;
-import com.foodcourt.vendorowner.model.Vendor;
-import com.foodcourt.vendorowner.model.VendorOwner;
+import com.foodcourt.common.model.Vendor;
+import com.foodcourt.common.model.VendorOwner;
+import com.foodcourt.vendorowner.compile.CompileReportCSV;
+import com.foodcourt.vendorowner.compile.ICompileReport;
 
 /**
  * Servlet implementation class ReportWriter

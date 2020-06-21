@@ -1,8 +1,7 @@
-package com.foodcourt.vendorowner.model;
+package com.foodcourt.common.model;
 
 import java.util.List;
 import java.util.ArrayList;
-import com.foodcourt.common.model.Meal;
 
 public class Vendor {
 	private int id = 0;

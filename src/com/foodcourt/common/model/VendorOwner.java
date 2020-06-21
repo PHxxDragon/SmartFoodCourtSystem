@@ -1,7 +1,6 @@
-package com.foodcourt.vendorowner.model;
+package com.foodcourt.common.model;
 
 import com.foodcourt.common.UserType;
-import com.foodcourt.common.model.User;
 
 public class VendorOwner extends User {
 	private Vendor vendor;

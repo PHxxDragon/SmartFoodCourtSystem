@@ -1,6 +1,4 @@
-package com.foodcourt.vendorowner.model;
-
-import com.foodcourt.common.model.User;
+package com.foodcourt.common.model;
 
 public class Review {
 	private User user;

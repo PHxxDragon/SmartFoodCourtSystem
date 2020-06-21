@@ -1,4 +1,4 @@
-package com.foodcourt.vendorowner.model;
+package com.foodcourt.vendorowner.compile;
 
 public enum CSVTokenType {
 	PURE_TEXT_ON,

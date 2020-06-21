@@ -1,4 +1,4 @@
-package com.foodcourt.vendorowner.model;
+package com.foodcourt.vendorowner.compile;
 
 import java.lang.StringBuffer;
 
