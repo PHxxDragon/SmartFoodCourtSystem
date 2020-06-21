@@ -1,4 +1,4 @@
-package com.foodcourt.cook.controller;
+package com.foodcourt.customer.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,30 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.model.Order;
 
-@WebServlet("/cook/viewOrder")
-public class PendingOrderController extends HttpServlet {
+@WebServlet("/customer/viewOrder")
+public class PaidOrderController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private void confirmOrder(long orderID) {
-		OrderDao orderDao = new OrderDao();
-		orderDao.confirmPendingOrder(orderID);
-		
-	}
-	
+       
+    public PaidOrderController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderDao orderDao = new OrderDao();
-		List<Order> pendingOrders = orderDao.getPendingOrders();
-		request.setAttribute("PendingOrders", pendingOrders);
-		RequestDispatcher rd = request.getRequestDispatcher("/cook/view_orderJSP");
+		List<Order> paidOrders = orderDao.getOrdersByUserId(1);
+		request.setAttribute("PaidOrders", paidOrders);
+		RequestDispatcher rd = request.getRequestDispatcher("/customer/view_paidorderJSP");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String value = (String) request.getParameter("confirm");
-		if (value != null) {
-			long confirmOrderID = Long.parseLong(value);
-			confirmOrder(confirmOrderID);
-		}
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
