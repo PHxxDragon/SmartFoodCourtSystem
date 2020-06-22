@@ -17,4 +17,9 @@ public class UserDao {
 	public User getUserFromUsername(String username) {
 		return UserData.getInstance().getUserFromUsername(username);
 	}
+	public void removeUser(List<Integer> userIDs) {
+		for (Integer i: userIDs) {
+			UserData.getInstance().removeUserFromID(i);
+		}
+	}
 }
