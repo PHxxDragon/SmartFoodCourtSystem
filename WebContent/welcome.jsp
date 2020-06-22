@@ -13,7 +13,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Styles -->
 		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
 		<!-- Animate CSS -->
 		<link href="css/animate.min.css" rel="stylesheet">
 		<!-- Basic stylesheet -->
@@ -37,7 +37,7 @@
 						<!-- secondary menu left link area -->
 						<div class="sm-left">
 							<!-- logo area -->
-							<a class="sm-brand" href="#home">
+							<a class="nav-brand" href="#home">
 								<!-- logo image -->
 								<img class="img" src="img/logo/logo.png" alt="" />
 							</a>
@@ -46,10 +46,10 @@
 						<div class="sm-right">
 							<!-- social link -->
 							<div class="sm-social-link">
-								<a class="h-facebook" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-								<a class="h-twitter" href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
-								<a class="h-instagram" href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
-								<a class="h-google" href="https://www.google.com"><i class="fa fa-google"></i></a>
+								<a class="h-facebook" href="https://www.facebook.com"><i class="fa fa-facebook fa-lg"></i></a>
+								<a class="h-twitter" href="https://www.twitter.com"><i class="fa fa-twitter fa-lg"></i></a>
+								<a class="h-instagram" href="https://www.instagram.com"><i class="fa fa-instagram fa-lg"></i></a>
+								<a class="h-google" href="https://www.google.com"><i class="fa fa-google fa-lg"></i></a>
 							</div>
 						</div>
 					</div>
@@ -107,7 +107,7 @@
 								<!-- banner caption -->
 								<div class="carousel-caption slide-two">
 									<!-- heading -->
-									<h2 class="animated fadeInLeftBig"><i class="fa fa-cutlery"></i>Khuyến mãi lớn...</h2>
+									<h2 class="animated fadeInLeftBig"><i class="fa fa-cutlery"></i> Khuyến mãi lớn...</h2>
 									<!-- paragraph -->
 									<h3 class="animated fadeInRightBig">Đừng bỏ lỡ cơ hội này!</h3>
 									<!-- button -->
@@ -130,9 +130,11 @@
 		</div>
 		<!-- Javascript files -->
 		<!-- jQuery -->
-		<script src="js/jquery.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+			  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+			  crossorigin="anonymous"></script>
 		<!-- Bootstrap JS -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<!-- Include js plugin -->
 		<script src="js/owl.carousel.min.js"></script>
 	</body>
