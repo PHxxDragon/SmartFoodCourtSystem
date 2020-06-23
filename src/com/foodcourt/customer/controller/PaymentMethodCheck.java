@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.User;
@@ -44,10 +45,13 @@ public class PaymentMethodCheck extends HttpServlet {
 		String cardNumber = request.getParameter("cardNumber");
 		String password = request.getParameter("password");
 		
-		UserDao userDao = new UserDao();
-		User user = userDao.getUserFromUsername(username);
+		//UserDao userDao = new UserDao();
+		//User user = userDao.getUserFromUsername(username);
 		
-		//boolean isValid= validify(bankName,cardNumber,password,user);
+		//boolean isValid= validify(bankName,cardNumber,password,user); 
+		//Get parameter not work?
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String title = "Finish ordering";
@@ -58,10 +62,8 @@ public class PaymentMethodCheck extends HttpServlet {
 	                "<body bgcolor=\"#f0f0f0\">\n" +
 	                "<h1 align=\"center\">" + title + "</h1>\n" +
 	                "</body></html>");
-		out.println("<a id=\"sign-up\" href=\"/SmartFoodCourtSystem/customer/viewOrder\">\n" + 
-				    "<span>Quay lại trang  </span>\n" + 
-				    "</a>");
-		
+		out.println("<a type='submit' href='./viewItemController' value='return'>Return</a>");
+		request.setAttribute("user", user);
 	
 		
 	}

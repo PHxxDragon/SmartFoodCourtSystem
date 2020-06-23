@@ -20,6 +20,7 @@
 		Bank's account number/Card number: <input type="text" name="cardNumber"><br/>
 		Password: <input type="password" id="password" name="cardPassword" required>
 		<input type="submit" value="confirm" />		
+		<a type='submit' href='./viewItemController' value='return'>Return</a>
 		
 </form>
 </body>
