@@ -7,12 +7,13 @@
 		<title>Đăng nhập vào SCFS</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Styles -->
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
 		<!-- Animate CSS -->
-		<link href="${pageContext.request.contextPath}/css/animate.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
 		<!-- Basic stylesheet -->
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
 		<!-- Font awesome CSS -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">		
 		<!-- Custom CSS -->
@@ -55,7 +56,7 @@
 					</a>
 					<span>·</span>
 					<a id="sign-up" href="./signup">
-						<span>Đăng ký tài khoản SCFS</span>
+						<span>Đăng ký tài khoản SFCS</span>
 					</a>
 				</div>
 			</div>
@@ -63,12 +64,14 @@
 		</div>
 		<!-- Javascript files -->
 		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-			  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-			  crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Include js plugin -->
-		<script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+		<!-- WayPoints JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+		<!-- Custom JS -->
+		<script src="${pageContext.request.contextPath}/js/custom.js"></script>
 	</body>
 </html>

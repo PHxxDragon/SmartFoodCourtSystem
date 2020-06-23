@@ -86,8 +86,6 @@
   </servlet-mapping>
   
   
-  
-  
   <servlet>
   	<servlet-name>vdowner-main</servlet-name>
   	<jsp-file>/pages/vendorowner/main.jsp</jsp-file>
@@ -129,7 +127,7 @@
   	  </servlet-mapping>
   	  
   	  
-<servlet-mapping>
+	<servlet-mapping>
   	<servlet-name>home</servlet-name>
   	<url-pattern></url-pattern>
   </servlet-mapping>
@@ -137,14 +135,6 @@
   	<servlet-name>home</servlet-name>
   	<jsp-file>/welcome.jsp</jsp-file>
   </servlet>
-  
- 
-  
-  
-  
-
-  
-  
   
   
   <servlet>
@@ -191,7 +181,7 @@
   
   
   
-<servlet>
+	<servlet>
   	<servlet-name>rechargeView</servlet-name>
   	<jsp-file>/pages/customer/recharge.jsp</jsp-file>
   </servlet>
@@ -207,7 +197,7 @@
   </servlet>
     <servlet-mapping>
   	<servlet-name>view-profile</servlet-name>
-  	<url-pattern>/view_profileJSP</url-pattern>
+  	<url-pattern>/profile</url-pattern>
   </servlet-mapping>
   
   
@@ -260,15 +250,13 @@
   </filter-mapping>
   
   
-  
-      <filter-mapping>
-  	<filter-name>profile-filter</filter-name>
-  	<url-pattern>/view_profileJSP</url-pattern>
-  </filter-mapping>
-   <filter>
+  <filter>
   	<filter-name>profile-filter</filter-name>
   	<filter-class>com.foodcourt.filter.ProfileFilter</filter-class>
   </filter>
-  
+  <filter-mapping>
+  	<filter-name>profile-filter</filter-name>
+  	<url-pattern>/profile</url-pattern>
+  </filter-mapping>
   
 </web-app>
