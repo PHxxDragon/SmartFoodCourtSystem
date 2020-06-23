@@ -9,9 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.foodcourt.common.UserType;
 import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.model.Order;
 

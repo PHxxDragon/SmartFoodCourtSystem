@@ -2,10 +2,12 @@ package com.foodcourt.common.model;
 
 public class Meal {
 	
+
 	private String name;
 	private int id;
 	private int price;
 	private long eta;
+
 	
 	public Meal() {
 		

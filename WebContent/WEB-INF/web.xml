@@ -2,9 +2,9 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>SmartFoodCourtSystem</display-name>
   <welcome-file-list>
-    <welcome-file>welcome.html</welcome-file>
+    <welcome-file>/welcome.jsp</welcome-file>
   </welcome-file-list>
-  
+
   <servlet>
   	<servlet-name>login</servlet-name>
   	<jsp-file>/pages/login.jsp</jsp-file>
@@ -56,6 +56,27 @@
   
   
   <servlet>
+  	<servlet-name>fcmanager-manage_accounts</servlet-name>
+  	<jsp-file>/pages/foodcourtmanager/manage_accounts.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>fcmanager-manage_accounts</servlet-name>
+  	<url-pattern>/fcmanager/manage_accountsJSP</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>fcmanager-manage_vendors</servlet-name>
+  	<jsp-file>/pages/foodcourtmanager/manage_vendors.jsp</jsp-file>
+  </servlet>
+    <servlet-mapping>
+  	<servlet-name>fcmanager-manage_vendors</servlet-name>
+  	<url-pattern>/fcmanager/manage_vendorsJSP</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
   	<servlet-name>it-main</servlet-name>
   	<jsp-file>/pages/it/main.jsp</jsp-file>
   </servlet>
@@ -63,6 +84,9 @@
   	<servlet-name>it-main</servlet-name>
   	<url-pattern>/it/main</url-pattern>
   </servlet-mapping>
+  
+  
+  
   
   <servlet>
   	<servlet-name>vdowner-main</servlet-name>
@@ -92,6 +116,46 @@
   </servlet-mapping>
   
   
+  
+  <servlet>
+  	<servlet-name>signupsuccess</servlet-name>
+  	<jsp-file>/pages/signupsuccess.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>signupsuccess</servlet-name>
+  	<url-pattern>/signupsuccess</url-pattern>
+  	  </servlet-mapping>
+  	  
+  	  
+<servlet-mapping>
+  	<servlet-name>home</servlet-name>
+  	<url-pattern></url-pattern>
+  </servlet-mapping>
+    <servlet>
+  	<servlet-name>home</servlet-name>
+  	<jsp-file>/welcome.jsp</jsp-file>
+  </servlet>
+  
+ 
+  
+  
+  
+
+  
+  
+  
+  
+  <servlet>
+  	<servlet-name>vdowner-make-report</servlet-name>
+  	<jsp-file>/pages/vendorowner/make_report.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>vdowner-make-report</servlet-name>
+  	<url-pattern>/vdowner/MakeReportJSP</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   <servlet>
   	<servlet-name>digitalSlip</servlet-name>
   	<jsp-file>/pages/customer/digital_slip.jsp</jsp-file>
@@ -111,6 +175,8 @@
   	<url-pattern>/customer/confirmOrder</url-pattern>
   </servlet-mapping>
   
+  
+  
 <servlet>
   	<servlet-name>rechargeView</servlet-name>
   	<jsp-file>/pages/customer/recharge.jsp</jsp-file>
@@ -119,7 +185,17 @@
   	<servlet-name>rechargeView</servlet-name>
   	<url-pattern>/customer/recharge</url-pattern>
   </servlet-mapping>
-
+  
+ 
+  <servlet>
+  	<servlet-name>view-profile</servlet-name>
+  	<jsp-file>/pages/view_profile.jsp</jsp-file>
+  </servlet>
+    <servlet-mapping>
+  	<servlet-name>view-profile</servlet-name>
+  	<url-pattern>/view_profileJSP</url-pattern>
+  </servlet-mapping>
+  
   
   <filter>
   	<filter-name>cook-filter</filter-name>
@@ -160,7 +236,7 @@
   	<url-pattern>/it/*</url-pattern>
   </filter-mapping>
   
-    <filter>
+  <filter>
   	<filter-name>vdowner-filter</filter-name>
   	<filter-class>com.foodcourt.filter.VDOwnerFilter</filter-class>
   </filter>
@@ -168,6 +244,17 @@
   	<filter-name>vdowner-filter</filter-name>
   	<url-pattern>/vendorowner/*</url-pattern>
   </filter-mapping>
+  
+  
+  
+      <filter-mapping>
+  	<filter-name>profile-filter</filter-name>
+  	<url-pattern>/view_profileJSP</url-pattern>
+  </filter-mapping>
+   <filter>
+  	<filter-name>profile-filter</filter-name>
+  	<filter-class>com.foodcourt.filter.ProfileFilter</filter-class>
+  </filter>
   
   
 </web-app>
