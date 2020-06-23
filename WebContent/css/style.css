@@ -82,10 +82,11 @@ hr{
  */
  
 /* header */
+
 /* navigation */
 
 .navbar {
-	margin-top: 40px;
+	margin-top: 50px;
 	border: 0;
 	border-radius:0;
 	box-shadow: none;
@@ -95,6 +96,7 @@ hr{
 	-ms-transition: all 0.25s ease;
 	-o-transition: all 0.25s ease;
 	transition: all 0.25s ease;
+	z-index: 99999;
 }
 
 .navbar.comeup {margin-top: 0;background: rgba(0,0,0,0.9);}
@@ -267,7 +269,7 @@ hr{
 }
 
 /*
-	form-window
+	Form
 */
 
 .form-window {
@@ -299,6 +301,7 @@ hr{
 	line-height: 32px;
 	text-align: center;
 	font-weight: 900;
+	margin-bottom: 30px;
 }
 
 .form-content form {
@@ -335,6 +338,89 @@ hr{
 	align-items: center;
 	justify-content: center;
 	color: #d12323;
+}
+
+/*
+	Profile
+*/
+
+.profile {
+	min-height: 100vh;
+	padding-top: 120px;
+	display: flex;
+	flex-direction: row;
+	align-items: stretched;
+	justify-content: center;
+	background-color: rgb(21, 32, 43);
+	color: #ffffff;
+}
+
+.profile .profile-info{
+	max-width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+	padding-left: 60px;
+	border-right: 2px solid #696969;
+}
+
+.profile-info .profile-name {
+	padding: 0px;
+	margin: 0px;
+}
+
+.profile-info .profile-img {
+	text-align: center;
+	padding: 20px;
+}
+
+.profile-info .profile-img img {
+	object-fit: cover;
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+}
+
+.profile-info .profile-username{
+	max-width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+}
+
+.profile .profile-activity{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px;
+	padding-top: 0px;
+}
+
+.profile-activity .activity-border {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;	
+}
+
+.profile-activity .activity-title {
+	width: 100%;
+	tex-align: left;
+	padding-bottom: 20px;
+}
+
+.activity-border .activity-feed {
+	width: 100%;
+	padding: 10px;
+	border: 0.25rem solid #d3d3d3;
+	border-radius: 20px;
+	margin: 3px;
 }
 
 #error, 

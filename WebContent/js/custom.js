@@ -5,6 +5,12 @@
 $('.nav-animate').waypoint(function(direction) {
 	$('.secondary-menu').toggleClass('hide', direction === "down");
 	$('.navbar').toggleClass('comeup', direction === "down");
+	if ($('.navbar').hasClass('comeup')){
+		$('.hidden-icon').removeClass('hide');
+	}
+	else {
+		$('.hidden-icon').addClass('hide');
+	}
 }, {
 	offset: '10%'
 });
