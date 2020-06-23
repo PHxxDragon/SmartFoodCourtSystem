@@ -55,7 +55,7 @@ public class Authorizer extends HttpServlet {
 		
 		switch(userType) {
 		case CUSTOMER:
-			response.sendRedirect("customer/main");
+			response.sendRedirect("customer/viewItemController");
 			break;
 		case COOK:
 			response.sendRedirect("cook/main");

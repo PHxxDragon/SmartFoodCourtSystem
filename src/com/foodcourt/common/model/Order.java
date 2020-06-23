@@ -46,16 +46,11 @@ public class Order {
 	private long userID;
 	private long saleVendorID;
 	private List<OrderEntry> orderEntries;
+	private long eta;
+	private long price;
 	
 	public Order() {
 		
-	}
-	
-	public Order(int orderID, long userID, long saleVendorID, List<OrderEntry> orderEntries) {
-		this.orderID = orderID;
-		this.userID = userID;
-		this.saleVendorID = saleVendorID;
-		this.orderEntries = orderEntries;
 	}
 	
 	public Order(Order order) {
@@ -66,6 +61,8 @@ public class Order {
 		for (OrderEntry o: order.orderEntries) {
 			orderEntries.add(new OrderEntry(o));
 		}
+		eta = order.eta;
+		price = order.price;
 	}
 	
 	public long getUserID() {
@@ -92,6 +89,27 @@ public class Order {
 	public void setOrderID(int orderID) {
 		this.orderID = orderID;
 	}
+
+	public long getEta() {
+		return eta;
+	}
+
+	public void setEta(long eta) {
+		this.eta = eta;
+	}
+
+	public long getPrice() {
+		return price;
+	}
+
+	public void setPrice(long price) {
+		this.price = price;
+	}
+
+	public void setOrderID(long orderID) {
+		this.orderID = orderID;
+	}
+	
 	
 	
 	
