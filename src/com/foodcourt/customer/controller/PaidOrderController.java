@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.model.Order;
+import com.foodcourt.common.model.User;
 
 @WebServlet("/customer/viewOrder")
 public class PaidOrderController extends HttpServlet {
@@ -24,7 +26,9 @@ public class PaidOrderController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderDao orderDao = new OrderDao();
-		List<Order> paidOrders = orderDao.getOrdersByUserId(1);
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		List<Order> paidOrders = orderDao.getOrdersByUserId(user.getUserID());
 		request.setAttribute("PaidOrders", paidOrders);
 		RequestDispatcher rd = request.getRequestDispatcher("/customer/view_paidorderJSP");
 		rd.forward(request, response);

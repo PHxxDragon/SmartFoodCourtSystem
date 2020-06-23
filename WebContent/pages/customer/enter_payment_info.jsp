@@ -18,7 +18,7 @@
 		Name: <input type="text" name="name"><br/>
 		Bank's name: <input type="text" name="bankName"><br/>
 		Bank's account number/Card number: <input type="text" name="cardNumber"><br/>
-		Password: <input type="password" id="password" name="cardPassword" required>
+		Password: <input type="password" id="password" name="password" required>
 		<input type="submit" value="confirm" />		
 		<a type='submit' href='./viewItemController' value='return'>Return</a>
 		

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.MealDao;
+import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.Order.OrderEntry;
@@ -63,10 +64,10 @@ public class ConfirmOrderController extends HttpServlet {
 		order.setEta(ETA);
 		order.setPrice(totalPrice);
 		order.setSaleVendorID(1);
-		//order.setUserID(user.getUserID());
+		order.setUserID(user.getUserID());
 		order.setOrderID(10);
 		order.setOrderEntries(orderEntries);
-		request.setAttribute("order", order);
+		session.setAttribute("currentOrder", order);
 		RequestDispatcher rd = request.getRequestDispatcher("confirmOrder");
 		rd.forward(request, response);
 		
