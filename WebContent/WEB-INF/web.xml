@@ -171,7 +171,7 @@
   </servlet-mapping>
     <servlet-mapping>
   	<servlet-name>view-profile</servlet-name>
-  	<url-pattern>/view_profileJSP</url-pattern>
+  	<url-pattern>/profile</url-pattern>
   </servlet-mapping>
   
   
@@ -196,11 +196,7 @@
   	<filter-name>vdowner-filter</filter-name>
   	<url-pattern>/vendorowner/*</url-pattern>
   </filter-mapping>
-      <filter-mapping>
-  	<filter-name>profile-filter</filter-name>
-  	<url-pattern>/view_profileJSP</url-pattern>
-  </filter-mapping>
-        <filter-mapping>
+  <filter-mapping>
   	<filter-name>profile-filter</filter-name>
   	<url-pattern>/profile</url-pattern>
   </filter-mapping>
