@@ -14,7 +14,7 @@
 <body>
 
 	<h1>This is the main page for the customer</h1>
-	<form action="<%=request.getContextPath()%>/viewProfile" method="post">
+	<form action="<%=request.getContextPath()%>/profile" method="post">
 		<button type="submit" value="viewProfile" name="viewProfile">View Profile</button>
 	</form>
 	<form action="viewOrder" method="post">
