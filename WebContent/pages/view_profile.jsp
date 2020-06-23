@@ -12,5 +12,6 @@
 	Name: ${user.name}<br>
 	UserId: ${user.userID} <br>
 	Email: ${user.email} <br>
+	Balance: ${user.balance }<br>
 </body>
 </html>

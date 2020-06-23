@@ -21,7 +21,7 @@
 				<td><c:out value="Price : ${order.price}" /> </td>
 				
 				<td>
-				<form action="purcharse" method="get">
+				<form action="purchaseInfoController" method="get">
 					<button type="submit" name="purcharse" value="${order.orderID}">Make Payment</button>
 				</form> 
 				</td>
