@@ -27,11 +27,12 @@
 	<form name="ItemQuantity" id="form1" action="confirmOrderController">
 		<table border ="1" width="500" align="center"> 
 	         <tr bgcolor="00FF7F"> 
-	          <th><b>Food Name</b></th> 
+	          <th><b>Name</b></th> 
 	          <th><b>ID</b></th> 
 	          <th><b>Price</b></th>
 	          <th><b>ETA</b></th>
-	          <th><b>Enter Quantity</b></th>
+	          <th><b>Illustration</b></th>
+	          <th><b>Quantity</b></th>
 	         </tr>  
 	
 			<c:forEach items="${mealList}" var="meal" varStatus="loop">
@@ -40,13 +41,13 @@
 	                <td>${meal.id}</td> 
 	                <td>${meal.price}</td> 
 	                <td>${meal.eta}</td>
-	                <td><input type="number" name="quantity${meal.id}" id="quantity${meal.id}" value="0" min ="0" max="200"></td>
-	               
-	                
+	                <td><img src="<c:url value='/img/food_img/${meal.name}.jpg'/>"  width="100px" height =100px/></td>
+	                <td><input type="number" name="quantity${meal.id}" id="quantity${meal.id}" value="0" min ="0" max="200"></td>    
 	            </tr> 
 	          </c:forEach>
 	          <tr>
 	          	<td></td>
+	   			<td></td>
 	   			<td></td>
 	   			<td></td>
 	   			<td></td>
