@@ -101,6 +101,8 @@ public class OrderData {
 		orderEntries.add(new OrderEntry(new Meal(2, 300, "Banh bao", 10), 3));
 		orderEntries.add(new OrderEntry(new Meal(3, 500, "Xuc xich", 7), 1));
 		order1.setOrderEntries(orderEntries);
+		order1.setEta(5);
+		order1.setPrice(5);
 		addPendingOrder(order1);
 		addOrder(order1);
 		
@@ -113,6 +115,8 @@ public class OrderData {
 		orderEntries.add(new OrderEntry(new Meal(5, 800, "Banh u", 10), 5));
 		orderEntries.add(new OrderEntry(new Meal(6, 900, "Banh tao", 15), 6));
 		order1.setOrderEntries(orderEntries);
+		order1.setEta(5);
+		order1.setPrice(5);
 		addPendingOrder(order1);
 		addOrder(order1);
 		
@@ -125,6 +129,8 @@ public class OrderData {
 		orderEntries.add(new OrderEntry(new Meal(8, 400, "Banh dau", 10), 2));
 		orderEntries.add(new OrderEntry(new Meal(9, 200, "Banh cam", 2), 4));
 		order1.setOrderEntries(orderEntries);
+		order1.setEta(5);
+		order1.setPrice(5);
 		addPendingOrder(order1);
 		addOrder(order1);
 	}

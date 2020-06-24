@@ -15,8 +15,6 @@
 			<td><c:out value="Order ID : ${order.orderID}"/></td>
 			<td><c:out value="User ID : ${order.userID}" /> </td>
 			<td><c:out value="Vendor ID : ${order.saleVendorID}" /> </td>
-			<td><c:out value="Eta : ${order.eta}" /> </td>
-			<td><c:out value="Price : ${order.price}" /> </td>
 
 			<td>
 			<form action="printSlip" method="get">
@@ -26,7 +24,7 @@
 		</tr>
 		
 		<tr>
-			<td colspan=6> 
+			<td colspan=4> 
 			<table>
 				<c:forEach items = "${order.orderEntries}" var="entry">
 				<tr>

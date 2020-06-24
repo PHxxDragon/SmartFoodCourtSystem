@@ -104,12 +104,6 @@ public class Order {
 	public void setPrice(long price) {
 		this.price = price;
 	}
-
-	public void setOrderID(long orderID) {
-		this.orderID = orderID;
-	}
-	
-	
 	
 	
 }
