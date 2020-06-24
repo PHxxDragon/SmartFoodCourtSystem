@@ -98,9 +98,16 @@
 				<span class="profile-username text-muted">
 					<p>@${user.username}</p>
 				</span>
+				<span class="profile-email">
+					<p class="text-muted">Email : ${user.email}</p>
+				</span>
+				<span class="profile-balance">
+					<p class="text-muted">Account balance : ${user.balance}</p>
+				</span>
 				<span class="profile-desc">
 					<p>Hey, this is just a short description about myself. Don't read much into it. :)<p>
 				</span>
+				
 			</div>
 			<!-- block for animate navigation menu -->
 			<div class="nav-animate"></div>

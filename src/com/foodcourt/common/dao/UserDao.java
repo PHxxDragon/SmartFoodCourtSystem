@@ -22,4 +22,7 @@ public class UserDao {
 			UserData.getInstance().removeUserFromID(i);
 		}
 	}
+	public void updateBalance(long balance, String username) {
+		UserData.getInstance().updateBalance(balance, username);
+	}
 }

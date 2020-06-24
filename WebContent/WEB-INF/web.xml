@@ -104,7 +104,7 @@
   	<url-pattern>/cook/view_orderJSP</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+ <servlet>
   <servlet-name>viewPaidOrder</servlet-name>
   <jsp-file>/pages/customer/view_paidorder.jsp</jsp-file>
   </servlet>
@@ -113,6 +113,8 @@
   	<url-pattern>/customer/view_paidorderJSP</url-pattern>
   </servlet-mapping>
   
+  
+ 
   
   
   <servlet>
@@ -165,6 +167,18 @@
   	<url-pattern>/customer/confirmOrder</url-pattern>
   </servlet-mapping>
   
+
+
+
+ <servlet>
+  <servlet-name>enterPaymentInfo</servlet-name>
+  <jsp-file>/pages/customer/enter_payment_info.jsp</jsp-file>
+ </servlet>
+ <servlet-mapping>
+  	<servlet-name>enterPaymentInfo</servlet-name>
+  	<url-pattern>/customer/purchase</url-pattern>
+ </servlet-mapping>
+  
   
   
 	<servlet>
@@ -174,7 +188,7 @@
   <servlet-mapping>
   	<servlet-name>rechargeView</servlet-name>
   	<url-pattern>/customer/recharge</url-pattern>
-  </servlet-mapping>
+ </servlet-mapping>
   
  
   <servlet>

@@ -14,15 +14,15 @@
 <h1>This is confirm order page</h1>
 	<table>
 			<tr>
-				<td><c:out value="Order ID : ${order.orderID}"/></td>
-				<td><c:out value="User ID : ${order.userID}" /> </td>
-				<td><c:out value="Vendor ID : ${order.saleVendorID}" /> </td>
-				<td><c:out value="Eta : ${order.eta}" /> </td>
-				<td><c:out value="Price : ${order.price}" /> </td>
+				<td><c:out value="Order ID : ${currentOrder.orderID}"/></td>
+				<td><c:out value="User ID : ${currentOrder.userID}" /> </td>
+				<td><c:out value="Vendor ID : ${currentOrder.saleVendorID}" /> </td>
+				<td><c:out value="Eta : ${currentOrder.eta}" /> </td>
+				<td><c:out value="Price : ${currentOrder.price}" /> </td>
 				
 				<td>
-				<form action="purcharse" method="get">
-					<button type="submit" name="purcharse" value="${order.orderID}">Make Payment</button>
+				<form action="purchaseInfoController" method="get">
+					<button type="submit" name="purcharse" value="${currentOrder.orderID}">Make Payment</button>
 				</form> 
 				</td>
 			</tr>
@@ -30,7 +30,7 @@
 		<tr>
 			<td colspan=4> 
 			<table>
-				<c:forEach items = "${order.orderEntries}" var="entry">
+				<c:forEach items = "${currentOrder.orderEntries}" var="entry">
 				<tr>
 					<td><c:out value="Name: ${entry.meal.name}" /> </td>
 					<td><c:out value="Meal ID: ${entry.meal.id}" /> </td>
