@@ -103,7 +103,7 @@
 									<!-- paragraph -->
 									<h3 class="animated fadeInRightBig">Đừng bỏ lỡ cơ hội này!</h3>
 									<!-- button -->
-									<a href="#" class="animated fadeIn btn btn-theme">Đặt món ngay</a>
+									<a href="./login" class="animated fadeIn btn btn-theme">Đặt món ngay</a>
 								</div>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 									<!-- paragraph -->
 									<h3 class="animated fadeInRightBig">Đừng bỏ lỡ cơ hội này!</h3>
 									<!-- button -->
-									<a href="#" class="animated fadeIn btn btn-theme">Đặt món ngay</a>
+									<a href="./login" class="animated fadeIn btn btn-theme">Đặt món ngay</a>
 								</div>
 							</div>
 						</div>

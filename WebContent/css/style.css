@@ -411,7 +411,7 @@ hr{
 
 .profile-activity .activity-title {
 	width: 100%;
-	tex-align: left;
+	text-align: left;
 	padding-bottom: 20px;
 }
 
@@ -423,6 +423,53 @@ hr{
 	background-color: #ffffff;
 	color: #000000;
 }
+
+/*
+	Feature item
+*/
+
+.feature {
+	padding-top: 120px;
+	min-height: 100vh;
+	
+}
+.feature-title {
+	width: 100%;
+	text-align: center;
+}
+.feature-table {
+	min-width: 100%;
+}
+.feature-content {
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
+	color: #000000;
+	width: 100%
+}
+
+.feature-content-table table {
+	width: 80%;
+	color: #000000;
+	border: 0.25rem solid #d3d3d3;
+}
+.feature-content-table table, th, td {
+	width: 15%;
+	color: #000000;
+	border: 0.25rem solid #d3d3d3;
+}
+.illustration {
+	max-width: 100px;
+}
+.feature-item {
+	width: 200px;
+	height: 200px;
+}
+
 
 #error, 
 #success {

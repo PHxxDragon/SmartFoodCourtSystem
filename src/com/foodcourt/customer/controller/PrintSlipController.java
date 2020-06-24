@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.model.Order;
+import com.foodcourt.common.model.User;
 
 /**
  * Servlet implementation class PrintSlipController
@@ -23,9 +25,11 @@ public class PrintSlipController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String para = request.getParameter("printSlip");
 		if (para != null) {
+			HttpSession session = request.getSession();
+			User user = (User) session.getAttribute("user");
 			long orderID = Long.parseLong(para);
 			OrderDao orderDao = new OrderDao();
-			Order order = orderDao.getOrderByUserIDAndID(1, orderID);
+			Order order = orderDao.getOrderByUserIDAndID(user.getUserID(), orderID);
 			request.setAttribute("order", order);
 			RequestDispatcher rd = request.getRequestDispatcher("/customer/digitalSlip");
 			rd.forward(request, response);
