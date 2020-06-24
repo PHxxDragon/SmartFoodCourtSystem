@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.User;
 
 /**
@@ -34,10 +35,12 @@ public class Recharge extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		int money = Integer.parseInt(request.getParameter("money"));
-		user.setBalance(user.getBalance() + money);
+		UserDao userDao = new UserDao();
+		userDao.updateBalance(user.getBalance() + money, user.getUsername());
+		session.setAttribute("user", userDao.getUserFromUsername(user.getUsername()));
 		//UserDao userDao = new UserDao();
 		//TODO add money to database
-		response.sendRedirect(request.getContextPath()+ "/viewProfile");
+		response.sendRedirect(request.getContextPath()+ "/profile");
 	}
 
 	/**
