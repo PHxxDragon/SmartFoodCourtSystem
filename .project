@@ -34,46 +34,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/img/food_img</name>
-			<type>2</type>
-			<location>/Users/thanhsom/Downloads/SmartFoodCourtSystem/WebContent/img/food_img</location>
-		</link>
-		<link>
-			<name>WebContent/img/food_img/BANH BAO.jpg</name>
-			<type>1</type>
-			<location>/Users/thanhsom/Documents/Courses/Software engineering/project/SmartFoodCourtSystem/WebContent/img/food_img/BANH BAO.jpg</location>
-		</link>
-		<link>
-			<name>WebContent/img/food_img/BANH CAM.jpg</name>
-			<type>1</type>
-			<location>/Users/thanhsom/Documents/Courses/Software engineering/project/SmartFoodCourtSystem/WebContent/img/food_img/BANH CAM.jpg</location>
-		</link>
-		<link>
-			<name>WebContent/img/food_img/BANH DAU.jpg</name>
-			<type>1</type>
-			<location>/Users/thanhsom/Documents/Courses/Software engineering/project/SmartFoodCourtSystem/WebContent/img/food_img/BANH DAU.jpg</location>
-		</link>
-		<link>
-			<name>WebContent/img/food_img/BANH MI.jpg</name>
-			<type>1</type>
-			<location>/Users/thanhsom/Documents/Courses/Software engineering/project/SmartFoodCourtSystem/WebContent/img/food_img/BANH MI.jpg</location>
-		</link>
-		<link>
-			<name>WebContent/img/food_img/BANH TAO.jpg</name>
-			<type>1</type>
-			<location>/Users/thanhsom/Documents/Courses/Software engineering/project/SmartFoodCourtSystem/WebContent/img/food_img/BANH TAO.jpg</location>
-		</link>
-		<link>
-			<name>WebContent/img/food_img/BANH U.jpg</name>
-			<type>1</type>
-			<location>/Users/thanhsom/Documents/Courses/Software engineering/project/SmartFoodCourtSystem/WebContent/img/food_img/BANH U.jpg</location>
-		</link>
-		<link>
-			<name>WebContent/img/food_img/XUC XICH.jpg</name>
-			<type>1</type>
-			<location>/Users/thanhsom/Documents/Courses/Software engineering/project/SmartFoodCourtSystem/WebContent/img/food_img/XUC XICH.jpg</location>
-		</link>
-	</linkedResources>
 </projectDescription>
