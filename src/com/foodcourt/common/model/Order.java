@@ -50,7 +50,6 @@ public class Order {
 	private long price;
 	
 	public Order() {
-		
 	}
 	
 	public Order(Order order) {

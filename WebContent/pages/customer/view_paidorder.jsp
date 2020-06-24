@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<table>
 		<c:forEach items = "${PaidOrders}" var="order">
 		<tr>
@@ -25,7 +26,7 @@
 		</tr>
 		
 		<tr>
-			<td colspan=4> 
+			<td colspan=6> 
 			<table>
 				<c:forEach items = "${order.orderEntries}" var="entry">
 				<tr>
@@ -39,5 +40,13 @@
 		</tr>
 		</c:forEach>
 	</table>
+
+	<!-- 
+	<c:out value="Order ID : ${order.orderID}"/>
+	<c:out value="User ID : ${order.userID}" />
+	<c:out value="Vendor ID : ${order.saleVendorID}"/>
+	<c:out value="Eta : ${order.eta}" />
+	<c:out value="Price : ${order.price}" />
+	-->
 </body>
 </html>

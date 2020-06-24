@@ -418,9 +418,10 @@ hr{
 .activity-border .activity-feed {
 	width: 100%;
 	padding: 10px;
-	border: 0.25rem solid #d3d3d3;
 	border-radius: 20px;
 	margin: 3px;
+	background-color: #ffffff;
+	color: #000000;
 }
 
 #error, 

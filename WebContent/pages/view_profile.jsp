@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Styles -->
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
 		<!-- Animate CSS -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
 		<!-- Basic stylesheet -->
@@ -95,8 +95,8 @@
 				<span class="profile-name">
 					<h1>${user.name}</h1>
 				</span>
-				<span class="profile-username">
-					<p class="text-muted">@${user.username}</p>
+				<span class="profile-username text-muted">
+					<p>@${user.username}</p>
 				</span>
 				<span class="profile-desc">
 					<p>Hey, this is just a short description about myself. Don't read much into it. :)<p>
