@@ -94,7 +94,7 @@ public class OrderData {
 	private void init() {
 		Order order1 = new Order();
 		order1.setOrderID(1);
-		order1.setUserID(1);
+		order1.setUserID(5);
 		order1.setSaleVendorID(1);
 		List<OrderEntry> orderEntries = new ArrayList<OrderEntry>();
 		orderEntries.add(new OrderEntry(new Meal(1, 100, "Banh mi", 5), 2));
@@ -108,7 +108,7 @@ public class OrderData {
 		
 		order1 = new Order();
 		order1.setOrderID(2);
-		order1.setUserID(1);
+		order1.setUserID(5);
 		order1.setSaleVendorID(1);
 		orderEntries = new ArrayList<OrderEntry>();
 		orderEntries.add(new OrderEntry(new Meal(4, 100, "Banh mi", 5), 4));
@@ -122,7 +122,7 @@ public class OrderData {
 		
 		order1 = new Order();
 		order1.setOrderID(3);
-		order1.setUserID(2);
+		order1.setUserID(5);
 		order1.setSaleVendorID(1);
 		orderEntries = new ArrayList<OrderEntry>();
 		orderEntries.add(new OrderEntry(new Meal(7, 100, "Banh mi", 5), 1));
