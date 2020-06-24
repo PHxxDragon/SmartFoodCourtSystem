@@ -74,6 +74,15 @@
   	<url-pattern>/fcmanager/manage_vendorsJSP</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>changePassword</servlet-name>
+  	<jsp-file>/pages/changepassword.jsp</jsp-file>
+  </servlet>
+    <servlet-mapping>
+  	<servlet-name>changePassword</servlet-name>
+  	<url-pattern>/changepasswordJSP</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>
@@ -199,6 +208,15 @@
   	<servlet-name>view-profile</servlet-name>
   	<url-pattern>/profile</url-pattern>
   </servlet-mapping>
+  
+   <servlet>  
+    <servlet-name>logout</servlet-name>  
+    <servlet-class>com.foodcourt.profile.Logout</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>logout</servlet-name>  
+    <url-pattern>/Logout</url-pattern>  
+  </servlet-mapping>  
   
   
   <filter>

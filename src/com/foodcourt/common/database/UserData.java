@@ -41,6 +41,15 @@ public class UserData {
 		}
 		return null;
 	}
+	public void changePasswordFromUsername(String username,String newpassword) {
+		for (User u: users) {
+			if (u.getUsername().equals(username)) {
+				u.setpassword(newpassword);
+				return;
+			}
+		}
+		return;
+	}
 	
 	public User getUserFromUserID(long userID) {
 		for (User u: users) {
