@@ -48,11 +48,15 @@ public class VendorData {
 	}
 	
 	private void init() {
-		Vendor vendor = new Vendor("A", 1, 1);
+		Vendor vendor = new Vendor();
+		vendor.setName("A");
+		vendor.setId(1);
+		vendor.setOwnerID(1);
 		vendors.add(vendor);
-		vendor = new Vendor("B", 2, 2);
-		vendors.add(vendor);
-		vendor = new Vendor("C", 3, 3);
+		vendor = new Vendor();
+		vendor.setName("B");
+		vendor.setId(2);
+		vendor.setOwnerID(2);
 		vendors.add(vendor);
 	}
 	

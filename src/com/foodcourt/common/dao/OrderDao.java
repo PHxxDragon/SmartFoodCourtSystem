@@ -6,27 +6,27 @@ import com.foodcourt.common.database.OrderData;
 import com.foodcourt.common.model.Order;
 
 public class OrderDao {
-	public List<Order> getPendingOrders() {
+	public static List<Order> getPendingOrders() {
 		return OrderData.getInstance().getPendingOrders();
 	}
 	
-	public List<Order> getOrdersByUserId(long userID) {
+	public static List<Order> getOrdersByUserId(long userID) {
 		return OrderData.getInstance().getOrdersByUserID(userID);
 	}
 	
-	public void addOrder (Order order) {
+	public static void addOrder (Order order) {
 		OrderData.getInstance().addOrder(order);
 	}
 	
-	public void addPendingOrder(Order order) {
+	public static void addPendingOrder(Order order) {
 		OrderData.getInstance().addPendingOrder(order);
 	}
 	
-	public void confirmPendingOrder(long orderID) {
+	public static void confirmPendingOrder(long orderID) {
 		OrderData.getInstance().confirmOrder(orderID);
 	}
 	
-	public Order getOrderByUserIDAndID(long userID, long orderID) {
+	public static Order getOrderByUserIDAndID(long userID, long orderID) {
 		List<Order> orders = OrderData.getInstance().getOrdersByUserID(userID);
 		for (Order o: orders) {
 			if (o.getOrderID() == orderID) {

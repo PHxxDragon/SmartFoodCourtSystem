@@ -39,8 +39,7 @@ public class ConfirmOrderController extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		MealDao mealDAO=new MealDao();
-		List<Meal> mealList=mealDAO.getMealList();
+		List<Meal> mealList = MealDao.getMealList();
 		List<OrderEntry> orderEntries = new ArrayList<OrderEntry>();
 		int[] quantity = new int[mealList.size()];
 		int [] price =new int[mealList.size()];

@@ -18,14 +18,11 @@ public class PendingOrderController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private void confirmOrder(long orderID) {
-		OrderDao orderDao = new OrderDao();
-		orderDao.confirmPendingOrder(orderID);
-		
+		OrderDao.confirmPendingOrder(orderID);
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		OrderDao orderDao = new OrderDao();
-		List<Order> pendingOrders = orderDao.getPendingOrders();
+		List<Order> pendingOrders = OrderDao.getPendingOrders();
 		request.setAttribute("PendingOrders", pendingOrders);
 		RequestDispatcher rd = request.getRequestDispatcher("/cook/view_orderJSP");
 		rd.forward(request, response);

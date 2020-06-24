@@ -8,16 +8,16 @@ import com.foodcourt.common.model.User;
 import com.foodcourt.common.model.Vendor;
 
 public class VendorDao {
-	public Vendor getVendorByUserid(long userID) {
+	public static Vendor getVendorByUserid(long userID) {
 		return VendorData.getInstance().getVendorByUserid(userID);
 	}
-	public void addNewVendor(Vendor vendor) {
+	public static void addNewVendor(Vendor vendor) {
 		VendorData.getInstance().addNewVendor(vendor);
 	}
-	public List<Vendor> getVendors() {
+	public static List<Vendor> getVendors() {
 		return VendorData.getInstance().getVendors();
 	}
-	public void removeVendor(List<Integer> vendorIDs) {
+	public static void removeVendor(List<Integer> vendorIDs) {
 		for (Integer i: vendorIDs) {
 			VendorData.getInstance().removeVendorFromID(i);
 		}
