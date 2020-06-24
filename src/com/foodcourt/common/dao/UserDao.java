@@ -28,7 +28,7 @@ public class UserDao {
 	public static void updateBalance(long balance, String username) {
 		UserData.getInstance().updateBalance(balance, username);
     }
-	public void changePasswordFromUsername(String username,String newpassword) {
+	public static void changePasswordFromUsername(String username,String newpassword) {
         UserData.getInstance().changePasswordFromUsername(username,newpassword);
 	}
 }

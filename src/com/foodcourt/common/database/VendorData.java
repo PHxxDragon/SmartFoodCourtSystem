@@ -3,7 +3,6 @@ package com.foodcourt.common.database;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.foodcourt.common.model.User;
 import com.foodcourt.common.model.Vendor;
 
 public class VendorData {

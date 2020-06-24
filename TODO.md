@@ -6,8 +6,6 @@ Prevent back button to return an order after confirming an order (javascript rel
 
 Show a message to inform why the user is redirected to login (in Authorizer)
 
-Fix typo "authendication" -> "authentication"
-
 Rename url "viewItemController" to "main" and rename the url to the main.jsp in the customer folder to something else. Url name used by sendRedirect and forms should be succinct. 
 similar cases include: confirmOrderController,
 

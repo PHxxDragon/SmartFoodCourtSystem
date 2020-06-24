@@ -12,11 +12,11 @@ import javax.servlet.http.HttpSession;
 import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.User;
 
-@WebServlet("/authendication")
+@WebServlet("/authentication")
 public class Authorizer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private boolean verify(String username, String password, User user) {	
+	private boolean verify(String password, User user) {	
 		if (user == null || !user.getpassword().equals(password)) return false;
 		return true;
 	}
@@ -27,7 +27,7 @@ public class Authorizer extends HttpServlet {
 		
 		User user = UserDao.getUserFromUsername(username);
 		
-		if (!verify(username, password, user)) {
+		if (!verify(password, user)) {
 			//redirect to login
 			response.sendRedirect("login");
 			return;
@@ -36,11 +36,11 @@ public class Authorizer extends HttpServlet {
 		//Create a log in session
 		HttpSession session = request.getSession();
 		session.setAttribute("userID", user.getUserID());
-
+		System.out.println(user.getUserID());
 		
 		switch(user.getUserType()) {
 			case CUSTOMER:
-				response.sendRedirect("customer/viewItemController");
+				response.sendRedirect("customer/main");
 				break;
 			case COOK:
 				response.sendRedirect("cook/main");

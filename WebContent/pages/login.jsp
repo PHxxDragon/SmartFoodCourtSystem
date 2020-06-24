@@ -32,7 +32,7 @@
 				<div class="form-title">
 					<h1>Đăng nhập vào SFCS</h1>
 				</div>
-				<form action="authendication" id="login_form" method="post">
+				<form action="authentication" id="login_form" method="post">
 					<!-- form field-->
 					<div class="form-group">
 						<label class="control-label" for="username">Tên đăng nhập</label>

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.MealDao;
-import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.Order.OrderEntry;

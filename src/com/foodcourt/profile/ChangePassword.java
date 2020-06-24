@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.User;
@@ -35,15 +34,14 @@ public class ChangePassword extends HttpServlet {
 		String oldpassword = request.getParameter("oldpassword");
 		String newpassword = request.getParameter("newpassword");
 		System.out.println("aaaa");
-		UserDao userDao = new UserDao();
-		User user = userDao.getUserFromUsername(username);
+		User user = UserDao.getUserFromUsername(username);
 		
 		if (!verify(username, oldpassword, user)) {
 			//redirect to login
 			response.sendRedirect("changepasswordJSP");
 			return;
 		}	
-		userDao.changePasswordFromUsername(username,newpassword);
+		UserDao.changePasswordFromUsername(username,newpassword);
 		response.sendRedirect("profile");
 		return;
 		

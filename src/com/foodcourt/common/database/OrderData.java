@@ -3,9 +3,7 @@ package com.foodcourt.common.database;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
-import com.foodcourt.common.model.Order.OrderEntry;
 
 public class OrderData {
 	//Each user has a list of orders

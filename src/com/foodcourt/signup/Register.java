@@ -1,7 +1,6 @@
 package com.foodcourt.signup;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,8 +50,7 @@ public class Register extends HttpServlet {
         user.setpassword(password);
         user.setUsername(username);
         user.setUserType(UserType.CUSTOMER);
-        UserDao userDao = new UserDao();
-		userDao.addNewUser(user);
+		UserDao.addNewUser(user);
 
 		response.sendRedirect("signupsuccess");
 	}

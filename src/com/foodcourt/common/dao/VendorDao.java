@@ -2,9 +2,7 @@ package com.foodcourt.common.dao;
 
 import java.util.List;
 
-import com.foodcourt.common.database.UserData;
 import com.foodcourt.common.database.VendorData;
-import com.foodcourt.common.model.User;
 import com.foodcourt.common.model.Vendor;
 
 public class VendorDao {
