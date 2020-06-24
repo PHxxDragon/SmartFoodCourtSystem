@@ -78,7 +78,8 @@
 								<li><a href="${pageContext.request.contextPath}">Trang chủ</a></li>
 								<li><a href="${pageContext.request.contextPath}/view_paidorder">Đơn hàng đã đặt</a></li>
 								<li><a href="./customer/digital_slip.html">In hóa đơn</a></li>
-								<li><a href="../">Đăng xuất</a></li>
+								<li><a href="changepassword">Đổi mật khẩu</a></li>
+								<li><a href="Logout">Đăng xuất</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div><!-- /.container-fluid -->

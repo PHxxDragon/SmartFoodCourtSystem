@@ -22,4 +22,8 @@ public class UserDao {
 			UserData.getInstance().removeUserFromID(i);
 		}
 	}
+	public void changePasswordFromUsername(String username,String newpassword) {
+		 UserData.getInstance().changePasswordFromUsername(username,newpassword);
+
+	}
 }

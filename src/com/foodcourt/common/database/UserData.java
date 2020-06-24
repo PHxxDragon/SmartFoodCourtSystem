@@ -35,15 +35,20 @@ public class UserData {
 	
 	public User getUserFromUsername(String username) {
 		for (User u: users) {
-			if (u.getUsername().
-					
-					
-					
-					equals(username)) {
+			if (u.getUsername().equals(username)) {
 				return new User(u);
 			}
 		}
 		return null;
+	}
+	public void changePasswordFromUsername(String username,String newpassword) {
+		for (User u: users) {
+			if (u.getUsername().equals(username)) {
+				u.setpassword(newpassword);
+				return;
+			}
+		}
+		return;
 	}
 	
 	private void init() {

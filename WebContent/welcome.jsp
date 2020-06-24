@@ -27,6 +27,7 @@
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/logo/favicon.ico">
 	</head>
+	
 	<body>
 		<div id="home" class="wrapper">
 			<!-- header area -->
