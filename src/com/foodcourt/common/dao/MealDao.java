@@ -9,4 +9,8 @@ public class MealDao {
 	public static List<Meal> getMealList(){
 		return MealData.getInstance().getMealList();
 	}
+	
+	public static Meal getMeal(long mealID) {
+		return MealData.getInstance().getMeal(mealID);
+	}
 }

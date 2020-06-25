@@ -36,26 +36,7 @@ public class Authorizer extends HttpServlet {
 		//Create a log in session
 		HttpSession session = request.getSession();
 		session.setAttribute("userID", user.getUserID());
-		System.out.println(user.getUserID());
-		
-		switch(user.getUserType()) {
-			case CUSTOMER:
-				response.sendRedirect("customer/main");
-				break;
-			case COOK:
-				response.sendRedirect("cook/main");
-				break;
-			case IT:
-				response.sendRedirect("it/main");
-				break;
-			case FC_MANAGER:
-				response.sendRedirect("fcmanager/main");
-				break;
-			case VD_OWNER:
-				response.sendRedirect("vdowner/main");
-				break;
-		}
-		
+		response.sendRedirect(request.getContextPath());
 	}
 
 }

@@ -10,11 +10,12 @@ public class User {
 	private String password;
 	private String email;
 	private String name;
+	private Order shoppingCart;
 
 	public User() {
-		
+		shoppingCart = new Order();
 	}
-	
+
 	public User(User user) {
 		this.userID = user.userID;
 		this.username = user.username;
@@ -23,6 +24,7 @@ public class User {
 		this.password = user.password;
 		this.email = user.email;
 		this.name= user.name;
+		this.shoppingCart = new Order(user.shoppingCart);
 	}
 	
 	public long getUserID() {
@@ -66,5 +68,11 @@ public class User {
 	}
 	public void setBalance(long balance) {
 		this.balance = balance;
+	}
+	public Order getShoppingCart() {
+		return shoppingCart;
+	}
+	public void setShoppingCart(Order shoppingCart) {
+		this.shoppingCart = shoppingCart;
 	}
 }
