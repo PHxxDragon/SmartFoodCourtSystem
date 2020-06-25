@@ -37,13 +37,13 @@ public class ChangePassword extends HttpServlet {
 		String newpassword = request.getParameter("newpassword");
 		
 		if (!verify(user.getUsername(), oldpassword, user)) {
-			//redirect to login
-			response.sendRedirect("/main");
+			
+			response.sendRedirect("changepasswordJSP");
 			return;
 		}	
 		
 		UserDao.changePasswordFromUsername(user.getUsername(),newpassword);
-		response.sendRedirect("/main");
+		response.sendRedirect("view_profileJSP");
 		return;
 		
 		

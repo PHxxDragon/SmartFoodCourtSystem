@@ -15,5 +15,8 @@
 	<form action="manage_vendors" method="get">
 		<button name="manageVendor_btn" type="submit">Manage Vendors</button>
 	</form>
+		<form action="<%=request.getContextPath()%>/Logout" method="get">
+		<button type="submit" value="Logout" name="Logout">Đăng xuất</button>
+	</form>
 </body>
 </html>

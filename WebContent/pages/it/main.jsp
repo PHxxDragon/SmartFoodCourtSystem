@@ -9,5 +9,8 @@
 </head>
 <body>
 	<h1>This is the main page for the it</h1>
+	<form action="<%=request.getContextPath()%>/Logout" method="get">
+		<button type="submit" value="Logout" name="Logout">Đăng xuất</button>
+	</form>
 </body>
 </html>

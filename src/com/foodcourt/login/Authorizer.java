@@ -2,6 +2,7 @@ package com.foodcourt.login;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,14 +30,36 @@ public class Authorizer extends HttpServlet {
 		
 		if (!verify(password, user)) {
 			//redirect to login
-			response.sendRedirect("login");
+			request.setAttribute("error","Tên đăng nhập hoặc mật khẩu không chính xác");
+			RequestDispatcher rd=request.getRequestDispatcher("/login");            
+			rd.forward(request, response);
+			//response.sendRedirect("login");
 			return;
 		}	
 		
 		//Create a log in session
 		HttpSession session = request.getSession();
 		session.setAttribute("userID", user.getUserID());
-		response.sendRedirect(request.getContextPath());
+		System.out.println(user.getUserID());
+		
+		switch(user.getUserType()) {
+			case CUSTOMER:
+				response.sendRedirect("customer/main");
+				break;
+			case COOK:
+				response.sendRedirect("cook/main");
+				break;
+			case IT:
+				response.sendRedirect("it/main");
+				break;
+			case FC_MANAGER:
+				response.sendRedirect("fcmanager/main");
+				break;
+			case VD_OWNER:
+				response.sendRedirect("vdowner/main");
+				break;
+		}
+		
 	}
 
 }

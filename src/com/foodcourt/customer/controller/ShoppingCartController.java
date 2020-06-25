@@ -15,7 +15,7 @@ import com.foodcourt.common.dao.UserDao;
  * Servlet implementation class ShoppingCart
  */
 @WebServlet("/customer/addCart")
-public class ShoppingCart extends HttpServlet {
+public class ShoppingCartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private void addMeal (long userID, long mealID) {

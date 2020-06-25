@@ -78,6 +78,7 @@
 							<li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã đặt</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
+							<li><a href="${pageContext.request.contextPath}/Logout">Đăng xuất</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->

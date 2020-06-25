@@ -27,7 +27,7 @@ public class UserData {
 		users.add(new User(user));
 	}
 	public void removeUserFromID(Integer ID) {
-		users.removeIf((n) -> ((n.getUserID() == ID) && (n.getUserType() != UserType.FC_MANAGER)));
+		users.removeIf((n) -> n.getUserID() == ID);
 	}
 	public List<User> getUsers(){
 		List<User> user = new ArrayList<User>();
@@ -135,5 +135,13 @@ public class UserData {
 		customer.setUserType(UserType.CUSTOMER);
 		addNewUser(customer);
 	}
+
+	public void updateCart(long userID, Order shoppingCart) {
+		for (User u: users) {
+			if (u.getUserID() == userID) {
+				u.setShoppingCart(shoppingCart);
+			}
+		}
+		
+	}
 }
-	
