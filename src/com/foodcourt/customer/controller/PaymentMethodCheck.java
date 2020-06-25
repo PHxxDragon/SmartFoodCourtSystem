@@ -58,7 +58,7 @@ public class PaymentMethodCheck extends HttpServlet {
 			order.setSaleVendorID(1);
 			order.setUserID(userID);
 			OrderDao.addOrder(order);
-			user.setShoppingCart(new Order());
+			UserDao.updateCart(userID, new Order());
 		} else {
 			PrintWriter out = response.getWriter();
 			out.println("wrong information !");

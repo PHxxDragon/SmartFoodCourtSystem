@@ -135,5 +135,14 @@ public class UserData {
 		customer.setUserType(UserType.CUSTOMER);
 		addNewUser(customer);
 	}
+
+	public void updateCart(long userID, Order shoppingCart) {
+		for (User u: users) {
+			if (u.getUserID() == userID) {
+				u.setShoppingCart(shoppingCart);
+			}
+		}
+		
+	}
 }
 	
