@@ -69,6 +69,7 @@
 								<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
 								<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
 								<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
+								<li><a href="${pageContext.request.contextPath}/Logout">Đăng xuất</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div><!-- /.container-fluid -->

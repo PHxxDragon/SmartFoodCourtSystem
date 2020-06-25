@@ -51,7 +51,14 @@
 					<div class="form-group text-center">
 						<button type="submit" class="btn btn-theme btn-lg">Xác nhận</button>
 					</div>
+					
 				</form>
+				<div class="other-opts">
+					<a id="cancel" href="./view_profileJSP">
+						<span>Hủy bỏ</span>
+					</a>
+					
+				</div>
 
 			</div>
 			

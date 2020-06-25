@@ -2,6 +2,7 @@ package com.foodcourt.login;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +30,10 @@ public class Authorizer extends HttpServlet {
 		
 		if (!verify(password, user)) {
 			//redirect to login
-			response.sendRedirect("login");
+			request.setAttribute("error","Tên đăng nhập hoặc mật khẩu không chính xác");
+			RequestDispatcher rd=request.getRequestDispatcher("/login");            
+			rd.forward(request, response);
+		
 			return;
 		}	
 		
