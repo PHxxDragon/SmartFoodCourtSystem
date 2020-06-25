@@ -53,7 +53,7 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
-								<li><a href="${pageContext.request.contextPath}/viewOrder">Đơn hàng đã thanh toán</a></li>
+								<li><a href="${pageContext.request.contextPath}/viewOrder">Hóa đơn</a></li>
 								<li><a href="${pageContext.request.contextPath}/recharge">Nạp tiền</a></li>
 								<li>
 									<a class="h-cart">
@@ -69,8 +69,9 @@
 			<!--/ header end -->
 			
 			<div class="pad"></div>
-			<form name="ItemQuantity" id="order-cart" action="confirmOrderController">
-			</form>
+			<!-- Form used to submit data and got to shopping cart-->
+			<form name="ItemQuantity" id="order-cart" action="confirmOrderController"></form>
+			
 			<div class="content-wrapper">
 				<div class="left-sidebar-wrapper"></div>
 				<div class="main-content-wrapper">
@@ -91,9 +92,9 @@
 										<h4><span>${meal.name}</span></h4>
 										<div class="order-quantity">
 											<span class="quantity-title">Số lượng: </span>
-											<input type="text" class="form-control quantity-input" form="order-cart" aria-describedby="input-label"  
+											<input type="number" class="form-control quantity-input" form="order-cart" aria-describedby="input-label"  
 											name="quantity<c:out value="${meal.id}"/>" id="quantity<c:out value="${meal.id}"/>"
-											inputmode="numeric" maxlength="3" value="0" pattern="[0-9]"/>
+											value="0" min="0" max="999"/>
 										</div>
 										<div class="add-cart-btn">
 											<button form="order-cart" class="btn btn-theme">Thêm vào giỏ</button>
@@ -101,8 +102,8 @@
 									</div>
 									
 									<div class="feature-info">
-										<p>Đơn giá: <span class="text-muted"><c:out value="${meal.price}"/></span></p>
-										<p>Thời gian làm: <span class="text-muted"><c:out value="${meal.eta}"/></span></p>
+										<p><span class="text-muted">Đơn giá: </span><c:out value="${meal.price}"/></p>
+										<p><span class="text-muted">Thời gian làm: </span><c:out value="${meal.eta}"/></p>
 										
 									</div>
 								</div>

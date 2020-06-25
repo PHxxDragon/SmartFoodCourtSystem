@@ -48,9 +48,6 @@ public class Order {
 	public long getOrderID() {
 		return orderID;
 	}
-	public void setOrderID(int orderID) {
-		this.orderID = orderID;
-	}
 
 	public long getEta() {
 		return eta;

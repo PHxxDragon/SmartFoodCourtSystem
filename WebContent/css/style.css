@@ -76,11 +76,6 @@ hr{
 	padding-top: 70px;
 }
 
-.parallax-one { background: url('../img/promo/p1.jpg') fixed 50%;}
-.parallax-two { background: url('../img/background/overlay.png'), url('../img/promo/p2.jpg') fixed 50%;}
-.parallax-three { background: url('../img/background/overlay.png'), url('../img/promo/p3.jpg') fixed 50%;}
-.parallax-four { background: url('../img/background/overlay.png'), url('../img/promo/p4.jpg') fixed 50%;}
-
 /* 
  * Basic CSS ends 
  */
@@ -105,8 +100,23 @@ hr{
 	border: 1px solid rgb(56, 68, 77);
 }
 
+.main-content-wrapper-sm {
+	max-width: 400px;
+	flex-grow: 4;
+}
+
 .main-content-wrapper {
 	max-width: 700px;
+	flex-grow: 4;
+}
+
+.main-content-wrapper-lg {
+	max-width: 1000px;
+	flex-grow: 4;
+}
+
+.main-content-wrapper-xl {
+	max-width: 1300px;
 	flex-grow: 4;
 }
 
@@ -133,6 +143,15 @@ hr{
 .generic-list {
 	display: flex;
 	flex-flow: wrap column;
+	align-items: stretched;
+	justify-content: center;
+	padding: 10px;
+	width: 100%;
+}
+
+.generic-list-thumbnail {
+	display: flex;
+	flex-flow: wrap row;
 	align-items: stretched;
 	justify-content: center;
 	padding: 10px;
@@ -451,7 +470,7 @@ hr{
 	display: flex;
 	flex-direction: row;
 	align-items: stretched;
-	padding: 10px;
+	padding: 10px 20px 10px 20px;
 	height: 150px;
 	flex-fill: 1;
 	border: 1px solid rgb(56, 68, 77);
@@ -500,7 +519,7 @@ hr{
 }
 
 .quantity-input {
-	width: 40px;
+	width: 50px;
 	height: 20px;
 	margin-left: 10px;
 	padding: 5px;
