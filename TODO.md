@@ -4,8 +4,6 @@ Add control where user can see if an order is pending or already confirmed.
 
 Prevent back button to return an order after confirming an order (javascript related)
 
-Show a message to inform why the user is redirected to login (in Authorizer)
-
 Rename url "viewItemController" to "main" and rename the url to the main.jsp in the customer folder to something else. Url name used by sendRedirect and forms should be succinct. 
 similar cases include: confirmOrderController,
 
@@ -19,7 +17,5 @@ provide more meal, add categories, pages,...
 Add two payment method: local and 3rd party. Only re-enter password, we don't need to re-enter username.
 
 what should we do in printslip ?
-
-provide logout button in all or some pages.
 
 Add a message and a link in case there is no order in pending order or paid order.
