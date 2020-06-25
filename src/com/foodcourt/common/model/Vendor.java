@@ -9,24 +9,20 @@ public class Vendor {
 	private String name;
 	private List<Meal> menu;
 
-	public Vendor(String vendor_name, int id, long ownerID){
-		this.id = id;
-		this.name = vendor_name;
-		this.menu = new ArrayList<Meal>();
-		this.ownerID = ownerID;
-	}
 	public Vendor(){
 		this.id = 0;
 		this.name = "";
 		this.menu = new ArrayList<Meal>();
 		this.ownerID = 0;
 	}
+	
 	public Vendor(Vendor vendor) {
 		this.id = vendor.id;
 		this.ownerID = vendor.ownerID;
 		this.name = vendor.name;
 		this.menu =  new ArrayList<Meal>(vendor.menu);
 	}
+	
 	public int getId() {
 		return id;
 	}

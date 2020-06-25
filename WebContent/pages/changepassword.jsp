@@ -30,9 +30,9 @@
 			<div class="form-content animated fadeInUp">
 				<!-- form title -->
 				<div class="form-title">
-					<h1>Đăng nhập vào SFCS</h1>
+					<h1>Đổi Mật Khẩu</h1>
 				</div>
-				<form action="authentication" id="login_form" method="post">
+				<form action="changepassword" id="login_form" method="post">
 					<!-- form field-->
 					<div class="form-group">
 						<label class="control-label" for="username">Tên đăng nhập</label>
@@ -40,25 +40,24 @@
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="password">Mật khẩu</label>
-						<input class="form-control" type="password" id="password" name="password" minlength="4" maxlength="20" required>
+						<label class="control-label" for="oldpassword">Mật khẩu cũ</label>
+						<input class="form-control" type="password" id="oldpassword" name="oldpassword" minlength="4" maxlength="20" required>
+						<small id="passwordHelpInline" class="form-text text-muted">
+							Mật khẩu của bạn phải dài từ 4-20 kí tự.
+						</small>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="newpassword">Mật khẩu mới</label>
+						<input class="form-control" type="password" id="newpassword" name="newpassword" minlength="4" maxlength="20" required>
 						<small id="passwordHelpInline" class="form-text text-muted">
 							Mật khẩu của bạn phải dài từ 4-20 kí tự.
 						</small>
 					</div>
 					<div class="form-group text-center">
-						<button type="submit" class="btn btn-theme btn-lg">Đăng nhập</button>
+						<button type="submit" class="btn btn-theme btn-lg">Xác nhận</button>
 					</div>
 				</form>
-				<div class="other-opts">
-					<a id="forgot-pass" href="#">
-						<span>Quên mật khẩu</span>
-					</a>
-					<span>·</span>
-					<a id="sign-up" href="./signup">
-						<span>Đăng ký tài khoản SFCS</span>
-					</a>
-				</div>
+
 			</div>
 			
 		</div>

@@ -4,10 +4,8 @@ public class Review {
 	private User user;
 	private String[] content;
 	private int rating;
-	public Review(User user, String[] content, int rating) {
-		this.user = user;
-		this.content = content;
-		this.rating = rating;
+	public Review() {
+
 	}
 	public User getUser() {
 		return user;

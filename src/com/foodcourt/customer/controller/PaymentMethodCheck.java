@@ -47,9 +47,7 @@ public class PaymentMethodCheck extends HttpServlet {
 		String cardNumber = request.getParameter("cardNumber");
 		String password = request.getParameter("password");
 		
-		UserDao userDao = new UserDao();
-		OrderDao orderDao = new OrderDao();
-		User user = userDao.getUserFromUsername(username);
+		User user = UserDao.getUserFromUsername(username);
 		
 		HttpSession session = request.getSession();
 		
@@ -57,9 +55,9 @@ public class PaymentMethodCheck extends HttpServlet {
 		
 		boolean isValid= validify(bankName,cardNumber,password,user); 
 		if (isValid) {
-			userDao.updateBalance(user.getBalance() - order.getPrice(), username);
-			session.setAttribute("user", userDao.getUserFromUsername(username));
-			orderDao.addOrder(order);
+			UserDao.updateBalance(user.getBalance() - order.getPrice(), username);
+			session.setAttribute("user", UserDao.getUserFromUsername(username));
+			OrderDao.addOrder(order);
 		} else {
 			PrintWriter out = response.getWriter();
 			out.println("wrong information !");

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.MealDao;
-import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.Order.OrderEntry;
@@ -39,8 +38,7 @@ public class ConfirmOrderController extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		MealDao mealDAO=new MealDao();
-		List<Meal> mealList=mealDAO.getMealList();
+		List<Meal> mealList = MealDao.getMealList();
 		List<OrderEntry> orderEntries = new ArrayList<OrderEntry>();
 		int[] quantity = new int[mealList.size()];
 		int [] price =new int[mealList.size()];

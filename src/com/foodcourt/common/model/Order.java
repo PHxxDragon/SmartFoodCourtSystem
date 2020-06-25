@@ -11,13 +11,7 @@ public class Order {
 		public OrderEntry() {
 			
 		}
-		
-		public OrderEntry(Meal meal, int quantity) {
-			this.meal = meal;
-			this.quantity = quantity;
-		}
-		
-		//copy constructor
+	
 		public OrderEntry(OrderEntry orderEntry) {
 			this.meal = new Meal(orderEntry.meal);
 			this.quantity = orderEntry.quantity;
@@ -38,8 +32,6 @@ public class Order {
 		public void setQuantity(int quantity) {
 			this.quantity = quantity;
 		}
-		
-		
 	}
 	
 	private long orderID;

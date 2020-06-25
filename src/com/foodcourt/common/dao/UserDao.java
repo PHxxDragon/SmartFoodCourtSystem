@@ -7,22 +7,28 @@ import com.foodcourt.common.model.User;
 
 public class UserDao {
 	
-	public void addNewUser(User user) {
+	public static void addNewUser(User user) {
 		UserData.getInstance().addNewUser(user);
 	}
-	public List<User> getUsers() {
+	public static List<User> getUsers() {
 		return UserData.getInstance().getUsers();
 	}
 	
-	public User getUserFromUsername(String username) {
+	public static User getUserFromUsername(String username) {
 		return UserData.getInstance().getUserFromUsername(username);
 	}
-	public void removeUser(List<Integer> userIDs) {
+	public static User getUserFromUserID(long userID) {
+		return UserData.getInstance().getUserFromUserID(userID);
+	}
+	public static void removeUser(List<Integer> userIDs) {
 		for (Integer i: userIDs) {
 			UserData.getInstance().removeUserFromID(i);
 		}
 	}
-	public void updateBalance(long balance, String username) {
+	public static void updateBalance(long balance, String username) {
 		UserData.getInstance().updateBalance(balance, username);
+    }
+	public static void changePasswordFromUsername(String username,String newpassword) {
+        UserData.getInstance().changePasswordFromUsername(username,newpassword);
 	}
 }

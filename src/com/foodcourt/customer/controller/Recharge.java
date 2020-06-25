@@ -35,9 +35,8 @@ public class Recharge extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		int money = Integer.parseInt(request.getParameter("money"));
-		UserDao userDao = new UserDao();
-		userDao.updateBalance(user.getBalance() + money, user.getUsername());
-		session.setAttribute("user", userDao.getUserFromUsername(user.getUsername()));
+		UserDao.updateBalance(user.getBalance() + money, user.getUsername());
+		session.setAttribute("user", UserDao.getUserFromUsername(user.getUsername()));
 		//UserDao userDao = new UserDao();
 		//TODO add money to database
 		response.sendRedirect(request.getContextPath()+ "/profile");

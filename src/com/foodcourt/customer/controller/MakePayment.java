@@ -42,7 +42,6 @@ public class MakePayment extends HttpServlet {
 		//request.setAttribute("balance", balance);
 		RequestDispatcher rd = request.getRequestDispatcher("purchase");
 		rd.forward(request, response);
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 	}
 

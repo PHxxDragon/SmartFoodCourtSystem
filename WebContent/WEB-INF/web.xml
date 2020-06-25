@@ -31,7 +31,7 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>customer-main</servlet-name>
-  	<url-pattern>/customer/main</url-pattern>
+  	<url-pattern>/customer/mainJSP</url-pattern>
   </servlet-mapping>
   
   
@@ -72,6 +72,15 @@
     <servlet-mapping>
   	<servlet-name>fcmanager-manage_vendors</servlet-name>
   	<url-pattern>/fcmanager/manage_vendorsJSP</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>changePassword</servlet-name>
+  	<jsp-file>/pages/changepassword.jsp</jsp-file>
+  </servlet>
+    <servlet-mapping>
+  	<servlet-name>changePassword</servlet-name>
+  	<url-pattern>/changepasswordJSP</url-pattern>
   </servlet-mapping>
   
   
@@ -197,66 +206,42 @@
   </servlet>
     <servlet-mapping>
   	<servlet-name>view-profile</servlet-name>
-  	<url-pattern>/profile</url-pattern>
+  	<url-pattern>/view_profileJSP</url-pattern>
   </servlet-mapping>
   
+   <servlet>  
+    <servlet-name>logout</servlet-name>  
+    <servlet-class>com.foodcourt.profile.Logout</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>logout</servlet-name>  
+    <url-pattern>/Logout</url-pattern>  
+  </servlet-mapping>  
+  
   
   <filter>
-  	<filter-name>cook-filter</filter-name>
-  	<filter-class>com.foodcourt.filter.CookFilter</filter-class>
+  	<filter-name>login-filter</filter-name>
+  	<filter-class>com.foodcourt.filter.LoginFilter</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>cook-filter</filter-name>
-  	<url-pattern>/cook/*</url-pattern>
-  </filter-mapping>
-  
-  
-    <filter>
-  	<filter-name>customer-filter</filter-name>
-  	<filter-class>com.foodcourt.filter.CustomerFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>customer-filter</filter-name>
+  	<filter-name>login-filter</filter-name>
   	<url-pattern>/customer/*</url-pattern>
   </filter-mapping>
-  
-  
-  <filter>
-  	<filter-name>fcmanager-filter</filter-name>
-  	<filter-class>com.foodcourt.filter.FCManagerFilter</filter-class>
-  </filter>
   <filter-mapping>
-  	<filter-name>fcmanager-filter</filter-name>
+  	<filter-name>login-filter</filter-name>
+  	<url-pattern>/cook/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>login-filter</filter-name>
+  	<url-pattern>/vdowner/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>login-filter</filter-name>
   	<url-pattern>/fcmanager/*</url-pattern>
   </filter-mapping>
-  
-  
-   <filter>
-  	<filter-name>it-filter</filter-name>
-  	<filter-class>com.foodcourt.filter.ItFilter</filter-class>
-  </filter>
   <filter-mapping>
-  	<filter-name>it-filter</filter-name>
+  	<filter-name>login-filter</filter-name>
   	<url-pattern>/it/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>vdowner-filter</filter-name>
-  	<filter-class>com.foodcourt.filter.VDOwnerFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>vdowner-filter</filter-name>
-  	<url-pattern>/vendorowner/*</url-pattern>
-  </filter-mapping>
-  
-  
-  <filter>
-  	<filter-name>profile-filter</filter-name>
-  	<filter-class>com.foodcourt.filter.ProfileFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>profile-filter</filter-name>
-  	<url-pattern>/profile</url-pattern>
   </filter-mapping>
   
 </web-app>

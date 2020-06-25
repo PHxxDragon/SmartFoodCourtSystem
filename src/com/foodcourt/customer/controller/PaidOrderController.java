@@ -25,10 +25,9 @@ public class PaidOrderController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		OrderDao orderDao = new OrderDao();
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		List<Order> paidOrders = orderDao.getOrdersByUserId(user.getUserID());
+		List<Order> paidOrders = OrderDao.getOrdersByUserId(user.getUserID());
 		request.setAttribute("PaidOrders", paidOrders);
 		RequestDispatcher rd = request.getRequestDispatcher("/customer/view_paidorderJSP");
 		rd.forward(request, response);

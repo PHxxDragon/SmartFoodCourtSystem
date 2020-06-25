@@ -28,8 +28,7 @@ public class PrintSlipController extends HttpServlet {
 			HttpSession session = request.getSession();
 			User user = (User) session.getAttribute("user");
 			long orderID = Long.parseLong(para);
-			OrderDao orderDao = new OrderDao();
-			Order order = orderDao.getOrderByUserIDAndID(user.getUserID(), orderID);
+			Order order = OrderDao.getOrderByUserIDAndID(user.getUserID(), orderID);
 			request.setAttribute("order", order);
 			RequestDispatcher rd = request.getRequestDispatcher("/customer/digitalSlip");
 			rd.forward(request, response);

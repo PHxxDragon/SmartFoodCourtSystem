@@ -7,19 +7,9 @@ public class User {
 	private String username;
 	private UserType userType;
 	private long balance;
-	
-	public long getBalance() {
-		return balance;
-	}
-
-	public void setBalance(long balance) {
-		this.balance = balance;
-	}
-
 	private String password;
 	private String email;
 	private String name;
-
 
 	public User() {
 		
@@ -33,7 +23,6 @@ public class User {
 		this.password = user.password;
 		this.email = user.email;
 		this.name= user.name;
-
 	}
 	
 	public long getUserID() {
@@ -71,5 +60,11 @@ public class User {
 	}
 	public void setname(String name) {
 		this.name = name;
+	}
+	public long getBalance() {
+		return balance;
+	}
+	public void setBalance(long balance) {
+		this.balance = balance;
 	}
 }

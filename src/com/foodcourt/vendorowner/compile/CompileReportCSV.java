@@ -1,7 +1,6 @@
 package com.foodcourt.vendorowner.compile;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import com.foodcourt.common.dao.VendorDao;
 import com.foodcourt.common.model.User;
@@ -18,8 +17,7 @@ public class CompileReportCSV implements ICompileReport {
 		this.start_date = startDate;
 		this.end_date = endDate;
 		
-		VendorDao vendorDao = new VendorDao();
-		this.vendor = vendorDao.getVendorByUserid(user.getUserID());
+		this.vendor = VendorDao.getVendorByUserid(user.getUserID());
 		
 	}
 	@Override

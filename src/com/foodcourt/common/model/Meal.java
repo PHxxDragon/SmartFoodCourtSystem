@@ -2,22 +2,13 @@ package com.foodcourt.common.model;
 
 public class Meal {
 	
-
 	private String name;
 	private int id;
 	private int price;
 	private long eta;
-
 	
 	public Meal() {
 		
-	}
-	
-	public Meal(int id, int price, String name, long eta) {
-		this.id = id;
-		this.price = price;
-		this.name = name;
-		this.eta= eta;
 	}
 	
 	public Meal(Meal meal) {

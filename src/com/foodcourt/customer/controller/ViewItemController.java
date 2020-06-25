@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.foodcourt.common.dao.MealDao;
 import com.foodcourt.common.model.Meal;
 
-@WebServlet("/customer/viewItemController")
+@WebServlet("/customer/main")
 public class ViewItemController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,10 +30,9 @@ public class ViewItemController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		MealDao mealDao = new MealDao();
-		List<Meal> mealList= mealDao.getMealList();
+		List<Meal> mealList= MealDao.getMealList();
 		request.setAttribute("mealList", mealList);
-		RequestDispatcher rd = request.getRequestDispatcher("/customer/main");
+		RequestDispatcher rd = request.getRequestDispatcher("/customer/mainJSP");
 		rd.forward(request, response); 
 	}
 

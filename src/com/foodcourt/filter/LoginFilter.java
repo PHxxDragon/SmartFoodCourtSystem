@@ -12,8 +12,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class ProfileFilter implements Filter {
+import com.foodcourt.common.dao.UserDao;
+import com.foodcourt.common.model.User;
 
+public class LoginFilter implements Filter {
+
+    /**
+     * Default constructor. 
+     */
+    public LoginFilter() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see Filter#destroy()
+	 */
+	public void destroy() {
+		// TODO Auto-generated method stub
+	}
 
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
@@ -22,9 +38,18 @@ public class ProfileFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
-		if (session.getAttribute("UserType") == null){
+		Object attribute = session.getAttribute("userID");
+		if (attribute == null){
 			res.sendRedirect(req.getContextPath()+ "/login");
 			return;
+		} else {
+			User user = UserDao.getUserFromUserID(((long) attribute));
+			String path = req.getRequestURI().substring(req.getContextPath().length());
+			String root = "/" + user.getUserType().toString();
+			if (!root.equals(path.substring(0, root.length()))) {
+				res.sendRedirect(req.getContextPath()+ "/login");
+				return;
+			}
 		}
 		chain.doFilter(request, response);
 	}
@@ -34,12 +59,6 @@ public class ProfileFilter implements Filter {
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
