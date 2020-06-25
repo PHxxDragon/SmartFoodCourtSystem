@@ -14,24 +14,34 @@ import com.foodcourt.common.dao.UserDao;
 /**
  * Servlet implementation class ShoppingCart
  */
-@WebServlet("/customer/addCart")
+@WebServlet("/customer/cart")
 public class ShoppingCartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private void addMeal (long userID, long mealID) {
-		UserDao.addMeal(userID, mealID);
+	private void addMeal (long userID, long mealID, int quantity) {
+		UserDao.addMeal(userID, mealID, quantity);
+	}
+	
+	private void removeMeal (long userID, long mealID) {
+		UserDao.removeMeal(userID, mealID);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String para = request.getParameter("mealID");
-		if (para == null) {
+		String para1 = request.getParameter("op");
+		String para2 = request.getParameter("mealID");
+		String para3 = request.getParameter("quantity");
+		if (para1 == null || para2 == null) {
 			return;
 		} else {
-			long mealID = Long.parseLong(para);
+			long mealID = Long.parseLong(para2);
 			HttpSession session = request.getSession();
 			long userID = (long) session.getAttribute("userID");
-			addMeal (userID, mealID);
-			System.out.println("added to shopping cart");
+			if (para1.equals("add")) {
+				if (para3 == null) addMeal (userID, mealID, 1);
+				else addMeal(userID, mealID, Integer.parseInt(para3));
+			} else if (para1.equals("remove")) {
+				removeMeal(userID, mealID);
+			}
 			return;
 		}
 	}

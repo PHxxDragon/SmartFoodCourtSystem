@@ -72,23 +72,38 @@ public class UserData {
 		}
 	}
 	
-	public void addMeal(long userID, long mealID) {
+	public void addMeal(long userID, long mealID, int quantity) {
 		for (User u: users) {
 			if (u.getUserID() == userID) {
 				Order shoppingCart = u.getShoppingCart();
 				for (OrderEntry orderEntry: shoppingCart.getOrderEntries()) {
 					if (orderEntry.getMeal().getId() == mealID) {
-						orderEntry.setQuantity(orderEntry.getQuantity() + 1);
+						orderEntry.setQuantity(orderEntry.getQuantity() + quantity);
 						return;
 					}
 				}
 				OrderEntry orderEntry = new OrderEntry();
 				Meal meal = MealDao.getMeal(mealID);
 				orderEntry.setMeal(MealDao.getMeal(mealID));
-				orderEntry.setQuantity(1);
+				orderEntry.setQuantity(quantity);
 				shoppingCart.getOrderEntries().add(orderEntry);
 				shoppingCart.setPrice(shoppingCart.getPrice() + meal.getPrice());
 				shoppingCart.setEta(shoppingCart.getEta() + meal.getEta());
+				return;
+			}
+		}
+	}
+	public void removeMeal(long userID, long mealID) {
+		for (User u : users) {
+			if (u.getUserID() == userID) {
+				for (OrderEntry orderEntry: u.getShoppingCart().getOrderEntries()) {
+					if (orderEntry.getMeal().getId() == mealID) {
+						u.getShoppingCart().setPrice(u.getShoppingCart().getPrice() - orderEntry.getMeal().getPrice()*orderEntry.getQuantity());
+						u.getShoppingCart().setEta(u.getShoppingCart().getEta() - orderEntry.getMeal().getEta()*orderEntry.getQuantity());
+						u.getShoppingCart().getOrderEntries().remove(orderEntry);
+						return;
+					}
+				}
 				return;
 			}
 		}

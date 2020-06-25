@@ -78,6 +78,7 @@
 							<li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã đặt</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
@@ -108,7 +109,7 @@
 			                <td>${meal.price}</td> 
 			                <td>${meal.eta}</td>
 			                <td><img src="<c:url value='/img/food_img/${meal.name}.jpg'/>"  width="100px" height =100px/></td>
-			                <td><Button onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/addCart')" value="Add">Add to shopping cart</Button></td>    
+			                <td><Button onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)" value="Add">Add to shopping cart</Button></td>    
 			            </tr> 
 			          </c:forEach>
 			    </table> 

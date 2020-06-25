@@ -16,12 +16,6 @@
 			<td><c:out value="Vendor ID : ${order.saleVendorID}" /> </td>
 			<td><c:out value="Eta : ${order.eta}" /> </td>
 			<td><c:out value="Price : ${order.price}" /> </td>
-
-			<td>
-			<form action="printSlip" method="get">
-				<button type="submit" name="printSlip" value="${order.orderID}">Print Slip</button>
-			</form> 
-			</td>
 		</tr>
 		
 		<tr>

@@ -6,6 +6,7 @@ public class Meal {
 	private int id;
 	private int price;
 	private long eta;
+	private String imgSrc;
 	
 	public Meal() {
 		
@@ -16,6 +17,7 @@ public class Meal {
 		this.price = meal.price;
 		this.name = meal.name;
 		this.eta = meal.eta;
+		this.imgSrc = meal.imgSrc;
 	}
 
 	public String getName() {
@@ -29,9 +31,17 @@ public class Meal {
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getImgSrc() {
+		return imgSrc;
+	}
+
+	public void setImgSrc(String imgSrc) {
+		this.imgSrc = imgSrc;
 	}
 
 	public int getPrice() {

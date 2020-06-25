@@ -12,6 +12,7 @@
 </head>
 <body>
 <h1>This is confirm order page</h1>
+	
 	<table>
 			<tr>
 				<td><c:out value="Eta : ${shoppingCart.eta}" /> </td>

@@ -80,6 +80,15 @@
   	<url-pattern>/changepasswordJSP</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>view-cart</servlet-name>
+  	<jsp-file>/pages/customer/view_cart.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>view-cart</servlet-name>
+  	<url-pattern>/customer/view_cartJSP</url-pattern>
+  </servlet-mapping>
+  
   
   
   <servlet>

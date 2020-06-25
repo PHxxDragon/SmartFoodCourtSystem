@@ -13,27 +13,39 @@ import javax.servlet.http.HttpSession;
 import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.User;
 
-@WebServlet("/customer/confirmOrderController")
-public class ConfirmOrderController extends HttpServlet {
+/**
+ * Servlet implementation class Cart
+ */
+@WebServlet("/customer/viewCart")
+public class Cart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-    
-    public ConfirmOrderController() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Cart() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
 		request.setAttribute("shoppingCart", user.getShoppingCart());
-		RequestDispatcher rd = request.getRequestDispatcher("confirmOrder");
+		RequestDispatcher rd = request.getRequestDispatcher("view_cartJSP");
 		rd.forward(request, response);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request,response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
