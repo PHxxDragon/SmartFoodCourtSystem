@@ -53,8 +53,8 @@ public class ManageAccountsController extends HttpServlet {
 				type = UserType.IT;
 				break;
 			case "FC_MANAGER":
-				type = UserType.FC_MANAGER;
-				break;
+				doGet(request, response);
+				return;
 			case "VD_OWNER":
 				type = UserType.VD_OWNER;
 				break;

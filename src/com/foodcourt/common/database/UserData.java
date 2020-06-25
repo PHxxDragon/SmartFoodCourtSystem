@@ -27,7 +27,7 @@ public class UserData {
 		users.add(new User(user));
 	}
 	public void removeUserFromID(Integer ID) {
-		users.removeIf((n) -> n.getUserID() == ID);
+		users.removeIf((n) -> ((n.getUserID() == ID) && (n.getUserType() != UserType.FC_MANAGER)));
 	}
 	public List<User> getUsers(){
 		List<User> user = new ArrayList<User>();
