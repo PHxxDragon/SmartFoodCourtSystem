@@ -22,9 +22,9 @@
 		<!-- Custom CSS -->
 		<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/css/style-color.css" rel="stylesheet">
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/customer/main.js"></script>
 	</head>	
 <body>
-
 	<div id="home" class="wrapper">
 		<!-- header area -->
 		<header>
@@ -76,7 +76,7 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Hóa đơn đã đặt</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã đặt</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
@@ -91,7 +91,6 @@
 				<h2>Meals for today</h2>
 			</div>
 			<div class="feature-table">
-				<form name="ItemQuantity" id="form1" action="confirmOrderController">
 				<table class="feature-content-table"> 
 			         <tr bgcolor="00FF7F"> 
 			          <th><b>Name</b></th> 
@@ -109,17 +108,15 @@
 			                <td>${meal.price}</td> 
 			                <td>${meal.eta}</td>
 			                <td><img src="<c:url value='/img/food_img/${meal.name}.jpg'/>"  width="100px" height =100px/></td>
-			                <td><input type="number" name="quantity${meal.id}" id="quantity${meal.id}" value="0" min ="0" max="200"></td>    
+			                <td><Button onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/addCart')" value="Add">Add to shopping cart</Button></td>    
 			            </tr> 
 			          </c:forEach>
 			    </table> 
 			    <div>
-				<button type="submit" name="confirmOrder" class="btn btn-theme">Xác nhận đơn hàng</button>
+				<a href="${pageContext.request.contextPath}/customer/confirmOrderController">Xác nhận đơn hàng</a>
 				</div>
 			</div> 
-		    </form>
 			</div>
 	  	</div> 
-	</div>
 </body>
 </html>

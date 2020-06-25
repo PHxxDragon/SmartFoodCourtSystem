@@ -20,6 +20,14 @@ public class MealData {
 	public List<Meal> getMealList(){
 		return mealList;
 	}
+	
+	public Meal getMeal(long mealID) {
+		// TODO Auto-generated method stub
+		for (Meal meal : mealList) {
+			if (meal.getId() == mealID) return meal;
+		}
+		return null;
+	}
 	//Meal stored in the database
 	private MealData() {
 		mealList = new ArrayList<Meal>();

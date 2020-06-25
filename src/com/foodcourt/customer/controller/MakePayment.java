@@ -11,13 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.UserDao;
-import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.User;
 
 /**
  * Servlet implementation class MakePayment
  */
-@WebServlet("/customer/purchaseInfoController")
+@WebServlet("/customer/purchaseController")
 public class MakePayment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,11 +36,7 @@ public class MakePayment extends HttpServlet {
 		HttpSession session = request.getSession();
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
-		//Order order= (Order) request.getAttribute("order");
-		//long balance = user.getBalance();
-		//long price = order.getPrice();
-		request.setAttribute("user", user);
-		//request.setAttribute("balance", balance);
+		request.setAttribute("price", user.getShoppingCart().getPrice());
 		RequestDispatcher rd = request.getRequestDispatcher("purchase");
 		rd.forward(request, response);
 		

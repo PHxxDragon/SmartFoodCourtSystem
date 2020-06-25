@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.foodcourt.common.UserType;
+import com.foodcourt.common.dao.MealDao;
+import com.foodcourt.common.model.Meal;
+import com.foodcourt.common.model.Order;
+import com.foodcourt.common.model.OrderEntry;
 import com.foodcourt.common.model.User;
 
 public class UserData {
@@ -64,6 +68,28 @@ public class UserData {
 		for (User u: users) {
 			if (u.getUsername().equals(username)) {
 				u.setBalance(balance);
+			}
+		}
+	}
+	
+	public void addMeal(long userID, long mealID) {
+		for (User u: users) {
+			if (u.getUserID() == userID) {
+				Order shoppingCart = u.getShoppingCart();
+				for (OrderEntry orderEntry: shoppingCart.getOrderEntries()) {
+					if (orderEntry.getMeal().getId() == mealID) {
+						orderEntry.setQuantity(orderEntry.getQuantity() + 1);
+						return;
+					}
+				}
+				OrderEntry orderEntry = new OrderEntry();
+				Meal meal = MealDao.getMeal(mealID);
+				orderEntry.setMeal(MealDao.getMeal(mealID));
+				orderEntry.setQuantity(1);
+				shoppingCart.getOrderEntries().add(orderEntry);
+				shoppingCart.setPrice(shoppingCart.getPrice() + meal.getPrice());
+				shoppingCart.setEta(shoppingCart.getEta() + meal.getEta());
+				return;
 			}
 		}
 	}

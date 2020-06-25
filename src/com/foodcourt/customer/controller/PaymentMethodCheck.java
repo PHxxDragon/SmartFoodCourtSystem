@@ -49,13 +49,16 @@ public class PaymentMethodCheck extends HttpServlet {
 		
 		User user = UserDao.getUserFromUserID(userID);
 		
-		Order order = (Order) session.getAttribute("currentOrder");
+		Order order = user.getShoppingCart();
 		
 		boolean isValid= validify(bankName,cardNumber,password,user); 
 		if (isValid) {
 			UserDao.updateBalance(user.getBalance() - order.getPrice(), user.getUsername());
-			session.setAttribute("user", UserDao.getUserFromUsername(user.getUsername()));
+			order.setOrderID(10);
+			order.setSaleVendorID(1);
+			order.setUserID(userID);
 			OrderDao.addOrder(order);
+			user.setShoppingCart(new Order());
 		} else {
 			PrintWriter out = response.getWriter();
 			out.println("wrong information !");
@@ -72,7 +75,7 @@ public class PaymentMethodCheck extends HttpServlet {
 	                "<body bgcolor=\"#f0f0f0\">\n" +
 	                "<h1 align=\"center\">" + title + "</h1>\n" +
 	                "</body></html>");
-		out.println("<a type='submit' href='./viewItemController' value='return'>Return</a>");
+		out.println("<a type='submit' href='./main' value='return'>Return</a>");
 		request.setAttribute("user", user);
 	}
 

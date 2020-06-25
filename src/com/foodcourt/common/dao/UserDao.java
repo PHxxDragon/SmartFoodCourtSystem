@@ -31,4 +31,7 @@ public class UserDao {
 	public static void changePasswordFromUsername(String username,String newpassword) {
         UserData.getInstance().changePasswordFromUsername(username,newpassword);
 	}
+	public static void addMeal(long userID, long mealID) {
+		UserData.getInstance().addMeal(userID, mealID);
+	}
 }
