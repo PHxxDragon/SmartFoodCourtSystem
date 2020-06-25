@@ -28,35 +28,16 @@
 		<div id="home" class="wrapper">
 			<!-- header area -->
 			<header>
-				<!-- secondary menu -->
-				<nav class="secondary-menu">
-					<div class="container">
-						<!-- secondary menu left link area -->
-						<div class="sm-left">
-							<!-- logo area -->
-							<a class="nav-brand" href="${pageContext.request.contextPath}">
-								<!-- logo image -->
-								<img class="img" src="${pageContext.request.contextPath}/img/logo/logo.png" alt="" />
-							</a>
-						</div>
-						<!-- secondary menu right link area -->
-						<div class="sm-right">
-							<!-- social link -->
-							<div class="sm-social-link">
-								<a class="h-facebook" href="https://www.facebook.com"><i class="fa fa-facebook fa-lg"></i></a>
-								<a class="h-twitter" href="https://www.twitter.com"><i class="fa fa-twitter fa-lg"></i></a>
-								<a class="h-instagram" href="https://www.instagram.com"><i class="fa fa-instagram fa-lg"></i></a>
-								<a class="h-google" href="https://www.google.com"><i class="fa fa-google fa-lg"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</nav>
 				<!-- primary menu -->
 				<nav class="navbar navbar-fixed-top navbar-default">
 				<div class="container">
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
+							<!-- logo area -->
+							<a class="navbar-brand" href="#home">
+								<!-- logo image -->
+								<img class="img-responsive" src="img/logo/logo.png" alt="" />
+							</a>
 							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
@@ -65,68 +46,80 @@
 							</button>
 							
 						</div>
-						<div class="hidden-icon hide">
-							<!-- logo area -->
-							<a class="navbar-brand" href="${pageContext.request.contextPath}">
-								<!-- logo image -->
-								<img class="img-responsive" src="../img/logo/logo.png" alt="" />
-							</a>
-						</div>
+						
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="${pageContext.request.contextPath}">Trang chủ</a></li>
-								<li><a href="${pageContext.request.contextPath}/view_paidorder">Đơn hàng đã đặt</a></li>
-								<li><a href="./customer/digital_slip.html">In hóa đơn</a></li>
-								<li><a href="changepassword">Đổi mật khẩu</a></li>
-								<li><a href="Logout">Đăng xuất</a></li>
+								<li><a href="./login">Đăng nhập</a></li>
+								<li><a href="./signup">Đăng ký</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div><!-- /.container-fluid -->
 				</nav>
 			</header>
 			<!--/ header end -->
-		</div>
-		
-		<div class="profile">
-			<div class="profile-info">
-				<a class="profile-img">
-					<img src="${pageContext.request.contextPath}/img/user/1.jpg"></img>
-				</a>				
-				<span class="profile-name">
-					<h1>${user.name}</h1>
-				</span>
-				<span class="profile-username text-muted">
-					<p>@${user.username}</p>
-				</span>
-				<span class="profile-email">
-					<p class="text-muted">Email : ${user.email}</p>
-				</span>
-				<span class="profile-balance">
-					<p class="text-muted">Account balance : ${user.balance}</p>
-				</span>
-				<span class="profile-desc">
-					<p>Hey, this is just a short description about myself. Don't read much into it. :)<p>
-				</span>
-				
-			</div>
-			<!-- block for animate navigation menu -->
-			<div class="nav-animate"></div>
-			<div class="profile-activity">
-				<div class="activity-border">
-					<div class="activity-title">
-						<h2>Nhật ký hoạt động</h2>
+			
+			<!-- Padding for navbar -->
+			<div class="pad"></div>
+			
+			<div class="content-wrapper">
+				<!-- Left side-bar -->
+				<div class="left-sidebar-wrapper"></div>
+				<!-- Main content -->
+				<div class="main-content-wrapper">
+					<div class="profile">
+						<div class="profile-head">
+						
+							<div class="profile-name">
+								<div class="profile-fullname">
+									<h1>${user.name}</h1>
+								</div>
+								
+								<div class="profile-username">
+									<span class="text-muted">@${user.username}</span>
+								</div>
+							</div>
+							
+							<div class="profile-img">
+								<img src="${pageContext.request.contextPath}/img/user/1.jpg"></img>
+							</div>
+						</div>
+						
+						<div class="profile-desc">
+							<span>Hey, this is just a short description about myself. Don't read much into it. :)</span>
+						</div>
+						
+						<div class="profile-info">
+							<div class="profile-email">
+								<span class="text-muted">Email : </span>${user.email}
+							</div>
+							<div class="profile-balance">
+								<span class="text-muted">Account balance : </span>${user.balance}
+							</div>
+						</div>
 					</div>
-					<div class="activity-feed">
-						<p>An activity</p>
-					</div>
-					<div class="activity-feed">
-						<p>An activity</p>
-					</div>
-					<div class="activity-feed">
-						<p>An activity</p>
+					<!-- Profile past activity -->
+					<div class="profile-activity">
+						<div class="generic-title">
+							<h2>Nhật ký hoạt động</h2>
+						</div>
+						<div class="generic-content">
+							<div class="generic-list">
+								<div class="feature-item">	
+									<p>An activity</p>
+								</div>
+								<div class="feature-item">	
+									<p>An activity</p>
+								</div>
+								<div class="feature-item">	
+									<p>An activity</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+				<!-- Right side-bar -->
+				<div class="right-sidebar-wrapper"></div>
 			</div>
 		</div>
 		<!-- Javascript files -->

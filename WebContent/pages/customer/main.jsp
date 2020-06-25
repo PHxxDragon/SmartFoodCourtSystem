@@ -9,6 +9,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>SFCS</title>
 		<!-- Styles -->
 		<!-- Bootstrap CSS -->
@@ -33,31 +34,30 @@
 				<div class="container">
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
+							<!-- logo area -->
+							<a class="navbar-brand" href="#home">
+								<!-- logo image -->
+								<img class="img-responsive" src="${pageContext.request.contextPath}/img/logo/logo.png" alt="" />
+							</a>
 							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
+							
 						</div>
 						
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<div class="nav navbar-nav navbar-right">
-								<!-- logo area -->
-								<a class="navbar-brand" href="${pageContext.request.contextPath}">
-									<!-- logo image -->
-									<img class="img-responsive" src="../img/logo/logo.png" alt="" />
-								</a>
-							</div>
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="${pageContext.request.contextPath}/profile">View Profile</a></li>
-								<li><a href="${pageContext.request.contextPath}/viewOrder">View paid order</a></li>
+								<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
+								<li><a href="${pageContext.request.contextPath}/viewOrder">Đơn hàng đã thanh toán</a></li>
 								<li><a href="${pageContext.request.contextPath}/recharge">Nạp tiền</a></li>
 								<li>
 									<a class="h-cart">
-										<button type="submit" id="confirm-order" name="confirmOrder" form="order-cart">
-										<i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></button>
+										<input type="submit" id="confirm-order" name="confirmOrder"
+										value="Giỏ hàng" data-toggle="modal" data-target="#exampleModal"/>
 									</a>
 								</li>
 							</ul>
@@ -66,44 +66,51 @@
 				</nav>
 			</header>
 			<!--/ header end -->
-			<div class="pad"></div>
 			
-			<form name="ItemQuantity" id="order-cart" action="confirmOrderController" method="get">
+			<div class="pad"></div>
+			<form name="ItemQuantity" id="order-cart" action="confirmOrderController">
 			</form>
-			<div class="feature">
-				<div class="nav-animate"></div>
-				<div class="feature-content">
-					<div class="feature-title">
+			<div class="content-wrapper">
+				<div class="left-sidebar-wrapper"></div>
+				<div class="main-content-wrapper">
+					<div class="generic-title">
 						<h2>Meals for today</h2>
 					</div>
-					
-					<div class="feature-list">
-						<c:forEach items="${mealList}" var="meal" varStatus="loop">
-							<div class="feature-item">
-								<div class="feature-img">
-									<a href="#">
-										<img src="<c:url value="/img/food_img/${meal.name}.jpg"/>" alt=""></img>
-									</a>
+					<div class="generic-content">
+						<div class="generic-list">
+							<c:forEach items="${mealList}" var="meal" varStatus="loop">
+								<div class="feature-item">
+									<div class="feature-img">
+										<a href="#">
+											<img src="<c:url value="/img/food_img/${meal.name}.jpg"/>" alt=""></img>
+										</a>
+									</div>
+		
+									<div class="feature-main">
+										<h4><span>${meal.name}</span></h4>
+										<div class="order-quantity">
+											<span class="quantity-title">Số lượng: </span>
+											<input type="text" class="form-control quantity-input" form="order-cart" aria-describedby="input-label"  
+											name="quantity<c:out value="${meal.id}"/>" id="quantity<c:out value="${meal.id}"/>"
+											inputmode="numeric" maxlength="3" value="0" pattern="[0-9]"/>
+										</div>
+										<div class="add-cart-btn">
+											<button form="order-cart" class="btn btn-theme">Thêm vào giỏ</button>
+										</div>	
+									</div>
+									
+									<div class="feature-info">
+										<p>Đơn giá: <span class="text-muted"><c:out value="${meal.price}"/></span></p>
+										<p>Thời gian làm: <span class="text-muted"><c:out value="${meal.eta}"/></span></p>
+										
+									</div>
 								</div>
-								<div class="feature-info">
-									<h4><span class="feature-name">${meal.name}</span></h4>
-									<p>Đơn giá: <span class="text-muted"><c:out value="${meal.price}"/></span></p>
-									<p>Thời gian làm: <span class="text-muted"><c:out value="${meal.eta}"/></span></p>
-								</div>
-								<div class="order-quantity">
-									<span class="quantity-title">Số lượng: </span>
-									<input type="number" class="form-control" form="order-cart" aria-describedby="input-label"  
-									name="quantity<c:out value="${meal.id}"/>" id="quantity<c:out value="${meal.id}"/>"
-									value="0" min="0" max="200"/>
-								</div>
-								<div>
-									<button form="order-cart" class="btn btn-theme add-cart-btn">Thêm vào giỏ</button>
-								</div>	
-							</div>
-						</c:forEach>
+							</c:forEach>
+						</div>
 					</div>
 					
-		  		</div>	
+		  		</div>
+		  		<div class="right-sidebar-wrapper"></div>
 		  	</div>
 		</div>
 		<!-- Javascript files -->
@@ -118,5 +125,5 @@
 		<!-- Custom JS -->
 		<script src="${pageContext.request.contextPath}/js/custom.js"></script>
 	</body>
-=======
+
 </html>
