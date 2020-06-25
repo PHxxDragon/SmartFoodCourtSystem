@@ -75,9 +75,9 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="${pageContext.request.contextPath}/profile">View Profile</a></li>
-							<li><a href="${pageContext.request.contextPath}/viewOrder">View paid order</a></li>
-							<li><a href="${pageContext.request.contextPath}/recharge">Nạp tiền</a></li>
+							<li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Hóa đơn đã đặt</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->

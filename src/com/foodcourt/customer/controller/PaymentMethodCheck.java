@@ -41,22 +41,20 @@ public class PaymentMethodCheck extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		String username = request.getParameter("name");
+		HttpSession session = request.getSession();
+		long userID = (long) session.getAttribute("userID");
 		String bankName = request.getParameter("bankName");
 		String cardNumber = request.getParameter("cardNumber");
 		String password = request.getParameter("password");
 		
-		User user = UserDao.getUserFromUsername(username);
-		
-		HttpSession session = request.getSession();
+		User user = UserDao.getUserFromUserID(userID);
 		
 		Order order = (Order) session.getAttribute("currentOrder");
 		
 		boolean isValid= validify(bankName,cardNumber,password,user); 
 		if (isValid) {
-			UserDao.updateBalance(user.getBalance() - order.getPrice(), username);
-			session.setAttribute("user", UserDao.getUserFromUsername(username));
+			UserDao.updateBalance(user.getBalance() - order.getPrice(), user.getUsername());
+			session.setAttribute("user", UserDao.getUserFromUsername(user.getUsername()));
 			OrderDao.addOrder(order);
 		} else {
 			PrintWriter out = response.getWriter();

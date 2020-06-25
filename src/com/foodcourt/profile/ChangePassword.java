@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.User;
@@ -24,25 +25,25 @@ public class ChangePassword extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("abcc");
 		RequestDispatcher rd = request.getRequestDispatcher("/changepasswordJSP");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
+		HttpSession session = request.getSession();
+		long userID = (long) session.getAttribute("userID");
+		User user = UserDao.getUserFromUserID(userID);
 		String oldpassword = request.getParameter("oldpassword");
 		String newpassword = request.getParameter("newpassword");
-		System.out.println("aaaa");
-		User user = UserDao.getUserFromUsername(username);
 		
-		if (!verify(username, oldpassword, user)) {
+		if (!verify(user.getUsername(), oldpassword, user)) {
 			//redirect to login
-			response.sendRedirect("changepasswordJSP");
+			response.sendRedirect("/main");
 			return;
 		}	
-		UserDao.changePasswordFromUsername(username,newpassword);
-		response.sendRedirect("profile");
+		
+		UserDao.changePasswordFromUsername(user.getUsername(),newpassword);
+		response.sendRedirect("/main");
 		return;
 		
 		

@@ -133,10 +133,10 @@
   <servlet-mapping>
   	<servlet-name>signupsuccess</servlet-name>
   	<url-pattern>/signupsuccess</url-pattern>
-  	  </servlet-mapping>
+  </servlet-mapping>
   	  
   	  
-	<servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>home</servlet-name>
   	<url-pattern></url-pattern>
   </servlet-mapping>
@@ -161,7 +161,7 @@
   	<servlet-name>digitalSlip</servlet-name>
   	<jsp-file>/pages/customer/digital_slip.jsp</jsp-file>
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>digitalSlip</servlet-name>
   	<url-pattern>/customer/digitalSlip</url-pattern>
   </servlet-mapping>

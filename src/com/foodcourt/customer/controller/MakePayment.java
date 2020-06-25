@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.User;
 
@@ -34,7 +35,8 @@ public class MakePayment extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		long userID = (long) session.getAttribute("userID");
+		User user = UserDao.getUserFromUserID(userID);
 		//Order order= (Order) request.getAttribute("order");
 		//long balance = user.getBalance();
 		//long price = order.getPrice();

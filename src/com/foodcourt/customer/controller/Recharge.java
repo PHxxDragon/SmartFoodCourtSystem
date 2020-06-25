@@ -31,14 +31,11 @@ public class Recharge extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		long userID = (long) session.getAttribute("userID");
+		User user = UserDao.getUserFromUserID(userID);
 		int money = Integer.parseInt(request.getParameter("money"));
 		UserDao.updateBalance(user.getBalance() + money, user.getUsername());
-		session.setAttribute("user", UserDao.getUserFromUsername(user.getUsername()));
-		//UserDao userDao = new UserDao();
-		//TODO add money to database
 		response.sendRedirect(request.getContextPath()+ "/profile");
 	}
 
