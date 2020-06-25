@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.OrderDao;
+import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.User;
 
@@ -26,7 +27,8 @@ public class PaidOrderController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		long userID = (long) session.getAttribute("userID");
+		User user = UserDao.getUserFromUserID(userID);
 		List<Order> paidOrders = OrderDao.getOrdersByUserId(user.getUserID());
 		request.setAttribute("PaidOrders", paidOrders);
 		RequestDispatcher rd = request.getRequestDispatcher("/customer/view_paidorderJSP");

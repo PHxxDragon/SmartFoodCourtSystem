@@ -14,33 +14,24 @@
 <h1>This is confirm order page</h1>
 	<table>
 			<tr>
-				<td><c:out value="Order ID : ${currentOrder.orderID}"/></td>
-				<td><c:out value="User ID : ${currentOrder.userID}" /> </td>
-				<td><c:out value="Vendor ID : ${currentOrder.saleVendorID}" /> </td>
-				<td><c:out value="Eta : ${currentOrder.eta}" /> </td>
-				<td><c:out value="Price : ${currentOrder.price}" /> </td>
-				
-				<td>
-				<form action="purchaseInfoController" method="get">
-					<button type="submit" name="purcharse" value="${currentOrder.orderID}">Make Payment</button>
-				</form> 
-				</td>
+				<td><c:out value="Eta : ${shoppingCart.eta}" /> </td>
+				<td><c:out value="Price : ${shoppingCart.price}" /> </td>
 			</tr>
 		
 		<tr>
-			<td colspan=4> 
+			<td colspan=2> 
 			<table>
-				<c:forEach items = "${currentOrder.orderEntries}" var="entry">
+				<c:forEach items = "${shoppingCart.orderEntries}" var="entry" varStatus="loop">
 				<tr>
-					<td><c:out value="Name: ${entry.meal.name}" /> </td>
-					<td><c:out value="Meal ID: ${entry.meal.id}" /> </td>
-					<td><c:out value="Meal Price: ${entry.meal.price}" /> </td>
-					<td><c:out value="Meal quantity: ${entry.quantity}" /> </td>
+					<td><c:out value="Tên món ăn : ${entry.meal.name}" /> </td>
+					<td><c:out value="Gia : ${entry.meal.price}" /> </td>
+					<td><c:out value="So luong: ${entry.quantity}" /> </td>
 				</tr>
 				</c:forEach>
 			</table>
 			</td>
 		</tr>
 		</table>
+		<a href="${pageContext.request.contextPath}/customer/purchaseController">Thanh toán</a>
 	</body>
 </html>

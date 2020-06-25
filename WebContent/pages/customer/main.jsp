@@ -23,15 +23,16 @@
 		<!-- Custom CSS -->
 		<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/css/style-color.css" rel="stylesheet">
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/customer/main.js"></script>
 	</head>	
 	<body>
-
+	
 		<div id="customer-main" class="wrapper">
 			<!-- header area -->
 			<header>
 				<!-- primary menu -->
 				<nav class="navbar navbar-fixed-top navbar-default">
-				<div class="container">
+					<div class="container">
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
 							<!-- logo area -->
@@ -108,7 +109,6 @@
 							</c:forEach>
 						</div>
 					</div>
-					
 		  		</div>
 		  		<div class="right-sidebar-wrapper"></div>
 		  	</div>
@@ -125,5 +125,4 @@
 		<!-- Custom JS -->
 		<script src="${pageContext.request.contextPath}/js/custom.js"></script>
 	</body>
-
 </html>

@@ -13,6 +13,9 @@
 		<form action="MakeReportJSP" method="get" id="download_form">
 			<button id="btn_make_report" type="submit">Make report</button>
 		</form>
+		<form action="<%=request.getContextPath()%>/Logout" method="get">
+		<button type="submit" value="Logout" name="Logout">Đăng xuất</button>
+	</form>
 	</div>
 </body>
 </html>

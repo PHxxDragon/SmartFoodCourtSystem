@@ -3,6 +3,7 @@ package com.foodcourt.common.dao;
 import java.util.List;
 
 import com.foodcourt.common.database.UserData;
+import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.User;
 
 public class UserDao {
@@ -30,5 +31,11 @@ public class UserDao {
     }
 	public static void changePasswordFromUsername(String username,String newpassword) {
         UserData.getInstance().changePasswordFromUsername(username,newpassword);
+	}
+	public static void addMeal(long userID, long mealID) {
+		UserData.getInstance().addMeal(userID, mealID);
+	}
+	public static void updateCart(long userID, Order shoppingCart) {
+		UserData.getInstance().updateCart(userID, shoppingCart);
 	}
 }

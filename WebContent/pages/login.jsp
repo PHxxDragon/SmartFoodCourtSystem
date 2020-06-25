@@ -34,6 +34,7 @@
 				</div>
 				<form action="authentication" id="login_form" method="post">
 					<!-- form field-->
+					
 					<div class="form-group">
 						<label class="control-label" for="username">Tên đăng nhập</label>
 						<input class="form-control" type="text" id="username" name="username" required>
@@ -46,9 +47,15 @@
 							Mật khẩu của bạn phải dài từ 4-20 kí tự.
 						</small>
 					</div>
+					<%
+                String login_msg=(String)request.getAttribute("error");  
+                if(login_msg!=null)
+                 out.println("<font color=red size=4px>"+login_msg+"</font>");
+                  %>
 					<div class="form-group text-center">
 						<button type="submit" class="btn btn-theme btn-lg">Đăng nhập</button>
 					</div>
+					
 				</form>
 				<div class="other-opts">
 					<a id="forgot-pass" href="#">

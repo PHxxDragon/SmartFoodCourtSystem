@@ -35,11 +35,6 @@
 				<form action="changepassword" id="login_form" method="post">
 					<!-- form field-->
 					<div class="form-group">
-						<label class="control-label" for="username">Tên đăng nhập</label>
-						<input class="form-control" type="text" id="username" name="username" required>
-					</div>
-
-					<div class="form-group">
 						<label class="control-label" for="oldpassword">Mật khẩu cũ</label>
 						<input class="form-control" type="password" id="oldpassword" name="oldpassword" minlength="4" maxlength="20" required>
 						<small id="passwordHelpInline" class="form-text text-muted">
@@ -56,8 +51,14 @@
 					<div class="form-group text-center">
 						<button type="submit" class="btn btn-theme btn-lg">Xác nhận</button>
 					</div>
+				
 				</form>
-
+             <div class="other-opts">
+					<a id="cancel" href="./view_profileJSP">
+						<span>Hủy bỏ</span>
+					</a>
+					
+				</div>
 			</div>
 			
 		</div>

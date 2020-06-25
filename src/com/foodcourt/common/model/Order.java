@@ -4,36 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-	public static class OrderEntry {
-		private Meal meal;
-		private int quantity;
-		
-		public OrderEntry() {
-			
-		}
-	
-		public OrderEntry(OrderEntry orderEntry) {
-			this.meal = new Meal(orderEntry.meal);
-			this.quantity = orderEntry.quantity;
-		}
-
-		public Meal getMeal() {
-			return meal;
-		}
-
-		public void setMeal(Meal meal) {
-			this.meal = meal;
-		}
-
-		public int getQuantity() {
-			return quantity;
-		}
-
-		public void setQuantity(int quantity) {
-			this.quantity = quantity;
-		}
-	}
-	
 	private long orderID;
 	private long userID;
 	private long saleVendorID;
@@ -42,6 +12,7 @@ public class Order {
 	private long price;
 	
 	public Order() {
+		orderEntries = new ArrayList<OrderEntry>();
 	}
 	
 	public Order(Order order) {
@@ -96,6 +67,9 @@ public class Order {
 	public void setPrice(long price) {
 		this.price = price;
 	}
-	
+
+	public void setOrderID(long orderID) {
+		this.orderID = orderID;
+	}
 	
 }
