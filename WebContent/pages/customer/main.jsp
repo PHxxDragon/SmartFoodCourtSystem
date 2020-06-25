@@ -9,6 +9,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>SFCS</title>
 		<!-- Styles -->
 		<!-- Bootstrap CSS -->
@@ -31,22 +32,20 @@
 			<!-- secondary menu -->
 			<nav class="secondary-menu">
 				<div class="container">
-					<!-- secondary menu left link area -->
-					<div class="sm-left">
-						<!-- logo area -->
-						<a class="nav-brand" href="${pageContext.request.contextPath}">
-							<!-- logo image -->
-							<img class="img" src="${pageContext.request.contextPath}/img/logo/logo.png" alt="" />
-						</a>
-					</div>
-					<!-- secondary menu right link area -->
-					<div class="sm-right">
-						<!-- social link -->
-						<div class="sm-social-link">
-							<a class="h-facebook" href="https://www.facebook.com"><i class="fa fa-facebook fa-lg"></i></a>
-							<a class="h-twitter" href="https://www.twitter.com"><i class="fa fa-twitter fa-lg"></i></a>
-							<a class="h-instagram" href="https://www.instagram.com"><i class="fa fa-instagram fa-lg"></i></a>
-							<a class="h-google" href="https://www.google.com"><i class="fa fa-google fa-lg"></i></a>
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<!-- logo area -->
+							<a class="navbar-brand" href="#home">
+								<!-- logo image -->
+								<img class="img-responsive" src="${pageContext.request.contextPath}/img/logo/logo.png" alt="" />
+							</a>
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							
 						</div>
 					</div>
 				</div>
@@ -63,61 +62,77 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						
-					</div>
-					<div class="hidden-icon hide">
-						<!-- logo area -->
-						<a class="navbar-brand" href="${pageContext.request.contextPath}">
-							<!-- logo image -->
-							<img class="img-responsive" src="../img/logo/logo.png" alt="" />
-						</a>
-					</div>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã đặt</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
-						</ul>
-					</div><!-- /.navbar-collapse -->
-				</div><!-- /.container-fluid -->
-			</nav>
-		</header>
-		<!--/ header end -->
-	</div>
-	<div class="feature">
-		<div class="feature-content">
-			<div class="feature-title">
-				<h2>Meals for today</h2>
-			</div>
-			<div class="feature-table">
-				<table class="feature-content-table"> 
-			         <tr bgcolor="00FF7F"> 
-			          <th><b>Name</b></th> 
-			          <th><b>ID</b></th> 
-			          <th><b>Price</b></th>
-			          <th><b>ETA</b></th>
-			          <th class="illustration"><b>Illustration</b></th>
-			          <th><b>Quantity</b></th>
-			         </tr>  
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
+								<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
+								<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
+								<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			</header>
+			<!--/ header end -->
 			
-					<c:forEach items="${mealList}" var="meal" varStatus="loop">
-			            <tr> 
-			                <td>${meal.name}</td> 
-			                <td>${meal.id}</td> 
-			                <td>${meal.price}</td> 
-			                <td>${meal.eta}</td>
-			                <td><img src="<c:url value='/img/food_img/${meal.name}.jpg'/>"  width="100px" height =100px/></td>
-			                <td><Button onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)" value="Add">Add to shopping cart</Button></td>    
-			            </tr> 
-			          </c:forEach>
-			    </table> 
-			    <div>
-				<a href="${pageContext.request.contextPath}/customer/confirmOrderController">Xác nhận đơn hàng</a>
-				</div>
-			</div> 
-			</div>
-	  	</div> 
-</body>
+			<div class="pad"></div>
+			<form name="ItemQuantity" id="order-cart" action="confirmOrderController">
+			</form>
+			<div class="content-wrapper">
+				<div class="left-sidebar-wrapper"></div>
+				<div class="main-content-wrapper">
+					<div class="generic-title">
+						<h2>Meals for today</h2>
+					</div>
+					<div class="generic-content">
+						<div class="generic-list">
+							<c:forEach items="${mealList}" var="meal" varStatus="loop">
+								<div class="feature-item">
+									<div class="feature-img">
+										<a href="#">
+											<img src="<c:url value="/img/food_img/${meal.name}.jpg"/>" alt=""></img>
+										</a>
+									</div>
+		
+									<div class="feature-main">
+										<h4><span>${meal.name}</span></h4>
+										<div class="order-quantity">
+											<span class="quantity-title">Số lượng: </span>
+											<input type="text" class="form-control quantity-input" form="order-cart" aria-describedby="input-label"  
+											name="quantity<c:out value="${meal.id}"/>" id="quantity<c:out value="${meal.id}"/>"
+											inputmode="numeric" maxlength="3" value="0" pattern="[0-9]"/>
+										</div>
+										<div class="add-cart-btn">
+											<button onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)" class="btn btn-theme">Thêm vào giỏ</button>
+										</div>	
+									</div>
+									
+									<div class="feature-info">
+										<p>Đơn giá: <span class="text-muted"><c:out value="${meal.price}"/></span></p>
+										<p>Thời gian làm: <span class="text-muted"><c:out value="${meal.eta}"/></span></p>
+										
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+					
+		  		</div>
+		  		<div class="right-sidebar-wrapper"></div>
+		  	</div>
+		</div>
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- Include js plugin -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+		<!-- WayPoints JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+		<!-- Custom JS -->
+		<script src="${pageContext.request.contextPath}/js/custom.js"></script>
+	</body>
+	
 </html>

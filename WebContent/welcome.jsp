@@ -32,35 +32,16 @@
 		<div id="home" class="wrapper">
 			<!-- header area -->
 			<header>
-				<!-- secondary menu -->
-				<nav class="secondary-menu">
-					<div class="container">
-						<!-- secondary menu left link area -->
-						<div class="sm-left">
-							<!-- logo area -->
-							<a class="nav-brand" href="#home">
-								<!-- logo image -->
-								<img class="img" src="img/logo/logo.png" alt="" />
-							</a>
-						</div>
-						<!-- secondary menu right link area -->
-						<div class="sm-right">
-							<!-- social link -->
-							<div class="sm-social-link">
-								<a class="h-facebook" href="https://www.facebook.com"><i class="fa fa-facebook fa-lg"></i></a>
-								<a class="h-twitter" href="https://www.twitter.com"><i class="fa fa-twitter fa-lg"></i></a>
-								<a class="h-instagram" href="https://www.instagram.com"><i class="fa fa-instagram fa-lg"></i></a>
-								<a class="h-google" href="https://www.google.com"><i class="fa fa-google fa-lg"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</nav>
 				<!-- primary menu -->
 				<nav class="navbar navbar-fixed-top navbar-default">
 				<div class="container">
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
+							<!-- logo area -->
+							<a class="navbar-brand" href="#home">
+								<!-- logo image -->
+								<img class="img-responsive" src="${pageContext.request.contextPath}/img/logo/logo.png" alt="" />
+							</a>
 							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
@@ -69,13 +50,7 @@
 							</button>
 							
 						</div>
-						<div class="hidden-icon hide">
-							<!-- logo area -->
-							<a class="navbar-brand" href="#home">
-								<!-- logo image -->
-								<img class="img-responsive" src="img/logo/logo.png" alt="" />
-							</a>
-						</div>
+						
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
@@ -87,7 +62,8 @@
 				</nav>
 			</header>
 			<!--/ header end -->
-		
+			
+			<div class="pad"></div>
 		
 			<!-- banner area -->
 			<div class="banner">
