@@ -37,6 +37,7 @@
 	        var bg = $(this).data('setbg');
 	        $(this).css('background-image', 'url(' + bg + ')');
 	    });
+
     });
 
     //Humberger Menu
@@ -212,13 +213,65 @@
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below zero
-            if (oldValue > 0) {
+            if (oldValue > 1) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
-                newVal = 0;
+                newVal = 1;
             }
         }
         $button.parent().find('input').val(newVal);
+
+		// Change total item value
+		var currentNode = $button[0];
+		// qtybtn -> pro-qty -> quantity -> shoping__cart__quantity -> shoping__cart__list
+		var topItemNode = currentNode.parentNode.parentNode.parentNode.parentNode;
+		updateItemPrice(topItemNode);
+		updateCartPrice(topItemNode.parentNode)
     });
+		
+	/*-------------------
+		Initialize price
+	--------------------- */
+	$(function () {
+		var topItemNode = document.querySelectorAll(".shoping__cart__list");
+		console.log(topItemNode);
+		if (topItemNode === null || topItemNode.length <= 0) {
+			
+			document.getElementById("cart-total-price").innerText = 0 + "\u20AB";
+			return;
+		}
+		for (var i = 0; i < topItemNode[0].parentNode.childElementCount; i++){
+			updateItemPrice(topItemNode[i]);
+		}
+		updateCartPrice(topItemNode[0].parentNode);
+	});
+	
+	/*-------------------
+		Remove cart item
+	--------------------- */
+	var cartList = $('.shoping__cart__list');
+	cartList.on('click', '.icon_close', function() {
+		var $close = $(this);
+		$close.parent().parent().remove();
+		var node = document.querySelector(".shoping__cart__list");
+		updateCartPrice(node.parentNode);
+	});
+	
+	// Update price function
+	function updateItemPrice(node){
+		var proPrice = parseInt(node.querySelector("#item-price").innerText);
+		var proQty = node.querySelector("#item-quantity").value;
+		var totalPrice = proPrice * proQty;
+		node.querySelector("#item-total-price").innerText = totalPrice;
+	}
+	
+	function updateCartPrice(topNode){
+		var sumPrice = 0;
+		for (var i = 0; i < topNode.childElementCount; i++){
+			sumPrice += parseInt(topNode.children[i].querySelector("#item-total-price").innerText);
+		}
+		document.getElementById("cart-total-price").innerText = sumPrice.toString();
+	}
+	
 
 })(jQuery);

@@ -54,7 +54,7 @@
 						</small>
 					</div>
 					<div class="form-group text-center">
-						<button type="submit" class="btn btn-theme btn-lg">Tạo tài khoản</button>
+						<button type="submit" class="site-btn">Tạo tài khoản</button>
 					</div>
 				</form>
 				<div class="other-opts">

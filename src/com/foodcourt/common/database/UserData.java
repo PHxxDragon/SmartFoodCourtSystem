@@ -2,6 +2,9 @@ package com.foodcourt.common.database;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import com.foodcourt.common.UserType;
 import com.foodcourt.common.dao.MealDao;

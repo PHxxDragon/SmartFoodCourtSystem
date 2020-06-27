@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.UserDao;
+import com.foodcourt.common.dao.MealDao;
+import com.foodcourt.common.model.Meal;
 
 /**
  * Servlet implementation class ShoppingCart
@@ -21,13 +23,28 @@ public class ShoppingCartController extends HttpServlet {
 	private void addMeal (long userID, long mealID) {
 		UserDao.addMeal(userID, mealID);
 	}
+	private void updateCart (long userID, Meal meal) {
+		
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String para = request.getParameter("mealID");
+		long mealID;
+		int quantity;
+		String tempMealID, tempQuantity, para;
+		int count = 0;
+		while (true) {
+			tempMealID = request.getParameter("mealID" + Integer.toString(count));
+			tempQuantity = request.getParameter("getQuantity" + Integer.toString(count));
+			if (tempMealID == null || !tempMealID.isEmpty() || tempQuantity == null || !tempQuantity.isEmpty())
+				break;
+			mealID = Long.parseLong(tempMealID);
+			quantity = Integer.parseInt(tempQuantity);
+		}
+		para = request.getParameter("mealID");
 		if (para == null) {
 			return;
 		} else {
-			long mealID = Long.parseLong(para);
+			mealID = Long.parseLong(para);
 			HttpSession session = request.getSession();
 			long userID = (long) session.getAttribute("userID");
 			addMeal (userID, mealID);

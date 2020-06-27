@@ -1919,6 +1919,10 @@ ol {
 .shoping__cart__table table tbody tr td.shoping__cart__item img {
 	display: inline-block;
 	margin-right: 25px;
+	object-fit: fill;
+	width: 150px;
+	height: 150px;
+	border-radius: 10px;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item h5 {
@@ -2053,10 +2057,16 @@ ol {
 	margin-bottom: 0;
 }
 
-.shoping__checkout ul li span {
+.shoping__checkout ul li .shoping__checkout__total {
 	font-size: 18px;
 	color: #dd2222;
+	text-align: right;
 	float: right;
+}
+
+.shoping__checkout ul li .shoping__checkout__total span {
+	display: inline-block;
+	position: relative
 }
 
 .shoping__checkout .primary-btn {
