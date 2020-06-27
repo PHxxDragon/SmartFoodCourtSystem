@@ -57,12 +57,12 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="">Trang chủ</a></li>
-                <li><a href="./shop-grid.html">Cửa hàng</a></li>
-				<li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
+	            <li><a href="">Trang chủ</a></li>
+				<li><a href="./shop-grid.html">Cửa hàng</a></li>
+				<li  class="active"><a href="">Giỏ hàng</a></li>
 				<li><a href="./checkout.html">Thanh toán</a></li>
-                <li><a href="./contact.html">Liên hệ</a></li>
-            </ul>
+				<li><a href="./contact.html">Liên hệ</a></li>
+        	</ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
@@ -121,10 +121,10 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="">Trang chủ</a></li>
+                            <li><a href="">Trang chủ</a></li>
 							<li><a href="./shop-grid.html">Cửa hàng</a></li>
 							<li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
-							<li><a href="${pageContext.request.contextPath}/checkout">Thanh toán</a></li>
+							<li class="active"><a href="">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
@@ -146,8 +146,8 @@
     </header>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero">
+	<!-- Hero Section Begin -->
+    <section class="hero hero-normal">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -193,185 +193,118 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-                        <div class="hero__text">
-                            <span>MÓN MỚI</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Miễn phí giao hàng</p>
-                            <a href="#" class="primary-btn">ĐẶT NGAY</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Hero Section End -->
-
-    <!-- Categories Section Begin -->
-    <section class="categories">
+    
+     <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
-                <div class="categories__slider owl-carousel">
-					<c:forEach items="${mealList}" var="meal" varStatus="loop">
-						<div class="col-lg-3">
-							<div class="categories__item set-bg" data-setbg=
-							"${pageContext.request.contextPath}/img/product/food_img/product-${meal.id}.jpg">
-								<h5><a href="#">Món hay ăn</a></h5>
-							</div>
-						</div>
-					</c:forEach>
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Thanh toán</h2>
+                        <div class="breadcrumb__option">
+                            <a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a>
+                            <span>Thanh toán</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Categories Section End -->
-
-    <!-- Featured Section Begin -->
-    <section class="featured spad">
+    <!-- Breadcrumb Section End -->
+    
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Featured Product</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".breakfast">Bữa sáng</li>
-                            <li data-filter=".lunch">Bữa trưa</li>
-                            <li data-filter=".dinner">Bữa tối</li>
-                            <li data-filter=".drinks">Nước uống</li>
-                        </ul>
-                    </div>
+                    <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
+                    </h6>
                 </div>
             </div>
-            <div class="row featured__filter">
-            	<c:forEach items="${mealList}" var="meal" varStatus="loop">
-                	<div class="col-lg-3 col-md-4 col-sm-6 mix breakfast fresh-meat">
-	                    <div class="featured__item">
-	                        <div class="featured__item__pic set-bg" data-setbg=
-	                        "${pageContext.request.contextPath}/img/product/food_img/product-${meal.id}.jpg">
-	                            <ul class="featured__item__pic__hover">
-	                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-	                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-	                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-	                            </ul>
-	                        </div>
-							<div class="featured__item__text">
-								<h6><a href="#">${meal.name}</a></h6>
-								<h5>${meal.price} &#8363;</h5>
-							</div>	
-	                    </div>
-               	 	</div>
-                 </c:forEach>
+            <div class="checkout__form">
+                <h4>Phương thức thanh toán</h4>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                               	<div class="checkout__method">
+	                            	<div class="checkout__radio__btn">
+	                            		<input type="radio" id="momo" name="payment-method">
+	                            	</div>
+	                            	<div class="checkout__method__img">
+	                            		<img src="${pageContext.request.contextPath}/img/payment/momo.png" >
+	                            	</div>
+	                            	<div class="checkout__method__content">
+	                            		<span>Thanh toán bằng Ví MoMo</span>
+	                            	</div>
+                            	</div>
+                            	<div class="checkout__method">
+	                            	<div class="checkout__radio__btn">
+	                            		<input type="radio" id="zalo-pay" name="payment-method">
+	                            	</div>
+	                            	<div class="checkout__method__img">
+	                            		<img src="${pageContext.request.contextPath}/img/payment/zalo-pay.png" >
+	                            	</div>
+	                            	<div class="checkout__method__content">
+	                            		<span>Thanh toán bằng Ví ZaloPay</span>
+	                            	</div>
+                            	</div>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Ghi chú</p>
+                                <input type="text"
+                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h4>Hóa đơn đặt món</h4>
+                                <div class="checkout__order__products">Món ăn <span>Đơn giá</span></div>
+                                <ul>
+                                    <li> 
+                                    	Vegetable’s Package
+                                    	<div class="checkout__order__price">
+                                    		<span>151.99</span><span>&#8363;</span>
+                                    	</div>
+                                    </li>
+                                    <li>
+                                    	Fresh Vegetable
+                                    	<div class="checkout__order__price">
+                                    		<span>151.99</span><span>&#8363;</span>
+                                    	</div>
+                                    </li>
+                                    <li>
+                                    	Organic Bananas
+                                    	<div class="checkout__order__price"> 
+                                    		<span>53.99</span><span>&#8363;</span>
+                                    	</div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                	<li>
+		                                <div class="checkout__order__total">
+		                                	Tổng cộng 
+		                                	<div class="checkout__order__price">
+		                                		<span>750.99</span><span>&#8363;</span>
+		                                	</div>
+		                                </div>
+                                	</li>
+                                </ul>
+                                <button type="submit" class="site-btn">ĐẶT MÓN</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
-    <!-- Featured Section End -->
-
-    <!-- Banner Begin -->
-    <div class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="img/banner/banner-1.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="img/banner/banner-2.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Banner End -->
-
-    <!-- Latest Product Section Begin -->
-    <section class="latest-product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Mới nhất</h4>
-                        <div class="latest-product__slider owl-carousel">
-                        	<c:forEach var="idx" varStatus="" begin="0" end="1">
-                        		<c:set var="begin_loop_idx" value="${idx * 3}"/>
-                        		<c:set var="end_loop_idx" value="${idx * 3 + 2}"/>
-	                            <div class="latest-prdouct__slider__item">
-	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
-		                                <a href="#" class="latest-product__item">
-		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/latest-product/lp-${meal.id}.jpg"
-		                                        alt="">
-		                                    </div>
-		                                    <div class="latest-product__item__text">
-		                                        <h6>${meal.name}</h6>
-		                                        <span>${meal.price} &#8363;</span>
-		                                    </div>
-		                                </a>
-	                                </c:forEach>
-	                            </div>		
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Đánh giá cao nhất</h4>
-                        <div class="latest-product__slider owl-carousel">
-                        	<c:forEach var="idx" varStatus="" begin="0" end="1">
-                        		<c:set var="begin_loop_idx" value="${idx * 3}"/>
-                        		<c:set var="end_loop_idx" value="${idx * 3 + 2}"/>
-	                            <div class="latest-prdouct__slider__item">
-	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
-		                                <a href="#" class="latest-product__item">
-		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/latest-product/lp-${meal.id}.jpg"
-		                                        alt="">
-		                                    </div>
-		                                    <div class="latest-product__item__text">
-		                                        <h6>${meal.name}</h6>
-		                                        <span>${meal.price} &#8363;</span>
-		                                    </div>
-		                                </a>
-	                                </c:forEach>
-	                            </div>		
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Được đề cử</h4>
-                        <div class="latest-product__slider owl-carousel">
-                        	<c:forEach var="idx" varStatus="" begin="0" end="1">
-                        		<c:set var="begin_loop_idx" value="${idx * 3}"/>
-                        		<c:set var="end_loop_idx" value="${idx * 3 + 2}"/>
-	                            <div class="latest-prdouct__slider__item">
-	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
-		                                <a href="#" class="latest-product__item">
-		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/latest-product/lp-${meal.id}.jpg"
-		                                        alt="">
-		                                    </div>
-		                                    <div class="latest-product__item__text">
-		                                        <h6>${meal.name}</h6>
-		                                        <span>${meal.price} &#8363;</span>
-		                                    </div>
-		                                </a>
-	                                </c:forEach>
-	                            </div>		
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Latest Product Section End -->
-
+    <!-- Checkout Section End -->
+	
     <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">

@@ -2115,6 +2115,43 @@ ol {
 	column-rule: #b2b2b2;
 }
 
+.checkout__method {
+	display: flex;
+	flex-flow: row;
+	align-items: baseline;
+	width: 100%;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #e1e1e1;
+	border-radius: 4px;
+}
+
+.checkout__method > * {
+	margin: 10px;
+}
+
+.checkout__method .checkout__radio__btn input {
+	cursor: pointer;
+}
+
+.checkout__method .checkout__method__img img {
+	width: 100px;
+	height: 100px;
+	object-fit: fill;
+}
+
+.checkout__method .checkout__method__content {
+	font-size: 16px;
+	color: #1c1c1c;
+  	font-weight: 600;
+}
+
+.checkout__method .checkout__method__content {
+	font-size: 16px;
+	color: #1c1c1c;
+  	font-weight: 600;
+}
+
 .checkout__input {
 	margin-bottom: 24px;
 }
@@ -2234,9 +2271,15 @@ ol {
 	list-style: none;
 }
 
+.checkout__order__price {
+	text-align: right;
+	float: right;
+}
+
 .checkout__order ul li span {
 	font-weight: 700;
-	float: right;
+	display: inline-block;
+	position: relative
 }
 
 .checkout__order .checkout__order__subtotal {
@@ -2251,7 +2294,8 @@ ol {
 }
 
 .checkout__order .checkout__order__subtotal span {
-	float: right;
+	display: inline-block;
+	position: relative
 }
 
 .checkout__order .checkout__input__checkbox label {
@@ -2267,9 +2311,10 @@ ol {
 	margin-bottom: 25px;
 }
 
-.checkout__order .checkout__order__total span {
-	float: right;
+.checkout__order .checkout__order__total .checkout__order__price span {
 	color: #dd2222;
+	display: inline-block;
+	position: relative
 }
 
 .checkout__order button {
