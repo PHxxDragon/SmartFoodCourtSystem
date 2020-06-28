@@ -1,36 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Đăng nhập vào SCFS</title>
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Styles -->
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
-		<!-- Animate CSS -->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
-		<!-- Basic stylesheet -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
-		<!-- Font awesome CSS -->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">		
-		<!-- Custom CSS -->
-		<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
-		<link href="${pageContext.request.contextPath}/css/style-color.css" rel="stylesheet">
-		
+		<meta name="description" content="Ogani Template">
+	    <meta name="keywords" content="Ogani, unica, creative, html">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    
+	    <title>Đăng nhập vào SCFS</title>
+		<!-- Google Font -->
+	    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+	
+	    <!-- Css Styles -->
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css">
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css" type="text/css">
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/elegant-icons.css" type="text/css">
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/nice-select.css" type="text/css">
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery-ui.min.css" type="text/css">
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.min.css" type="text/css">
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slicknav.min.css" type="text/css">
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
+			
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo/favicon.ico">
 	</head>
 	<body>
-
-		<div class="form-window">
-			<!-- form content -->
-			<div class="form-content animated fadeInUp">
-				<!-- form title -->
+		<!-- Page Preloder -->
+    	<div id="preloder">
+        	<div class="loader"></div>
+    	</div>	
+    	<!-- Login form -->
+		<section class="form-window">
+			<div class="form-content">
 				<div class="form-title">
-					<h1>Đăng nhập vào SFCS</h1>
+					<h2>Đăng nhập vào SFCS</h2>
 				</div>
 				<form action="authentication" id="login_form" method="post">
 					<!-- form field-->
@@ -47,38 +54,44 @@
 							Mật khẩu của bạn phải dài từ 4-20 kí tự.
 						</small>
 					</div>
+					<!--
+					<c:if var="login_error" scope="session" value>
+					</c:if>
+					-->
 					<%
                 String login_msg=(String)request.getAttribute("error");  
                 if(login_msg!=null)
                  out.println("<font color=red size=4px>"+login_msg+"</font>");
                   %>
 					<div class="form-group text-center">
-						<button type="submit" class="btn btn-theme btn-lg">Đăng nhập</button>
+						<button type="submit" class="site-btn">Đăng nhập</button>
 					</div>
 					
 				</form>
 				<div class="other-opts">
-					<a id="forgot-pass" href="#">
-						<span>Quên mật khẩu</span>
-					</a>
+					<span>
+						<a id="forgot-pass" href="#">
+							Quên mật khẩu
+						</a>
+					</span>
 					<span>·</span>
-					<a id="sign-up" href="./signup">
-						<span>Đăng ký tài khoản SFCS</span>
-					</a>
+					<span>
+						<a id="sign-up" href="./signup">
+							Đăng ký tài khoản SFCS
+						</a>
+					</span>
 				</div>
 			</div>
 			
-		</div>
-		<!-- Javascript files -->
-		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-		<!-- Bootstrap JS -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<!-- Include js plugin -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-		<!-- WayPoints JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-		<!-- Custom JS -->
-		<script src="${pageContext.request.contextPath}/js/custom.js"></script>
+		</section>
+		<!-- Js Plugins -->
+	    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+	    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	    <script src="${pageContext.request.contextPath}/js/jquery.nice-select.min.js"></script>
+	    <script src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
+	    <script src="${pageContext.request.contextPath}/js/jquery.slicknav.js"></script>
+	    <script src="${pageContext.request.contextPath}/js/mixitup.min.js"></script>
+	    <script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
+	    <script src="${pageContext.request.contextPath}/js/main.js"></script>
 	</body>
 </html>

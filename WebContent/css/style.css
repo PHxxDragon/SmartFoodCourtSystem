@@ -2665,6 +2665,56 @@ ol {
 }
 
 /*---------------------
+  Login, sign-up form
+-----------------------*/
+
+.form-window {
+	min-height: 100vh;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-content {
+	display: flex;
+	flex-flow: column;
+	align-content: center;
+	max-width: 700px;
+}
+
+.form-content > * {
+	margin-bottom: 10px;
+	width: 100%;
+	padding: 10px;
+}
+
+.form-content .form-title h2 {
+	color: #1c1c1c;
+	font-size: 46px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.form-content .other-opts {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+}
+
+.form-content .other-opts > * {
+	font-size: 16px;
+	color: #6f6f6f;
+	margin: 2px;
+}
+
+.form-content .other-opts span a:hover {
+	color: #6f6f6f;
+	text-decoration: underline;
+}
+
+
+/*---------------------
   Footer
 -----------------------*/
 

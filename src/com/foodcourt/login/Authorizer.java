@@ -33,7 +33,7 @@ public class Authorizer extends HttpServlet {
 			request.setAttribute("error","Tên đăng nhập hoặc mật khẩu không chính xác");
 			RequestDispatcher rd=request.getRequestDispatcher("/login");            
 			rd.forward(request, response);
-			//response.sendRedirect("login");
+			response.sendRedirect("login");
 			return;
 		}	
 		
