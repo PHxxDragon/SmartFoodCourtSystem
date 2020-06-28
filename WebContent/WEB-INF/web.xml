@@ -89,7 +89,14 @@
   	<url-pattern>/customer/view_cartJSP</url-pattern>
   </servlet-mapping>
   
-  
+  <servlet>
+  	<servlet-name>item-detail</servlet-name>
+  	<jsp-file>/pages/customer/item_detail.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>item-detail</servlet-name>
+  	<url-pattern>/customer/item_detailJSP</url-pattern>
+  </servlet-mapping>
   
   <servlet>
   	<servlet-name>it-main</servlet-name>
