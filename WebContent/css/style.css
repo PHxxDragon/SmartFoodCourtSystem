@@ -1890,6 +1890,16 @@ ol {
 	padding-bottom: 80px;
 }
 
+.order__table table tr td #purchase__timestamp {
+	width: 630px;
+	font-size: 18px;
+}
+
+.order__table table tr td #total__order__price {
+	width: 630px;
+	font-size: 18px;
+}
+
 .shoping__cart__table {
 	margin-bottom: 30px;
 }

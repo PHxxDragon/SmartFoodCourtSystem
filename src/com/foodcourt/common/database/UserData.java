@@ -76,19 +76,22 @@ public class UserData {
 		for (User u: users) {
 			if (u.getUserID() == userID) {
 				Order shoppingCart = u.getShoppingCart();
+				Meal meal = MealDao.getMeal(mealID);
 				for (OrderEntry orderEntry: shoppingCart.getOrderEntries()) {
 					if (orderEntry.getMeal().getId() == mealID) {
 						orderEntry.setQuantity(orderEntry.getQuantity() + quantity);
-						return;
+						shoppingCart.setPrice(shoppingCart.getPrice() + meal.getPrice() * quantity);
+						shoppingCart.setEta(shoppingCart.getEta() + meal.getEta() * quantity);
+						break;
 					}
 				}
+				
 				OrderEntry orderEntry = new OrderEntry();
-				Meal meal = MealDao.getMeal(mealID);
 				orderEntry.setMeal(MealDao.getMeal(mealID));
 				orderEntry.setQuantity(quantity);
 				shoppingCart.getOrderEntries().add(orderEntry);
-				shoppingCart.setPrice(shoppingCart.getPrice() + meal.getPrice());
-				shoppingCart.setEta(shoppingCart.getEta() + meal.getEta());
+				shoppingCart.setPrice(shoppingCart.getPrice() + meal.getPrice() * quantity);
+				shoppingCart.setEta(shoppingCart.getEta() + meal.getEta() * quantity);
 				return;
 			}
 		}
