@@ -8,9 +8,9 @@ public enum UserType {
 	static {
 		CUSTOMER.string = "customer";
 		COOK.string = "cook";
-		FC_MANAGER.string = "fc_manager";
+		FC_MANAGER.string = "fcmanager";
 		IT.string = "it";
-		VD_OWNER.string = "vd_owner";
+		VD_OWNER.string = "vdowner";
 	}
 	
 	public String toString() {

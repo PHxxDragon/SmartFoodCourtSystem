@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.foodcourt.common.UserType;
+import com.foodcourt.common.dao.MealDao;
+import com.foodcourt.common.model.Meal;
+import com.foodcourt.common.model.Order;
+import com.foodcourt.common.model.OrderEntry;
 import com.foodcourt.common.model.User;
 
 public class UserData {
@@ -23,7 +27,7 @@ public class UserData {
 		users.add(new User(user));
 	}
 	public void removeUserFromID(Integer ID) {
-		users.removeIf((n) -> n.getUserID() == ID);
+		users.removeIf((n) -> ((n.getUserID() == ID) && (n.getUserType() != UserType.FC_MANAGER)));
 	}
 	public List<User> getUsers(){
 		List<User> user = new ArrayList<User>();
@@ -41,11 +45,69 @@ public class UserData {
 		}
 		return null;
 	}
+	public void changePasswordFromUsername(String username,String newpassword) {
+		for (User u: users) {
+			if (u.getUsername().equals(username)) {
+				u.setpassword(newpassword);
+				return;
+			}
+		}
+		return;
+	}
+	
+	public User getUserFromUserID(long userID) {
+		for (User u: users) {
+			if (u.getUserID() == userID) {
+				return new User(u);
+			}
+		}
+		return null;
+	}
 	
 	public void updateBalance(long balance, String username) {
 		for (User u: users) {
 			if (u.getUsername().equals(username)) {
 				u.setBalance(balance);
+			}
+		}
+	}
+	
+	public void addMeal(long userID, long mealID, int quantity) {
+		for (User u: users) {
+			if (u.getUserID() == userID) {
+				Order shoppingCart = u.getShoppingCart();
+				Meal meal = MealDao.getMeal(mealID);
+				for (OrderEntry orderEntry: shoppingCart.getOrderEntries()) {
+					if (orderEntry.getMeal().getId() == mealID) {
+						orderEntry.setQuantity(orderEntry.getQuantity() + quantity);
+						shoppingCart.setPrice(shoppingCart.getPrice() + meal.getPrice() * quantity);
+						shoppingCart.setEta(shoppingCart.getEta() + meal.getEta() * quantity);
+						break;
+					}
+				}
+				
+				OrderEntry orderEntry = new OrderEntry();
+				orderEntry.setMeal(MealDao.getMeal(mealID));
+				orderEntry.setQuantity(quantity);
+				shoppingCart.getOrderEntries().add(orderEntry);
+				shoppingCart.setPrice(shoppingCart.getPrice() + meal.getPrice() * quantity);
+				shoppingCart.setEta(shoppingCart.getEta() + meal.getEta() * quantity);
+				return;
+			}
+		}
+	}
+	public void removeMeal(long userID, long mealID) {
+		for (User u : users) {
+			if (u.getUserID() == userID) {
+				for (OrderEntry orderEntry: u.getShoppingCart().getOrderEntries()) {
+					if (orderEntry.getMeal().getId() == mealID) {
+						u.getShoppingCart().setPrice(u.getShoppingCart().getPrice() - orderEntry.getMeal().getPrice()*orderEntry.getQuantity());
+						u.getShoppingCart().setEta(u.getShoppingCart().getEta() - orderEntry.getMeal().getEta()*orderEntry.getQuantity());
+						u.getShoppingCart().getOrderEntries().remove(orderEntry);
+						return;
+					}
+				}
+				return;
 			}
 		}
 	}
@@ -90,6 +152,15 @@ public class UserData {
 		customer.setUserID(5);
 		customer.setUserType(UserType.CUSTOMER);
 		addNewUser(customer);
+	}
+
+	public void updateCart(long userID, Order shoppingCart) {
+		for (User u: users) {
+			if (u.getUserID() == userID) {
+				u.setShoppingCart(shoppingCart);
+			}
+		}
+		
 	}
 }
 	

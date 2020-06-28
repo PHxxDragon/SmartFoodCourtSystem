@@ -41,25 +41,24 @@ public class PaymentMethodCheck extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		String username = request.getParameter("name");
+		HttpSession session = request.getSession();
+		long userID = (long) session.getAttribute("userID");
 		String bankName = request.getParameter("bankName");
 		String cardNumber = request.getParameter("cardNumber");
 		String password = request.getParameter("password");
 		
-		UserDao userDao = new UserDao();
-		OrderDao orderDao = new OrderDao();
-		User user = userDao.getUserFromUsername(username);
+		User user = UserDao.getUserFromUserID(userID);
 		
-		HttpSession session = request.getSession();
-		
-		Order order = (Order) session.getAttribute("currentOrder");
+		Order order = user.getShoppingCart();
 		
 		boolean isValid= validify(bankName,cardNumber,password,user); 
 		if (isValid) {
-			userDao.updateBalance(user.getBalance() - order.getPrice(), username);
-			session.setAttribute("user", userDao.getUserFromUsername(username));
-			orderDao.addOrder(order);
+			UserDao.updateBalance(user.getBalance() - order.getPrice(), user.getUsername());
+			order.setOrderID(10);
+			order.setSaleVendorID(1);
+			order.setUserID(userID);
+			OrderDao.addOrder(order);
+			UserDao.updateCart(userID, new Order());
 		} else {
 			PrintWriter out = response.getWriter();
 			out.println("wrong information !");
@@ -76,7 +75,7 @@ public class PaymentMethodCheck extends HttpServlet {
 	                "<body bgcolor=\"#f0f0f0\">\n" +
 	                "<h1 align=\"center\">" + title + "</h1>\n" +
 	                "</body></html>");
-		out.println("<a type='submit' href='./viewItemController' value='return'>Return</a>");
+		out.println("<a type='submit' href='./main' value='return'>Return</a>");
 		request.setAttribute("user", user);
 	}
 

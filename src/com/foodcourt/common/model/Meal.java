@@ -2,22 +2,14 @@ package com.foodcourt.common.model;
 
 public class Meal {
 	
-
 	private String name;
 	private int id;
 	private int price;
 	private long eta;
-
+	private String imgSrc;
 	
 	public Meal() {
 		
-	}
-	
-	public Meal(int id, int price, String name, long eta) {
-		this.id = id;
-		this.price = price;
-		this.name = name;
-		this.eta= eta;
 	}
 	
 	public Meal(Meal meal) {
@@ -25,6 +17,7 @@ public class Meal {
 		this.price = meal.price;
 		this.name = meal.name;
 		this.eta = meal.eta;
+		this.imgSrc = meal.imgSrc;
 	}
 
 	public String getName() {
@@ -38,9 +31,17 @@ public class Meal {
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getImgSrc() {
+		return imgSrc;
+	}
+
+	public void setImgSrc(String imgSrc) {
+		this.imgSrc = imgSrc;
 	}
 
 	public int getPrice() {

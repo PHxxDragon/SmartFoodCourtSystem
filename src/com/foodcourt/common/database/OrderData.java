@@ -3,9 +3,7 @@ package com.foodcourt.common.database;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
-import com.foodcourt.common.model.Order.OrderEntry;
 
 public class OrderData {
 	//Each user has a list of orders
@@ -92,6 +90,7 @@ public class OrderData {
 	//========================================
 	
 	private void init() {
+<<<<<<< HEAD
 		Order order1 = new Order();
 		order1.setOrderID(1);
 		order1.setUserID(5);
@@ -133,6 +132,9 @@ public class OrderData {
 		order1.setPrice(5);
 		addPendingOrder(order1);
 		addOrder(order1);
+=======
+		
+>>>>>>> 1fd67bd3026e60a790023f3d597989d90e0aef25
 	}
 	
 }

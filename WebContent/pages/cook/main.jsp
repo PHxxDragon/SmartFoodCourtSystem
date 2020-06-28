@@ -15,8 +15,8 @@
 	<form action="viewOrder" method="post">
 		<button type="submit" value="viewOrder" name="viewOrder">View Order</button>
 	</form>
-	<form action="notifyOOS" method="post">
-		<button type="submit" value="notifyOOS" name="notifyOOS">Notify out of stock</button>
+	<form action="<%=request.getContextPath()%>/Logout" method="get">
+		<button type="submit" value="Logout" name="Logout">Đăng xuất</button>
 	</form>
 </body>
 </html>

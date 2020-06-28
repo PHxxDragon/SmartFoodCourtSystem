@@ -1,7 +1,7 @@
 package com.foodcourt.signup;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,14 +45,20 @@ public class Register extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
-		
+		String email = request.getParameter("email");
 		User user = new User();
         user.setname(name);
+        user.setEmail(email);
         user.setpassword(password);
         user.setUsername(username);
         user.setUserType(UserType.CUSTOMER);
-        UserDao userDao = new UserDao();
-		userDao.addNewUser(user);
+        long maxID = 0;
+        List<User> users = UserDao.getUsers();
+		for (User i: users) {
+			if (i.getUserID() > maxID) maxID = i.getUserID();
+		}
+		user.setUserID(++maxID);
+		UserDao.addNewUser(user);
 
 		response.sendRedirect("signupsuccess");
 	}
