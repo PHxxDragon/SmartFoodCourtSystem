@@ -17,7 +17,7 @@
 		<!-- Font awesome CSS -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">		
 		<!-- Custom CSS -->
-		<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/css/style_old.css" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/css/style-color.css" rel="stylesheet">
 		
 		<!-- Favicon -->

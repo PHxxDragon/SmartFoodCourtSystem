@@ -37,6 +37,7 @@ public class MakePayment extends HttpServlet {
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
 		request.setAttribute("price", user.getShoppingCart().getPrice());
+		request.setAttribute("shoppingCart", user.getShoppingCart());
 		RequestDispatcher rd = request.getRequestDispatcher("purchase");
 		rd.forward(request, response);
 		
