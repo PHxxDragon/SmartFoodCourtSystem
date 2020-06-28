@@ -299,7 +299,7 @@
 	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
 		                                <a href="#" class="latest-product__item">
 		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/latest-product/lp-${meal.id}.jpg"
+		                                        <img src="${pageContext.request.contextPath}/img/product/food_img/product-${meal.id}.jpg"
 		                                        alt="">
 		                                    </div>
 		                                    <div class="latest-product__item__text">
@@ -317,14 +317,14 @@
                     <div class="latest-product__text">
                         <h4>Đánh giá cao nhất</h4>
                         <div class="latest-product__slider owl-carousel">
-                        	<c:forEach var="idx" varStatus="" begin="0" end="1">
+                        	<c:forEach var="idx" varStatus="" begin="0" end="2">
                         		<c:set var="begin_loop_idx" value="${idx * 3}"/>
                         		<c:set var="end_loop_idx" value="${idx * 3 + 2}"/>
 	                            <div class="latest-prdouct__slider__item">
 	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
 		                                <a href="#" class="latest-product__item">
 		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/latest-product/lp-${meal.id}.jpg"
+		                                        <img src="${pageContext.request.contextPath}/img/product/food_img/product-${meal.id}.jpg"
 		                                        alt="">
 		                                    </div>
 		                                    <div class="latest-product__item__text">
@@ -342,14 +342,14 @@
                     <div class="latest-product__text">
                         <h4>Được đề cử</h4>
                         <div class="latest-product__slider owl-carousel">
-                        	<c:forEach var="idx" varStatus="" begin="0" end="1">
+                        	<c:forEach var="idx" varStatus="" begin="1" end="2">
                         		<c:set var="begin_loop_idx" value="${idx * 3}"/>
                         		<c:set var="end_loop_idx" value="${idx * 3 + 2}"/>
 	                            <div class="latest-prdouct__slider__item">
 	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
 		                                <a href="#" class="latest-product__item">
 		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/latest-product/lp-${meal.id}.jpg"
+		                                        <img src="${pageContext.request.contextPath}/img/product/food_img/product-${meal.id}.jpg"
 		                                        alt="">
 		                                    </div>
 		                                    <div class="latest-product__item__text">
