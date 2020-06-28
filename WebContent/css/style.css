@@ -2187,16 +2187,6 @@ ol {
 	color: #dd2222;
 }
 
-.checkout__input input {
-	width: 100%;
-	height: 46px;
-	border: 1px solid #ebebeb;
-	padding-left: 20px;
-	font-size: 16px;
-	color: #b2b2b2;
-	border-radius: 4px;
-}
-
 .checkout__input input.checkout__input__add {
 	margin-bottom: 20px;
 }

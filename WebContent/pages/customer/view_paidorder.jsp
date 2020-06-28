@@ -80,10 +80,10 @@
                         <ul>
                             <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
 							<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
+							<li class="active"><a href="">Đơn hàng đã thanh toán</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
-							<li class="active"><a href="">Thanh toán</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
