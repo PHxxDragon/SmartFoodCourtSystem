@@ -179,66 +179,66 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-          <div class="row">
-          <c:forEach items = "${PaidOrders}" var="order">
-          <div class="col-lg-6">
-          <div class="order__table">
-          <table>
-			<tr>
-				<td colspan=4> 
-                    <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">Tên Món ăn</th>
-                                    <th>Đơn giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Tổng cộng</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            	<c:forEach items = "${order.orderEntries}" var="entry" varStatus="loop">
-                            		<tr class="shoping__cart__list">
-	                                    <td class="shoping__cart__item">     
-	                                        <h5 class="item-title">${entry.meal.name}</h5>
-	                                    </td>
-	                                    <td class="shoping__cart__price">
-	                                        <span id="item-price">${entry.meal.price}</span>
-	                                    </td>
-	                                    <td class="shoping__cart__quantity">
-	                                        <div class="quantity">
-	                                            <span id="item-quantity">${entry.quantity}</span>
-	                                        </div>
-	                                    </td>
-	                                    <td class="shoping__cart__total">
-	                                    	<span id="item-total-price">${entry.meal.price*entry.quantity }</span>&#8363;
-	                                    </td>
-	                                </tr>
-                            	</c:forEach>
-                            </tbody>
-               	         </table>
-                	    </div> 
-            	   </td>
-    		  </tr>
-    		<tr>
-				<td>
-					<span id="purchase__timestamp">
-						<c:out value="Thời điểm thanh toán : ${order.eta}" />
-					</span>	 
-				</td>
-				<td>
-					<span id="total__order__price">
-						<c:out value="Tổng đơn hàng : ${order.price}" /> 
-					</span>
-				</td>
-			</tr>
-		</table>
-		</div>
-		</div>
-		</c:forEach>
-        </div>
-        </div>
+          	<div class="row">
+	          	<c:forEach items = "${PaidOrders}" var="order">
+		          	<div class="col-lg-6">
+				        <div class="order__table">
+				          	<table>
+								<tr>
+									<td colspan=4> 
+					                    <div class="shoping__cart__table">
+					                        <table>
+					                            <thead>
+					                                <tr>
+					                                    <th class="shoping__product">Tên món ăn</th>
+					                                    <th>Đơn giá</th>
+					                                    <th>Số lượng</th>
+					                                    <th>Tổng cộng</th>
+					                                    <th></th>
+					                                </tr>
+					                            </thead>
+					                            <tbody>
+					                            	<c:forEach items = "${order.orderEntries}" var="entry" varStatus="loop">
+					                            		<tr class="shoping__cart__list">
+						                                    <td class="shoping__cart__item">     
+						                                        <h5 class="item-title">${entry.meal.name}</h5>
+						                                    </td>
+						                                    <td class="shoping__cart__price">
+						                                        <span id="item-price">${entry.meal.price}</span>
+						                                    </td>
+						                                    <td class="shoping__cart__quantity">
+						                                        <div class="quantity">
+						                                            <span id="item-quantity">${entry.quantity}</span>
+						                                        </div>
+						                                    </td>
+						                                    <td class="shoping__cart__total">
+						                                    	<span id="item-total-price">${entry.meal.price*entry.quantity }</span>&#8363;
+						                                    </td>
+						                                </tr>
+					                            	</c:forEach>
+					                            </tbody>
+					               	         </table>
+					                	    </div> 
+					            	   </td>
+					    		  </tr>
+					    		<tr>
+									<td>
+										<span id="purchase__timestamp">
+											<c:out value="Thời điểm thanh toán : ${order.eta}" />
+										</span>	 
+									</td>
+									<td>
+										<span id="total__order__price">
+											<c:out value="Tổng đơn hàng : ${order.price}" /> 
+										</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</c:forEach>
+        	</div>
+    	</div>
     </section>
     <!-- Checkout Section End -->
 	

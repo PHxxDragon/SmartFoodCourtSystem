@@ -222,12 +222,6 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
-                    </h6>
-                </div>
-            </div>
             <div class="checkout__form">
                 <h4>Phương thức thanh toán</h4>
                 <form action="${pageContext.request.contextPath}/customer/purchaseController">
@@ -260,7 +254,7 @@
                             <div class="checkout__input">
                                 <p>Ghi chú</p>
                                 <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                                    placeholder="Lưu ý về món ăn của bạn">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -270,7 +264,7 @@
                                 <ul>
                                		<c:forEach items = "${shoppingCart.orderEntries}" var="entry" varStatus="loop">
                                     <li> 
-                                    	${entry.meal.name } (${entry.quantity} Cái)
+                                    	${entry.meal.name} (${entry.quantity} cái)
                                     	<div class="checkout__order__price">
                                     		<span>${entry.quantity * entry.meal.price}</span><span>&#8363;</span>
                                     	</div>

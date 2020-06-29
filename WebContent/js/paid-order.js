@@ -18,27 +18,40 @@
         $(".loader").fadeOut();
         $("#preloder").delay(200).fadeOut("slow");
 
-        /*------------------
-            Gallery filter
-        --------------------*/
-        $('.featured__controls li').on('click', function () {
-            $('.featured__controls li').removeClass('active');
-            $(this).addClass('active');
-        });
-        if ($('.featured__filter').length > 0) {
-            var containerEl = document.querySelector('.featured__filter');
-            var mixer = mixitup(containerEl);
-        }
-		
-		/*------------------
-	        Background Set
-	    --------------------*/
-	    $('.set-bg').each(function () {
-	        var bg = $(this).data('setbg');
-	        $(this).css('background-image', 'url(' + bg + ')');
-	    });
-
+        
     });
+	
+	/*------------------
+        Initailize filter
+    --------------------*/
+
+	$(function () {
+		if ($('.featured__filter').length > 0) {
+	        var containerEl = document.querySelector('.featured__filter');
+	        var mixer = mixitup(containerEl);
+	    }
+	});
+
+	/*------------------
+        Gallery filter
+    --------------------*/
+    $('.featured__controls li').on('click', function () {
+        $('.featured__controls li').removeClass('active');
+        $(this).addClass('active');
+    });
+    if ($('.featured__filter').length > 0) {
+        var containerEl = document.querySelector('.featured__filter');
+        var mixer = mixitup(containerEl);
+    }
+	
+	/*------------------
+        Background Set
+    --------------------*/
+    $('.set-bg').each(function () {
+        var bg = $(this).data('setbg');
+        $(this).css('background-image', 'url(' + bg + ')');
+    });
+
 
     //Humberger Menu
     $(".humberger__open").on('click', function () {
@@ -234,7 +247,6 @@
 	--------------------- */
 	$(function () {
 		var topItemNode = document.querySelectorAll(".shoping__cart__list");
-		console.log(topItemNode);
 		if (topItemNode === null || topItemNode.length <= 0) {
 			
 			document.getElementById("cart-total-price").innerText = 0 + "\u20AB";

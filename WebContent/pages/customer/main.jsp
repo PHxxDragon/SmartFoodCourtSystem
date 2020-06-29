@@ -230,15 +230,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
+                        <h2>Các món nổi bật</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".breakfast">Bữa sáng</li>
-                            <li data-filter=".lunch">Bữa trưa</li>
-                            <li data-filter=".dinner">Bữa tối</li>
-                            <li data-filter=".drinks">Nước uống</li>
+                            <li class="active" data-filter="*">Tất cả</li>
+                            <li data-filter="*">Bữa sáng</li>
+                            <li data-filter="*">Bữa trưa</li>
+                            <li data-filter="*">Bữa tối</li>
+                            <li data-filter="*">Nước uống</li>
                         </ul>
                     </div>
                 </div>
@@ -265,7 +265,7 @@
     </section>
     <!-- Featured Section End -->
 
-    <!-- Banner Begin -->
+    <!-- Banner Begin 
     <div class="banner">
         <div class="container">
             <div class="row">
@@ -282,7 +282,7 @@
             </div>
         </div>
     </div>
-    <!-- Banner End -->
+    Banner End -->
 
     <!-- Latest Product Section Begin -->
     <section class="latest-product spad">
@@ -432,6 +432,24 @@
         </div>
     </footer>
     <!-- Footer Section End -->
+    
+    <!-- Modals -->
+	<div class="modal fade" id="orderSuccessModal" tabindex="-1" role="dialog" aria-labelledby="orderSuccessModalTitle" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+	        		<h5 class="modal-title" id="orderSuccessModalTitle">Thông báo</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		      		<p>Đặt món thành công!</p>
+	      		</div>
+
+	    	</div>
+	  	</div>
+	</div>
 
     <!-- Js Plugins -->
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>

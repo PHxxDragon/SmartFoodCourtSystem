@@ -12,10 +12,7 @@ public class Order {
 	private long price;
 	
 	public Order() {
-<<<<<<< HEAD
-=======
 		orderEntries = new ArrayList<OrderEntry>();
->>>>>>> 1fd67bd3026e60a790023f3d597989d90e0aef25
 	}
 	
 	public Order(Order order) {
@@ -70,13 +67,9 @@ public class Order {
 	public void setPrice(long price) {
 		this.price = price;
 	}
-<<<<<<< HEAD
-	
-=======
 
 	public void setOrderID(long orderID) {
 		this.orderID = orderID;
 	}
->>>>>>> 1fd67bd3026e60a790023f3d597989d90e0aef25
 	
 }

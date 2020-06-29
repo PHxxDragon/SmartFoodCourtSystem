@@ -37,7 +37,7 @@
     </div>
 
     <!-- Humberger Begin -->
- <!--    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
@@ -97,8 +97,8 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__social">
-                                <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng Xuất</a>							
+                            <div class="header__top__right__auth">
+                                <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng xuất</a>							
                             </div>
                         </div>
                     </div>
