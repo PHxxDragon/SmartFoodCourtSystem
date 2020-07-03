@@ -284,3 +284,27 @@
 	
 	
 })(jQuery);
+
+function updateShoppingCart(URI) {
+	var table = document.getElementById("shopping__cart__table");
+	var rows = table.tBodies[0].rows;
+	var mealCount = rows.length;
+	var data = [];
+	for (var i = 0; i < mealCount; i++) {
+		var entry = {};
+		entry.id = rows[i].querySelector("#item-id").value;
+		entry.quantity = rows[i].querySelector("#item-quantity").value;
+		data.push(entry);
+	}
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", URI + "?op=update&data=" + encodeURIComponent(JSON.stringify(data)), true);
+	xhttp.setRequestHeader("Content-Type", "application/json");
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	alert("cart updated");
+	    }
+	};
+	xhttp.send();
+}
+
+

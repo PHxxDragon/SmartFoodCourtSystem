@@ -53,6 +53,10 @@ public class Order {
 	}
 
 	public long getEta() {
+		long eta = 0;
+		for (OrderEntry o: orderEntries) {
+			eta += o.getMeal().getEta() * o.getQuantity();
+		}
 		return eta;
 	}
 
@@ -61,6 +65,10 @@ public class Order {
 	}
 
 	public long getPrice() {
+		long price = 0;
+		for (OrderEntry o: orderEntries) {
+			price += o.getMeal().getPrice() * o.getQuantity();
+		}
 		return price;
 	}
 

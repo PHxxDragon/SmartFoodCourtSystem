@@ -220,7 +220,7 @@
                 <div class="col-lg-12">
                 	<form action="Register" id="shopping_cart" method="post"></form>
                     <div class="shoping__cart__table">
-                        <table>
+                        <table id="shopping__cart__table">
                             <thead>
                                 <tr>
                                     <th class="shoping__product">Món ăn</th>
@@ -236,6 +236,7 @@
 	                                    <td class="shoping__cart__item">
 	                                        <img src="${pageContext.request.contextPath}/img/product/food_img/product-${entry.meal.id}.jpg" alt="">
 	                                        <h5 class="item-title">${entry.meal.name}</h5>
+	                                        <input id="item-id" type="hidden" value="${entry.meal.id }"/> 
 	                                    </td>
 	                                    <td class="shoping__cart__price">
 	                                        <span id="item-price">${entry.meal.price}</span>
@@ -264,7 +265,7 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="${pageContext.request.contextPath}/customer/main" class="primary-btn cart-btn">TIẾP TỤC MUA HÀNG</a>
-                        <a onclick="updateShoppingCart()" class="primary-btn cart-btn cart-btn-right">
+                        <a onclick="updateShoppingCart('${pageContext.request.contextPath}/customer/cart')" class="primary-btn cart-btn cart-btn-right">
                             Cập nhật giỏ hàng</a>
                     </div>
                 </div>
