@@ -244,9 +244,8 @@
 	--------------------- */
 	$(function () {
 		var topItemNode = document.querySelectorAll(".shoping__cart__list");
-		console.log(topItemNode);
 		if (topItemNode === null || topItemNode.length <= 0) {
-			document.getElementById("cart-total-price").innerText = 0 + "\u20AB";
+			document.getElementById("cart-total-price").innerText = 0;
 			return;
 		}
 		for (var i = 0; i < topItemNode[0].parentNode.childElementCount; i++){
@@ -262,8 +261,8 @@
 	cartList.on('click', '.icon_close', function() {
 		var $close = $(this);
 		$close.parent().parent().remove();
-		var node = document.querySelector(".shoping__cart__list");
-		updateCartPrice(node.parentNode);
+		var node = document.querySelector("#shopping__cart__list");
+		updateCartPrice(node);
 	});
 	
 	// Update price function
@@ -301,7 +300,7 @@ function updateShoppingCart(URI) {
 	xhttp.setRequestHeader("Content-Type", "application/json");
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	    	alert("cart updated");
+			$('#cartUpdateModal').modal();
 	    }
 	};
 	xhttp.send();

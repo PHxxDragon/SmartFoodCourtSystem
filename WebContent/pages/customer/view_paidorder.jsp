@@ -135,11 +135,11 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    Các vendor
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder="Nhập từ khóa">
+                                <button type="submit" class="site-btn">TÌM KIẾM</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">

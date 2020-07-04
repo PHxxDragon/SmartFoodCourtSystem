@@ -1883,6 +1883,20 @@ ol {
 }
 
 /*---------------------
+  Banner
+-----------------------*/
+
+.banner__pic {
+	margin: 10px;
+}
+
+.banner__pic img {
+	object-fit: fill;
+	width: 570px;
+	height: 270px;
+}
+
+/*---------------------
   Shop Cart
 -----------------------*/
 

@@ -249,7 +249,7 @@
 		var topItemNode = document.querySelectorAll(".shoping__cart__list");
 		if (topItemNode === null || topItemNode.length <= 0) {
 			
-			document.getElementById("cart-total-price").innerText = 0 + "\u20AB";
+			document.getElementById("cart-total-price").innerText = 0;
 			return;
 		}
 		for (var i = 0; i < topItemNode[0].parentNode.childElementCount; i++){

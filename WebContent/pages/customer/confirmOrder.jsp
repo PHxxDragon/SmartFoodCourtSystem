@@ -40,7 +40,7 @@
     </div>
 
     <!-- Humberger Begin -->
-   <!--   <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
@@ -60,10 +60,10 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-	            <li><a href="">Trang chủ</a></li>
-				<li><a href="./shop-grid.html">Cửa hàng</a></li>
-				<li  class="active"><a href="">Giỏ hàng</a></li>
-				<li><a href="./checkout.html">Thanh toán</a></li>
+	            <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
+				<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
+				<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
+				<li class="active"><a href="">Thanh toán</a></li>
 				<li><a href="./contact.html">Liên hệ</a></li>
         	</ul>
         </nav>
@@ -118,19 +118,18 @@
                         <a href="./index.html"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-9">
                     <nav class="header__menu">
                         <ul>
                             <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
-							<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
+							<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
 							<li class="active"><a href="">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
+                <!--
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
@@ -140,6 +139,7 @@
                         <div class="header__cart__price">Giỏ hàng: <span>$150.00</span></div>
                     </div>
                 </div>
+                -->
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -178,11 +178,11 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    Các vendor
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder="Nhập từ khóa">
+                                <button type="submit" class="site-btn">TÌM KIẾM</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">

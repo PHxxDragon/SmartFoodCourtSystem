@@ -52,10 +52,11 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="">Trang chủ</a></li>
-		 		<li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
-				<li><a href="./checkout.html">Thanh toán</a></li>
-                <li><a href="./contact.html">Liên hệ</a></li>
+                <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
+				<li class="active"><a href="">Tài khoản</a></li>
+				<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
+				<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
+				<li><a href="./contact.html">Liên hệ</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -112,9 +113,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
-							<li class="active"><a href="">Trang cá nhân</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
+							<li class="active"><a href="">Tài khoản</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>
@@ -140,16 +139,69 @@
     </header>
     <!-- Header Section End -->
     
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>Các vendor</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Fresh Meat</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Fruit & Nut Gifts</a></li>
+                            <li><a href="#">Fresh Berries</a></li>
+                            <li><a href="#">Ocean Foods</a></li>
+                            <li><a href="#">Butter & Eggs</a></li>
+                            <li><a href="#">Fastfood</a></li>
+                            <li><a href="#">Fresh Onion</a></li>
+                            <li><a href="#">Papayaya & Crisps</a></li>
+                            <li><a href="#">Oatmeal</a></li>
+                            <li><a href="#">Fresh Bananas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    Các vendor
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="Nhập từ khóa">
+                                <button type="submit" class="site-btn">TÌM KIẾM</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+65 11.188.888</h5>
+                                <span>Hỗ trợ 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+    
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="${pageContext.request.contextPath}/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Trang cá nhân</h2>
+                        <h2>Tài khoản</h2>
                         <div class="breadcrumb__option">
                             <a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a>
-                            <span>Trang cá nhân</span>
+                            <span>Tài khoản</span>
                         </div>
                     </div>
                 </div>
