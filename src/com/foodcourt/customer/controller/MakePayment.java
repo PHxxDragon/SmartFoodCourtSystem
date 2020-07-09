@@ -13,41 +13,25 @@ import javax.servlet.http.HttpSession;
 import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.User;
 
-/**
- * Servlet implementation class MakePayment
- */
 @WebServlet("/customer/purchaseController")
 public class MakePayment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public MakePayment() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
 		request.setAttribute("price", user.getShoppingCart().getPrice());
 		request.setAttribute("shoppingCart", user.getShoppingCart());
 		RequestDispatcher rd = request.getRequestDispatcher("purchase");
-		rd.forward(request, response);
-		
+		rd.forward(request, response);		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
