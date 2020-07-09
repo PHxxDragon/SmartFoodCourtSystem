@@ -37,11 +37,12 @@
     </div>
 
     <!-- Humberger Begin -->
- <!--    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
         </div>
+        <!--
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
@@ -49,6 +50,7 @@
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
+        -->
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
                 <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng xuất</a>
@@ -57,8 +59,9 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
 	            <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
+				<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
 				<li class="active"><a href="">Giỏ hàng</a></li>
-				<li><a href="${pageContext.request.contextPath}/customer/checkout">Thanh toán</a></li>
+				<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
 				<li><a href="./contact.html">Liên hệ</a></li>
         	</ul>
         </nav>
@@ -97,8 +100,8 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__social">
-                                <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng Xuất</a>							
+                            <div class="header__top__right__auth">
+                                <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng xuất</a>							
                             </div>
                         </div>
                     </div>
@@ -112,28 +115,28 @@
                         <a href="./index.html"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-9">
                     <nav class="header__menu">
                         <ul>
                             <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
-							<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
+							<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
 							<li class="active"><a href="">Giỏ hàng</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
+                <!-- 
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i><!--  <span>1</span> --></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i><!--  <span>3</span> --></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i>  <span>1</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i>  <span>3</span> </a></li>
                         </ul>
                         <div class="header__cart__price">Giỏ hàng: <span>${shoppingCart.price}&#8363;</span></div>
                     </div>
                 </div>
+                -->
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -172,11 +175,11 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    Các vendor
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder="Nhập từ khóa">
+                                <button type="submit" class="site-btn">TÌM KIẾM</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -220,7 +223,7 @@
                 <div class="col-lg-12">
                 	<form action="Register" id="shopping_cart" method="post"></form>
                     <div class="shoping__cart__table">
-                        <table>
+                        <table id="shopping__cart__table">
                             <thead>
                                 <tr>
                                     <th class="shoping__product">Món ăn</th>
@@ -230,15 +233,16 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="shopping__cart__list">
                             	<c:forEach items = "${shoppingCart.orderEntries}" var="entry" varStatus="loop">
                             		<tr class="shoping__cart__list">
 	                                    <td class="shoping__cart__item">
 	                                        <img src="${pageContext.request.contextPath}/img/product/food_img/product-${entry.meal.id}.jpg" alt="">
 	                                        <h5 class="item-title">${entry.meal.name}</h5>
+	                                        <input id="item-id" type="hidden" value="${entry.meal.id }"/> 
 	                                    </td>
 	                                    <td class="shoping__cart__price">
-	                                        <span id="item-price">${entry.meal.price}</span>
+	                                        <span id="item-price">${entry.meal.price}</span>&#8363;
 	                                    </td>
 	                                    <td class="shoping__cart__quantity">
 	                                        <div class="quantity">
@@ -264,7 +268,7 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="${pageContext.request.contextPath}/customer/main" class="primary-btn cart-btn">TIẾP TỤC MUA HÀNG</a>
-                        <a onclick="updateShoppingCart()" class="primary-btn cart-btn cart-btn-right">
+                        <a onclick="updateShoppingCart('${pageContext.request.contextPath}/customer/cart')" class="primary-btn cart-btn cart-btn-right">
                             Cập nhật giỏ hàng</a>
                     </div>
                 </div>
@@ -362,6 +366,24 @@
         </div>
     </footer>
     <!-- Footer Section End -->
+    
+    <!-- Modals -->
+	<div class="modal fade" id="cartUpdateModal" tabindex="-1" role="dialog" aria-labelledby="cartUpdateModalTitle" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+	        		<h5 class="modal-title" id="cartUpdateModalTitle">Thông báo</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		      		<p>Giỏ hàng được cập nhật!</p>
+	      		</div>
+
+	    	</div>
+	  	</div>
+	</div>
 
     <!-- Js Plugins -->
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
@@ -373,7 +395,6 @@
     <script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/customer/view_cart.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 </html>

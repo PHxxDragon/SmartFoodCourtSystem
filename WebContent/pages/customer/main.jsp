@@ -38,7 +38,7 @@
     </div>
 
     <!-- Humberger Begin -->
- <!--    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
@@ -58,19 +58,18 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="">Trang chủ</a></li>
-               <!-- <li><a href="./shop-grid.html">Cửa hàng</a></li> -->
-		<!-- 		<li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
-				<li><a href="./checkout.html">Thanh toán</a></li>
-                <li><a href="./contact.html">Liên hệ</a></li>
+				<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
+				<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
+				<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
-        <!--  <a href="#"><i class="fa fa-facebook"></i></a>
+        	<a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a> -->  
-  <!--        </div>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>  
+        </div>
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> support@sfcs.com</li>
@@ -114,28 +113,28 @@
                         <a href=""><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-9">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="">Trang chủ</a></li>
-							<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
+							<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
+                <!--
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <!-- <span></span> --></a></li>
-                            <li><a href="${pageContext.request.contextPath}/customer/viewCart"><i class="fa fa-shopping-bag"></i><!-- <span></span>  --></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i> <!-- <span></span></a></li>
+                            <li><a href="${pageContext.request.contextPath}/customer/viewCart"><i class="fa fa-shopping-bag"></i> <span></span> </a></li>
                         </ul>
-                      <!--   <div class="header__cart__price">Giỏ hàng: <span>$150.00</span></div>  -->
+                        <div class="header__cart__price">Giỏ hàng: <span>$150.00</span></div>
                     </div>
                 </div>
+                -->
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -174,11 +173,11 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    Các vendor
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder="Nhập từ khóa">
+                                <button type="submit" class="site-btn">TÌM KIẾM</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -191,7 +190,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+                    <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath}/img/hero/banner.jpg">
                         <div class="hero__text">
                             <span>MÓN MỚI</span>
                             <h2>Vegetable <br />100% Organic</h2>
@@ -230,15 +229,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
+                        <h2>Các món nổi bật</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".breakfast">Bữa sáng</li>
-                            <li data-filter=".lunch">Bữa trưa</li>
-                            <li data-filter=".dinner">Bữa tối</li>
-                            <li data-filter=".drinks">Nước uống</li>
+                            <li class="active" data-filter="*">Tất cả</li>
+                            <li data-filter="*">Bữa sáng</li>
+                            <li data-filter="*">Bữa trưa</li>
+                            <li data-filter="*">Bữa tối</li>
+                            <li data-filter="*">Nước uống</li>
                         </ul>
                     </div>
                 </div>
@@ -271,18 +270,18 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <img src="img/banner/banner-1.jpg" alt="">
+                        <img src="${pageContext.request.contextPath}/img/banner/banner-1.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <img src="img/banner/banner-2.jpg" alt="">
+                        <img src="${pageContext.request.contextPath}/img/banner/banner-2.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Banner End -->
+   <!-- Banner End -->
 
     <!-- Latest Product Section Begin -->
     <section class="latest-product spad">
@@ -432,6 +431,24 @@
         </div>
     </footer>
     <!-- Footer Section End -->
+    
+    <!-- Modals -->
+	<div class="modal fade" id="orderSuccessModal" tabindex="-1" role="dialog" aria-labelledby="orderSuccessModalTitle" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+	        		<h5 class="modal-title" id="orderSuccessModalTitle">Thông báo</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		      		<p>Đặt món thành công!</p>
+	      		</div>
+
+	    	</div>
+	  	</div>
+	</div>
 
     <!-- Js Plugins -->
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>

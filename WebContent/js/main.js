@@ -17,27 +17,37 @@
     $(window).on('load', function () {
         $(".loader").fadeOut();
         $("#preloder").delay(200).fadeOut("slow");
-
-        /*------------------
-            Gallery filter
-        --------------------*/
-        $('.featured__controls li').on('click', function () {
-            $('.featured__controls li').removeClass('active');
-            $(this).addClass('active');
-        });
-        if ($('.featured__filter').length > 0) {
-            var containerEl = document.querySelector('.featured__filter');
-            var mixer = mixitup(containerEl);
-        }
-		
-		/*------------------
-	        Background Set
-	    --------------------*/
-	    $('.set-bg').each(function () {
-	        var bg = $(this).data('setbg');
-	        $(this).css('background-image', 'url(' + bg + ')');
-	    });
-
+    });
+	
+	/*------------------
+        Gallery filter
+    --------------------*/
+    $('.featured__controls li').on('click', function () {
+        $('.featured__controls li').removeClass('active');
+        $(this).addClass('active');
+    });
+    if ($('.featured__filter').length > 0) {
+        var containerEl = document.querySelector('.featured__filter');
+        var mixer = mixitup(containerEl);
+    }
+	/*------------------
+        Profile Function filter
+    --------------------*/
+	if ($('.profile__options__filter').length > 0) {
+        var containerEl = document.querySelector('.profile__options__filter');
+        var mixer = mixitup(containerEl, {
+			load: {
+				filter: '.general'
+			}
+		});
+    }
+	
+	/*------------------
+        Background Set
+    --------------------*/
+    $('.set-bg').each(function () {
+        var bg = $(this).data('setbg');
+        $(this).css('background-image', 'url(' + bg + ')');
     });
 
     //Humberger Menu
@@ -234,10 +244,8 @@
 	--------------------- */
 	$(function () {
 		var topItemNode = document.querySelectorAll(".shoping__cart__list");
-		console.log(topItemNode);
 		if (topItemNode === null || topItemNode.length <= 0) {
-			
-			document.getElementById("cart-total-price").innerText = 0 + "\u20AB";
+			document.getElementById("cart-total-price").innerText = 0;
 			return;
 		}
 		for (var i = 0; i < topItemNode[0].parentNode.childElementCount; i++){
@@ -253,8 +261,8 @@
 	cartList.on('click', '.icon_close', function() {
 		var $close = $(this);
 		$close.parent().parent().remove();
-		var node = document.querySelector(".shoping__cart__list");
-		updateCartPrice(node.parentNode);
+		var node = document.querySelector("#shopping__cart__list");
+		updateCartPrice(node);
 	});
 	
 	// Update price function
@@ -275,3 +283,27 @@
 	
 	
 })(jQuery);
+
+function updateShoppingCart(URI) {
+	var table = document.getElementById("shopping__cart__table");
+	var rows = table.tBodies[0].rows;
+	var mealCount = rows.length;
+	var data = [];
+	for (var i = 0; i < mealCount; i++) {
+		var entry = {};
+		entry.id = rows[i].querySelector("#item-id").value;
+		entry.quantity = rows[i].querySelector("#item-quantity").value;
+		data.push(entry);
+	}
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", URI + "?op=update&data=" + encodeURIComponent(JSON.stringify(data)), true);
+	xhttp.setRequestHeader("Content-Type", "application/json");
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+			$('#cartUpdateModal').modal();
+	    }
+	};
+	xhttp.send();
+}
+
+

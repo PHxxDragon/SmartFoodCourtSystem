@@ -82,7 +82,7 @@ public class UserData {
 						orderEntry.setQuantity(orderEntry.getQuantity() + quantity);
 						shoppingCart.setPrice(shoppingCart.getPrice() + meal.getPrice() * quantity);
 						shoppingCart.setEta(shoppingCart.getEta() + meal.getEta() * quantity);
-						break;
+						return;
 					}
 				}
 				
