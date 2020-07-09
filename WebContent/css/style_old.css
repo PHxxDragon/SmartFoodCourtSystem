@@ -10,19 +10,17 @@ html {
 }
 
 body{
-	color: #252c37;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
+	height: 100%;
+	font-family: "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	min-height: 100vh;
-	padding: 0;
-	background-color: rgb(21, 32, 43);
-	color: #ffffff;
+	font-smoothing: antialiased;
 }
 
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Roboto', sans-serif;
-	font-weight: 700;
+	margin: 0;
+	color: #111111;
+	font-weight: 400;
+	font-family: "Cairo", sans-serif;
 }
 
 p{
@@ -43,10 +41,6 @@ a:hover{
 a:hover,a:active,a:focus {
 	outline: 0;
 	text-decoration: none;
-}
-
-hr{
-
 }
 
 :active {
@@ -151,7 +145,7 @@ hr{
 	border: 0;
 	border-radius:0;
 	box-shadow: none;
-	background: #000000;
+	background: #7fad39;
 	-webkit-transition: all 0.25s ease;
 	-moz-transition: all 0.25s ease;
 	-ms-transition: all 0.25s ease;

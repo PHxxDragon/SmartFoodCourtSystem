@@ -1909,6 +1909,12 @@ ol {
 	padding-bottom: 80px;
 }
 
+.order__table table tbody tr td{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #ebebeb;
+}
+
 .order__table table tr td #purchase__timestamp {
 	width: 630px;
 	font-size: 18px;
