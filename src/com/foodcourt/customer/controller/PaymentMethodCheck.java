@@ -15,31 +15,21 @@ import com.foodcourt.common.dao.UserDao;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.User;
 
-/**
- * Servlet implementation class PaymentMethodCheck
- */
 @WebServlet("/customer/validify")
 public class PaymentMethodCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public PaymentMethodCheck() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     
     private boolean validify(String bankName, String bankNumber, String password, User user) {	
-		//TODO Process some real check here
     	if (!password.equals(user.getpassword())) return false;
 		return true;
 	}
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		long userID = (long) session.getAttribute("userID");
@@ -79,11 +69,7 @@ public class PaymentMethodCheck extends HttpServlet {
 		request.setAttribute("user", user);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
