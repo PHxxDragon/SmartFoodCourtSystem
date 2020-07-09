@@ -1,4 +1,4 @@
-function addToShoppingCart(mealID, URI, quantity) {
+function addToShoppingCart(mealID, URI, quantity = 1) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
@@ -17,4 +17,9 @@ function updateIcons(plusQuantity) {
 		sizeNodes[i].innerText = cartSize + plusQuantity;
 	}
 	
+}
+
+function addToShoppingCartWithQuantity(mealID, URI, quantityNode) {
+	var quantity = document.querySelector("#" + quantityNode).value;
+	addToShoppingCart(mealID, URI, quantity);
 }

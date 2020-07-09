@@ -113,13 +113,11 @@
                         <a href=""><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-9">
                     <nav class="header__menu">
                         <ul>
                             <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
-							<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
-							<li><a href="${pageContext.request.contextPath}/customer/recharge">Nạp tiền</a></li>
+							<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>
@@ -142,6 +140,24 @@
         </div>
     </header>
     <!-- Header Section End -->
+    
+    <!-- Modals -->
+	<div class="modal fade" id="orderSuccessModal" tabindex="-1" role="dialog" aria-labelledby="orderSuccessModalTitle" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+	        		<h5 class="modal-title" id="orderSuccessModalTitle">Thông báo</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		      		<p>Đã thêm vào giỏ hàng!</p>
+	      		</div>
+
+	    	</div>
+	  	</div>
+	</div>
 
    	<!-- Hero Section Begin -->
     <section class="hero hero-normal">
@@ -254,11 +270,11 @@
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input id="quantity__node" type="text" value="1">
                                 </div>
                             </div>
                         </div>
-                        <a onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)" class="primary-btn">ADD TO CARD</a>
+                        <a onclick="addToShoppingCartWithQuantity(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 'quantity__node')" class="primary-btn">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>

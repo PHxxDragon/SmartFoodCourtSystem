@@ -120,7 +120,7 @@
 							<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
-							<!--  <li><a href="./contact.html">Liên hệ</a></li> -->
+							<li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -441,7 +441,7 @@
 		        	</button>
 		      	</div>
 		      	<div class="modal-body">
-		      		<p>Đặt món thành công!</p>
+		      		<p>Đã thêm vào giỏ hàng!</p>
 	      		</div>
 
 	    	</div>

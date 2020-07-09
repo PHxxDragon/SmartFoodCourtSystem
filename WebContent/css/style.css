@@ -171,6 +171,10 @@ ol {
 	letter-spacing: 2px;
 }
 
+.primary-btn:hover {
+	cursor: pointer;
+}
+
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;
