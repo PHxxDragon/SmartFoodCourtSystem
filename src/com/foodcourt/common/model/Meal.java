@@ -2,12 +2,23 @@ package com.foodcourt.common.model;
 
 public class Meal {
 	
-	private String name;
-	private int id;
-	private int price;
-	private long eta;
-	private String imgSrc;
+	String name;
+	long id;
+	long price;
+	int eta;
+	int stock;
+	String decription;
+	String imgSrc;
+	long saleVendorID;
 	
+	public long getSaleVendorID() {
+		return saleVendorID;
+	}
+
+	public void setSaleVendorID(long saleVendorID) {
+		this.saleVendorID = saleVendorID;
+	}
+
 	public Meal() {
 		
 	}
@@ -17,6 +28,9 @@ public class Meal {
 		this.price = meal.price;
 		this.name = meal.name;
 		this.eta = meal.eta;
+		this.price = meal.price;
+		this.eta = meal.eta;
+		this.decription = meal.decription;
 		this.imgSrc = meal.imgSrc;
 	}
 
@@ -28,11 +42,11 @@ public class Meal {
 		this.name = name;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -44,19 +58,35 @@ public class Meal {
 		this.imgSrc = imgSrc;
 	}
 
-	public int getPrice() {
+	public long getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 
-	public long getEta() {
+	public int getEta() {
 		return eta;
 	}
 
-	public void setEta(long eta) {
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public String getDecription() {
+		return decription;
+	}
+
+	public void setDecription(String decription) {
+		this.decription = decription;
+	}
+
+	public void setEta(int eta) {
 		this.eta = eta;
 	}
 

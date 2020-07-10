@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Vendor {
-	private int id = 0;
+	private long id = 0;
 	private long ownerID;
 	private String name;
 	private List<Meal> menu;
@@ -23,7 +23,7 @@ public class Vendor {
 		this.menu =  new ArrayList<Meal>(vendor.menu);
 	}
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	public String getName() {
@@ -35,7 +35,7 @@ public class Vendor {
 	public void addMeal(Meal new_meal) {
 		menu.add(new_meal);
 	}
-	public Meal removeMeal(int mealID) {
+	public Meal removeMeal(long mealID) {
 		for (int i = 0; i < menu.size(); i++) {
 			if (menu.get(i).getId() == mealID) {
 				return menu.remove(i);
@@ -43,7 +43,7 @@ public class Vendor {
 		}
 		return null;
 	}
-	public Meal getMeal(int mealID) {
+	public Meal getMeal(long mealID) {
 		for (Meal temp_meal : menu) {
 			if (temp_meal.getId() == mealID) return temp_meal;
 		}
@@ -61,7 +61,7 @@ public class Vendor {
 	public void setMenu(List<Meal> menu) {
 		this.menu = menu;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	

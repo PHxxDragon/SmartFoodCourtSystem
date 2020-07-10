@@ -8,7 +8,7 @@ public class Order {
 	private long userID;
 	private long saleVendorID;
 	private List<OrderEntry> orderEntries;
-	private long eta;
+	private int eta;
 	private long price;
 	
 	public Order() {
@@ -52,15 +52,15 @@ public class Order {
 		this.orderID = orderID;
 	}
 
-	public long getEta() {
-		long eta = 0;
+	public int getEta() {
+		int eta = 0;
 		for (OrderEntry o: orderEntries) {
 			eta += o.getMeal().getEta() * o.getQuantity();
 		}
 		return eta;
 	}
 
-	public void setEta(long eta) {
+	public void setEta(int eta) {
 		this.eta = eta;
 	}
 

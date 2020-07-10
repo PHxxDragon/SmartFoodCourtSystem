@@ -10,6 +10,7 @@ public class User {
 	private String password;
 	private String email;
 	private String name;
+	private String phone;
 	private Order shoppingCart;
 
 	public User() {
@@ -24,6 +25,7 @@ public class User {
 		this.password = user.password;
 		this.email = user.email;
 		this.name= user.name;
+		this.phone=user.phone;
 		this.shoppingCart = new Order(user.shoppingCart);
 	}
 	
@@ -74,5 +76,13 @@ public class User {
 	}
 	public void setShoppingCart(Order shoppingCart) {
 		this.shoppingCart = shoppingCart;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }
