@@ -131,7 +131,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="">Trang chủ</a></li>
-							<li><a href="${pageContext.request.contextPath}/changepassword">Đổi mật khẩu</a></li>
+						
 								<li><a href="MakeReportJSP">Make report</a></li>
                         </ul>
                     </nav>
