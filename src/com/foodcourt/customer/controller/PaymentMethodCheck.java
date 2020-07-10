@@ -3,6 +3,7 @@ package com.foodcourt.customer.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,10 +49,9 @@ public class PaymentMethodCheck extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		User user = UserDao.getUserFromUserID(userID);
-		
 		Order order = user.getShoppingCart();
 		
-		boolean isValid= validify(bankName,cardNumber,password,user); 
+		boolean isValid = validify(bankName,cardNumber,password,user);
 		if (isValid) {
 			UserDao.updateBalance(user.getBalance() - order.getPrice(), user.getUsername());
 			order.setOrderID(10);
@@ -59,12 +59,13 @@ public class PaymentMethodCheck extends HttpServlet {
 			order.setUserID(userID);
 			OrderDao.addOrder(order);
 			UserDao.updateCart(userID, new Order());
+			request.setAttribute("paidStatus", true);
 		} else {
-			PrintWriter out = response.getWriter();
-			out.println("wrong information !");
-			return;
+			request.setAttribute("paidStatus", false);
 		}
-		
+		RequestDispatcher rd = request.getRequestDispatcher("confirmOrderController");
+		rd.forward(request, response);
+		/*
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String title = "Finish ordering";
@@ -77,6 +78,7 @@ public class PaymentMethodCheck extends HttpServlet {
 	                "</body></html>");
 		out.println("<a type='submit' href='./main' value='return'>Return</a>");
 		request.setAttribute("user", user);
+		*/
 	}
 
 	/**

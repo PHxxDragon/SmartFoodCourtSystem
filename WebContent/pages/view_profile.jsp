@@ -407,7 +407,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Theo dõi bảng tin của chúng tôi</h6>
-                        <p>Cập nhật các ting tức mới nhất về các gian hàng và thông tin giảm giá mới nhất.</p>
+                        <p>Cập nhật các tin tức mới nhất về các gian hàng và thông tin giảm giá mới nhất.</p>
                         <form action="#">
                             <input type="text" placeholder="Email của bạn">
                             <button type="submit" class="site-btn">Đăng ký</button>

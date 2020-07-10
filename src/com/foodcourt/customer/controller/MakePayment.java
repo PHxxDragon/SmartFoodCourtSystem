@@ -40,7 +40,6 @@ public class MakePayment extends HttpServlet {
 		request.setAttribute("shoppingCart", user.getShoppingCart());
 		RequestDispatcher rd = request.getRequestDispatcher("purchase");
 		rd.forward(request, response);
-		
 	}
 
 	/**

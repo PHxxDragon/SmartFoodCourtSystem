@@ -21,7 +21,7 @@
 	Bank's account number/Card number: <input type="text" name="cardNumber"><br/>
 	Password: <input type="password" id="password" name="password" required>
 	<input type="submit" value="confirm" />		
-	<a href='${pageContext.request.contextPath }' >Return</a>
+	<a href='${pageContext.request.contextPath}' >Return</a>
 </form>
 </body>
 </html>

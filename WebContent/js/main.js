@@ -265,25 +265,39 @@
 		updateCartPrice(node);
 	});
 	
-	// Update price function
-	function updateItemPrice(node){
-		var proPrice = parseInt(node.querySelector("#item-price").innerText);
-		var proQty = node.querySelector("#item-quantity").value;
-		var totalPrice = proPrice * proQty;
-		node.querySelector("#item-total-price").innerText = totalPrice;
-	}
+	/*-------------------
+		Open payment modal
+	--------------------- */
+	var checkoutOrder = $('.checkout__order');
+	checkoutOrder.on('click', '.checkout__btn', function() {
+		openPaymentModal();
+	});
 	
-	function updateCartPrice(topNode){
-		var sumPrice = 0;
-		for (var i = 0; i < topNode.childElementCount; i++){
-			sumPrice += parseInt(topNode.children[i].querySelector("#item-total-price").innerText);
-		}
-		document.getElementById("cart-total-price").innerText = sumPrice.toString();
-	}
-	
+	/*-------------------
+		Show payment status
+	--------------------- */
+	$(document).ready(function() {
+		$('#paymentStatusModal').modal('show');
+	})
 	
 })(jQuery);
 
+// Update price function
+function updateItemPrice(node){
+	var proPrice = parseInt(node.querySelector("#item-price").innerText);
+	var proQty = node.querySelector("#item-quantity").value;
+	var totalPrice = proPrice * proQty;
+	node.querySelector("#item-total-price").innerText = totalPrice;
+}
+
+function updateCartPrice(topNode){
+	var sumPrice = 0;
+	for (var i = 0; i < topNode.childElementCount; i++){
+		sumPrice += parseInt(topNode.children[i].querySelector("#item-total-price").innerText);
+	}
+	document.getElementById("cart-total-price").innerText = sumPrice.toString();
+}
+	
 function updateShoppingCart(URI) {
 	var table = document.getElementById("shopping__cart__table");
 	var rows = table.tBodies[0].rows;
@@ -305,5 +319,26 @@ function updateShoppingCart(URI) {
 	};
 	xhttp.send();
 }
+
+function openPaymentModal() {
+	let payment_methods = document.getElementsByName("payment-method");
+	let payment_method_value;
+	for (var i = 0; i < payment_methods.length; i++){
+		if (payment_methods[i].checked){
+			payment_method_value = payment_methods[i].value;
+			break;
+		}
+	}
+	switch (payment_method_value) {
+		case "momo":
+			break;
+		case "zalo-pay":
+			break;
+		case "credit-card":
+			$("#checkoutModal").modal();
+			break;
+	}
+}
+
 
 

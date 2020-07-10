@@ -2171,9 +2171,16 @@ ol {
 	cursor: pointer;
 }
 
-.checkout__method .checkout__method__img img {
+.checkout__method .checkout__method__img {
 	width: 70px;
 	height: 70px;
+}
+
+.checkout__method .checkout__method__img i {
+	font-size: 60px;
+}
+
+.checkout__method .checkout__method__img img {
 	object-fit: fill;
 }
 
@@ -2360,6 +2367,18 @@ ol {
 	letter-spacing: 2px;
 	width: 100%;
 	margin-top: 10px;
+}
+
+/*---------------------
+  Modal
+-----------------------*/
+
+.form-inline > * {
+	margin: auto 5px auto;
+}
+
+.form-inline > select {
+	margin: auto 5px auto;
 }
 
 /*---------------------
@@ -2800,6 +2819,11 @@ ol {
 	font-size: 46px;
 	font-weight: 700;
 	text-align: center;
+}
+
+.form-content .form-error {
+	margin: 10px auto 10px auto;
+	color: red;
 }
 
 .form-content .other-opts {
