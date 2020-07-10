@@ -147,7 +147,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <div>
+                    <div class="breadcrumb__text">
                         <h2>Trang chủ</h2>
                     </div>
                 </div>
@@ -210,7 +210,7 @@
 	            				</c:choose>
             				</span>
             			</li>
-            			<li><a href="${pageContext.request.contextPath}/changepassword"><h4>Đổi mật khẩu</h4></a></li>
+            			<li><a href="${pageContext.request.contextPath}/changepassword" class="primary-btn">Đổi mật khẩu</a></li>
             		</ul>
               	</div>
               	<!-- End General info -->
@@ -271,7 +271,7 @@
 									</tr>
 									<tr>
 										<td class="confirm__order__btn">	
-	                                   		<a class="primary-btn" onclick="confirmOrder('${pageContext.request.contextPath}/cook/main',${order.orderID})">Xác nhận đơn hàng</a>
+	                                   		<a onclick="confirmOrder('${pageContext.request.contextPath}/cook/main',${order.orderID})" class="primary-btn-2"><span>Xác nhận đơn hàng</span></a>
 	                                   	</td>
 									</tr>
 								</table>

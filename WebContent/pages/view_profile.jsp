@@ -270,7 +270,7 @@
             				<h4>Số dư tài khoản</h4>
             				<span>${user.balance} &#8363;</span>
             			</li>
-            			<li><a href="${pageContext.request.contextPath}/changepassword"><h4>Đổi mật khẩu</h4></a></li>
+            			<li><a href="${pageContext.request.contextPath}/changepassword" class = "site-btn">Đổi mật khẩu</a></li>
             		</ul>
               	</div>
               	<!-- End General info -->

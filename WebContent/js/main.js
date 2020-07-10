@@ -269,6 +269,9 @@
 	function updateItemPrice(node){
 		var proPrice = parseInt(node.querySelector("#item-price").innerText);
 		var proQty = node.querySelector("#item-quantity").value;
+		if (proQty == undefined) {
+			proQty = parseInt(node.querySelector("#item-quantity").innerText);
+		}
 		var totalPrice = proPrice * proQty;
 		node.querySelector("#item-total-price").innerText = totalPrice;
 	}
