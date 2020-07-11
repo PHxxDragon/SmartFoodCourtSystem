@@ -26,14 +26,8 @@ public class UserDao {
 			UserData.getInstance().removeUserFromID(i);
 		}
 	}
-	public static void editUser(int userID, User newUser, boolean editType) {
-		User tempUser = UserData.getInstance().getUserFromUserID(userID);
-		if (newUser.getname().length() > 0) tempUser.setname(newUser.getname());
-		if (newUser.getUsername().length() > 0) tempUser.setUsername(newUser.getUsername());
-		if (newUser.getpassword().length() > 0) tempUser.setpassword(newUser.getpassword());
-		if (editType == true) tempUser.setUserType(newUser.getUserType());
-		UserData.getInstance().removeUserFromID(userID);
-		UserData.getInstance().addNewUser(tempUser);
+	public static void editUser(User newUser, boolean editType) {
+		UserData.getInstance().editUserFromUserID(newUser, editType);
 	}
 	public static void updateBalance(long balance, String username) {
 		UserData.getInstance().updateBalance(balance, username);

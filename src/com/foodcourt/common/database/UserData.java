@@ -162,5 +162,18 @@ public class UserData {
 		}
 		
 	}
+	
+	public void editUserFromUserID(User newUser, boolean editType) {
+		for (User u: users) {
+			if (u.getUserID() == newUser.getUserID()) {
+				if (newUser.getemail().length() > 0) u.setEmail(newUser.getemail());
+				if (newUser.getname().length() > 0) u.setname(newUser.getname());
+				if (newUser.getUsername().length() > 0) u.setUsername(newUser.getUsername());
+				if (editType) u.setUserType(newUser.getUserType());
+				if (newUser.getpassword().length() > 0) u.setpassword(newUser.getpassword());
+				return;
+			}
+		}
+	}
 }
 	
