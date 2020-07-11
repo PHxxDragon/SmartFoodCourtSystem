@@ -6,6 +6,7 @@ import java.sql.*;
 
 import com.foodcourt.common.database.UserData;
 import com.foodcourt.common.model.Order;
+import com.foodcourt.common.model.OrderEntry;
 import com.foodcourt.common.model.User;
 import com.foodcourt.common.UserType;
 
@@ -71,15 +72,42 @@ public class UserDao {
         //UserData.getInstance().changePasswordFromUsername(username,newpassword);
 		updateUserPassword(newpassword, username);
 	}
+	//Search for order where user id =userID and isDone=2 (if possible)
+	//Add order entry through orderID
 	public static void addMeal(long userID, long mealID, int quantity) {
-		UserData.getInstance().addMeal(userID, mealID, quantity);
+		//UserData.getInstance().addMeal(userID, mealID, quantity);
+		Order order = null;
+		if (OrderDao.getOrderByUserIDisDone(userID, 2)!=null) {
+			order = OrderDao.getOrderByUserIDisDone(userID, 2);
+		}
+		else {
+			return;
+		}
+		
+		OrderDao.insertOrderEntry(mealID, quantity, order.getOrderID());
 		
 	}
+	
+	//Search for order where user id =userID and isDone=2 (if possible)
+	//Delete order entry through orderID
 	public static void removeMeal(long userID, long mealID) {
-		UserData.getInstance().removeMeal(userID, mealID);
+		//UserData.getInstance().removeMeal(userID, mealID);
+		Order order = null;
+		if (OrderDao.getOrderByUserIDisDone(userID, 2)!=null) {
+			order = OrderDao.getOrderByUserIDisDone(userID, 2);
+		}
+		else {
+			return;
+		}
+		
+		OrderDao.deleteOrderEntryByMealIDOrderID(mealID, order.getOrderID());
 	}
+	
+	//Search for order where user id =userID and isDone=2 (if possible)
+	//Update order entry through orderID
 	public static void updateCart(long userID, Order shoppingCart) {
-		UserData.getInstance().updateCart(userID, shoppingCart);
+		//UserData.getInstance().updateCart(userID, shoppingCart);
+		UserDao.getUserFromUserID(userID).setShoppingCart(shoppingCart);
 	}
 	
 	
@@ -158,6 +186,18 @@ public class UserDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 		} 
+		
+		//Create a dummy order to sure that this is not stupid
+		Order dummyOrder = new Order();
+		List<OrderEntry> list = new ArrayList<OrderEntry>();
+		dummyOrder.setUserID(user.getUserID());
+		dummyOrder.setEta(0);
+		dummyOrder.setPrice(0);
+		dummyOrder.setSaleVendorID(0);
+		dummyOrder.setOrderEntries(list);
+		
+		OrderDao.addOrder(dummyOrder);
+		
 	}
 	
 	//Select user by id
@@ -197,6 +237,9 @@ public class UserDao {
 				user.setPhone(phone);
 				
 				//Dude, you have to get order which isDone column == 2, later then 
+				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2);
+				user.setShoppingCart(shoppingCart);
+				
 			}
 		 
 		} catch (SQLException e) {
@@ -242,6 +285,8 @@ public class UserDao {
 				user.setPhone(phone);
 				
 				//Dude, you have to get order which isDone colummn == 2, later then 
+				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2);
+				user.setShoppingCart(shoppingCart);
 			}
 		 
 		} catch (SQLException e) {
@@ -286,8 +331,12 @@ public class UserDao {
 				user.setEmail(email);
 				user.setPhone(phone);
 				
-				userList.add(user);
+				
 				//Dude, you have to get order which isDone column == 2, later then 
+				Order shoppingCart = OrderDao.getOrderByUserIDisDone(userID, 2);
+				user.setShoppingCart(shoppingCart);
+				
+				userList.add(user);
 			}
 		 
 		} catch (SQLException e) {

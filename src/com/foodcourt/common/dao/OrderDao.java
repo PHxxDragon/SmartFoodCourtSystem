@@ -42,6 +42,8 @@ public class OrderDao {
 	public static void addPendingOrder(Order order) {
 		//OrderData.getInstance().addPendingOrder(order);
 		updateOrderStatus(1, order.getOrderID());
+		//Update order stock
+		
 	}
 	
 	//Move order which isDone from 1 to 0
@@ -78,6 +80,7 @@ public class OrderDao {
 	
 	private static final String SELECT_ORDER_BY_USER_ID = "SELECT * FROM order_info WHERE User_ID = ?";
 	private static final String SELECT_ORDER_BY_USER_ID_ORDER_ID = "SELECT * FROM order_info WHERE User_ID = ? AND Order_ID = ?";
+	private static final String SELECT_ORDER_BY_USER_ID_ISDONE = "SELECT * FROM order_info WHERE User_ID = ? AND isDone = ?";
 	
 	//Later
 	//private static final String SELECT_ORDER_BY_SALE_VENDOR_ID = "SELECT * FROM order_info WHERE Sale_Vendor_ID = ? ";
@@ -92,9 +95,11 @@ public class OrderDao {
 	private static final String DELETE_ORDER_BY_ID = "DELETE FROM order_info WHERE Order_ID = ?";
 	//private static final String DELETE_ORDER_BY_SALE_VENDOR_ID = "DELETE FROM order_innfo WHERE Sale_Vendor_ID = ?";
 	private static final String DELETE_ORDER_ENTRY_BY_ORDER_ID = "DELETE FROM order_entry_info WHERE Order_ID = ?";
-	
+	private static final String DELETE_ORDER_ENTRY_BY_MEAL_ID_ORDER_ID = "DELETE FROM order_entry_info WHERE Meal_ID = ? AND Order_ID = ?";
 	
 	private static final String UPDATE_ORDER_STATUS = "UPDATE order_info SET isDone = ?, Date_Complete = ? WHERE Order_ID = ? ";
+	private static final String UPDATE_ORDER_ENTRY_QUANTITY = "UPDATE order_entry_info SET Quantity = ?, Total_Price = ?, Total_Wait_Time = ? WHERE Order_ID = ? ";
+	private static final String UPDATE_ORDER_PRICE_WAITTIME = "UPDATE order_info SET Price = ?, Wait_Time = ? WHERE Order_ID = ? ";
 	
 	public OrderDao() {
 		
@@ -176,6 +181,49 @@ public class OrderDao {
 		
 	}
 	
+	public static void insertOrderEntry(long mealID, int quantity, long orderID) {
+		Connection conn = getConnection();
+		try {
+			PreparedStatement getMaxOrderEntryID = conn.prepareStatement(GET_ORDER_ENTRY_MAX_ID);
+			ResultSet result = getMaxOrderEntryID.executeQuery();
+			result.next();
+			int orderEntryIDToAdd=result.getInt("MaxOrderEntryID")+1;
+				
+				
+			//Get total price for this meal
+			Meal meal = MealDao.getMeal(mealID);
+			OrderEntry newOrderEntry = new OrderEntry();
+			newOrderEntry.setMeal(meal);
+			newOrderEntry.setQuantity(quantity);
+			//long totalPrice = meal.getPrice()*entry.getQuantity();
+			//Don't know which is better
+			long totalPrice = meal.getPrice()*quantity;
+			int totalWaitTime = meal.getEta()*quantity;
+				
+			PreparedStatement addOrderEntry = conn.prepareStatement(INSERT_ORDER_ENTRY);
+			addOrderEntry.setLong(1, orderEntryIDToAdd);
+			addOrderEntry.setLong(2, mealID);
+			addOrderEntry.setInt(3, quantity);
+			addOrderEntry.setString(4, String.valueOf(totalPrice));
+			addOrderEntry.setLong(5, orderID);
+			addOrderEntry.setInt(6, totalWaitTime);
+			
+			addOrderEntry.executeUpdate();
+			
+			Order orderToUpdate = OrderDao.selectOrder(orderID);
+			orderToUpdate.getOrderEntries().add(newOrderEntry);
+			orderToUpdate.setPrice(orderToUpdate.getPrice()+totalPrice);
+			orderToUpdate.setEta(orderToUpdate.getEta()+totalWaitTime);
+			
+			updateOrderPriceETA(orderToUpdate.getPrice(),orderToUpdate.getEta(), orderID);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	//Update oder isDone (2:buying, 1: pending, 0: complete)
 	//Update time when this order is completed
 	//This method should be called once the order is completed
@@ -201,6 +249,62 @@ public class OrderDao {
 					MealDao.updateMealStock(newStock, entry.getMeal().getId());
 				}
 			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void updateOrderEntryQuantity(long mealID, int newQuantity, long orderID) {
+		Connection conn = getConnection();
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(UPDATE_ORDER_ENTRY_QUANTITY);
+			Meal  mealToUpdate = MealDao.getMeal(mealID);
+			long newPrice = mealToUpdate.getPrice()*newQuantity;
+			int newWaitTime = mealToUpdate.getEta()*newQuantity;
+			preparedStatement.setLong(1, newQuantity);
+			preparedStatement.setString(2, String.valueOf(newPrice));
+			preparedStatement.setInt(3, newWaitTime);
+			preparedStatement.setLong(4, orderID);
+			
+			preparedStatement.executeUpdate();
+			
+			//Update order price and wait time accordingly
+			Order orderToUpdate = selectOrder(orderID);
+			long newTotalPrice = 0;
+			int newTotalETA = 0;
+			for (OrderEntry entry : orderToUpdate.getOrderEntries()) {
+				if (entry.getMeal().getId()!=mealID) {
+					newTotalPrice+=entry.getMeal().getPrice()*entry.getQuantity();
+					newTotalETA += entry.getMeal().getEta()*entry.getQuantity();
+				}
+			}
+			newTotalPrice += newPrice;
+			newTotalETA += newWaitTime;
+			
+			updateOrderPriceETA(newTotalPrice, newTotalETA, orderID);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void updateOrderPriceETA(long newPrice, int newETA, long orderID) {
+		Connection conn = getConnection();
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(UPDATE_ORDER_PRICE_WAITTIME);
+			
+			preparedStatement.setString(1, String.valueOf(newPrice));
+			preparedStatement.setInt(2, newETA);
+			preparedStatement.setLong(3, orderID);
+			
+			preparedStatement.executeUpdate();
 			
 			
 		} catch (SQLException e) {
@@ -319,6 +423,54 @@ public class OrderDao {
 		return order;
 	}
 	
+	public static Order getOrderByUserIDisDone(long userID, int isDone){
+		Order order = new Order();
+		Connection conn = getConnection();
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(SELECT_ORDER_BY_USER_ID_ISDONE);
+			preparedStatement.setLong(1, userID);
+			preparedStatement.setInt(2, isDone);
+			ResultSet result = preparedStatement.executeQuery();
+			
+			if(result.next()) {
+				long orderID = result.getLong("Order_ID");
+				long price  = Long.valueOf(result.getString("Price"));
+				int eta = result.getInt("Wait_Time");
+				
+				order.setOrderID(orderID);
+				order.setPrice(price);
+				order.setEta(eta);
+				order.setUserID(userID);
+				
+				//Get mealList of this order
+				List<OrderEntry> mealList = new ArrayList<OrderEntry>();
+				PreparedStatement getMealsWithOrderID = conn.prepareStatement(SELECT_ORDER_ENTRY_BY_ORDER_ID);
+				ResultSet resultList = getMealsWithOrderID.executeQuery();
+				while (resultList.next()) {
+					int mealID = resultList.getInt("Meal_ID");
+					int quantity = resultList.getInt("Quantity");
+					
+					//Get all info of the meal from meal database
+					Meal meal = MealDao.selectMeal(mealID);
+					OrderEntry newEntry = new OrderEntry();
+					newEntry.setMeal(meal);
+					newEntry.setQuantity(quantity);
+					mealList.add(newEntry);
+				}
+				order.setOrderEntries(mealList);
+			}
+			else {
+				return null;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return order;
+	}
+	
 	public static List<Order> getOrderByIsDone(int isDone){
 		List<Order> userOrder = new ArrayList<Order>();
 		Connection conn = getConnection();
@@ -362,17 +514,47 @@ public class OrderDao {
 		return userOrder;
 	}
 	
-	public static void deleteOrderByOrderID(int orderID) {
+	public static void deleteOrderByOrderID(long orderID) {
 		Connection conn = getConnection();
 		try {
 			PreparedStatement preparedStatement = conn.prepareStatement(DELETE_ORDER_BY_ID);
-			preparedStatement.setInt(1, orderID);
+			preparedStatement.setLong(1, orderID);
 			preparedStatement.executeUpdate();
 			
 			//The delete all rows that have this orderID from database
 			PreparedStatement deleteStatement = conn.prepareStatement(DELETE_ORDER_ENTRY_BY_ORDER_ID);
-			deleteStatement.setInt(1, orderID);
+			deleteStatement.setLong(1, orderID);
 			deleteStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void deleteOrderEntryByMealIDOrderID(long mealID, long orderID) {
+		Connection conn = getConnection();
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(DELETE_ORDER_ENTRY_BY_MEAL_ID_ORDER_ID);
+			preparedStatement.setLong(1, mealID);
+			preparedStatement.setLong(2, orderID);
+			preparedStatement.executeUpdate();
+			
+			//Update order
+			Order orderToUpdate = selectOrder(orderID);
+			long newTotalPrice = 0;
+			int newTotalETA = 0;
+			
+			for (OrderEntry entry : orderToUpdate.getOrderEntries()) {
+				if (entry.getMeal().getId()!=mealID) {
+					newTotalPrice+=entry.getMeal().getPrice()*entry.getQuantity();
+					newTotalETA += entry.getMeal().getEta()*entry.getQuantity();
+				}
+			}	
+			
+			updateOrderPriceETA(newTotalPrice, newTotalETA, orderID);
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
