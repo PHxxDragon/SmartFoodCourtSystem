@@ -33,10 +33,10 @@ public class ManageVendorsController extends HttpServlet {
 				doGet(request, response);
 				return;
 			}
-			ArrayList<Integer> vendorID = new ArrayList<Integer>();
+			ArrayList<Long> vendorID = new ArrayList<Long>();
 			
 			for (int i = 0; i < list.length; i++) {
-				if (list[i].length() > 0) vendorID.add(Integer.parseInt(list[i]));
+				if (list[i].length() > 0) vendorID.add(Long.parseLong(list[i]));
 			}
 			VendorDao.removeVendor(vendorID);
 			doGet(request, response);

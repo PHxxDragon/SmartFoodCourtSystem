@@ -125,7 +125,7 @@ public class UserDao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn=DriverManager.getConnection(mysqlURL+getDatabaseName(),mysqlUsrName, mysqlPass);
-			//System.out.println(mysqlURL+getDatabaseName());	//This line is for debug purpose only
+			return conn;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -138,8 +138,8 @@ public class UserDao {
 	
 	//Insert a created user object to database (user include user_name, pass and role)
 	public static void insertUser(User user) {
-		//System.out.println(INSERT_USERS_SQL);
 		Connection conn=getConnection();
+		
 		try {
 			PreparedStatement getMaxUserID=conn.prepareStatement(GET_USERS_MAX_ID);
 			ResultSet res=getMaxUserID.executeQuery();
@@ -156,8 +156,8 @@ public class UserDao {
 			preparedStatement.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
+				e.printStackTrace();
+		} 
 	}
 	
 	//Select user by id

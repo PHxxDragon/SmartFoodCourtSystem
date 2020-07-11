@@ -17,7 +17,7 @@ public class CompileReportCSV implements ICompileReport {
 		this.start_date = startDate;
 		this.end_date = endDate;
 		
-		this.vendor = VendorDao.getVendorByUserid(user.getUserID());
+		this.vendor = (Vendor) VendorDao.getVendorByUserid(user.getUserID());
 		
 	}
 	@Override
