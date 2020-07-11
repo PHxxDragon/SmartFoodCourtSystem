@@ -1,5 +1,5 @@
 # SmartFoodCourtSystem
-Please install jdbc connector 8.0.20, add it to build path if it is not there
+Please install jdbc connector 8.0.20 and mySQL 8.0.20, add it to build path if it is not there
 # Database 
 Please set your database in localhost, port 3306 if you want to test.
 The database structrure is as follow.
