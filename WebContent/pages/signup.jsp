@@ -46,7 +46,10 @@
 						<label class="control-label" for="name">Họ và tên</label>
 						<input class="form-control" type="text" name="name" id="name" required>
 					</div>
-					
+					<div class="form-group">
+						<label class="control-label" for="email">Email</label>
+						<input class="form-control" type="text" name="email" id="email" required>
+					</div>
 					<div class="form-group">
 						<label class="control-label" for="username">Tên đăng nhập</label>
 						<input class="form-control" type="text" name="username" id="username" required>

@@ -60,7 +60,7 @@ public class Register extends HttpServlet {
 		user.setUserID(++maxID);
 		UserDao.addNewUser(user);
 
-		response.sendRedirect("signupsuccess");
+		response.sendRedirect("./signupsuccess");
 	}
 
 }

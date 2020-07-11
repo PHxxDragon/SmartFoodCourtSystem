@@ -13,35 +13,27 @@ import javax.servlet.http.HttpServletResponse;
 import com.foodcourt.common.dao.MealDao;
 import com.foodcourt.common.model.Meal;
 
-@WebServlet("/customer/main")
-public class ViewItemController extends HttpServlet {
+
+@WebServlet("/customer/itemDetail")
+public class ItemDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ViewItemController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String para = request.getParameter("mealID");
+		long mealID = 0;
+		if (para == null) mealID = 1;
+		else mealID = Long.parseLong(para);
 		List<Meal> mealList= MealDao.getMealList();
 		request.setAttribute("mealList", mealList);
-		RequestDispatcher rd = request.getRequestDispatcher("/customer/mainJSP");
-		rd.forward(request, response); 
+		Meal meal = MealDao.getMeal(mealID);
+		request.setAttribute("meal", meal);
+		RequestDispatcher rd = request.getRequestDispatcher("/customer/item_detailJSP");
+		rd.forward(request, response); 	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-//urlPatterns= {"/customer/meals", "/customer/viewMealDetails", "/customer/addToOrder", "/customer/viewCart"}
+
 }
