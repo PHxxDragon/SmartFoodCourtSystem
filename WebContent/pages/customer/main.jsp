@@ -43,13 +43,15 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
         </div>
+        <!-- 
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span class="cart__total__size">${cartSize }</span></a></li>
             </ul>
-            <!--  <div class="header__cart__price">Giỏ hàng: <span>${shoppingCart.price}&#8363;</span></div> -->
+            <div class="header__cart__price">Giỏ hàng: <span>${shoppingCart.price}&#8363;</span></div>
         </div>
+        -->
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
                 <a href="./logout"><i class="fa fa-user"></i> Đăng xuất</a>
@@ -124,15 +126,17 @@
                         </ul>
                     </nav>
                 </div>
+                <!-- 
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
                             <li><a href="${pageContext.request.contextPath}/customer/viewCart"><i class="fa fa-shopping-bag"></i> <span class="cart__total__size">${cartSize}</span> </a></li>
                         </ul>
-                       <!--  <div class="header__cart__price">Giỏ hàng: <span class="cart__total__price">${shoppingCart.price}</span><span>&#8363;</span></div>  -->
+                    <div class="header__cart__price">Giỏ hàng: <span class="cart__total__price">${shoppingCart.price}</span><span>&#8363;</span></div>
                     </div>
                 </div>
+                -->
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -242,7 +246,7 @@
             </div>
             <div class="row featured__filter">
             	<c:forEach items="${mealList}" var="meal" varStatus="loop">
-                	<div class="col-lg-3 col-md-4 col-sm-6 mix breakfast fresh-meat">
+                	<div class="col-lg-3 col-md-6 col-sm-12 mix breakfast fresh-meat">
 	                    <div class="featured__item">
 	                        <div class="featured__item__pic set-bg" data-setbg=
 	                        "${pageContext.request.contextPath}/img/product/food_img/product-${meal.id}.jpg">
@@ -266,12 +270,12 @@
     <div class="banner">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="banner__pic">
                         <img src="${pageContext.request.contextPath}/img/banner/banner-1.jpg" alt="">
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="banner__pic">
                         <img src="${pageContext.request.contextPath}/img/banner/banner-2.jpg" alt="">
                     </div>

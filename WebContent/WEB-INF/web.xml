@@ -265,5 +265,9 @@
   	<filter-name>login-filter</filter-name>
   	<url-pattern>/it/*</url-pattern>
   </filter-mapping>
+  <filter-mapping>
+  	<filter-name>login-filter</filter-name>
+  	<url-pattern>/changepassword</url-pattern>
+  </filter-mapping>
   
 </web-app>

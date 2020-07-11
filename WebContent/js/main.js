@@ -322,7 +322,7 @@ function updateShoppingCart(URI) {
 
 function openPaymentModal() {
 	let payment_methods = document.getElementsByName("payment-method");
-	let payment_method_value;
+	let payment_method_value = null;
 	for (var i = 0; i < payment_methods.length; i++){
 		if (payment_methods[i].checked){
 			payment_method_value = payment_methods[i].value;
@@ -336,6 +336,9 @@ function openPaymentModal() {
 			break;
 		case "credit-card":
 			$("#checkoutModal").modal();
+			break;
+		case null:
+			$("#errorMsgModal").modal()
 			break;
 	}
 }

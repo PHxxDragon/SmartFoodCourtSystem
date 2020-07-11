@@ -30,7 +30,7 @@ public class Authorizer extends HttpServlet {
 		
 		if (!verify(password, user)) {
 			//redirect to login
-			request.setAttribute("error","true");
+			request.setAttribute("error", true);
 			RequestDispatcher rd=request.getRequestDispatcher("/login");            
 			rd.forward(request, response);
 		

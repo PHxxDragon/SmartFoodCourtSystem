@@ -413,6 +413,24 @@
 	    	</div>
 	  	</div>
 	</div>
+	
+	<div class="modal fade" id="errorMsgModal" tabindex="-1" role="dialog" aria-labelledby="errorMsgModalTitle" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+	        		<h5 class="modal-title" id="errorMsgModalTitle">Thông báo</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		      		<p>Chưa chọn phương thức thanh toán!</p>
+	      		</div>
+
+	    	</div>
+	  	</div>
+	</div>
+	
 	<c:choose>
 		<c:when test="${paidStatus == true}">
 			<div class="modal fade" id="paymentStatusModal" tabindex="-1" role="dialog" aria-labelledby="paymentStatusModalTitle">
