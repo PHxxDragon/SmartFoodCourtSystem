@@ -9,11 +9,11 @@ import com.foodcourt.common.model.Meal;
 
 public class MealDao {
 	public static List<Meal> getMealList(){
-		return MealData.getInstance().getMealList();
+		return getAllMeals();
 	}
 	
 	public static Meal getMeal(long mealID) {
-		return MealData.getInstance().getMeal(mealID);
+		return selectMeal(mealID);
 	}
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
@@ -27,6 +27,7 @@ public class MealDao {
 	private static final String SELECT_MEAL_BY_ID = "SELECT * FROM meal_info WHERE Meal_ID = ?";
 	private static final String SELECT_MEAL_BY_NAME = "SELECT * FROM meal_info WHERE Meal_Name = ?";
 	private static final String SELECT_MEAL_BY_SALE_VENDOR_ID = "SELECT * FROM meal_info WHERE Sale_Vendor_ID = ?";
+	private static final String SELECT_ALL_MEALS = "SELECT * FROM meal_info";
 		
 	private static final String DELETE_MEAL_BY_ID = "DELETE FROM meal_info WHERE Meal_ID = ?";
 	private static final String DELETE_MEAL_BY_SALE_VENDOR_ID = "DELETE FROM meal_info WHERE Sale_Vendor_ID = ?";
@@ -160,6 +161,42 @@ public class MealDao {
 		}
 		return meal;
 	}
+	
+		public static List<Meal> getAllMeals(){
+			List<Meal> mealList = new ArrayList<Meal>();
+			Connection conn= getConnection();
+			try {
+				PreparedStatement preparedStatement = conn.prepareStatement(SELECT_ALL_MEALS);
+				ResultSet res = preparedStatement.executeQuery();
+				
+				while (res.next()) {
+					Meal meal = new Meal();	
+					long id = res.getInt("Meal_ID");
+					String name = res.getString("Meal_name");
+					int saleVendorID = res.getInt("Sale_Vendor_ID");
+					long price = Long.parseLong(res.getNString("Price"));
+					int stock = res.getInt("Stock");
+					String des = res.getString("Description");
+					String pic_url = res.getString("Picture_URL");
+					int waitTime = res.getInt("Wait_Time");
+					
+					meal.setId(id);
+					meal.setName(name);
+					meal.setSaleVendorID(saleVendorID);
+					meal.setPrice(price);
+					meal.setStock(stock);
+					meal.setDecription(des);
+					meal.setImgSrc(pic_url);
+					meal.setEta(waitTime);
+					
+					mealList.add(meal);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return mealList;
+		}
 	
 	//Select meal by sale vendor ID
 	public static List<Meal> getMealBySaleVendorID(long saleVendorID){

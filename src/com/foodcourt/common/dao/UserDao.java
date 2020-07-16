@@ -238,6 +238,7 @@ public class UserDao {
 				
 				//Dude, you have to get order which isDone column == 2, later then 
 				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2);
+				if (shoppingCart == null) shoppingCart = new Order();
 				user.setShoppingCart(shoppingCart);
 				
 			}

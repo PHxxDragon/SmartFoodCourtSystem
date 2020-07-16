@@ -115,7 +115,7 @@ public class MainPageController extends HttpServlet {
 			editUser.setUsername(request.getParameter("account_username_edit"));
 			editUser.setpassword(request.getParameter("account_password_edit"));
 			if (edit) editUser.setUserType(editType);
-			UserDao.editUser(editUser, edit);
+			UserDao.editUser(editUser.getUserID(), editUser, edit);
 			doGet(request, response);
 			return;
 		case "vendor_remove":
@@ -124,10 +124,10 @@ public class MainPageController extends HttpServlet {
 				doGet(request, response);
 				return;
 			}
-			ArrayList<Integer> vendorID = new ArrayList<Integer>();
+			ArrayList<Long> vendorID = new ArrayList<Long>();
 			
 			for (int i = 0; i < listVendor.length; i++) {
-				if (listVendor[i].length() > 0) vendorID.add(Integer.parseInt(listVendor[i]));
+				if (listVendor[i].length() > 0) vendorID.add(Long.parseLong(listVendor[i]));
 			}
 			VendorDao.removeVendor(vendorID);
 			doGet(request, response);
@@ -137,7 +137,7 @@ public class MainPageController extends HttpServlet {
 			newVendor.setOwnerID(Integer.parseInt(request.getParameter("vendor_ownerid_add")));
 			newVendor.setName(request.getParameter("vendor_name_add"));
 			List<Vendor> vendors = VendorDao.getVendors();
-			int maxVendorID = 0;
+			long maxVendorID = 0;
 			for (Vendor i: vendors) {
 				if (i.getId() > maxVendorID) maxVendorID = i.getId();
 			}

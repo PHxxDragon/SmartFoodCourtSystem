@@ -336,6 +336,7 @@ public class OrderDao {
 			//Then get meal info of this order
 			List<OrderEntry> mealList = new ArrayList<OrderEntry>();
 			PreparedStatement getMealsWithOrderID = conn.prepareStatement(SELECT_ORDER_ENTRY_BY_ORDER_ID);
+			getMealsWithOrderID.setLong(1, order.getOrderID());
 			ResultSet resultList = getMealsWithOrderID.executeQuery();
 			while (resultList.next()) {
 				int mealID = resultList.getInt("Meal_ID");
@@ -431,7 +432,6 @@ public class OrderDao {
 			preparedStatement.setLong(1, userID);
 			preparedStatement.setInt(2, isDone);
 			ResultSet result = preparedStatement.executeQuery();
-			
 			if(result.next()) {
 				long orderID = result.getLong("Order_ID");
 				long price  = Long.valueOf(result.getString("Price"));
@@ -445,6 +445,7 @@ public class OrderDao {
 				//Get mealList of this order
 				List<OrderEntry> mealList = new ArrayList<OrderEntry>();
 				PreparedStatement getMealsWithOrderID = conn.prepareStatement(SELECT_ORDER_ENTRY_BY_ORDER_ID);
+				getMealsWithOrderID.setLong(1, order.getOrderID());
 				ResultSet resultList = getMealsWithOrderID.executeQuery();
 				while (resultList.next()) {
 					int mealID = resultList.getInt("Meal_ID");
