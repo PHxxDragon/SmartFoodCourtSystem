@@ -128,7 +128,7 @@ public class UserDao {
 		//UserData.getInstance().updateCart(userID, shoppingCart);
 		//Delete the old and replace by the new one
 		Order order = null;	//Order to replace
-		if (OrderDao.getOrderByUserIDisDone(userID, 2)!=null) {
+		if (!OrderDao.getOrderByUserIDisDone(userID, 2).isEmpty()) {
 			order = OrderDao.getOrderByUserIDisDone(userID, 2).get(0);
 		}
 		else {

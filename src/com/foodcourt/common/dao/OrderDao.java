@@ -70,7 +70,10 @@ public class OrderDao {
 	
 	public static Order getShoppingCart(long userID) {
 		List<Order> orders = OrderDao.getOrderByUserIDisDone(userID, 2);
-		if (orders.size() >= 1) return orders.get(0);
+		if (orders.size() >= 1) {
+			System.out.println(orders.size());
+			return orders.get(0);
+		}
 		return new Order();
 	}
 	
@@ -87,6 +90,7 @@ public class OrderDao {
 	private static final String GET_ORDER_MAX_ID = "SELECT MAX(Order_ID) AS MaxOrderID FROM order_info";
 	private static final String INSERT_ORDER_ENTRY = "INSERT INTO order_entry_info (Order_Entry_ID, Meal_ID, Quantity, Total_Price, Order_ID, Total_Wait_Time) VALUES (?, ?, ?, ?, ?, ?)";
 	private static final String GET_ORDER_ENTRY_MAX_ID = "SELECT MAX(Order_Entry_ID) AS MaxOrderEntryID FROM order_entry_info";
+	private static final String DEVIDE_ORDER_ID_ORDER_BY_2 = "UPDATE order_info SET Order_ID = Order_ID/2";
 	
 	private static final String SELECT_ORDER_BY_ID = "SELECT * FROM order_info WHERE Order_ID = ?";
 	private static final String SELECT_ORDER_ENTRY_BY_ORDER_ID = "SELECT * FROM order_entry_info WHERE Order_ID = ?";
@@ -196,6 +200,9 @@ public class OrderDao {
 	public static void insertOrderEntry(long mealID, int quantity, long orderID) {
 		Connection conn = getConnection();
 		try {
+			//PreparedStatement updateOrderEntry = conn.prepareStatement(DEVIDE_ORDER_ID_ORDER_BY_2);
+			//updateOrderEntry.executeUpdate();
+			
 			PreparedStatement getMaxOrderEntryID = conn.prepareStatement(GET_ORDER_ENTRY_MAX_ID);
 			ResultSet result = getMaxOrderEntryID.executeQuery();
 			result.next();

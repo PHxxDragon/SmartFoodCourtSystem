@@ -46,10 +46,10 @@ public class PaymentMethodCheck extends HttpServlet {
 		boolean isValid = validify(bankName,cardNumber,password,user, order);
 		if (isValid) {
 			UserDao.updateBalance(user.getBalance() - order.getPrice(), user.getUsername());
-			order.setOrderID(10);
-			order.setSaleVendorID(1);
-			order.setUserID(userID);
-			OrderDao.addOrder(order);
+			//order.setOrderID(10);
+			//order.setSaleVendorID(1);
+			//order.setUserID(userID);
+			//OrderDao.addOrder(order);
 			OrderDao.addPendingOrder(order);
 			
 			//Order new order
