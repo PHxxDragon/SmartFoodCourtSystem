@@ -14,10 +14,6 @@ import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.OrderEntry;
 
-
-
-
-
 public class OrderDao {
 	
 	//Get order with isDone value== 1
@@ -25,6 +21,12 @@ public class OrderDao {
 		//return OrderData.getInstance().getPendingOrders();
 		return getOrderByIsDone(1);
 	}
+	//Get order with userid and isDone value== 0
+	public static List<Order> getPaidOrders(long userID) {
+		//return OrderData.getInstance().getPendingOrders();
+		return getOrderByUserID(userID);
+	}
+	
 	
 	//Get order with User_ID == userID
 	public static List<Order> getOrdersByUserId(long userID) {
@@ -67,7 +69,8 @@ public class OrderDao {
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	//final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	final private static String mysqlPass="1234";
 	
 	//The queries
 	private static final String INSERT_ORDER_SQL =  "INSERT INTO order_info (Order_ID, Price, Wait_Time, User_ID, isDone, Date_Complete) VALUES (?, ?, ?, ?, ?, ?)";

@@ -19,7 +19,7 @@ public class UserDao {
 	}
 	
 	public static List<User> getUsers() {
-		return UserData.getInstance().getUsers();
+		return selectAllUser();
 	}
 	
 	//Same as selectUserByUserName
@@ -114,7 +114,8 @@ public class UserDao {
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	//final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	final private static String mysqlPass="1234";
 	
 	//The queries
 	private static final String INSERT_USERS_SQL = "INSERT INTO user_info_normal (User_ID, User_Name, User_Type, Password, Balance, Email) VALUES (?, ?, ?, ?, ?, ?) ";
@@ -253,7 +254,7 @@ public class UserDao {
 	
 	//Select user by name 
 	public static User selectUserByUserName(String userName) {
-		User user=new User();
+		User user= null;
 		Connection conn=getConnection();
 		try {
 			PreparedStatement preparedStatement=conn.prepareStatement(SELECT_USER_BY_USER_NAME);
@@ -261,6 +262,7 @@ public class UserDao {
 			ResultSet res=preparedStatement.executeQuery();
 			
 			while (res.next()) {
+				user = new User();
 				long id = res.getLong("User_ID");
 				//String userName=res.getString("User_Name");
 				String name=res.getString("Name");

@@ -95,7 +95,7 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>vdowner-main</servlet-name>
-  	<url-pattern>/vdowner/main</url-pattern>
+  	<url-pattern>/vdowner/mainJSP</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -106,19 +106,6 @@
   	<servlet-name>viewOrder</servlet-name>
   	<url-pattern>/cook/view_orderJSP</url-pattern>
   </servlet-mapping>
-  
- <servlet>
-  <servlet-name>viewPaidOrder</servlet-name>
-  <jsp-file>/pages/customer/view_paidorder.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>viewPaidOrder</servlet-name>
-  	<url-pattern>/customer/view_paidorderJSP</url-pattern>
-  </servlet-mapping>
-  
-  
- 
-  
   
   <servlet>
   	<servlet-name>signupsuccess</servlet-name>
@@ -205,11 +192,11 @@
  
   <servlet>
   	<servlet-name>view-profile</servlet-name>
-  	<jsp-file>/pages/view_profile.jsp</jsp-file>
+  	<jsp-file>/pages/customer/view_profile.jsp</jsp-file>
   </servlet>
     <servlet-mapping>
   	<servlet-name>view-profile</servlet-name>
-  	<url-pattern>/view_profileJSP</url-pattern>
+  	<url-pattern>/customer/view_profileJSP</url-pattern>
   </servlet-mapping>
   
    <servlet>  

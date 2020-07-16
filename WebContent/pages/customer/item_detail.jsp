@@ -117,7 +117,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
-							<li><a href="${pageContext.request.contextPath}/profile">Tài khoản</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/profile">Tài khoản</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>

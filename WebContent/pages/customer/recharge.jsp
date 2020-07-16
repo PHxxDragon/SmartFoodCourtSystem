@@ -116,7 +116,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
-							<li><a href="${pageContext.request.contextPath}/profile">Trang cá nhân</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/profile">Trang cá nhân</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewOrder">Đơn hàng đã thanh toán</a></li>
 							<li class="active"><a href="">Nạp tiền</a></li>
 							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
