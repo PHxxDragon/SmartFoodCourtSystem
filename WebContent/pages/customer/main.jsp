@@ -45,10 +45,10 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span class="cart__total__size">${cartSize }</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <!--  <div class="header__cart__price">Giỏ hàng: <span>${shoppingCart.price}&#8363;</span></div> -->
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
@@ -124,17 +124,15 @@
                         </ul>
                     </nav>
                 </div>
-                <!--
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <!-- <span></span></a></li>
-                            <li><a href="${pageContext.request.contextPath}/customer/viewCart"><i class="fa fa-shopping-bag"></i> <span></span> </a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
+                            <li><a href="${pageContext.request.contextPath}/customer/viewCart"><i class="fa fa-shopping-bag"></i> <span class="cart__total__size">${cartSize}</span> </a></li>
                         </ul>
-                        <div class="header__cart__price">Giỏ hàng: <span>$150.00</span></div>
+                       <!--  <div class="header__cart__price">Giỏ hàng: <span class="cart__total__price">${shoppingCart.price}</span><span>&#8363;</span></div>  -->
                     </div>
                 </div>
-                -->
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -303,7 +301,7 @@
 		                                    </div>
 		                                    <div class="latest-product__item__text">
 		                                        <h6>${meal.name}</h6>
-		                                        <span>${meal.price} &#8363;</span>
+		                                        <span>${meal.price}&#8363;</span>
 		                                    </div>
 		                                </a>
 	                                </c:forEach>
@@ -443,7 +441,7 @@
 		        	</button>
 		      	</div>
 		      	<div class="modal-body">
-		      		<p>Đặt món thành công!</p>
+		      		<p>Đã thêm vào giỏ hàng!</p>
 	      		</div>
 
 	    	</div>
