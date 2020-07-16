@@ -28,7 +28,7 @@ public class MakePayment extends HttpServlet {
 		request.setAttribute("price", user.getShoppingCart().getPrice());
 		request.setAttribute("shoppingCart", user.getShoppingCart());
 		RequestDispatcher rd = request.getRequestDispatcher("purchase");
-		rd.forward(request, response);		
+		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

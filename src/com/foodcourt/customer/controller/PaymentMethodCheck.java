@@ -3,6 +3,7 @@ package com.foodcourt.customer.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +25,10 @@ public class PaymentMethodCheck extends HttpServlet {
     }
     
     
-    private boolean validify(String bankName, String bankNumber, String password, User user) {	
+    private boolean validify(String bankName, String bankNumber, String password, User user, Order order) {	
     	if (!password.equals(user.getpassword())) return false;
+    	if (order.getOrderEntries().size() == 0) return false;
+    	if (user.getBalance() < order.getPrice()) return false;
 		return true;
 	}
 
@@ -38,10 +41,9 @@ public class PaymentMethodCheck extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		User user = UserDao.getUserFromUserID(userID);
-		
 		Order order = user.getShoppingCart();
 		
-		boolean isValid= validify(bankName,cardNumber,password,user); 
+		boolean isValid = validify(bankName,cardNumber,password,user, order);
 		if (isValid) {
 			UserDao.updateBalance(user.getBalance() - order.getPrice(), user.getUsername());
 			order.setOrderID(10);
@@ -49,17 +51,22 @@ public class PaymentMethodCheck extends HttpServlet {
 			order.setUserID(userID);
 			OrderDao.addOrder(order);
 			OrderDao.addPendingOrder(order);
+<<<<<<< HEAD
 			
 			//Order new order
 			Order newOrder = new Order();
 			newOrder.setUserID(userID);
 			UserDao.updateCart(userID, newOrder);
+=======
+			UserDao.updateCart(userID, new Order());
+			request.setAttribute("paidStatus", true);
+>>>>>>> bf6b1be5363fad645545cccd8932672f4d78a078
 		} else {
-			PrintWriter out = response.getWriter();
-			out.println("wrong information !");
-			return;
+			request.setAttribute("paidStatus", false);
 		}
-		
+		RequestDispatcher rd = request.getRequestDispatcher("confirmOrderController");
+		rd.forward(request, response);
+		/*
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String title = "Finish ordering";
@@ -72,6 +79,7 @@ public class PaymentMethodCheck extends HttpServlet {
 	                "</body></html>");
 		out.println("<a type='submit' href='./main' value='return'>Return</a>");
 		request.setAttribute("user", user);
+		*/
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

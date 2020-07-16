@@ -1,6 +1,5 @@
 package com.foodcourt.common.dao;
 
-import java.util.List;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -9,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
@@ -24,7 +24,9 @@ public class OrderDao {
 	//Get order with userid and isDone value== 0
 	public static List<Order> getPaidOrders(long userID) {
 		//return OrderData.getInstance().getPendingOrders();
-		return getOrderByUserID(userID);
+		List<Order> orders = getOrderByUserIDisDone(userID, 1);
+		orders.addAll(getOrderByUserIDisDone(userID,0));
+		return orders;
 	}
 	
 	
@@ -65,6 +67,14 @@ public class OrderDao {
 		//return null;
 		return getOrderByUserIDOrderID(userID, orderID);
 	}
+	
+	public static Order getShoppingCart(long userID) {
+		List<Order> orders = OrderDao.getOrderByUserIDisDone(userID, 2);
+		if (orders.size() >= 1) return orders.get(0);
+		return new Order();
+	}
+	
+	
 	
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
@@ -426,8 +436,8 @@ public class OrderDao {
 		return order;
 	}
 	
-	public static Order getOrderByUserIDisDone(long userID, int isDone){
-		Order order = new Order();
+	public static List<Order> getOrderByUserIDisDone(long userID, int isDone){
+		List<Order> orders = new ArrayList<Order>();
 		Connection conn = getConnection();
 		try {
 			PreparedStatement preparedStatement = conn.prepareStatement(SELECT_ORDER_BY_USER_ID_ISDONE);
@@ -435,6 +445,7 @@ public class OrderDao {
 			preparedStatement.setInt(2, isDone);
 			ResultSet result = preparedStatement.executeQuery();
 			if(result.next()) {
+				Order order = new Order();
 				long orderID = result.getLong("Order_ID");
 				long price  = Long.valueOf(result.getString("Price"));
 				int eta = result.getInt("Wait_Time");
@@ -461,9 +472,10 @@ public class OrderDao {
 					mealList.add(newEntry);
 				}
 				order.setOrderEntries(mealList);
+				orders.add(order);
 			}
 			else {
-				return null;
+				return orders;
 			}
 			
 		} catch (SQLException e) {
@@ -471,7 +483,7 @@ public class OrderDao {
 			e.printStackTrace();
 		}
 		
-		return order;
+		return orders;
 	}
 	
 	public static List<Order> getOrderByIsDone(int isDone){

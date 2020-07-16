@@ -1912,6 +1912,7 @@ ol {
 
 .banner__pic {
 	margin: 10px;
+	text-align: center;
 }
 
 .banner__pic img {
@@ -2201,9 +2202,16 @@ ol {
 	cursor: pointer;
 }
 
-.checkout__method .checkout__method__img img {
+.checkout__method .checkout__method__img {
 	width: 70px;
 	height: 70px;
+}
+
+.checkout__method .checkout__method__img i {
+	font-size: 60px;
+}
+
+.checkout__method .checkout__method__img img {
 	object-fit: fill;
 }
 
@@ -2393,6 +2401,18 @@ ol {
 }
 
 /*---------------------
+  Modal
+-----------------------*/
+
+.form-inline > * {
+	margin: auto 5px auto;
+}
+
+.form-inline > select {
+	margin: auto 5px auto;
+}
+
+/*---------------------
   Profile
 -----------------------*/
 
@@ -2460,6 +2480,20 @@ ol {
 .profile__featured .profile__featured__general ul li span {
 	float: right;
 }
+
+/*---------------------
+  Account list
+-----------------------*/
+
+.account__management__btns {
+	display: flex;
+	justify-content: end;
+}
+
+.account__management__btns > * {
+	margin: 10px;
+}
+
 /*---------------------
   Blog
 -----------------------*/
@@ -2830,6 +2864,11 @@ ol {
 	font-size: 46px;
 	font-weight: 700;
 	text-align: center;
+}
+
+.form-content .form-error {
+	margin: 10px auto 20px auto;
+	color: red;
 }
 
 .form-content .other-opts {
@@ -3657,6 +3696,9 @@ ol {
 	.over_hid {
 		overflow: hidden;
 	}
+	table#user_list .hidden_column {
+		display: none;
+	}
 }
 
 /* Small Device = 320px */
@@ -3705,5 +3747,8 @@ ol {
 	}
 	.blog__details__hero__text h2 {
 		font-size: 24px;
+	}
+	table#user_list .hidden_column {
+		display: none;
 	}
 }

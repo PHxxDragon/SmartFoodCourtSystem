@@ -54,11 +54,10 @@
 							Mật khẩu của bạn phải dài từ 4-20 kí tự.
 						</small>
 					</div>
-					<%
-                String login_msg=(String)request.getAttribute("error");  
-                if(login_msg!=null)
-                 out.println("<font color=red size=4px>"+login_msg+"</font>");
-                  %>
+					
+                  	<c:if test="${error}">
+                  		<h5 class="form-error">Tên đăng nhập hoặc mật khẩu không chính xác</h5>
+                  	</c:if>
 					<div class="form-group text-center">
 						<button type="submit" class="site-btn">Đăng nhập</button>
 					</div>

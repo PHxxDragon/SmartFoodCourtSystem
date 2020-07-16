@@ -39,6 +39,7 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
         </div>
+        <!-- 
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
@@ -46,6 +47,7 @@
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
+        -->
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
                 <a href="./logout"><i class="fa fa-user"></i> Đăng xuất</a>
@@ -409,7 +411,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Theo dõi bảng tin của chúng tôi</h6>
-                        <p>Cập nhật các ting tức mới nhất về các gian hàng và thông tin giảm giá mới nhất.</p>
+                        <p>Cập nhật các tin tức mới nhất về các gian hàng và thông tin giảm giá mới nhất.</p>
                         <form action="#">
                             <input type="text" placeholder="Email của bạn">
                             <button type="submit" class="site-btn">Đăng ký</button>

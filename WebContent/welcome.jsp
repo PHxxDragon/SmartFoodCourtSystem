@@ -45,13 +45,15 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
         </div>
+        <!--  
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span class="cart__total__size">0</span></a></li>
             </ul>
-            <!--  <div class="header__cart__price">Giỏ hàng: <span>${shoppingCart.price}&#8363;</span></div> -->
+            <div class="header__cart__price">Giỏ hàng: <span>${shoppingCart.price}&#8363;</span></div>
         </div>
+         -->
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
                 <a href="./login"><i class="fa fa-user"></i> Đăng nhập</a>
@@ -94,11 +96,14 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                             <div class="header__top__right__social">
+                        	<div class="header__top__right__social">
                                <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a> 
+                            </div>
+                            <div class="header__top__right__social">
+                            	<a href="${pageContext.request.contextPath}/signup"><i class="fa fa-user"></i> Đăng ký</a>
                             </div>
 							<div class="header__top__right__auth">
                                 <a href="${pageContext.request.contextPath}/login"><i class="fa fa-user"></i> Đăng nhập</a>	
@@ -126,15 +131,17 @@
                         </ul>
                     </nav>
                 </div>
+                <!-- 
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
                             <li><a href="${pageContext.request.contextPath}/login"><i class="fa fa-shopping-bag"></i> <span class="cart__total__size">0</span> </a></li>
                         </ul>
-                       <!--  <div class="header__cart__price">Giỏ hàng: <span class="cart__total__price">${shoppingCart.price}</span><span>&#8363;</span></div>  -->
+                       	<div class="header__cart__price">Giỏ hàng: <span class="cart__total__price">${shoppingCart.price}</span><span>&#8363;</span></div>
                     </div>
                 </div>
+                -->
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
