@@ -37,7 +37,8 @@ public class VendorDao {
 	
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	//final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	final private static String mysqlPass="1234";
 	
 	private static final String INSERT_VENDOR =  "INSERT INTO vendor_info (Vendor_ID, Name, Owner_ID) VALUES (?, ?, ?)";
 	private static final String GET_VENDOR_MAX_ID = "SELECT MAX(Vendor_ID) AS MaxVendorID from vendor_info";
@@ -57,7 +58,7 @@ public class VendorDao {
 	}
 	
 	private static String getDatabaseName() {
-		String databaseName="vendor_database";
+		String databaseName="sfcsdatabase";
 		return databaseName;
 	}
 	

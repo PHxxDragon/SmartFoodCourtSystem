@@ -14,10 +14,6 @@ import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.OrderEntry;
 
-
-
-
-
 public class OrderDao {
 	
 	//Get order with isDone value== 1
@@ -25,6 +21,12 @@ public class OrderDao {
 		//return OrderData.getInstance().getPendingOrders();
 		return getOrderByIsDone(1);
 	}
+	//Get order with userid and isDone value== 0
+	public static List<Order> getPaidOrders(long userID) {
+		//return OrderData.getInstance().getPendingOrders();
+		return getOrderByUserID(userID);
+	}
+	
 	
 	//Get order with User_ID == userID
 	public static List<Order> getOrdersByUserId(long userID) {
@@ -67,7 +69,8 @@ public class OrderDao {
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	//final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	final private static String mysqlPass="1234";
 	
 	//The queries
 	private static final String INSERT_ORDER_SQL =  "INSERT INTO order_info (Order_ID, Price, Wait_Time, User_ID, isDone, Date_Complete) VALUES (?, ?, ?, ?, ?, ?)";
@@ -106,7 +109,7 @@ public class OrderDao {
 	}
 	
 	private static String getDatabaseName() {
-		String databaseName="order_database";
+		String databaseName="sfcsdatabase";
 		return databaseName;
 	}
 	
@@ -336,6 +339,7 @@ public class OrderDao {
 			//Then get meal info of this order
 			List<OrderEntry> mealList = new ArrayList<OrderEntry>();
 			PreparedStatement getMealsWithOrderID = conn.prepareStatement(SELECT_ORDER_ENTRY_BY_ORDER_ID);
+			getMealsWithOrderID.setLong(1, order.getOrderID());
 			ResultSet resultList = getMealsWithOrderID.executeQuery();
 			while (resultList.next()) {
 				int mealID = resultList.getInt("Meal_ID");
@@ -431,7 +435,6 @@ public class OrderDao {
 			preparedStatement.setLong(1, userID);
 			preparedStatement.setInt(2, isDone);
 			ResultSet result = preparedStatement.executeQuery();
-			
 			if(result.next()) {
 				long orderID = result.getLong("Order_ID");
 				long price  = Long.valueOf(result.getString("Price"));
@@ -445,6 +448,7 @@ public class OrderDao {
 				//Get mealList of this order
 				List<OrderEntry> mealList = new ArrayList<OrderEntry>();
 				PreparedStatement getMealsWithOrderID = conn.prepareStatement(SELECT_ORDER_ENTRY_BY_ORDER_ID);
+				getMealsWithOrderID.setLong(1, order.getOrderID());
 				ResultSet resultList = getMealsWithOrderID.executeQuery();
 				while (resultList.next()) {
 					int mealID = resultList.getInt("Meal_ID");
