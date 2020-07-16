@@ -25,8 +25,10 @@ public class PaymentMethodCheck extends HttpServlet {
     }
     
     
-    private boolean validify(String bankName, String bankNumber, String password, User user) {	
+    private boolean validify(String bankName, String bankNumber, String password, User user, Order order) {	
     	if (!password.equals(user.getpassword())) return false;
+    	if (order.getOrderEntries().size() == 0) return false;
+    	if (user.getBalance() < order.getPrice()) return false;
 		return true;
 	}
 
@@ -41,7 +43,7 @@ public class PaymentMethodCheck extends HttpServlet {
 		User user = UserDao.getUserFromUserID(userID);
 		Order order = user.getShoppingCart();
 		
-		boolean isValid = validify(bankName,cardNumber,password,user);
+		boolean isValid = validify(bankName,cardNumber,password,user, order);
 		if (isValid) {
 			UserDao.updateBalance(user.getBalance() - order.getPrice(), user.getUsername());
 			order.setOrderID(10);

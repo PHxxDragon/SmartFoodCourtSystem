@@ -328,15 +328,15 @@
 	        			<input type="hidden" name="account_id_edit" id ="account_id_edit" style="color:black"></input>
 	        			<div class="form-group">
 	            			<label for="account_name_edit" class="col-form-label">Họ tên:</label>
-	            			<input type="text" id="account_name_edit" name="account_name_edit" placeholder="${}">
-	          			</div>
+	            			<input type="text" id="account_name_edit" name="account_name_edit" placeholder="">
+	          		"src"	</div>
 	          			<div class="form-group">
 	            			<label for="account_username_edit" class="col-form-label">Tên đăng nhập:</label>
-	            			<input type="text" id="account_username_edit" name="account_username_edit" placeholder="${}">
+	            			<input type="text" id="account_username_edit" name="account_username_edit" placeholder="">
 	          			</div>
 	          			<div class="form-group">
 	            			<label for="account_email_edit" class="col-form-label">Mật khẩu:</label>
-	            			<input type="text" id="account_email_edit" name="account_email_edit" placeholder="${}">
+	            			<input type="text" id="account_email_edit" name="account_email_edit" placeholder="">
 	          			</div>
 	        			<input type="hidden" name="account_id_edit" id ="account_id_edit" style="color:black"></input>
 						<tr><td>Name:</td> <td><input type="text" name="account_name_edit" style="color:black"></td></tr>

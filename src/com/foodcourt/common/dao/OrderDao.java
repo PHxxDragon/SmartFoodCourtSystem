@@ -68,6 +68,14 @@ public class OrderDao {
 		return getOrderByUserIDOrderID(userID, orderID);
 	}
 	
+	public static Order getShoppingCart(long userID) {
+		List<Order> orders = OrderDao.getOrderByUserIDisDone(userID, 2);
+		if (orders.size() >= 1) return orders.get(0);
+		return new Order();
+	}
+	
+	
+	
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
@@ -468,7 +476,7 @@ public class OrderDao {
 				orders.add(order);
 			}
 			else {
-				return null;
+				return orders;
 			}
 			
 		} catch (SQLException e) {

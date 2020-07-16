@@ -117,7 +117,7 @@ public class UserDao {
 	final private static String mysqlPass="1234";
 	
 	//The queries
-	private static final String INSERT_USERS_SQL = "INSERT INTO user_info_normal (User_ID, User_Name, User_Type, Password, Balance, Email) VALUES (?, ?, ?, ?, ?, ?) ";
+	private static final String INSERT_USERS_SQL = "INSERT INTO user_info_normal (User_ID, User_Name, User_Type,Name, Password, Balance, Email) VALUES (?, ?, ?, ?, ?, ?, ?) ";
 	private static final String GET_USERS_MAX_ID = "SELECT MAX(User_ID) AS MaxUserID FROM user_info_normal";
 	
 	private static final String SELECT_USER_BY_ID = "SELECT * FROM user_info_normal WHERE User_ID = ? ";
@@ -178,9 +178,10 @@ public class UserDao {
 			preparedStatement.setLong(1, userIDToAdd);
 			preparedStatement.setString(2, user.getUsername());
 			preparedStatement.setString(3, user.getUserType().toString());
-			preparedStatement.setString(4, user.getpassword());
-			preparedStatement.setString(5, "0");
-			preparedStatement.setString(6, user.getemail());
+			preparedStatement.setNString(4, user.getname());
+			preparedStatement.setString(5, user.getpassword());
+			preparedStatement.setString(6, "0");
+			preparedStatement.setString(7, user.getemail());
 			preparedStatement.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -202,7 +203,7 @@ public class UserDao {
 	
 	//Select user by id
 	public static User selectUserByID(long id) {
-		User user=new User();
+		User user = null;
 		Connection conn=getConnection();
 		try {
 			PreparedStatement preparedStatement=conn.prepareStatement(SELECT_USER_BY_ID);
@@ -211,6 +212,7 @@ public class UserDao {
 			ResultSet res=preparedStatement.executeQuery();
 			
 			while (res.next()) {
+				user = new User();
 				String userName=res.getString("User_Name");
 				String name=res.getString("Name");
 				String userType=res.getString("User_Type");
@@ -237,8 +239,7 @@ public class UserDao {
 				user.setPhone(phone);
 				
 				//Dude, you have to get order which isDone column == 2, later then 
-				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2).get(0);
-				if (shoppingCart == null) shoppingCart = new Order();
+				Order shoppingCart = OrderDao.getShoppingCart(user.getUserID());
 				user.setShoppingCart(shoppingCart);
 				
 			}
@@ -286,8 +287,8 @@ public class UserDao {
 				user.setEmail(email);
 				user.setPhone(phone);
 				
-				//Dude, you have to get order which isDone colummn == 2, later then 
-				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2).get(0);
+				//Dude, you have to get order which isDone column == 2, later then 
+				Order shoppingCart = OrderDao.getShoppingCart(user.getUserID());
 				user.setShoppingCart(shoppingCart);
 			}
 		 
@@ -335,7 +336,7 @@ public class UserDao {
 				
 				
 				//Dude, you have to get order which isDone column == 2, later then 
-				Order shoppingCart = OrderDao.getOrderByUserIDisDone(userID, 2).get(0);
+				Order shoppingCart = OrderDao.getShoppingCart(user.getUserID());
 				user.setShoppingCart(shoppingCart);
 				
 				userList.add(user);
