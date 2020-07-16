@@ -144,7 +144,7 @@ public class UserDao {
 	}
 	
 	private static String getDatabaseName() {
-		String databaseName="scfsdatabase";
+		String databaseName="sfcsdatabase";
 		return databaseName;
 	}
 	//Get the database connection

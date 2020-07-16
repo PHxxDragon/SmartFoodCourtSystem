@@ -45,7 +45,7 @@ public class MealDao {
 	}
 	
 	private static String getDatabaseName() {
-		String databaseName="scfsdatabase";
+		String databaseName="sfcsdatabase";
 		return databaseName;
 	}
 	

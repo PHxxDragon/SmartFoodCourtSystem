@@ -57,7 +57,7 @@ public class VendorDao {
 	}
 	
 	private static String getDatabaseName() {
-		String databaseName="scfsdatabase";
+		String databaseName="sfcsdatabase";
 		return databaseName;
 	}
 	
