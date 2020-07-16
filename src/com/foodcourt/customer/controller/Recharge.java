@@ -25,7 +25,7 @@ public class Recharge extends HttpServlet {
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
 		UserDao.updateBalance(user.getBalance() + 20000, user.getUsername());
-		response.sendRedirect(request.getContextPath()+ "/profile");
+		response.sendRedirect(request.getContextPath()+ "/customer/profile");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

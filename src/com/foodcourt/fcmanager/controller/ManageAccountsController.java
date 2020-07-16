@@ -113,7 +113,7 @@ public class ManageAccountsController extends HttpServlet {
 				if (editList[i].length() > 0) IDs.add(Integer.parseInt(editList[i]));
 			}
 			for (int i = 0; i < IDs.size(); i++) {
-				UserDao.editUser(tempUser, edit);
+				//UserDao.editUser(tempUser, edit);
 			}
 			doGet(request, response);
 			return;

@@ -76,7 +76,7 @@ public class UserDao {
 	public static void addMeal(long userID, long mealID, int quantity) {
 		//UserData.getInstance().addMeal(userID, mealID, quantity);
 		Order order = null;
-		if (OrderDao.getOrderByUserIDisDone(userID, 2)!=null) {
+		if (!OrderDao.getOrderByUserIDisDone(userID, 2).isEmpty()) {
 			order = OrderDao.getOrderByUserIDisDone(userID, 2).get(0);
 		}
 		else {
@@ -129,7 +129,7 @@ public class UserDao {
 		//Delete the old and replace by the new one
 		Order order = null;	//Order to replace
 		if (OrderDao.getOrderByUserIDisDone(userID, 2)!=null) {
-			order = OrderDao.getOrderByUserIDisDone(userID, 2);
+			order = OrderDao.getOrderByUserIDisDone(userID, 2).get(0);
 		}
 		else {
 			return;

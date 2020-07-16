@@ -51,16 +51,12 @@ public class PaymentMethodCheck extends HttpServlet {
 			order.setUserID(userID);
 			OrderDao.addOrder(order);
 			OrderDao.addPendingOrder(order);
-<<<<<<< HEAD
 			
 			//Order new order
 			Order newOrder = new Order();
 			newOrder.setUserID(userID);
 			UserDao.updateCart(userID, newOrder);
-=======
-			UserDao.updateCart(userID, new Order());
 			request.setAttribute("paidStatus", true);
->>>>>>> bf6b1be5363fad645545cccd8932672f4d78a078
 		} else {
 			request.setAttribute("paidStatus", false);
 		}
