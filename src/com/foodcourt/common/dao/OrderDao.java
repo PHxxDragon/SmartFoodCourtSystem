@@ -69,8 +69,8 @@ public class OrderDao {
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	//final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
-	final private static String mysqlPass="1234";
+	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	//final private static String mysqlPass="1234";
 	
 	//The queries
 	private static final String INSERT_ORDER_SQL =  "INSERT INTO order_info (Order_ID, Price, Wait_Time, User_ID, isDone, Date_Complete) VALUES (?, ?, ?, ?, ?, ?)";
@@ -165,7 +165,6 @@ public class OrderDao {
 				//long totalPrice = meal.getPrice()*entry.getQuantity();
 				//Don't know which is better
 				long totalPrice = entry.getMeal().getPrice()*entry.getQuantity();
-				
 				PreparedStatement addOrderEntry = conn.prepareStatement(INSERT_ORDER_ENTRY);
 				addOrderEntry.setLong(1, orderEntryIDToAdd);
 				addOrderEntry.setLong(2, entry.getMeal().getId());

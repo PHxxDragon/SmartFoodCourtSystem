@@ -81,10 +81,30 @@ public class UserDao {
 			order = OrderDao.getOrderByUserIDisDone(userID, 2);
 		}
 		else {
-			return;
+			//Create a dummy order
+			order = new Order();
+			List<OrderEntry> list = new ArrayList<OrderEntry>();
+			order.setUserID(userID);
+			order.setEta(0);
+			order.setPrice(0);
+			order.setSaleVendorID(0);
+			order.setOrderEntries(list);
+			
+			OrderDao.addOrder(order);
 		}
 		
-		OrderDao.insertOrderEntry(mealID, quantity, order.getOrderID());
+		boolean isEntryExist=false;
+		for (OrderEntry entry: order.getOrderEntries()) {
+			if (entry.getMeal().getId()==mealID) {
+				isEntryExist =true;
+				int newQuantity = quantity;
+				OrderDao.updateOrderEntryQuantity(mealID, newQuantity, order.getOrderID());
+				break;
+			}
+		}
+		if (isEntryExist == false) {
+			OrderDao.insertOrderEntry(mealID, quantity, order.getOrderID());
+		}
 		
 	}
 	
@@ -107,15 +127,24 @@ public class UserDao {
 	//Update order entry through orderID
 	public static void updateCart(long userID, Order shoppingCart) {
 		//UserData.getInstance().updateCart(userID, shoppingCart);
-		UserDao.getUserFromUserID(userID).setShoppingCart(shoppingCart);
+		//Delete the old and replace by the new one
+		Order order = null;	//Order to replace
+		if (OrderDao.getOrderByUserIDisDone(userID, 2)!=null) {
+			order = OrderDao.getOrderByUserIDisDone(userID, 2);
+		}
+		else {
+			return;
+		}
+		OrderDao.deleteOrderByOrderID(order.getOrderID());
+		OrderDao.insertOrder(shoppingCart);
 	}
 	
 	
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	//final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
-	final private static String mysqlPass="1234";
+	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	//final private static String mysqlPass="1234";
 	
 	//The queries
 	private static final String INSERT_USERS_SQL = "INSERT INTO user_info_normal (User_ID, User_Name, User_Type, Password, Balance, Email) VALUES (?, ?, ?, ?, ?, ?) ";
