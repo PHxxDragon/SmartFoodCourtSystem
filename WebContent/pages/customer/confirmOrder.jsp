@@ -102,8 +102,8 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__social">
-                                <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng Xuất</a>							
+                            <div class="header__top__right__auth">
+                                <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng xuất</a>							
                             </div>
 
                         </div>
@@ -230,7 +230,7 @@
                             <div class="row">
                                	<div class="checkout__method">
 	                            	<div class="checkout__radio__btn">
-	                            		<input type="radio" id="momo" name="payment-method">
+	                            		<input type="radio" value="momo" id="momo" name="payment-method" required>
 	                            	</div>
 	                            	<div class="checkout__method__img">
 	                            		<img src="${pageContext.request.contextPath}/img/payment/momo.png" >
@@ -241,13 +241,24 @@
                             	</div>
                             	<div class="checkout__method">
 	                            	<div class="checkout__radio__btn">
-	                            		<input type="radio" id="zalo-pay" name="payment-method">
+	                            		<input type="radio" value="zalo-pay" id="zalo-pay" name="payment-method">
 	                            	</div>
 	                            	<div class="checkout__method__img">
 	                            		<img src="${pageContext.request.contextPath}/img/payment/zalo-pay.png" >
 	                            	</div>
 	                            	<div class="checkout__method__content">
 	                            		<span>Thanh toán bằng Ví ZaloPay</span>
+	                            	</div>
+                            	</div>
+                            	<div class="checkout__method">
+	                            	<div class="checkout__radio__btn">
+	                            		<input type="radio" value="credit-card" id="credit-card" name="payment-method">
+	                            	</div>
+	                            	<div class="checkout__method__img">
+	                            		<i class="fa fa-bank"></i>
+	                            	</div>
+	                            	<div class="checkout__method__content">
+	                            		<span>Thanh toán bằng thẻ ngân hàng nội địa</span>
 	                            	</div>
                             	</div>
                             </div>
@@ -281,7 +292,9 @@
 		                                </div>
                                 	</li>
                                 </ul>
-                               		<button type="submit" class="site-btn">ĐẶT MÓN</button>         	
+                               		<button type="button" class="site-btn checkout__btn">
+                               			ĐẶT MÓN
+                               		</button>
                             </div>
                         </div>
                     </div>
@@ -298,7 +311,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
+                            <a href="${pageContext.request.contextPath}/customer/main"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Địa chỉ: 60-49 Road 11378 New York</li>
@@ -328,7 +341,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Theo dõi bảng tin của chúng tôi</h6>
-                        <p>Cập nhật các ting tức mới nhất về các gian hàng và thông tin giảm giá mới nhất.</p>
+                        <p>Cập nhật các tin tức mới nhất về các gian hàng và thông tin giảm giá mới nhất.</p>
                         <form action="#">
                             <input type="text" placeholder="Email của bạn">
                             <button type="submit" class="site-btn">Đăng ký</button>
@@ -355,6 +368,107 @@
         </div>
     </footer>
     <!-- Footer Section End -->
+    
+    <!-- Modals -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalTitle" aria-hidden="true">
+	  	<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<h5 class="modal-title" id="checkoutModalTitle">Điền thông tin thanh toán</h5>
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          			<span aria-hidden="true">&times;</span>
+	        		</button>
+	      		</div>
+	      		<div class="modal-body">
+	      			<p>Số dư tài khoản : ${user.balance} &#8363;</p>
+					<p>Cần thanh toán : ${shoppingCart.price} &#8363;</p>
+	      			<hr>
+	        		<form id="bank-info-form" action="validify" method="post">
+	          			<div class="form-group form-inline">
+	            			<label for="bank-name" class="col-form-label">Ngân hàng: </label>
+	            			<select class="form-control" name="bankName" id="bank-name" required>
+	            				<option value="" selected disabled>--Chọn ngân hàng--</option>
+							    <option value="BIDV">BIDV</option>
+							    <option value="OCB">OCB</option>
+							    <option value="VCB">Vietcombank</option>
+							</select>
+	          			</div>
+	          			<div class="form-group">
+	            			<label for="card-number" class="col-form-label">Số tài khoản ngân hàng:</label>
+	            			<input type="text" class="form-control" pattern="[0-9]{1,20}" id="card-number" name="cardNumber" required>
+	          			</div>
+	          			<div class="form-group">
+							<label class="control-label" for="password">Mật khẩu ngân hàng</label>
+							<input class="form-control" type="password" id="password" name="password" minlength="1" required>
+							<small id="passwordHelpInline" class="form-text text-muted">
+								Chúng tôi sẽ không lưu thông tin cá nhân của bạn.
+						</small>
+					</div>
+	        		</form>
+	      		</div>
+      			<div class="modal-footer">
+	        		<button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy </button>
+	        		<button form="bank-info-form" type="submit" class="btn btn-primary">Thanh toán </button>
+	      		</div>
+	    	</div>
+	  	</div>
+	</div>
+	
+	<div class="modal fade" id="errorMsgModal" tabindex="-1" role="dialog" aria-labelledby="errorMsgModalTitle" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+	        		<h5 class="modal-title" id="errorMsgModalTitle">Thông báo</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		      		<p>Chưa chọn phương thức thanh toán!</p>
+	      		</div>
+
+	    	</div>
+	  	</div>
+	</div>
+	
+	<c:choose>
+		<c:when test="${paidStatus == true}">
+			<div class="modal fade" id="paymentStatusModal" tabindex="-1" role="dialog" aria-labelledby="paymentStatusModalTitle">
+		  		<div class="modal-dialog modal-dialog-centered" role="document">
+			    	<div class="modal-content">
+				      	<div class="modal-header">
+			        		<h5 class="modal-title" id="paymentStatusModalTitle">Thông báo</h5>
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          		<span aria-hidden="true">&times;</span>
+				        	</button>
+				      	</div>
+				      	<div class="modal-body">
+				      		<p>Thanh toán thành công!</p>
+			      		</div>
+			    	</div>
+			  	</div>
+			</div>
+		</c:when>
+		<c:when test="${paidStatus == false}">
+			<div class="modal fade" id="paymentStatusModal" tabindex="-1" role="dialog" aria-labelledby="paymentStatusModalTitle">
+		  		<div class="modal-dialog modal-dialog-centered" role="document">
+			    	<div class="modal-content">
+				      	<div class="modal-header">
+			        		<h5 class="modal-title" id="paymentStatusModalTitle">Thông báo</h5>
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          		<span aria-hidden="true">&times;</span>
+				        	</button>
+				      	</div>
+				      	<div class="modal-body">
+				      		<p>Thanh toán thất bại!</p>
+			      		</div>
+			    	</div>
+			  	</div>
+			</div>
+		</c:when>
+	</c:choose>
+	
+	
 
     <!-- Js Plugins -->
     <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>

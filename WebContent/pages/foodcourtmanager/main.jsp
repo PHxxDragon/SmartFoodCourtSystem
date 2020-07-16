@@ -32,25 +32,6 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    
-    <!-- Modals -->
-	<div class="modal fade" id="confirmSuccessModal" tabindex="-1" role="dialog" aria-labelledby="orderSuccessModalTitle" aria-hidden="true">
-  		<div class="modal-dialog modal-dialog-centered" role="document">
-	    	<div class="modal-content">
-		      	<div class="modal-header">
-	        		<h5 class="modal-title" id="orderSuccessModalTitle">Thông báo</h5>
-		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          		<span aria-hidden="true">&times;</span>
-		        	</button>
-		      	</div>
-		      	<div class="modal-body">
-		      		<p>Đã xác nhận đơn hàng!</p>
-	      		</div>
-
-	    	</div>
-	  	</div>
-	</div>
-    <!-- Modals end -->
 
     <!-- Humberger Begin -->
 	<div class="humberger__menu__overlay"></div>
@@ -58,6 +39,7 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
         </div>
+        <!-- 
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
@@ -65,6 +47,7 @@
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
+        -->
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
                 <a href="./logout"><i class="fa fa-user"></i> Đăng xuất</a>
@@ -73,6 +56,7 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
 				<li class="active"><a href="">Trang chủ</a></li>
+				<li><a href="${pageContext.request.contextPath}/fcmanager/manage_accounts" class="primary-btn">Quản lý tài khoản</a></li>
 				<li><a href="${pageContext.request.contextPath}/changepassword" class="primary-btn">Đổi mật khẩu</a></li>
             </ul>
         </nav>
@@ -130,6 +114,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="">Trang chủ</a></li>
+                            <li><a href="${pageContext.request.contextPath}/fcmanager/manage_accounts">Quản lý tài khoản</a></li>
 							<li><a href="${pageContext.request.contextPath}/changepassword">Đổi mật khẩu</a></li>
                         </ul>
                     </nav>
@@ -215,98 +200,104 @@
             		</ul>
               	</div>
               	<!-- End General info -->
+              	
               	<!-- View users -->
-            	<div class="profile__featured__general col-lg-6 mix manage-accounts">
-	                <p id="account_prompt" style="display:none">Remove these users?</p>
-	                <p id="account_add_prompt" style="display:none">Create a new user</p>
-	                <p id="account_edit_prompt" style="display:none">Edit this user</p>
-	                <form action="main" method="post">
-		                <table id="user_list" style="border: 1px solid black; border-collapse: collapse;">
-		                     <thead>
-		                         <tr style="border: 1px solid black; border-collapse: collapse;">
-		                             <th style="border: 1px solid black; border-collapse: collapse;"></th>
-		                             <th style="border: 1px solid black; border-collapse: collapse;">ID</th>
-		                             <th style="border: 1px solid black; border-collapse: collapse;">Username</th>
-		                             <th style="border: 1px solid black; border-collapse: collapse;">Type</th>
-		                         </tr>
-		                     </thead>
-		                    <tbody style="border: 1px solid black; border-collapse: collapse;">
-			                    <c:forEach items = "${Users}" var="entry" varStatus="loop">
-		                            <tr>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
-				                            <input type = "checkbox" name = "userlist" value = "${entry.getUserID()}">
-			                            </td>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
-				                            <c:out value="${entry.getUserID()}"/>
-			                            </td>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
-				                            <c:out value="${entry.getUsername()}"/>
-			                            </td>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
-				                            <c:out value="${entry.getUserType()}"/>
-			                            </td>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
-				                            <button type="button" id="btn_edit" onclick="accountEditForm(this.value)" style="color:black"  value = "${entry.getUserID()}">Edit</button>
-			                            </td>
-		                            </tr>
-			                    </c:forEach>
-		                    </tbody>
-		      	         </table>
-		                 <table id="account_add_form" style="display:none">
-			                <tr><td>Name:</td> <td><input type="text" name="account_name_add" style="color:black"></td></tr>
-			                <tr><td>email:</td> <td><input type="text" name="account_email_add" style="color:black"></td></tr>
-			                <tr><td>Username:</td> <td><input type="text" name="account_username_add" style="color:black"></td></tr>
-			                <tr><td>Password:</td> <td><input type="password" name="account_password_add" size = "20" style="color:black"></td></tr>
-			                <tr>
-				                <td>User type:</td>
-				                <td>
-					                <select name="account_type_add" style="color:black">
-						                <option value="CUSTOMER" style="color:black">Customer</option>
-						                <option value="COOK" style="color:black">Cook</option>
-						                <option value="IT" style="color:black">IT</option>
-						                <option value="VD_OWNER" style="color:black">Vendor owner</option>
-					                </select>
-				                </td>
-			                </tr>
-		                </table>
-						<table id="account_edit_form" style="display:none">
-							<tr><td><input type="hidden" name="account_id_edit" id ="account_id_edit" style="color:black"></input></td></tr>
-							<tr><td>Name:</td> <td><input type="text" name="account_name_edit" style="color:black"></td></tr>
-							<tr><td>Username:</td> <td><input type="text" name="account_username_edit" style="color:black"></td></tr>
-							<tr><td>Email:</td> <td><input type="text" name="account_email_edit" style="color:black"></td></tr>
-							<tr><td>Password:</td> <td><input type="password" name="account_password_edit" size = "20" style="color:black"></td></tr>
-							<tr><td>User type:</td>
-								<td><select name="account_type_edit" style="color:black">
-										<option value="NO_CHANGE" style="color:black">No change</option>
-										<option value="CUSTOMER" style="color:black">Customer</option>
-										<option value="COOK" style="color:black">Cook</option>
-										<option value="IT" style="color:black">IT</option>
-										<option value="VD_OWNER" style="color:black">Vendor owner</option>
-									</select>
-								</td>
-							</tr>
-						</table>
-						<table id="account_main_buttons">
-							<tr><td><button type="button" id="account_btn_remove" onclick="accountConfirmationForm()" style="color:black">Remove</button></td>
-								<td><button type="button" id="account_btn_new" onclick="newAccountForm()" style="color:black">New account</button></td>
-							</tr>
-						</table>
-						<table id="account_remove_buttons" style="display:none">
-							<tr><td><button type="submit" name="btn" id="account_btn_yes" value = "account_remove" style="color:black">Yes</button></td>
-								<td><button type="button" name="btn" id="account_btn_no" style="color:black" onclick="accountConfirmationForm()">No</button></td>
-							</tr>
-						</table>
-						<table id="account_add_buttons" style="display:none">
-							<tr><td><button type="submit" name="btn" id="btn_add" value = "account_add" style="color:black">Add new</button></td>
-								<td><button type="button" name="btn_cancel" id="btn_canceladd" style="color:black" onclick="newAccountForm()">Cancel</button></td>
-							</tr>
-						</table>		
-						<table id="account_edit_buttons" style="display:none">
-							<tr><td><button type="submit" name="btn" id="btn_apply" value = "account_edit" style="color:black">Apply</button></td>
-								<td><button type="button" name="btn_cancel" id="btn_canceledit" style="color:black" onclick="editForm()">Cancel</button></td>
-							</tr>
-						</table>
-					</form>
+            	<div class="profile__featured__general col-lg-12 mix manage-accounts">
+            		<div class="col-lg-12">
+            			<p id="account_prompt" style="display:none">Remove these users?</p>
+		                <p id="account_add_prompt" style="display:none">Create a new user</p>
+		                <p id="account_edit_prompt" style="display:none">Edit this user</p>
+		                <form action="main" method="post">
+		                	<div class="shoping__cart__table">
+				                <table id="user_list">
+				                     <thead>
+				                         <tr>
+				                             <th></th>
+				                             <th>ID</th>
+				                             <th>Username</th>
+				                             <th class="hidden_column">Loại tài khoản</th>
+				                             <th></th>
+				                         </tr>
+				                     </thead>
+				                    <tbody>
+					                    <c:forEach items="${Users}" var="entry" varStatus="loop">
+				                            <tr>
+					                            <td>
+						                            <input type="checkbox" name="userlist" value="${entry.getUserID()}">
+					                            </td>
+					                            <td>
+						                            <c:out value="${entry.getUserID()}"/>
+					                            </td>
+					                            <td>
+						                            <c:out value="${entry.getUsername()}"/>
+					                            </td>
+					                            <td class="hidden_column">
+						                            <c:out value="${entry.getUserType()}"/>
+					                            </td>
+					                            <td>
+						                            <button type="button" id="btn_edit" onclick="accountEditForm(this.value)" class="site-btn" value = "${entry.getUserID()}">Sửa</button>
+					                            </td>
+				                            </tr>
+					                    </c:forEach>
+				                    </tbody>
+				      	         </table>
+				      	     </div>
+			                 <table id="account_add_form" style="display:none">
+				                <tr><td>Name:</td> <td><input type="text" name="account_name_add" style="color:black"></td></tr>
+				                <tr><td>email:</td> <td><input type="text" name="account_email_add" style="color:black"></td></tr>
+				                <tr><td>Username:</td> <td><input type="text" name="account_username_add" style="color:black"></td></tr>
+				                <tr><td>Password:</td> <td><input type="password" name="account_password_add" size = "20" style="color:black"></td></tr>
+				                <tr>
+					                <td>User type:</td>
+					                <td>
+						                <select name="account_type_add" style="color:black">
+							                <option value="CUSTOMER" style="color:black">Customer</option>
+							                <option value="COOK" style="color:black">Cook</option>
+							                <option value="IT" style="color:black">IT</option>
+							                <option value="VD_OWNER" style="color:black">Vendor owner</option>
+						                </select>
+					                </td>
+				                </tr>
+			                </table>
+							<table id="account_edit_form" style="display:none">
+								<tr><td><input type="hidden" name="account_id_edit" id ="account_id_edit" style="color:black"></input></td></tr>
+								<tr><td>Name:</td> <td><input type="text" name="account_name_edit" style="color:black"></td></tr>
+								<tr><td>Username:</td> <td><input type="text" name="account_username_edit" style="color:black"></td></tr>
+								<tr><td>Email:</td> <td><input type="text" name="account_email_edit" style="color:black"></td></tr>
+								<tr><td>Password:</td> <td><input type="password" name="account_password_edit" size = "20" style="color:black"></td></tr>
+								<tr><td>User type:</td>
+									<td><select name="account_type_edit" style="color:black">
+											<option value="NO_CHANGE" style="color:black">No change</option>
+											<option value="CUSTOMER" style="color:black">Customer</option>
+											<option value="COOK" style="color:black">Cook</option>
+											<option value="IT" style="color:black">IT</option>
+											<option value="VD_OWNER" style="color:black">Vendor owner</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+							<div id="account_main_buttons" class="account__management__btns">
+								<button type="button" id="account_btn_remove" onclick="accountConfirmationForm()" class="site-btn">Xóa</button>
+								<button type="button" id="account_btn_new" onclick="newAccountForm()" class="site-btn">Tài khoản mới</button>
+							</div>
+							<table id="account_remove_buttons" style="display:none">
+								<tr><td><button type="submit" name="btn" id="account_btn_yes" value = "account_remove" style="color:black">Yes</button></td>
+									<td><button type="button" name="btn" id="account_btn_no" style="color:black" onclick="accountConfirmationForm()">No</button></td>
+								</tr>
+							</table>
+							<table id="account_add_buttons" style="display:none">
+								<tr><td><button type="submit" name="btn" id="btn_add" value = "account_add" style="color:black">Add new</button></td>
+									<td><button type="button" name="btn_cancel" id="btn_canceladd" style="color:black" onclick="newAccountForm()">Cancel</button></td>
+								</tr>
+							</table>		
+							<table id="account_edit_buttons" style="display:none">
+								<tr><td><button type="submit" name="btn" id="btn_apply" value = "account_edit" style="color:black">Apply</button></td>
+									<td><button type="button" name="btn_cancel" id="btn_canceledit" style="color:black" onclick="editForm()">Cancel</button></td>
+								</tr>
+							</table>
+						</form>
+            		</div>
+	                
          		</div>
          		<!-- End View users -->
          		
@@ -407,7 +398,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Theo dõi bảng tin của chúng tôi</h6>
-                        <p>Cập nhật các ting tức mới nhất về các gian hàng và thông tin giảm giá mới nhất.</p>
+                        <p>Cập nhật các tin tức mới nhất về các gian hàng và thông tin giảm giá mới nhất.</p>
                         <form action="#">
                             <input type="text" placeholder="Email của bạn">
                             <button type="submit" class="site-btn">Đăng ký</button>

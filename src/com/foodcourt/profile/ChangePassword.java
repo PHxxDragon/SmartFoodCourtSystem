@@ -37,10 +37,17 @@ public class ChangePassword extends HttpServlet {
 		String newpassword = request.getParameter("newpassword");
 		
 		if (!verify(user.getUsername(), oldpassword, user)) {
-			
-			response.sendRedirect("changepasswordJSP");
+			request.setAttribute("error", 1);
+			RequestDispatcher rd=request.getRequestDispatcher("/changepasswordJSP");            
+			rd.forward(request, response);
 			return;
-		}	
+		}
+		else if (oldpassword.equals(newpassword)) {
+			request.setAttribute("error", 2);
+			RequestDispatcher rd=request.getRequestDispatcher("/changepasswordJSP");            
+			rd.forward(request, response);
+			return;
+		}
 		
 		UserDao.changePasswordFromUsername(user.getUsername(),newpassword);
 		response.sendRedirect("/" + user.getUserType().toString() + "/main");

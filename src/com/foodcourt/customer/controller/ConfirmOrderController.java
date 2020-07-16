@@ -27,6 +27,7 @@ public class ConfirmOrderController extends HttpServlet {
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
 		request.setAttribute("shoppingCart", user.getShoppingCart());
+		request.setAttribute("user", user);
 		RequestDispatcher rd = request.getRequestDispatcher("confirmOrder");
 		rd.forward(request, response);
 	}

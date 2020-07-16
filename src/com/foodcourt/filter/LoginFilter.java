@@ -39,6 +39,9 @@ public class LoginFilter implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
 		Object attribute = session.getAttribute("userID");
+		res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        res.setHeader("Pragma", "no-cache");
+        res.setDateHeader("Expires", 0);
 		if (attribute == null){
 			res.sendRedirect(req.getContextPath()+ "/login");
 			return;
