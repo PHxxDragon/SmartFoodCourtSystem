@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
-import com.foodcourt.common.database.UserData;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.OrderEntry;
 import com.foodcourt.common.model.User;
@@ -78,7 +77,7 @@ public class UserDao {
 		//UserData.getInstance().addMeal(userID, mealID, quantity);
 		Order order = null;
 		if (OrderDao.getOrderByUserIDisDone(userID, 2)!=null) {
-			order = OrderDao.getOrderByUserIDisDone(userID, 2);
+			order = OrderDao.getOrderByUserIDisDone(userID, 2).get(0);
 		}
 		else {
 			return;
@@ -94,7 +93,7 @@ public class UserDao {
 		//UserData.getInstance().removeMeal(userID, mealID);
 		Order order = null;
 		if (OrderDao.getOrderByUserIDisDone(userID, 2)!=null) {
-			order = OrderDao.getOrderByUserIDisDone(userID, 2);
+			order = OrderDao.getOrderByUserIDisDone(userID, 2).get(0);
 		}
 		else {
 			return;
@@ -238,7 +237,7 @@ public class UserDao {
 				user.setPhone(phone);
 				
 				//Dude, you have to get order which isDone column == 2, later then 
-				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2);
+				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2).get(0);
 				if (shoppingCart == null) shoppingCart = new Order();
 				user.setShoppingCart(shoppingCart);
 				
@@ -288,7 +287,7 @@ public class UserDao {
 				user.setPhone(phone);
 				
 				//Dude, you have to get order which isDone colummn == 2, later then 
-				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2);
+				Order shoppingCart = OrderDao.getOrderByUserIDisDone(id, 2).get(0);
 				user.setShoppingCart(shoppingCart);
 			}
 		 
@@ -336,7 +335,7 @@ public class UserDao {
 				
 				
 				//Dude, you have to get order which isDone column == 2, later then 
-				Order shoppingCart = OrderDao.getOrderByUserIDisDone(userID, 2);
+				Order shoppingCart = OrderDao.getOrderByUserIDisDone(userID, 2).get(0);
 				user.setShoppingCart(shoppingCart);
 				
 				userList.add(user);
