@@ -106,7 +106,7 @@ public class OrderDao {
 	}
 	
 	private static String getDatabaseName() {
-		String databaseName="order_database";
+		String databaseName="scfsdatabase";
 		return databaseName;
 	}
 	
