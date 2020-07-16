@@ -38,7 +38,7 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>cook-main</servlet-name>
-  	<url-pattern>/cook/main</url-pattern>
+  	<url-pattern>/cook/mainJSP</url-pattern>
   </servlet-mapping>
   
   
@@ -48,28 +48,9 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>fcmanager-main</servlet-name>
-  	<url-pattern>/fcmanager/main</url-pattern>
+  	<url-pattern>/fcmanager/mainJSP</url-pattern>
   </servlet-mapping>
   
-  
-  <servlet>
-  	<servlet-name>fcmanager-manage_accounts</servlet-name>
-  	<jsp-file>/pages/foodcourtmanager/manage_accounts.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>fcmanager-manage_accounts</servlet-name>
-  	<url-pattern>/fcmanager/manage_accountsJSP</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-  	<servlet-name>fcmanager-manage_vendors</servlet-name>
-  	<jsp-file>/pages/foodcourtmanager/manage_vendors.jsp</jsp-file>
-  </servlet>
-    <servlet-mapping>
-  	<servlet-name>fcmanager-manage_vendors</servlet-name>
-  	<url-pattern>/fcmanager/manage_vendorsJSP</url-pattern>
-  </servlet-mapping>
   
   <servlet>
   	<servlet-name>changePassword</servlet-name>

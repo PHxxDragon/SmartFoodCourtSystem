@@ -50,6 +50,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
+				  <li><a href="${pageContext.request.contextPath}/fcmanager/main">Trang chủ</a></li>
 					<li><a href="manage_accounts">Manage Accounts</a></li>
 					<li><a href="manage_vendors">Manage Vendors</a></li>
 					<li><a href=${pageContext.request.contextPath}/Logout>Đăng xuất</a></li>
@@ -87,7 +88,7 @@
 		<tr><td>Owner ID:</td> <td><input type="text" name="ownerid" style="color:black"></td></tr>
 	</table>
 	<table id="main_buttons">
-		<tr><td><button type="button" id="btn_remove" onclick="confirmationForm()" style="color:black">Remove</button></td>
+		<tr><td><button type="button" id="btn_remove" onclick="vendorConfirmationForm()" style="color:black">Remove</button></td>
 			<td><button type="button" id="btn_new" onclick="newVendorForm()" style="color:black">New vendor</button></td>
 		</tr>
 	</table>

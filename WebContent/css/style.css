@@ -171,6 +171,30 @@ ol {
 	letter-spacing: 2px;
 }
 
+.primary-btn:hover {
+	cursor: pointer;
+}
+
+.primary-btn-2 {
+	display: inline-block;
+	font-size: 14px;
+	padding: 10px 28px 10px;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: 700;
+	background: #7fad39;
+	letter-spacing: 2px;
+}
+
+.primary-btn-2 span {
+	color: #ffffff;
+}
+
+
+.primary-btn-2:hover {
+	cursor: pointer;
+}
+
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;
@@ -1903,6 +1927,12 @@ ol {
 .shoping-cart {
 	padding-top: 80px;
 	padding-bottom: 80px;
+}
+
+.order__table table tbody tr td{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #ebebeb;
 }
 
 .order__table table tr td #purchase__timestamp {
