@@ -217,16 +217,7 @@ public class UserDao {
 				e.printStackTrace();
 		} 
 		
-		//Create a dummy order to sure that this is not stupid
-		Order dummyOrder = new Order();
-		List<OrderEntry> list = new ArrayList<OrderEntry>();
-		dummyOrder.setUserID(user.getUserID());
-		dummyOrder.setEta(0);
-		dummyOrder.setPrice(0);
-		dummyOrder.setSaleVendorID(0);
-		dummyOrder.setOrderEntries(list);
 		
-		OrderDao.addOrder(dummyOrder);
 		
 	}
 	
