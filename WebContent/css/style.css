@@ -2480,6 +2480,20 @@ ol {
 .profile__featured .profile__featured__general ul li span {
 	float: right;
 }
+
+/*---------------------
+  Account list
+-----------------------*/
+
+.account__management__btns {
+	display: flex;
+	justify-content: end;
+}
+
+.account__management__btns > * {
+	margin: 10px;
+}
+
 /*---------------------
   Blog
 -----------------------*/
@@ -3682,6 +3696,9 @@ ol {
 	.over_hid {
 		overflow: hidden;
 	}
+	table#user_list .hidden_column {
+		display: none;
+	}
 }
 
 /* Small Device = 320px */
@@ -3730,5 +3747,8 @@ ol {
 	}
 	.blog__details__hero__text h2 {
 		font-size: 24px;
+	}
+	table#user_list .hidden_column {
+		display: none;
 	}
 }
