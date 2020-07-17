@@ -98,7 +98,7 @@ public class UserDao {
 				isEntryExist =true;
 				int newQuantity = quantity + entry.getQuantity();
 				OrderDao.updateOrderEntryQuantity(mealID, newQuantity, order.getOrderID());
-				break;
+				return;
 			}
 		}
 		if (isEntryExist == false) {

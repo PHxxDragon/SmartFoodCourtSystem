@@ -111,7 +111,7 @@ public class OrderDao {
 	private static final String DELETE_ORDER_ENTRY_BY_MEAL_ID_ORDER_ID = "DELETE FROM order_entry_info WHERE Meal_ID = ? AND Order_ID = ?";
 	
 	private static final String UPDATE_ORDER_STATUS = "UPDATE order_info SET isDone = ?, Date_Complete = ? WHERE Order_ID = ? ";
-	private static final String UPDATE_ORDER_ENTRY_QUANTITY = "UPDATE order_entry_info SET Quantity = ?, Total_Price = ?, Total_Wait_Time = ? WHERE Order_ID = ? ";
+	private static final String UPDATE_ORDER_ENTRY_QUANTITY = "UPDATE order_entry_info SET Quantity = ?, Total_Price = ?, Total_Wait_Time = ? WHERE Order_ID = ? AND Meal_ID = ? ";
 	private static final String UPDATE_ORDER_PRICE_WAITTIME = "UPDATE order_info SET Price = ?, Wait_Time = ? WHERE Order_ID = ? ";
 	
 	public OrderDao() {
@@ -281,6 +281,7 @@ public class OrderDao {
 			preparedStatement.setString(2, String.valueOf(newPrice));
 			preparedStatement.setInt(3, newWaitTime);
 			preparedStatement.setLong(4, orderID);
+			preparedStatement.setLong(5, mealID);
 			
 			preparedStatement.executeUpdate();
 			
