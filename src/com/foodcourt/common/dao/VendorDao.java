@@ -53,6 +53,7 @@ public class VendorDao {
 	private static final String UPDATE_VENDOR_OWNER_ID = "UPDATE vendor_info SET Owner_ID = ? WHERE Vendor_ID = ? ";
 	private static final String UPDATE_VENDOR_NAME = "UPDATE vendor_info SET Name = ? WHERE Vendor_ID = ? ";
 	
+	
 	public VendorDao() {
 		
 	}

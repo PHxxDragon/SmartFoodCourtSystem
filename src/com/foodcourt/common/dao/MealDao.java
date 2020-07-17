@@ -43,6 +43,9 @@ public class MealDao {
 	private static final String UPDATE_MEAL_WAIT_TIME = "UPDATE meal_info SET Wait_Time = ? WHERE Meal_ID = ? ";
 	private static final String UPDATE_MEAL_TAG = "UPDATE meal_info SET Tag = ? WHERE Meal_ID = ? ";
 	
+	private static final String SEARCH_MEAL_BY_NAME_PATTERN = "SELECT * FROM meal_info WHERE Meal_Name LIKE ?";
+	private static final String SEARCH_MEAL_BY_TAG_PATTERN = "SELECT * FROM meal_info WHERE Tag LIKE ?";
+	
 	public MealDao() {
 		
 	}
@@ -187,43 +190,43 @@ public class MealDao {
 		return meal;
 	}
 	
-		public static List<Meal> getAllMeals(){
-			List<Meal> mealList = new ArrayList<Meal>();
-			Connection conn= getConnection();
-			try {
-				PreparedStatement preparedStatement = conn.prepareStatement(SELECT_ALL_MEALS);
-				ResultSet res = preparedStatement.executeQuery();
+	public static List<Meal> getAllMeals(){
+		List<Meal> mealList = new ArrayList<Meal>();
+		Connection conn= getConnection();
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(SELECT_ALL_MEALS);
+			ResultSet res = preparedStatement.executeQuery();
 				
-				while (res.next()) {
-					Meal meal = new Meal();	
-					long id = res.getInt("Meal_ID");
-					String name = res.getString("Meal_name");
-					int saleVendorID = res.getInt("Sale_Vendor_ID");
-					long price = Long.parseLong(res.getNString("Price"));
-					int stock = res.getInt("Stock");
-					String des = res.getString("Description");
-					String pic_url = res.getString("Picture_URL");
-					int waitTime = res.getInt("Wait_Time");
-					String tagString = res.getString("Tag");
+			while (res.next()) {
+				Meal meal = new Meal();	
+				long id = res.getInt("Meal_ID");
+				String name = res.getString("Meal_name");
+				int saleVendorID = res.getInt("Sale_Vendor_ID");
+				long price = Long.parseLong(res.getNString("Price"));
+				int stock = res.getInt("Stock");
+				String des = res.getString("Description");
+				String pic_url = res.getString("Picture_URL");
+				int waitTime = res.getInt("Wait_Time");
+				String tagString = res.getString("Tag");
 					
-					meal.setId(id);
-					meal.setName(name);
-					meal.setSaleVendorID(saleVendorID);
-					meal.setPrice(price);
-					meal.setStock(stock);
-					meal.setDecription(des);
-					meal.setImgSrc(pic_url);
-					meal.setEta(waitTime);
-					meal.setTag(convertStringToTag(tagString));
+				meal.setId(id);
+				meal.setName(name);
+				meal.setSaleVendorID(saleVendorID);
+				meal.setPrice(price);
+				meal.setStock(stock);
+				meal.setDecription(des);
+				meal.setImgSrc(pic_url);
+				meal.setEta(waitTime);
+				meal.setTag(convertStringToTag(tagString));
 					
-					mealList.add(meal);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				mealList.add(meal);
 			}
-			return mealList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return mealList;
+	}
 	
 	//Select meal by sale vendor ID
 	public static List<Meal> getMealBySaleVendorID(long saleVendorID){
@@ -537,5 +540,95 @@ public class MealDao {
 			e.printStackTrace();
 		}
 		return isUpdated && isRemove;
+	}
+	
+	//Find meal list by a meal pattern
+	public static List<Meal> searchMealByNamePattern(String pattern){
+		List<Meal> mealList = new ArrayList<Meal>();
+		Connection conn= getConnection();
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(SEARCH_MEAL_BY_NAME_PATTERN);
+			pattern = "%"+pattern+"%";
+			preparedStatement.setString(1, pattern);
+			ResultSet res = preparedStatement.executeQuery();
+			
+			while (res.next()) {
+				Meal meal = new Meal();	
+				long id = res.getInt("Meal_ID");
+				String name = res.getString("Meal_name");
+				int saleVendorID = res.getInt("Sale_Vendor_ID");
+				long price = Long.parseLong(res.getNString("Price"));
+				int stock = res.getInt("Stock");
+				String des = res.getString("Description");
+				String pic_url = res.getString("Picture_URL");
+				int waitTime = res.getInt("Wait_Time");
+				String tagString = res.getString("Tag");
+				
+				meal.setId(id);
+				meal.setName(name);
+				meal.setSaleVendorID(saleVendorID);
+				meal.setPrice(price);
+				meal.setStock(stock);
+				meal.setDecription(des);
+				meal.setImgSrc(pic_url);
+				meal.setEta(waitTime);
+				meal.setTag(convertStringToTag(tagString));
+				
+				mealList.add(meal);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mealList;
+	}
+	
+	//Search meal by tag
+	public static List<Meal> searchMealByTagPattern(String pattern){
+		List<Meal> mealList = new ArrayList<Meal>();
+		Connection conn= getConnection();
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(SEARCH_MEAL_BY_TAG_PATTERN);
+			pattern = "%"+pattern+"%";
+			preparedStatement.setString(1, pattern);
+			ResultSet res = preparedStatement.executeQuery();
+			
+			while (res.next()) {
+				Meal meal = new Meal();	
+				long id = res.getInt("Meal_ID");
+				String name = res.getString("Meal_name");
+				int saleVendorID = res.getInt("Sale_Vendor_ID");
+				long price = Long.parseLong(res.getNString("Price"));
+				int stock = res.getInt("Stock");
+				String des = res.getString("Description");
+				String pic_url = res.getString("Picture_URL");
+				int waitTime = res.getInt("Wait_Time");
+				String tagString = res.getString("Tag");
+				
+				meal.setId(id);
+				meal.setName(name);
+				meal.setSaleVendorID(saleVendorID);
+				meal.setPrice(price);
+				meal.setStock(stock);
+				meal.setDecription(des);
+				meal.setImgSrc(pic_url);
+				meal.setEta(waitTime);
+				meal.setTag(convertStringToTag(tagString));
+				
+				mealList.add(meal);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mealList;
+	}
+	
+	//Combine search
+	public static List<Meal> searchCombine(String pattern){
+		List<Meal> mealList = new ArrayList<Meal>();
+		mealList.addAll(searchMealByNamePattern(pattern));
+		mealList.addAll(searchMealByTagPattern(pattern));
+		return mealList;
 	}
 }
