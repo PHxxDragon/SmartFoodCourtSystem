@@ -96,7 +96,7 @@ public class UserDao {
 		for (OrderEntry entry: order.getOrderEntries()) {
 			if (entry.getMeal().getId()==mealID) {
 				isEntryExist =true;
-				int newQuantity = quantity;
+				int newQuantity = quantity + entry.getQuantity();
 				OrderDao.updateOrderEntryQuantity(mealID, newQuantity, order.getOrderID());
 				break;
 			}
