@@ -306,11 +306,11 @@
 								                                    </td>
 								                                    <td class="shoping__cart__quantity">
 							                                        	<div class="quantity">
-							                                            	<span id="item-quantity">${entry.quantity}</span>
+							                                            	<span id="item-quantity-rm">${entry.quantity}</span>
 							                                        	</div>
 							                                    	</td>
 							                                    	<td class="shoping__cart__total">
-							                                    		<span id="item-total-price">${entry.meal.price*entry.quantity }</span>&#8363;
+							                                    		<span id="item-total-price-rm">${entry.meal.price*entry.quantity }</span>&#8363;
 							                                    	</td>
 							                                	</tr>
 						                            		</c:forEach>
