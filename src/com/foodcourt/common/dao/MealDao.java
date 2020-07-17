@@ -2,6 +2,7 @@ package com.foodcourt.common.dao;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.sql.*;
 
 import com.foodcourt.common.database.MealData;
@@ -22,7 +23,7 @@ public class MealDao {
 	//final private static String mysqlPass="1234";
 	
 	//The queries
-	private static final String INSERT_MEAL_SQL =  "INSERT INTO meal_info (Meal_ID, Meal_Name, Sale_Vendor_ID, Price, Stock, Decription, Picture_URL, Wait_Time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String INSERT_MEAL_SQL =  "INSERT INTO meal_info (Meal_ID, Meal_Name, Sale_Vendor_ID, Price, Stock, Decription, Picture_URL, Wait_Time, Tag) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String GET_MEAL_MAX_ID = "SELECT MAX(Meal_ID) AS MaxMealID from meal_info";
 		
 	private static final String SELECT_MEAL_BY_ID = "SELECT * FROM meal_info WHERE Meal_ID = ?";
@@ -40,9 +41,26 @@ public class MealDao {
 	private static final String UPDATE_MEAL_DESCRIPTION = "UPDATE meal_info SET Description = ? WHERE Meal_ID = ? ";
 	private static final String UPDATE_MEAL_PRITURE_URL = "UPDATE meal_info SET Picture_URL = ? WHERE Meal_ID = ? ";
 	private static final String UPDATE_MEAL_WAIT_TIME = "UPDATE meal_info SET Wait_Time = ? WHERE Meal_ID = ? ";
+	private static final String UPDATE_MEAL_TAG = "UPDATE meal_info SET Tag = ? WHERE Meal_ID = ? ";
 	
 	public MealDao() {
 		
+	}
+	
+	//Helper method to convert List tag to String
+	private static String convertTagToString(List<String> tag) {
+		String tagString = "";
+		for (String str : tag) {
+			tagString += str+", ";
+		}
+		tagString = tagString.substring(0, tagString.length()-2);
+		return tagString;
+	}
+	
+	//Helper method to convert string to List tag
+	private static List<String> convertStringToTag(String tagString){
+		List<String> tag = new ArrayList<String>(Arrays.asList(tagString.split(", ")));
+		return tag;
 	}
 	
 	private static String getDatabaseName() {
@@ -66,6 +84,7 @@ public class MealDao {
 		return conn;
 	}
 	
+	
 	public static void insertMeal(Meal meal) {
 		System.out.println(INSERT_MEAL_SQL);
 		Connection conn = getConnection();
@@ -86,6 +105,7 @@ public class MealDao {
 			preparedStatement.setString(6, meal.getDecription());
 			preparedStatement.setString(7, meal.getImgSrc());
 			preparedStatement.setInt(8, meal.getEta());
+			preparedStatement.setString(9, convertTagToString(meal.getTag()));
 			
 			preparedStatement.executeUpdate();
 			
@@ -112,6 +132,7 @@ public class MealDao {
 				String des = res.getString("Description");
 				String pic_url = res.getString("Picture_URL");
 				int waitTime = res.getInt("Wait_Time");
+				String tagString = res.getString("Tag");
 				
 				meal.setId(id);
 				meal.setName(name);
@@ -121,6 +142,7 @@ public class MealDao {
 				meal.setDecription(des);
 				meal.setImgSrc(pic_url);
 				meal.setEta(waitTime);
+				meal.setTag(convertStringToTag(tagString));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -146,6 +168,7 @@ public class MealDao {
 				String des = res.getString("Description");
 				String pic_url = res.getString("Picture_URL");
 				int waitTime = res.getInt("Wait_Time");
+				String tagString = res.getString("Tag");
 				
 				meal.setId(id);
 				meal.setName(name);
@@ -155,6 +178,7 @@ public class MealDao {
 				meal.setDecription(des);
 				meal.setImgSrc(pic_url);
 				meal.setEta(waitTime);
+				meal.setTag(convertStringToTag(tagString));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -180,6 +204,7 @@ public class MealDao {
 					String des = res.getString("Description");
 					String pic_url = res.getString("Picture_URL");
 					int waitTime = res.getInt("Wait_Time");
+					String tagString = res.getString("Tag");
 					
 					meal.setId(id);
 					meal.setName(name);
@@ -189,6 +214,7 @@ public class MealDao {
 					meal.setDecription(des);
 					meal.setImgSrc(pic_url);
 					meal.setEta(waitTime);
+					meal.setTag(convertStringToTag(tagString));
 					
 					mealList.add(meal);
 				}
@@ -218,6 +244,7 @@ public class MealDao {
 				String des = res.getString("Description");
 				String pic_url = res.getString("Picture_URL");
 				int waitTime = res.getInt("Wait_Time");
+				String tagString = res.getString("Tag");
 				
 				meal.setId(id);
 				meal.setName(name);
@@ -227,6 +254,7 @@ public class MealDao {
 				meal.setDecription(des);
 				meal.setImgSrc(pic_url);
 				meal.setEta(waitTime);
+				meal.setTag(convertStringToTag(tagString));
 				
 				mealList.add(meal);
 			}
@@ -394,5 +422,120 @@ public class MealDao {
 		}
 		return isUpdated;
 		
+	}
+	
+	
+	//Update the entire tag column of meal
+	public static boolean updateMealTag(List<String> newTagList, long mealID) {
+		boolean isUpdated = false;
+		Connection conn = getConnection();
+		try {
+			PreparedStatement preparedStatement=conn.prepareStatement(UPDATE_MEAL_TAG);
+			preparedStatement.setString(1, convertTagToString(newTagList));
+			preparedStatement.setLong(2, mealID);
+			
+			isUpdated=preparedStatement.executeUpdate()>0;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return isUpdated;
+		
+	}
+	
+	//Add one more tag for meal
+	public static boolean addOneMealTag(String newTag, long mealID) {
+		boolean isUpdated = false;
+		Connection conn = getConnection();
+		try {
+			Meal mealToUpdate = selectMeal(mealID);
+			mealToUpdate.getTag().add(newTag);
+			
+			PreparedStatement preparedStatement=conn.prepareStatement(UPDATE_MEAL_TAG);
+			preparedStatement.setString(1, convertTagToString(mealToUpdate.getTag()));
+			preparedStatement.setLong(2, mealToUpdate.getId());
+			
+			isUpdated=preparedStatement.executeUpdate()>0;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return isUpdated;
+		
+	}
+	//Add list of tags for meal
+	public static boolean addListMealTag(List<String> newTagList, long mealID) {
+		boolean isUpdated = false;
+		Connection conn = getConnection();
+		try {
+			Meal mealToUpdate = selectMeal(mealID);
+			List<String> tagList = mealToUpdate.getTag();
+			for (String s : tagList) {
+				newTagList.add(s);
+			}
+			mealToUpdate.setTag(newTagList);
+			
+			PreparedStatement preparedStatement=conn.prepareStatement(UPDATE_MEAL_TAG);
+			preparedStatement.setString(1, convertTagToString(mealToUpdate.getTag()));
+			preparedStatement.setLong(2, mealToUpdate.getId());
+			
+			isUpdated=preparedStatement.executeUpdate()>0;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return isUpdated;
+		
+	}
+	
+	//Remove one meal tag for meal
+	public static boolean removeOneMealTag(String tagToReomve, long mealID) {
+		boolean isUpdated = false;
+		boolean isRemove = false;
+		Connection conn = getConnection();
+		try {
+			Meal mealToUpdate = selectMeal(mealID);
+			isRemove = mealToUpdate.getTag().remove(tagToReomve);
+			
+			PreparedStatement preparedStatement=conn.prepareStatement(UPDATE_MEAL_TAG);
+			preparedStatement.setString(1, convertTagToString(mealToUpdate.getTag()));
+			preparedStatement.setLong(2, mealToUpdate.getId());
+			
+			isUpdated=preparedStatement.executeUpdate()>0;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return isUpdated && isRemove;
+	}
+	
+	//Remove list of tags for meal
+	public static boolean removeListMealTag(List<String> tagListToRemove, long mealID) {
+		boolean isUpdated = false;
+		boolean isRemove = false;
+		Connection conn = getConnection();
+		try {
+			Meal mealToUpdate = selectMeal(mealID);
+			List<String> newTagList = mealToUpdate.getTag();
+			for (String s : tagListToRemove) {
+				isRemove = newTagList.remove(s);
+			}
+			mealToUpdate.setTag(newTagList);
+			
+			PreparedStatement preparedStatement=conn.prepareStatement(UPDATE_MEAL_TAG);
+			preparedStatement.setString(1, convertTagToString(mealToUpdate.getTag()));
+			preparedStatement.setLong(2, mealToUpdate.getId());
+			
+			isUpdated=preparedStatement.executeUpdate()>0;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return isUpdated && isRemove;
 	}
 }
