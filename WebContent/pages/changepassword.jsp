@@ -109,23 +109,15 @@
                   	</c:choose>
                   	
 					<div class="form-group text-center">
-						<button type="submit" class="site-btn">Xác nhận</button>
+						<button type="submit" name="btn" value="xacnhan" class="site-btn">Xác nhận</button>
 					</div>
 					
 				</form>
-				<div class="other-opts">
-					<span>
-						<a id="log-in" href="./login">
-							Đăng nhập vào tài khoản SFCS
-						</a>
-					</span>
-					<span>·</span>
-					<span>
-						<a id="sign-up" href="./signup">
-							Đăng ký tài khoản SFCS
-						</a>
-					</span>
+				<form action="changepassword" id="change_password_form" method="post">
+				<div class="form-group text-center">
+				<button type="submit" name="btn" value="huybo" class="site-btn">Hủy bỏ</button>
 				</div>
+				</form>
 			</div>
 			
 		</section>

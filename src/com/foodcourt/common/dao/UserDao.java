@@ -142,7 +142,7 @@ public class UserDao {
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	final private static String mysqlPass="soni1382000duy";
 	//final private static String mysqlPass="1234";
 	
 	//The queries
@@ -237,7 +237,10 @@ public class UserDao {
 				String name=res.getString("Name");
 				String userType=res.getString("User_Type");
 				String password=res.getString("Password");
-				long balance=Long.parseLong(res.getString("Balance"));
+				long balance = 0;
+				if (res.getString("Balance")!=null) {
+					 balance=Long.parseLong(res.getString("Balance"));
+				} 
 				String email=res.getString("Email");
 				String phone=res.getString("Phone");
 				
@@ -288,7 +291,10 @@ public class UserDao {
 				String name=res.getString("Name");
 				String userType=res.getString("User_Type");
 				String password=res.getString("Password");
-				long balance=Long.parseLong(res.getString("Balance"));
+				long balance = 0;
+				if (res.getString("Balance")!=null) {
+					 balance=Long.parseLong(res.getString("Balance"));
+				} 
 				String email=res.getString("Email");
 				String phone=res.getString("Phone");
 				
@@ -335,7 +341,10 @@ public class UserDao {
 				String name=res.getString("Name");
 				String userType=res.getString("User_Type");
 				String password=res.getString("Password");
-				long balance=Long.parseLong(res.getString("Balance"));
+				long balance = 0;
+				if (res.getString("Balance")!=null) {
+					 balance=Long.parseLong(res.getString("Balance"));
+				}
 				String email=res.getString("Email");
 				String phone=res.getString("Phone");
 				
