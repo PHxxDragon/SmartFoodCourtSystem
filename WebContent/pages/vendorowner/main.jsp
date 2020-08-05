@@ -33,25 +33,6 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    
-    <!-- Modals -->
-	<div class="modal fade" id="confirmSuccessModal" tabindex="-1" role="dialog" aria-labelledby="orderSuccessModalTitle" aria-hidden="true">
-  		<div class="modal-dialog modal-dialog-centered" role="document">
-	    	<div class="modal-content">
-		      	<div class="modal-header">
-	        		<h5 class="modal-title" id="orderSuccessModalTitle">Thông báo</h5>
-		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          		<span aria-hidden="true">&times;</span>
-		        	</button>
-		      	</div>
-		      	<div class="modal-body">
-		      		<p>Đã xác nhận đơn hàng!</p>
-	      		</div>
-
-	    	</div>
-	  	</div>
-	</div>
-    <!-- Modals end -->
 
     <!-- Humberger Begin -->
 	<div class="humberger__menu__overlay"></div>
@@ -131,8 +112,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="">Trang chủ</a></li>
-						
-								<li><a href="MakeReportJSP">Make report</a></li>
+							<li><a href="${pageContext.request.contextPath}/vdowner/MakeReportJSP">Tạo báo cáo</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -144,7 +124,7 @@
     </header>
     <!-- Header Section End -->
     
-     <!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="${pageContext.request.contextPath}/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">

@@ -50,7 +50,7 @@ public class ChangePassword extends HttpServlet {
 		}
 		
 		UserDao.changePasswordFromUsername(user.getUsername(),newpassword);
-		response.sendRedirect("/" + user.getUserType().toString() + "/main");
+		response.sendRedirect(request.getContextPath() +"/" + user.getUserType().toString() + "/main");
 		return;
 		
 		
