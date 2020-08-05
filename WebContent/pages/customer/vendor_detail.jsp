@@ -240,6 +240,7 @@
 	                        "${pageContext.request.contextPath}${meal.imgSrc}">
 	                            <ul class="featured__item__pic__hover">
 	                                <li><a onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)"><i class="fa fa-shopping-cart"></i></a></li>
+	                                <li><a href="${pageContext.request.contextPath}/customer/itemDetail?mealID=${meal.id}"><i class="fa fa-info-circle"></i></a></li>
 	                            </ul>
 	                        </div>
 							<div class="featured__item__text">
