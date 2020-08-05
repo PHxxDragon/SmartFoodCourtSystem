@@ -238,7 +238,7 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="${pageContext.request.contextPath}/img/product/food_img/product-${meal.id}.jpg" alt="">
+                                src="${pageContext.request.contextPath}${meal.imgSrc}" alt="">
                         </div>
                       <!--   <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/product-details-2.jpg"

@@ -214,7 +214,7 @@
 					<c:forEach items="${mealList}" var="meal" varStatus="loop">
 						<div class="col-lg-3">
 							<div class="categories__item set-bg" data-setbg=
-							"${pageContext.request.contextPath}/img/product/food_img/${meal.imgSrc}.jpg">
+							"${pageContext.request.contextPath}${meal.imgSrc}">
 								<h5><a onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)">Thêm vào giỏ</a></h5>
 							</div>
 						</div>
@@ -249,7 +249,7 @@
                 	<div class="col-lg-3 col-md-6 col-sm-12 mix breakfast fresh-meat">
 	                    <div class="featured__item">
 	                        <div class="featured__item__pic set-bg" data-setbg=
-	                        "${pageContext.request.contextPath}/img/product/food_img/${meal.imgSrc}.jpg">
+	                        "${pageContext.request.contextPath}${meal.imgSrc}">
 	                            <ul class="featured__item__pic__hover">
 	                                <li><a onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)"><i class="fa fa-shopping-cart"></i></a></li>
 	                            </ul>
@@ -300,7 +300,7 @@
 	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
 		                                <a href="${pageContext.request.contextPath}/customer/itemDetail?mealID=${meal.id}" class="latest-product__item">
 		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/product/food_img/${meal.imgSrc}.jpg"
+		                                        <img src="${pageContext.request.contextPath}${meal.imgSrc}"
 		                                        alt="">
 		                                    </div>
 		                                    <div class="latest-product__item__text">
@@ -325,7 +325,7 @@
 	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
 		                                <a href="${pageContext.request.contextPath}/customer/itemDetail?mealID=${meal.id}" class="latest-product__item">
 		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/product/food_img/${meal.imgSrc}.jpg"
+		                                        <img src="${pageContext.request.contextPath}${meal.imgSrc}"
 		                                        alt="">
 		                                    </div>
 		                                    <div class="latest-product__item__text">
@@ -350,7 +350,7 @@
 	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
 		                                <a href="${pageContext.request.contextPath}/customer/itemDetail?mealID=${meal.id}" class="latest-product__item">
 		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}/img/product/food_img/${meal.imgSrc}.jpg"
+		                                        <img src="${pageContext.request.contextPath}${meal.imgSrc}"
 		                                        alt="">
 		                                    </div>
 		                                    <div class="latest-product__item__text">
