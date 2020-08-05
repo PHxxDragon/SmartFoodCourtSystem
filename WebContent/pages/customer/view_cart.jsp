@@ -237,7 +237,7 @@
                             	<c:forEach items = "${shoppingCart.orderEntries}" var="entry" varStatus="loop">
                             		<tr class="shoping__cart__list">
 	                                    <td class="shoping__cart__item">
-	                                        <img src="${pageContext.request.contextPath}/img/product/food_img/product-${entry.meal.id}.jpg" alt="">
+	                                        <img src="${pageContext.request.contextPath}${entry.meal.imgSrc}" alt="">
 	                                        <h5 class="item-title">${entry.meal.name}</h5>
 	                                        <input id="item-id" type="hidden" value="${entry.meal.id }"/> 
 	                                    </td>
