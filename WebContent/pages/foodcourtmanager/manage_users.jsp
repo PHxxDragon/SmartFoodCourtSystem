@@ -329,7 +329,7 @@
 	        			<div class="form-group">
 	            			<label for="account_name_edit" class="col-form-label">Họ tên:</label>
 	            			<input type="text" id="account_name_edit" name="account_name_edit" placeholder="">
-	          		"src"	</div>
+	          			</div>
 	          			<div class="form-group">
 	            			<label for="account_username_edit" class="col-form-label">Tên đăng nhập:</label>
 	            			<input type="text" id="account_username_edit" name="account_username_edit" placeholder="">

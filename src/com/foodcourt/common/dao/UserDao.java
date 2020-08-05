@@ -142,8 +142,8 @@ public class UserDao {
 	//The global variables to access to local database
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
-	//final private static String mysqlPass="1234";
+	//final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	final private static String mysqlPass="1234";
 	
 	//The queries
 	private static final String INSERT_USERS_SQL = "INSERT INTO user_info_normal (User_ID, User_Name, User_Type,Name, Password, Balance, Email) VALUES (?, ?, ?, ?, ?, ?, ?) ";

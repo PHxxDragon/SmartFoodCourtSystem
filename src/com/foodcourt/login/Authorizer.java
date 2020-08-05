@@ -33,7 +33,6 @@ public class Authorizer extends HttpServlet {
 			request.setAttribute("error", true);
 			RequestDispatcher rd=request.getRequestDispatcher("/login");            
 			rd.forward(request, response);
-		
 			return;
 		}	
 		

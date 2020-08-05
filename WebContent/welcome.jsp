@@ -38,7 +38,7 @@
         <div class="loader"></div>
     </div>
     
-    <c:set value="${md:getMealList()}" var="mealList"/>
+    <c:set value="${md.getMealList()}" var="mealList"/>
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
