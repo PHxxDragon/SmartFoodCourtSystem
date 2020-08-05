@@ -445,7 +445,7 @@ public class OrderDao {
 			preparedStatement.setLong(1, userID);
 			preparedStatement.setInt(2, isDone);
 			ResultSet result = preparedStatement.executeQuery();
-			if(result.next()) {
+			while(result.next()) {
 				Order order = new Order();
 				long orderID = result.getLong("Order_ID");
 				long price  = Long.valueOf(result.getString("Price"));
@@ -474,9 +474,6 @@ public class OrderDao {
 				}
 				order.setOrderEntries(mealList);
 				orders.add(order);
-			}
-			else {
-				return orders;
 			}
 			
 		} catch (SQLException e) {

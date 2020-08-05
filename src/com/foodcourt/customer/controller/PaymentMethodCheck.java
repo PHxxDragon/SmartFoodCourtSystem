@@ -62,20 +62,6 @@ public class PaymentMethodCheck extends HttpServlet {
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("confirmOrderController");
 		rd.forward(request, response);
-		/*
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		String title = "Finish ordering";
-		String docType= "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n";
-		out.println(docType +
-	                "<html>\n" +
-	                "<head><title>" + title + "</title></head>\n" +
-	                "<body bgcolor=\"#f0f0f0\">\n" +
-	                "<h1 align=\"center\">" + title + "</h1>\n" +
-	                "</body></html>");
-		out.println("<a type='submit' href='./main' value='return'>Return</a>");
-		request.setAttribute("user", user);
-		*/
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
