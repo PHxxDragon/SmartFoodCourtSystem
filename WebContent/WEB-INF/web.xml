@@ -87,6 +87,15 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>vendor-detail</servlet-name>
+  	<jsp-file>/pages/customer/vendor_detail.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>vendor-detail</servlet-name>
+  	<url-pattern>/customer/vendor_detailJSP</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>it-main</servlet-name>
   	<jsp-file>/pages/it/main.jsp</jsp-file>
   </servlet>

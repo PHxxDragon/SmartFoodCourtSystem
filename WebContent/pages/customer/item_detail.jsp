@@ -124,15 +124,6 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <!-- <span></span> --></a></li>
-                            <li><a href="${pageContext.request.contextPath}/customer/viewCart"><i class="fa fa-shopping-bag"></i><!-- <span></span>  --></a></li>
-                        </ul>
-                      <!--   <div class="header__cart__price">Giỏ hàng: <span>$150.00</span></div>  -->
-                    </div>
-                </div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>

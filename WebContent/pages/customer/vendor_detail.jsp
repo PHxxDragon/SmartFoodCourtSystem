@@ -5,8 +5,6 @@
 
 <%@page import="java.util.List"%> 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="MealDao" prefix="md" %>
-<%@taglib uri="VendorDao" prefix="vd" %>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -30,7 +28,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/customer/main.js"></script>
 </head>
 
 <body>
@@ -38,44 +35,41 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    
-    <c:set value="${md:getMealList()}" var="mealList"/>
-    <c:set value="${vd:getVendorList()}" var="vendorList"/>
+
     <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
+ <!--    <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt=""></a>
         </div>
-        <!--  
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span class="cart__total__size">0</span></a></li>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">Giỏ hàng: <span>${shoppingCart.price}&#8363;</span></div>
+            <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
-         -->
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <a href="./login"><i class="fa fa-user"></i> Đăng nhập</a>
+                <a href="./logout"><i class="fa fa-user"></i> Đăng xuất</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="">Trang chủ</a></li>
-				<li><a href="${pageContext.request.contextPath}/login">Tài khoản</a></li>
-				<li><a href="${pageContext.request.contextPath}/login">Giỏ hàng</a></li>
-				<li><a href="${pageContext.request.contextPath}/login">Thanh toán</a></li>
+               <!-- <li><a href="./shop-grid.html">Cửa hàng</a></li> -->
+		<!-- 		<li><a href="${pageContext.request.contextPath}/cart">Giỏ hàng</a></li>
+				<li><a href="./checkout.html">Thanh toán</a></li>
+                <li><a href="./contact.html">Liên hệ</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
-        	<a href="#"><i class="fa fa-facebook"></i></a>
+        <!--  <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>  
-        </div>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a> -->  
+  <!--        </div>
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> support@sfcs.com</li>
@@ -98,17 +92,14 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                        	<div class="header__top__right__social">
+                             <div class="header__top__right__social">
                                <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a> 
                             </div>
-                            <div class="header__top__right__social">
-                            	<a href="${pageContext.request.contextPath}/signup"><i class="fa fa-user"></i> Đăng ký</a>
-                            </div>
 							<div class="header__top__right__auth">
-                                <a href="${pageContext.request.contextPath}/login"><i class="fa fa-user"></i> Đăng nhập</a>	
+                                <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng xuất</a>	
                             </div>
                         </div>
                     </div>
@@ -125,25 +116,14 @@
                 <div class="col-lg-9">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="">Trang chủ</a></li>
-							<li><a href="${pageContext.request.contextPath}/login">Tài khoản</a></li>
-							<li><a href="${pageContext.request.contextPath}/login">Giỏ hàng</a></li>
-							<li><a href="${pageContext.request.contextPath}/login">Thanh toán</a></li>
+                            <li><a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/profile">Tài khoản</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/viewCart">Giỏ hàng</a></li>
+							<li><a href="${pageContext.request.contextPath}/customer/confirmOrderController">Thanh toán</a></li>
 							<li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
-                <!-- 
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
-                            <li><a href="${pageContext.request.contextPath}/login"><i class="fa fa-shopping-bag"></i> <span class="cart__total__size">0</span> </a></li>
-                        </ul>
-                       	<div class="header__cart__price">Giỏ hàng: <span class="cart__total__price">${shoppingCart.price}</span><span>&#8363;</span></div>
-                    </div>
-                </div>
-                -->
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -151,9 +131,27 @@
         </div>
     </header>
     <!-- Header Section End -->
+    
+    <!-- Modals -->
+	<div class="modal fade" id="orderSuccessModal" tabindex="-1" role="dialog" aria-labelledby="orderSuccessModalTitle" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+	        		<h5 class="modal-title" id="orderSuccessModalTitle">Thông báo</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		      		<p>Đã thêm vào giỏ hàng!</p>
+	      		</div>
 
-    <!-- Hero Section Begin -->
-    <section class="hero">
+	    	</div>
+	  	</div>
+	</div>
+
+   	<!-- Hero Section Begin -->
+    <section class="hero hero-normal">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -163,8 +161,8 @@
                             <span>Các vendor</span>
                         </div>
                         <ul>
-						<c:forEach items="${vendorList }" var="vendor" varStatus="loop">
-                            <li><a href="${pageContext.request.contextPath}/login">${vendor.name }</a></li>
+                            <c:forEach items="${vendorList }" var="vendor" varStatus="loop">
+                            <li><a href="${pageContext.request.contextPath}/customer/vendorDetail?vendorID=${vendor.id}">${vendor.name }</a></li>
                         </c:forEach>
                         </ul>
                     </div>
@@ -174,11 +172,11 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    Các vendor
+                                    All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="Nhập từ khóa">
-                                <button type="submit" class="site-btn">TÌM KIẾM</button>
+                                <input type="text" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -191,46 +189,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath}/img/hero/banner.jpg">
-                        <div class="hero__text">
-                            <span>MÓN MỚI</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Miễn phí giao hàng</p>
-                            <a href="${pageContext.request.contextPath}/login" class="primary-btn">ĐẶT NGAY</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+    
+     <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="${pageContext.request.contextPath}/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Thông tin quầy hàng</h2>
+                        <div class="breadcrumb__option">
+                            <a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a>
+                            <span>Thông tin quầy hàng</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Hero Section End -->
-
-    <!-- Categories Section Begin -->
-    <section class="categories">
-        <div class="container">
-            <div class="row">
-                <div class="categories__slider owl-carousel">
-					<c:forEach items="${mealList}" var="meal" varStatus="loop">
-						<div class="col-lg-3">
-							<div class="categories__item set-bg" data-setbg=
-							"${pageContext.request.contextPath}${meal.imgSrc}">
-								<h5><a href="${pageContext.request.contextPath}/login">Thêm vào giỏ</a></h5>
-							</div>
-						</div>
-					</c:forEach>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Categories Section End -->
-
+    <!-- Breadcrumb Section End -->
+    
     <!-- Featured Section Begin -->
     <section class="featured spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Các món nổi bật</h2>
+                        <h2>Các món nổi bật trong quầy ${vendor.name }</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>
@@ -245,12 +234,12 @@
             </div>
             <div class="row featured__filter">
             	<c:forEach items="${mealList}" var="meal" varStatus="loop">
-                	<div class="col-lg-3 col-md-4 col-sm-6 mix breakfast fresh-meat">
+                	<div class="col-lg-3 col-md-6 col-sm-12 mix breakfast fresh-meat">
 	                    <div class="featured__item">
 	                        <div class="featured__item__pic set-bg" data-setbg=
 	                        "${pageContext.request.contextPath}${meal.imgSrc}">
 	                            <ul class="featured__item__pic__hover">
-	                                <li><a href="${pageContext.request.contextPath}/login"><i class="fa fa-shopping-cart"></i></a></li>
+	                                <li><a onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)"><i class="fa fa-shopping-cart"></i></a></li>
 	                            </ul>
 	                        </div>
 							<div class="featured__item__text">
@@ -264,109 +253,6 @@
         </div>
     </section>
     <!-- Featured Section End -->
-
-    <!-- Banner Begin -->
-    <div class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="${pageContext.request.contextPath}/img/banner/banner-1.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="${pageContext.request.contextPath}/img/banner/banner-2.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-   <!-- Banner End -->
-
-    <!-- Latest Product Section Begin -->
-    <section class="latest-product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Mới nhất</h4>
-                        <div class="latest-product__slider owl-carousel">
-                        	<c:forEach var="idx" varStatus="" begin="0" end="1">
-                        		<c:set var="begin_loop_idx" value="${idx * 3}"/>
-                        		<c:set var="end_loop_idx" value="${idx * 3 + 2}"/>
-	                            <div class="latest-prdouct__slider__item">
-	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
-		                                <a href="${pageContext.request.contextPath}/customer/itemDetail?mealID=${meal.id}" class="latest-product__item">
-		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}${meal.imgSrc}"
-		                                        alt="">
-		                                    </div>
-		                                    <div class="latest-product__item__text">
-		                                        <h6>${meal.name}</h6>
-		                                        <span>${meal.price}&#8363;</span>
-		                                    </div>
-		                                </a>
-	                                </c:forEach>
-	                            </div>		
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Đánh giá cao nhất</h4>
-                        <div class="latest-product__slider owl-carousel">
-                        	<c:forEach var="idx" varStatus="" begin="0" end="2">
-                        		<c:set var="begin_loop_idx" value="${idx * 3}"/>
-                        		<c:set var="end_loop_idx" value="${idx * 3 + 2}"/>
-	                            <div class="latest-prdouct__slider__item">
-	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
-		                                <a href="${pageContext.request.contextPath}/customer/itemDetail?mealID=${meal.id}" class="latest-product__item">
-		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}${meal.imgSrc}"
-		                                        alt="">
-		                                    </div>
-		                                    <div class="latest-product__item__text">
-		                                        <h6>${meal.name}</h6>
-		                                        <span>${meal.price} &#8363;</span>
-		                                    </div>
-		                                </a>
-	                                </c:forEach>
-	                            </div>		
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Được đề cử</h4>
-                        <div class="latest-product__slider owl-carousel">
-                        	<c:forEach var="idx" varStatus="" begin="1" end="2">
-                        		<c:set var="begin_loop_idx" value="${idx * 3}"/>
-                        		<c:set var="end_loop_idx" value="${idx * 3 + 2}"/>
-	                            <div class="latest-prdouct__slider__item">
-	                            	<c:forEach items="${mealList}" var="meal" varStatus="loop" begin="${begin_loop_idx}" end="${end_loop_idx}">
-		                                <a href="${pageContext.request.contextPath}/customer/itemDetail?mealID=${meal.id}" class="latest-product__item">
-		                                    <div class="latest-product__item__pic">
-		                                        <img src="${pageContext.request.contextPath}${meal.imgSrc}"
-		                                        alt="">
-		                                    </div>
-		                                    <div class="latest-product__item__text">
-		                                        <h6>${meal.name}</h6>
-		                                        <span>${meal.price} &#8363;</span>
-		                                    </div>
-		                                </a>
-	                                </c:forEach>
-	                            </div>		
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Latest Product Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer spad">
@@ -442,6 +328,7 @@
     <script src="${pageContext.request.contextPath}/js/mixitup.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/customer/main.js"></script>
 </body>
 
 </html>
