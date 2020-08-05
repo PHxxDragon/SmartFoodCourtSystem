@@ -292,7 +292,7 @@
 							</table>		
 							<table id="account_edit_buttons" style="display:none">
 								<tr><td><button type="submit" name="btn" id="btn_apply" value = "account_edit" style="color:black">Apply</button></td>
-									<td><button type="button" name="btn_cancel" id="btn_canceledit" style="color:black" onclick="editForm()">Cancel</button></td>
+									<td><button type="button" name="btn_cancel" id="btn_canceledit" style="color:black" onclick="accountEditForm()">Cancel</button></td>
 								</tr>
 							</table>
 						</form>
@@ -303,31 +303,33 @@
          		
               	<!-- View vendors -->
             	<div class="profile__featured__general col-lg-6 mix manage-vendors">
+            	<div class="col-lg-12">
 	                <p id="vendor_prompt" style="display:none">Remove these vendors?</p>
 	                <p id="vendor_add_prompt" style="display:none">Add a new vendor</p>
 	                <form action="main" method="post">
-		                <table id="vendor_list" style="border: 1px solid black; border-collapse: collapse;">
+	                <div class="shoping__cart__table">
+		                <table id="vendor_list">
 		                    <thead>
-		                         <tr style="border: 1px solid black; border-collapse: collapse;">
-		                             <th style="border: 1px solid black; border-collapse: collapse;"></th>
-		                             <th style="border: 1px solid black; border-collapse: collapse;">Vendor ID</th>
-		                             <th style="border: 1px solid black; border-collapse: collapse;">Owner ID</th>
-		                             <th style="border: 1px solid black; border-collapse: collapse;">Name</th>
+		                         <tr>
+		                             <th></th>
+		                             <th>Vendor ID</th>
+		                             <th>Owner ID</th>
+		                             <th>Name</th>
 		                         </tr>
 		                    </thead>
-		                    <tbody style="border: 1px solid black; border-collapse: collapse;">
+		                    <tbody>
 			                    <c:forEach items = "${Vendors}" var="entry" varStatus="loop">
 		                            <tr>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
+			                            <td>
 				                            <input type = "checkbox" name = "vendorlist" value = "${entry.getId()}">
 			                            </td>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
+			                            <td>
 				                            <c:out value="${entry.getId()}"/>
 			                            </td>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
+			                            <td>
 				                            <c:out value="${entry.getOwnerID()}"/>
 			                            </td>
-			                            <td style="border: 1px solid black; border-collapse: collapse;">
+			                            <td>
 				                            <c:out value="${entry.getName()}"/>
 			                            </td>
 		                            </tr>
@@ -339,8 +341,8 @@
 			                <tr><td>Owner ID:</td> <td><input type="text" name="vendor_ownerid_add" style="color:black"></td></tr>
 		                </table>
 						<table id="vendor_main_buttons">
-							<tr><td><button type="button" id="vendor_btn_remove" onclick="vendorConfirmationForm()" style="color:black">Remove</button></td>
-								<td><button type="button" id="vendor_btn_new" onclick="newVendorForm()" style="color:black">New vendor</button></td>
+							<tr><td><button type="button" id="vendor_btn_remove" onclick="vendorConfirmationForm()" style="color:black">Xóa</button></td>
+								<td><button type="button" id="vendor_btn_new" onclick="newVendorForm()" style="color:black">Tạo mới</button></td>
 							</tr>
 						</table>
 						<table id="vendor_remove_buttons" style="display:none">
@@ -353,7 +355,9 @@
 								<td><button type="button" name="btn_cancel" id="btn_canceladd" style="color:black" onclick="newVendorForm()">Cancel</button></td>
 							</tr>
 						</table>
+					</div>
 					</form>
+				</div>
          		</div>
          		<!-- End View vendors -->
         	</div>

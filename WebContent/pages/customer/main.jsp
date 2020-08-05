@@ -156,17 +156,9 @@
                             <span>Các vendor</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                        <c:forEach items="${vendorList }" var="vendor" varStatus="loop">
+                            <li><a href="${pageContext.request.contextPath}/customer/vendorDetail?vendorID=${vendor.id}">${vendor.name }</a></li>
+                        </c:forEach>
                         </ul>
                     </div>
                 </div>
@@ -252,6 +244,7 @@
 	                        "${pageContext.request.contextPath}${meal.imgSrc}">
 	                            <ul class="featured__item__pic__hover">
 	                                <li><a onclick="addToShoppingCart(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 1)"><i class="fa fa-shopping-cart"></i></a></li>
+	                                <li><a href="${pageContext.request.contextPath}/customer/itemDetail?mealID=${meal.id}"><i class="fa fa-info-circle"></i></a></li>
 	                            </ul>
 	                        </div>
 							<div class="featured__item__text">

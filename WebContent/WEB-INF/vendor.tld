@@ -3,11 +3,11 @@
     version="2.0">
     
     <tlib-version>2.0</tlib-version>    
-    <uri>MealDao</uri> 
+    <uri>VendorDao</uri> 
     <function>
-        <name>getMealList</name>
-        <function-class>com.foodcourt.common.dao.MealDao</function-class>
-        <function-signature>java.util.List getMealList()
+        <name>getVendorList</name>
+        <function-class>com.foodcourt.common.dao.VendorDao</function-class>
+        <function-signature>java.util.List getVendors()
         </function-signature>
     </function>
 </taglib>

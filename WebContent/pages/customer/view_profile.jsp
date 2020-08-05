@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="VendorDao" prefix="vd" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -32,7 +33,7 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
+	<c:set value="${vd:getVendorList()}" var="vendorList"/>
     <!-- Humberger Begin -->
 	<div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
@@ -153,17 +154,9 @@
                             <span>Các vendor</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            <c:forEach items="${vendorList }" var="vendor" varStatus="loop">
+                           		 <li><a href="${pageContext.request.contextPath}/customer/vendorDetail?vendorID=${vendor.id}">${vendor.name }</a></li>
+                       		 </c:forEach>
                         </ul>
                     </div>
                 </div>
@@ -322,12 +315,12 @@
 						    		<tr>
 										<td>
 											<span id="purchase__timestamp">
-												<c:out value="Thời điểm thanh toán : ${order.eta}" />
+												<c:out value="Thời gian chờ đợi : ${order.eta} (phút)" />
 											</span>	 
 										</td>
 										<td>
 											<span id="total__order__price">
-												<c:out value="Tổng đơn hàng : ${order.price}" /> 
+												<c:out value="Tổng đơn hàng : ${order.price}" />&#8363;
 											</span>
 										</td>
 									</tr>

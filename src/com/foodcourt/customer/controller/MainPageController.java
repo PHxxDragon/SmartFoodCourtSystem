@@ -13,10 +13,12 @@ import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.MealDao;
 import com.foodcourt.common.dao.UserDao;
+import com.foodcourt.common.dao.VendorDao;
 import com.foodcourt.common.model.Meal;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.OrderEntry;
 import com.foodcourt.common.model.User;
+import com.foodcourt.common.model.Vendor;
 
 @WebServlet("/customer/main")
 public class MainPageController extends HttpServlet {
@@ -29,12 +31,14 @@ public class MainPageController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Meal> mealList= MealDao.getMealList();
+		List<Vendor> vendorList = VendorDao.getVendors();
 		HttpSession session = request.getSession();
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
 		Order shoppingCart = user.getShoppingCart();
 		request.setAttribute("mealList", mealList);
 		request.setAttribute("shoppingCart", shoppingCart);
+		request.setAttribute("vendorList", vendorList);
 		int cartSize = 0;
 		for (OrderEntry o: shoppingCart.getOrderEntries()) {
 			cartSize += o.getQuantity();
