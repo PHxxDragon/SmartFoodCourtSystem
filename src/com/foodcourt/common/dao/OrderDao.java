@@ -496,6 +496,7 @@ public class OrderDao {
 				int orderID = result.getInt("Order_ID");
 				//This is not optimal
 				Order order = OrderDao.selectOrder(orderID);
+				System.out.println(order.getPrice());
 				userOrder.add(order);
 			}
 		} catch (SQLException e) {

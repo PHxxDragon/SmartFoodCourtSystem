@@ -1,12 +1,13 @@
 package com.foodcourt.vendorowner.compile;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.time.LocalDate;
 import java.time.temporal.*;
+import java.util.List;
+import java.sql.Date;
 
 import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.dao.VendorDao;
+import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.User;
 import com.foodcourt.common.model.Vendor;
 
@@ -17,9 +18,15 @@ public class CompileReportCSV implements ICompileReport {
 	private User user;
 	private Vendor vendor;
 	
-	private static char CSV_DELIMITER = ',';
-	private static char CSV_PURE_TEXT_START = '\"';
-	private static char CSV_PURE_TEXT_END = '\"';
+	private final static char CSV_DELIMITER = ',';
+	private final static char CSV_ESCAPE_CHAR = '\"';
+	private final static char CSV_ENDLINE = '\n';
+	
+	private final static String[] report_label = {
+			"start date",
+			"end date",
+			"revenue"
+	};
 	
 	public CompileReportCSV(User user, String startDate, String endDate, TemporalUnit timeUnit) {
 		this.user = user;
@@ -35,20 +42,32 @@ public class CompileReportCSV implements ICompileReport {
 		LocalDate parsed_start_date = LocalDate.parse(start_date);
 		LocalDate parsed_end_date = LocalDate.parse(end_date);
 		
-		for (LocalDate date = parsed_start_date; date.isBefore(parsed_end_date); date = date.plus(1, time_unit)) {
-			
+		for (int i = 0; i < report_label.length - 1; i++) {
+			result.append(report_label[i]);
+			result.append(CSV_DELIMITER);
 		}
-		List<Order> daily_orders = OrderDao.getOrderInTimeInterval(startDate, endDate)
-		while () {
-			
-		}
+		result.append(report_label[report_label.length - 1]);
+		result.append(CSV_ENDLINE);
 		
-		while () {
+		for (LocalDate start_interval = parsed_start_date; start_interval.isBefore(parsed_end_date.plusDays(1)); 
+		start_interval = start_interval.plus(1, time_unit)) {
+			LocalDate end_interval = start_interval.plus(1, time_unit).minusDays(1);
+			List<Order> orders = OrderDao.getOrderInTimeInterval(Date.valueOf(start_interval), 
+								Date.valueOf(end_interval));
+			result.append(start_interval);
+			result.append(CSV_DELIMITER);
+			result.append(end_interval);
+			result.append(CSV_DELIMITER);
 			
+			long totalPrice = 0;
+			for (Order order : orders) {
+				System.out.println(order.getOrderID());
+				totalPrice += order.getPrice();
+			}
+			System.out.println(totalPrice);
+			result.append(totalPrice);
+			result.append(CSV_ENDLINE);
 		}
-		
-		result.append("date,revenue,profit,\"avg review score\"\n");
-		result.append("\"" + start_date +"-" +  end_date + "\",1000,1000,4.5");
 		
 		return result;
 	}

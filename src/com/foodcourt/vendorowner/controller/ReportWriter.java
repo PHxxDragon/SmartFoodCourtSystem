@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.temporal.ChronoUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,7 +48,7 @@ public class ReportWriter extends HttpServlet {
 		String s1 = request.getParameter("input_start_date");
 		String s2 = request.getParameter("input_end_date");
 		
-		ICompileReport compiler = new CompileReportCSV(user, s1, s2);
+		ICompileReport compiler = new CompileReportCSV(user, s1, s2, ChronoUnit.DAYS);
 		String content = compiler.compile().toString();
 		InputStream is = new ByteArrayInputStream(content.getBytes());
 		int read = 0;
