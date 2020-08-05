@@ -315,12 +315,12 @@
 						    		<tr>
 										<td>
 											<span id="purchase__timestamp">
-												<c:out value="Thời điểm thanh toán : ${order.eta}" />
+												<c:out value="Thời gian chờ đợi : ${order.eta} (phút)" />
 											</span>	 
 										</td>
 										<td>
 											<span id="total__order__price">
-												<c:out value="Tổng đơn hàng : ${order.price}" /> 
+												<c:out value="Tổng đơn hàng : ${order.price}" />&#8363;
 											</span>
 										</td>
 									</tr>
