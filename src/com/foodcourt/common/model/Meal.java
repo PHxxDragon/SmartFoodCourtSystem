@@ -1,5 +1,7 @@
 package com.foodcourt.common.model;
 
+import java.util.List;
+
 public class Meal {
 	
 	String name;
@@ -10,6 +12,7 @@ public class Meal {
 	String decription;
 	String imgSrc;
 	long saleVendorID;
+	List<String> tag;
 	
 	public long getSaleVendorID() {
 		return saleVendorID;
@@ -32,6 +35,15 @@ public class Meal {
 		this.eta = meal.eta;
 		this.decription = meal.decription;
 		this.imgSrc = meal.imgSrc;
+		this.tag = meal.tag;
+	}
+
+	public List<String> getTag() {
+		return tag;
+	}
+
+	public void setTag(List<String> tag) {
+		this.tag = tag;
 	}
 
 	public String getName() {

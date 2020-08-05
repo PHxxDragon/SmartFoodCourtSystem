@@ -33,6 +33,9 @@ public class ChangePassword extends HttpServlet {
 		HttpSession session = request.getSession();
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
+		String req = request.getParameter("btn");
+		switch(req) {
+		case "xacnhan":
 		String oldpassword = request.getParameter("oldpassword");
 		String newpassword = request.getParameter("newpassword");
 		
@@ -51,7 +54,11 @@ public class ChangePassword extends HttpServlet {
 		
 		UserDao.changePasswordFromUsername(user.getUsername(),newpassword);
 		response.sendRedirect(request.getContextPath() +"/" + user.getUserType().toString() + "/main");
-		return;
+			return;
+		case "huybo":
+			response.sendRedirect("/SmartFoodCourtSystem/" + user.getUserType().toString() + "/main");
+			return;
+		}
 		
 		
 	}
