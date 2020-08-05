@@ -384,6 +384,8 @@ public class UserDao {
 		boolean isDeleted = false;
 		Connection connection = getConnection(); 
 	    PreparedStatement statement;
+	    User tempUser = selectUserByID(userID);
+	    if (tempUser.getUserType() == UserType.FC_MANAGER) return isDeleted;
 		try {
 			statement = connection.prepareStatement(DELETE_USER_BY_ID);
 			statement.setLong(1, userID);
