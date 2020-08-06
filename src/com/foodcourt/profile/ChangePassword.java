@@ -36,24 +36,24 @@ public class ChangePassword extends HttpServlet {
 		String req = request.getParameter("btn");
 		switch(req) {
 		case "xacnhan":
-		String oldpassword = request.getParameter("oldpassword");
-		String newpassword = request.getParameter("newpassword");
-		
-		if (!verify(user.getUsername(), oldpassword, user)) {
-			request.setAttribute("error", 1);
-			RequestDispatcher rd=request.getRequestDispatcher("/changepasswordJSP");            
-			rd.forward(request, response);
-			return;
-		}
-		else if (oldpassword.equals(newpassword)) {
-			request.setAttribute("error", 2);
-			RequestDispatcher rd=request.getRequestDispatcher("/changepasswordJSP");            
-			rd.forward(request, response);
-			return;
-		}
-		
-		UserDao.changePasswordFromUsername(user.getUsername(),newpassword);
-		response.sendRedirect(request.getContextPath() +"/" + user.getUserType().toString() + "/main");
+			String oldpassword = request.getParameter("oldpassword");
+			String newpassword = request.getParameter("newpassword");
+			
+			if (!verify(user.getUsername(), oldpassword, user)) {
+				request.setAttribute("error", 1);
+				RequestDispatcher rd=request.getRequestDispatcher("/changepasswordJSP");            
+				rd.forward(request, response);
+				return;
+			}
+			else if (oldpassword.equals(newpassword)) {
+				request.setAttribute("error", 2);
+				RequestDispatcher rd=request.getRequestDispatcher("/changepasswordJSP");            
+				rd.forward(request, response);
+				return;
+			}
+			
+			UserDao.changePasswordFromUsername(user.getUsername(),newpassword);
+			response.sendRedirect(request.getContextPath() +"/" + user.getUserType().toString() + "/main");
 			return;
 		case "huybo":
 			response.sendRedirect("/SmartFoodCourtSystem/" + user.getUserType().toString() + "/main");

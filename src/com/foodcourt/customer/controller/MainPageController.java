@@ -36,6 +36,7 @@ public class MainPageController extends HttpServlet {
 		long userID = (long) session.getAttribute("userID");
 		User user = UserDao.getUserFromUserID(userID);
 		Order shoppingCart = user.getShoppingCart();
+		
 		request.setAttribute("mealList", mealList);
 		request.setAttribute("shoppingCart", shoppingCart);
 		request.setAttribute("vendorList", vendorList);

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +25,8 @@ import com.foodcourt.vendorowner.compile.ICompileReport;
 public class ReportWriter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final int BYTES_DOWNLOAD = 1024;
+	private static final String FILENAME = "report.csv";
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +41,7 @@ public class ReportWriter extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/csv");
-		response.setHeader("Content-Disposition", "attachment;filename=\"downloadname.csv\"");
+		response.setHeader("Content-Disposition", "attachment;filename=" + "\"" + FILENAME + "\"");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Expires", "-1");
 		
@@ -47,8 +50,24 @@ public class ReportWriter extends HttpServlet {
 		
 		String s1 = request.getParameter("input_start_date");
 		String s2 = request.getParameter("input_end_date");
+		int time_interval = Integer.valueOf(request.getParameter("time_interval"));
 		
-		ICompileReport compiler = new CompileReportCSV(user, s1, s2, ChronoUnit.DAYS);
+		TemporalUnit time_unit = ChronoUnit.DAYS;
+		switch (time_interval) {
+			case 0:
+				time_unit = ChronoUnit.DAYS;
+				break;
+			case 1:
+				time_unit = ChronoUnit.WEEKS;
+				break;
+			case 2:
+				time_unit = ChronoUnit.MONTHS;
+				break;
+			default:
+				break;
+		}
+		
+		ICompileReport compiler = new CompileReportCSV(user, s1, s2, time_unit);
 		String content = compiler.compile().toString();
 		InputStream is = new ByteArrayInputStream(content.getBytes());
 		int read = 0;

@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.foodcourt.common.dao.MealDao;
+import com.foodcourt.common.dao.VendorDao;
 import com.foodcourt.common.model.Meal;
+import com.foodcourt.common.model.Vendor;
 
 
 @WebServlet("/customer/itemDetail")
@@ -24,10 +26,15 @@ public class ItemDetailController extends HttpServlet {
 		long mealID = 0;
 		if (para == null) mealID = 1;
 		else mealID = Long.parseLong(para);
+		
 		List<Meal> mealList= MealDao.getMealList();
-		request.setAttribute("mealList", mealList);
 		Meal meal = MealDao.getMeal(mealID);
+		List<Vendor> vendorList = VendorDao.getVendors();
+		
+		request.setAttribute("mealList", mealList);
 		request.setAttribute("meal", meal);
+		request.setAttribute("vendorList", vendorList);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/customer/item_detailJSP");
 		rd.forward(request, response); 	
 	}

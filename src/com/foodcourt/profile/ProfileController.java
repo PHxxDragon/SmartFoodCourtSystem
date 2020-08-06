@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import com.foodcourt.common.dao.OrderDao;
 import com.foodcourt.common.dao.UserDao;
+import com.foodcourt.common.dao.VendorDao;
 import com.foodcourt.common.model.Order;
 import com.foodcourt.common.model.User;
+import com.foodcourt.common.model.Vendor;
 
 @WebServlet("/customer/profile")
 public class ProfileController extends HttpServlet {
@@ -30,8 +32,12 @@ public class ProfileController extends HttpServlet {
 		}
 		User user = UserDao.getUserFromUserID(((long) attribute));
 		List<Order> paidOrders = OrderDao.getPaidOrders(user.getUserID());
+		List<Vendor> vendorList = VendorDao.getVendors();
+		
 		request.setAttribute("user", user);
 		request.setAttribute("PaidOrders", paidOrders);
+		request.setAttribute("vendorList", vendorList);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/customer/view_profileJSP");
 		rd.forward(request, response);
 	}
