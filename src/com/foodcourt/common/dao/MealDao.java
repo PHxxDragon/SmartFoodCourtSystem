@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.sql.*;
 
-import com.foodcourt.common.database.MealData;
+//import com.foodcourt.common.database.MealData;
 import com.foodcourt.common.model.Meal;
 
 public class MealDao {
@@ -21,7 +21,8 @@ public class MealDao {
 	final private static String mysqlUsrName="root";
 
 	// final private static String mysqlPass="soni1382000duy";
-	final private static String mysqlPass="1234";
+	//final private static String mysqlPass="1234";
+	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
 	
 	//The queries
 	private static final String INSERT_MEAL_SQL =  "INSERT INTO meal_info (Meal_ID, Meal_Name, Sale_Vendor_ID, Price, Stock, Decription, Picture_URL, Wait_Time, Tag) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";

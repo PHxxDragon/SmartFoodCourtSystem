@@ -81,7 +81,7 @@ public class OrderDao {
 	final private static String mysqlUsrName="root";
 	
 	//final private static String mysqlPass="soni1382000duy";
-	final private static String mysqlPass="1234";
+	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
 	
 	//The queries
 	private static final String INSERT_ORDER_SQL =  "INSERT INTO order_info (Order_ID, Price, Wait_Time, User_ID, isDone, Date_Complete) VALUES (?, ?, ?, ?, ?, ?)";
@@ -101,7 +101,7 @@ public class OrderDao {
 	
 	
 	private static final String SELECT_ORDER_BY_ISDONE = "SELECT * FROM order_info WHERE isDone = ? ";
-	private static final String SELECT_ORDER_IN_TIME_INTERVAL = "SELECT * FROM order_info WHERE Date_Complete BETWEEN ? AND ?";
+	private static final String SELECT_ORDER_IN_TIME_INTERVAL = "SELECT * FROM order_info WHERE (DATE(Date_Complete) BETWEEN ? AND ?) AND isDone <> 2";
 	
 	//private static final String SELECT_ORDER_ID_BY_SALE_VENDOR_ID = "SELECT Order_ID FROM order_info WHERE Sale_Vendo_ID = ?";
 		
