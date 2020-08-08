@@ -62,11 +62,11 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="checkout__input">
-                                <p>Nhà mạng<span>*</span></p>
+                                <p>Nhà cung cấp<span>*</span></p>
                                 <input type="text" required>
                             </div>
                             <div class="checkout__input">
-                                <p>Số seri<span>*</span></p>
+                                <p>Mã số<span>*</span></p>
                                 <input type="text" required>
                             </div>
                             <div class="rechare__submit">

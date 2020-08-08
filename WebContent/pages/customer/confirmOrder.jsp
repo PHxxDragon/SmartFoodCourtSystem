@@ -97,7 +97,7 @@
 	                            		<i class="fa fa-bank"></i>
 	                            	</div>
 	                            	<div class="checkout__method__content">
-	                            		<span>Thanh toán bằng thẻ ngân hàng nội địa</span>
+	                            		<span>Thanh toán bằng tài khoản SCFS</span>
 	                            	</div>
                             	</div>
                             </div>
@@ -114,7 +114,7 @@
                                 <ul>
                                		<c:forEach items = "${shoppingCart.orderEntries}" var="entry" varStatus="loop">
                                     <li> 
-                                    	${entry.meal.name} (${entry.quantity} cái)
+                                    	${entry.meal.name} (${entry.quantity} món)
                                     	<div class="checkout__order__price">
                                     		<span>${entry.quantity * entry.meal.price}</span><span>&#8363;</span>
                                     	</div>
@@ -161,20 +161,16 @@
 	      			<hr>
 	        		<form id="bank-info-form" action="validify" method="post">
 	          			<div class="form-group form-inline">
-	            			<label for="bank-name" class="col-form-label">Ngân hàng: </label>
+	            			<label for="bank-name" class="col-form-label">Loại toài khoản: </label>
 	            			<select class="form-control" name="bankName" id="bank-name" required>
-	            				<option value="" selected disabled>--Chọn ngân hàng--</option>
-							    <option value="BIDV">BIDV</option>
-							    <option value="OCB">OCB</option>
-							    <option value="VCB">Vietcombank</option>
+	            				<option value="" selected disabled>--Chọn loại toài khoản--</option>
+							    <option value="SCFS">Người dùng Smart Food Court</option>
+							    
 							</select>
 	          			</div>
+	          			
 	          			<div class="form-group">
-	            			<label for="card-number" class="col-form-label">Số tài khoản ngân hàng:</label>
-	            			<input type="text" class="form-control" pattern="[0-9]{1,20}" id="card-number" name="cardNumber" required>
-	          			</div>
-	          			<div class="form-group">
-							<label class="control-label" for="password">Mật khẩu ngân hàng</label>
+							<label class="control-label" for="password">Mật khẩu tài khoản</label>
 							<input class="form-control" type="password" id="password" name="password" minlength="1" required>
 							<small id="passwordHelpInline" class="form-text text-muted">
 								Chúng tôi sẽ không lưu thông tin cá nhân của bạn.
