@@ -198,7 +198,7 @@
 		                                <p>Số seri<span>*</span></p>
 		                                <input type="text" required name="serialNumber" id="serialNumber">
 		                                <small id="serialHelpInline1" class="form-text text-muted">
-											Cào nhẹ phần tráng bạc để biết mã số seri.
+											Cào nhẹ phần tráng bạc để biết mã số seri. Số seri gồm 20 ký tự gồm số và chữ viết hoa.
 										</small>
 		                                <small id="serialHelpInline2" class="form-text text-muted">
 											Mua thẻ nạp Smart Food Court tại các điểm giao dịch và căn tin của trường.
@@ -256,7 +256,7 @@
 				      	<div class="modal-body">
 				      		<p>Nạp tiền thất bại!</p>
 				      		<p>Thẻ nạp không hợp lệ hoặc đã được sử dụng!</p>
-				      		<p>Vui lòng kiểm tra lại thẻ </p>
+				      		<p>Vui lòng kiểm tra lại thẻ! </p>
 			      		</div>
 			    	</div>
 			  	</div>

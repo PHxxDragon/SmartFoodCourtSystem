@@ -174,7 +174,7 @@
 							<input class="form-control" type="password" id="password" name="password" minlength="1" required>
 							<small id="passwordHelpInline" class="form-text text-muted">
 								Chúng tôi sẽ không lưu thông tin cá nhân của bạn.
-						</small>
+							</small>
 					</div>
 	        		</form>
 	      		</div>

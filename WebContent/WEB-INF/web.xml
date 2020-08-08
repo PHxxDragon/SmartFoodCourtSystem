@@ -106,6 +106,17 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>recharge-customer</servlet-name>
+  	<jsp-file>/pages/customer/view_profile.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>recharge-customer</servlet-name>
+  	<url-pattern>/customer/recharge_customerJSP</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
   	<servlet-name>it-main</servlet-name>
   	<jsp-file>/pages/it/main.jsp</jsp-file>
   </servlet>
