@@ -147,7 +147,34 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-6">
-    				
+    				<div class="row">
+    					<div class="col-lg-12 report__compiler__interval">
+	    					<div class="report__compiler__interval__opt">
+	                         	<div class="interval__radio__btn">
+	                         		<input type="radio" value="momo" id="momo" name="payment-method" required>
+	                         	</div>
+	                         	<div class="report__compiler__content">
+	                         		<span>Thanh toán bằng Ví MoMo</span>
+	                         	</div>
+	                        </div>
+	                        <div class="report__compiler__interval__opt">
+	                         	<div class="interval__radio__btn">
+	                         		<input type="radio" value="momo" id="momo" name="payment-method" required>
+	                         	</div>
+	                         	<div class="report__compiler__content">
+	                         		<span>Thanh toán bằng Ví MoMo</span>
+	                         	</div>
+	                        </div>
+	                        <div class="report__compiler__interval__opt">
+	                         	<div class="interval__radio__btn">
+	                         		<input type="radio" value="momo" id="momo" name="payment-method" required>
+	                         	</div>
+	                         	<div class="report__compiler__content">
+	                         		<span>Thanh toán bằng Ví MoMo</span>
+	                         	</div>
+	                        </div>
+    					</div>
+    				</div>
     			</div>
     		</div>
     		<div class="row">

@@ -1,15 +1,13 @@
 package com.foodcourt.vendorowner.compile;
 
 public enum CSVTokenType {
-	PURE_TEXT_ON,
-	PURE_TEXT_OFF,
-	SEPERATOR,
+	ESCAPE_CHAR,
+	DELIMITER,
 	ENDLINE;
 	private String string;
 	static {
-		PURE_TEXT_ON.string = "\"";
-		PURE_TEXT_OFF.string = "\"";
-		SEPERATOR.string = ",";
+		ESCAPE_CHAR.string = "\"";
+		DELIMITER.string = ",";
 		ENDLINE.string = "\n";
 	}
 	public String getString() {

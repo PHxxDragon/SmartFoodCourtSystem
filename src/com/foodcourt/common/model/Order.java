@@ -13,6 +13,7 @@ public class Order {
 	
 	public Order() {
 		orderEntries = new ArrayList<OrderEntry>();
+		price = 0;
 	}
 	
 	public Order(Order order) {
@@ -71,7 +72,7 @@ public class Order {
 		}
 		return price;
 	}
-
+	
 	public void setPrice(long price) {
 		this.price = price;
 	}
