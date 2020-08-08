@@ -29,8 +29,13 @@ public class ItemDetailController extends HttpServlet {
 		
 		List<Meal> mealList= MealDao.getMealList();
 		Meal meal = MealDao.getMeal(mealID);
+		String stockValue;
+		int stock = meal.getStock();
+		if (stock == 0) stockValue = "Hết hàng";
+		else stockValue = "Còn hàng ("+String.valueOf(stock)+" đơn vị)";
 		List<Vendor> vendorList = VendorDao.getVendors();
 		
+		request.setAttribute("stockValue", stockValue);
 		request.setAttribute("mealList", mealList);
 		request.setAttribute("meal", meal);
 		request.setAttribute("vendorList", vendorList);

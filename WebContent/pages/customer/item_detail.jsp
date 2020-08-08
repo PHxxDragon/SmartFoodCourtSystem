@@ -99,7 +99,7 @@
                         <a onclick="addToShoppingCartWithQuantity(${meal.id}, '${pageContext.request.contextPath}/customer/cart', 'quantity__node')" class="primary-btn">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
-                            <li><b>Tình trạng</b> <span>Còn hàng</span></li>
+                            <li><b>Tình trạng</b> <span>${stockValue }</span></li>
                             <li><b>Thời gian đợi</b> <span>${meal.eta } phút <samp></samp></span></li>
                             <li><b>Chia sẻ trên</b>
                                 <div class="share">
