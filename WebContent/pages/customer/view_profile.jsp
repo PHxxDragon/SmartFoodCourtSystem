@@ -183,8 +183,12 @@
 	                        <div class="row">
 	                        	<div class="col-lg-12">
 	                        		<div class="checkout__input">
-		                                <p>Nhà mạng<span>*</span></p>
-		                                <input type="text" required>
+		                           
+		                                <select class="form-control" name="cardType" id="cardType" required>
+			                                <option value="" selected disabled>--Chọn loại thẻ--</option>
+										    <option value="SCFS">Thẻ nạp Smart Food Court</option>
+		                                </select>
+		                           
 		                            </div>
 	                        	</div>
                         	</div>
@@ -192,7 +196,16 @@
                            		<div class="col-lg-12">
                            			<div class="checkout__input">
 		                                <p>Số seri<span>*</span></p>
-		                                <input type="text" required>
+		                                <input type="text" required name="serialNumber" id="serialNumber">
+		                                <small id="serialHelpInline1" class="form-text text-muted">
+											Cào nhẹ phần tráng bạc để biết mã số seri. Số seri gồm 20 ký tự gồm số và chữ viết hoa.
+										</small>
+		                                <small id="serialHelpInline2" class="form-text text-muted">
+											Mua thẻ nạp Smart Food Court tại các điểm giao dịch và căn tin của trường.
+										</small>
+										<small id="serialHelpInline3" class="form-text text-muted">
+											Không mua thẻ có dấu hiệu bị cào xướt hay rách nát.
+										</small>
 		                            </div>
                            		</div>
                             </div>
@@ -210,6 +223,46 @@
         	</div>
         </div>
     </section>
+    
+    
+    <c:choose>
+		<c:when test="${rechargeStatus == true}">
+			<div class="modal fade" id="paymentStatusModal" tabindex="-1" role="dialog" aria-labelledby="paymentStatusModalTitle">
+		  		<div class="modal-dialog modal-dialog-centered" role="document">
+			    	<div class="modal-content">
+				      	<div class="modal-header">
+			        		<h5 class="modal-title" id="paymentStatusModalTitle">Thông báo</h5>
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          		<span aria-hidden="true">&times;</span>
+				        	</button>
+				      	</div>
+				      	<div class="modal-body">
+				      		<p>Nạp tiền thành công!</p>
+			      		</div>
+			    	</div>
+			  	</div>
+			</div>
+		</c:when>
+		<c:when test="${rechargeStatus == false}">
+			<div class="modal fade" id="paymentStatusModal" tabindex="-1" role="dialog" aria-labelledby="paymentStatusModalTitle">
+		  		<div class="modal-dialog modal-dialog-centered" role="document">
+			    	<div class="modal-content">
+				      	<div class="modal-header">
+			        		<h5 class="modal-title" id="paymentStatusModalTitle">Thông báo</h5>
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          		<span aria-hidden="true">&times;</span>
+				        	</button>
+				      	</div>
+				      	<div class="modal-body">
+				      		<p>Nạp tiền thất bại!</p>
+				      		<p>Thẻ nạp không hợp lệ hoặc đã được sử dụng!</p>
+				      		<p>Vui lòng kiểm tra lại thẻ! </p>
+			      		</div>
+			    	</div>
+			  	</div>
+			</div>
+		</c:when>
+	</c:choose>
     <!-- Profile Function Section End -->
     
 	<c:import url="/footer.jsp" />

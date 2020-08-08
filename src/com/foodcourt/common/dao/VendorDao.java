@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.foodcourt.common.database.VendorData;
+//import com.foodcourt.common.database.VendorData;
 import com.foodcourt.common.model.Vendor;
 
 
@@ -39,7 +39,8 @@ public class VendorDao {
 	final private static String mysqlUsrName="root";
 
 	// final private static String mysqlPass="soni1382000duy";
-	final private static String mysqlPass="1234";
+	//final private static String mysqlPass="1234";
+	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
 	
 	private static final String INSERT_VENDOR =  "INSERT INTO vendor_info (Vendor_ID, Name, Owner_ID) VALUES (?, ?, ?)";
 	private static final String GET_VENDOR_MAX_ID = "SELECT MAX(Vendor_ID) AS MaxVendorID from vendor_info";
