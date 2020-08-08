@@ -163,7 +163,7 @@
 		                <div class="col-lg-9">
 		                    <div class="hero__search">
 		                        <div class="hero__search__form">
-		                            <form action="${pageContext.request.contextPath }/customer/findItemController">
+		                            <form action="findItemController">
 		                                <input type="text" placeholder="Nhập từ khóa" name ="stringToFind">
 		                                <button type="submit" class="site-btn">TÌM KIẾM</button>
 		                            </form>
@@ -213,7 +213,7 @@
 		                <div class="col-lg-9">
 		                    <div class="hero__search">
 		                        <div class="hero__search__form">
-		                            <form action="${pageContext.request.contextPath }/customer/findItemController">
+		                            <form action="${pageContext.request.contextPath}/customer/findItemController">
 		                                <input type="text" placeholder="Nhập từ khóa" name="stringToFind">
 		                                <button type="submit" class="site-btn">TÌM KIẾM</button>
 		                            </form>

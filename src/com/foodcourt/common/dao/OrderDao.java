@@ -81,7 +81,8 @@ public class OrderDao {
 	final private static String mysqlUsrName="root";
 	
 	//final private static String mysqlPass="soni1382000duy";
-	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	// final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	final private static String mysqlPass="1234";
 	
 	//The queries
 	private static final String INSERT_ORDER_SQL =  "INSERT INTO order_info (Order_ID, Price, Wait_Time, User_ID, isDone, Date_Complete) VALUES (?, ?, ?, ?, ?, ?)";
