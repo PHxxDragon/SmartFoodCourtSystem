@@ -33,7 +33,7 @@
 <body>
     
     <c:import url="/header_customer.jsp">
-    	<c:param name="navbar_opt" value="0"/>
+    	<c:param name="navbar_opt" value="6"/>
     </c:import>
 
      <!-- Breadcrumb Section Begin -->

@@ -33,7 +33,7 @@
 <body>
     
     <c:import url="/header_customer.jsp">
-    	<c:param name="navbar_opt" value="6"/>
+    	<c:param name="navbar_opt" value="8"/>
     </c:import>
 
      <!-- Breadcrumb Section Begin -->
@@ -42,10 +42,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Thông tin quầy hàng</h2>
+                        <h2>Tìm kiếm</h2>
                         <div class="breadcrumb__option">
                             <a href="${pageContext.request.contextPath}/customer/main">Trang chủ</a>
-                            <span>Thông tin quầy hàng</span>
+                            <span>Tìm kiếm</span>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Các món tìm được với thông tin ${stringToFind }</h2>
+                        <h2>Các món tìm được với từ khoá ${stringToFind }</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>

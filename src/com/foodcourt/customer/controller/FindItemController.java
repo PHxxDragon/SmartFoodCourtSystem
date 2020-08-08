@@ -49,7 +49,6 @@ public class FindItemController extends HttpServlet {
 		else vendorID = Long.parseLong(para);
 		List<Vendor> vendors = VendorDao.getVendors();
 		String stringToFind = request.getParameter("stringToFind");
-		System.out.println(stringToFind);
 		String[] stringPattern = stringToFind.trim().split("\\s+");
 		for (String i : stringPattern) {
 			System.out.println(i);
