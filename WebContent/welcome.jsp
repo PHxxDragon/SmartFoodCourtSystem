@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/customer/main.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo/favicon.ico">
 </head>
 
 <body>
@@ -191,7 +194,7 @@
                     <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath}/img/hero/banner.jpg">
                         <div class="hero__text">
                             <span>MÓN MỚI</span>
-                            <h2>Vegetable <br />100% Organic</h2>
+                            <h2>Soufflé au chocolat <br />Le chocolat, l'esprit léger</h2>
                             <p>Miễn phí giao hàng</p>
                             <a href="${pageContext.request.contextPath}/login" class="primary-btn">ĐẶT NGAY</a>
                         </div>

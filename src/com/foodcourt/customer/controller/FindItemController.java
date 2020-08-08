@@ -50,9 +50,6 @@ public class FindItemController extends HttpServlet {
 		List<Vendor> vendors = VendorDao.getVendors();
 		String stringToFind = request.getParameter("stringToFind");
 		String[] stringPattern = stringToFind.trim().split("\\s+");
-		for (String i : stringPattern) {
-			System.out.println(i);
-		}
 		List<Meal> mealListToFind = new ArrayList<Meal>();
 		for (String pattern : stringPattern) {
 			mealListToFind.addAll(MealDao.searchMealByNamePattern(pattern));
