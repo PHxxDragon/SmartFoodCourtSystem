@@ -95,6 +95,16 @@
   	<url-pattern>/customer/vendor_detailJSP</url-pattern>
   </servlet-mapping>
   
+  
+  <servlet>
+  	<servlet-name>find-item-customer</servlet-name>
+  	<jsp-file>/pages/customer/find_item.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>find-item-customer</servlet-name>
+  	<url-pattern>/customer/find_itemJSP</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
   	<servlet-name>it-main</servlet-name>
   	<jsp-file>/pages/it/main.jsp</jsp-file>

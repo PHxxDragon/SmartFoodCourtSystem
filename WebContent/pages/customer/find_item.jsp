@@ -33,7 +33,7 @@
 <body>
     
     <c:import url="/header_customer.jsp">
-    	<c:param name="navbar_opt" value="0"/>
+    	<c:param name="navbar_opt" value="6"/>
     </c:import>
 
      <!-- Breadcrumb Section Begin -->
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Các món nổi bật trong quầy ${vendor.name }</h2>
+                        <h2>Các món tìm được với thông tin ${stringToFind }</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>

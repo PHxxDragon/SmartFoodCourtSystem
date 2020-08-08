@@ -173,14 +173,10 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    Các vendor
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="Nhập từ khóa">
-                                <button type="submit" class="site-btn">TÌM KIẾM</button>
-                            </form>
+                            <form action="${pageContext.request.contextPath }/customer/findItemController">
+		                    	<input type="text" placeholder="Nhập từ khóa" name="stringToFind">
+		                        <button type="submit" class="site-btn">TÌM KIẾM</button>
+		                    </form>
                         </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
