@@ -181,7 +181,7 @@
 		                    <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath}/img/hero/banner.jpg">
 		                        <div class="hero__text">
 		                            <span>MÓN MỚI</span>
-		                            <h2>Vegetable <br />100% Organic</h2>
+		                            <h2>Soufflé au chocolat <br />Le chocolat, l'esprit léger</h2>
 		                            <p>Miễn phí giao hàng</p>
 		                            <a href="#" class="primary-btn">ĐẶT NGAY</a>
 		                        </div>
