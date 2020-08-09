@@ -81,7 +81,8 @@ public class OrderDao {
 	final private static String mysqlUsrName="root";
 	
 	//final private static String mysqlPass="soni1382000duy";
-	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	//final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	final private static String mysqlPass="1234";
 	
 	//The queries
 	private static final String INSERT_ORDER_SQL =  "INSERT INTO order_info (Order_ID, Price, Wait_Time, User_ID, isDone, Date_Complete) VALUES (?, ?, ?, ?, ?, ?)";
@@ -341,11 +342,13 @@ public class OrderDao {
 			long price  = Long.valueOf(res.getString("Price"));
 			int eta = res.getInt("Wait_Time");
 			long userID = res.getLong("User_ID");
+			int isDone = res.getInt("isDone");
 			
 			order.setOrderID(orderID);
 			order.setPrice(price);
 			order.setEta(eta);
 			order.setUserID(userID);
+			order.setIsDone(isDone);
 			
 			//Then get meal info of this order
 			List<OrderEntry> mealList = new ArrayList<OrderEntry>();
@@ -407,11 +410,13 @@ public class OrderDao {
 			result.next();
 			long price  = Long.valueOf(result.getString("Price"));
 			int eta = result.getInt("Wait_Time");
+			int isDone = result.getInt("isDone");
 			
 			order.setOrderID(orderID);
 			order.setPrice(price);
 			order.setEta(eta);
 			order.setUserID(userID);
+			order.setIsDone(isDone);
 			
 			//Get mealList of this order
 			List<OrderEntry> mealList = new ArrayList<OrderEntry>();
@@ -456,6 +461,7 @@ public class OrderDao {
 				order.setPrice(price);
 				order.setEta(eta);
 				order.setUserID(userID);
+				order.setIsDone(isDone);
 				
 				//Get mealList of this order
 				List<OrderEntry> mealList = new ArrayList<OrderEntry>();

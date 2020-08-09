@@ -169,6 +169,24 @@
 											</span>
 										</td>
 									</tr>
+									<tr>
+										<td>
+											<span id="order__status">
+												<c:choose>
+												    <c:when test="${order.isDone == 0}">
+												        <c:out value="Tình trạng hoàn thành : đã hoàn thành" />
+												    </c:when> 
+												    <c:when test="${order.isDone == 1}">
+												        <c:out value="Tình trạng hoàn thành : chưa hoàn thành" />
+												    </c:when>    
+												    <c:otherwise>
+												        <c:out value="Tình trạng hoàn thành : đã xảy ra lỗi" />
+												    </c:otherwise>
+												</c:choose>
+												
+											</span>
+										</td>
+									</tr>
 								</table>
 							</div>
 						</div>

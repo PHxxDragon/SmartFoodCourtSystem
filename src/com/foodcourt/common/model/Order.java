@@ -10,6 +10,7 @@ public class Order {
 	private List<OrderEntry> orderEntries;
 	private int eta;
 	private long price;
+	private int isDone = 2;
 	
 	public Order() {
 		orderEntries = new ArrayList<OrderEntry>();
@@ -25,6 +26,7 @@ public class Order {
 		}
 		eta = order.eta;
 		price = order.price;
+		isDone = order.isDone;
 	}
 	
 	public long getUserID() {
@@ -78,6 +80,14 @@ public class Order {
 
 	public void setOrderID(long orderID) {
 		this.orderID = orderID;
+	}
+
+	public int getIsDone() {
+		return isDone;
+	}
+
+	public void setIsDone(int isDone) {
+		this.isDone = isDone;
 	}
 	
 }
