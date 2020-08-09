@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -25,6 +26,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/customer/main.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo/favicon.ico">
 </head>
 
 <body>
@@ -147,7 +151,34 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-6">
-    				
+    				<div class="row">
+    					<div class="col-lg-12 report__compiler__interval">
+	    					<div class="report__compiler__interval__opt">
+	                         	<div class="interval__radio__btn">
+	                         		<input type="radio" value="momo" id="momo" name="payment-method" required>
+	                         	</div>
+	                         	<div class="report__compiler__content">
+	                         		<span>Thanh toán bằng Ví MoMo</span>
+	                         	</div>
+	                        </div>
+	                        <div class="report__compiler__interval__opt">
+	                         	<div class="interval__radio__btn">
+	                         		<input type="radio" value="momo" id="momo" name="payment-method" required>
+	                         	</div>
+	                         	<div class="report__compiler__content">
+	                         		<span>Thanh toán bằng Ví MoMo</span>
+	                         	</div>
+	                        </div>
+	                        <div class="report__compiler__interval__opt">
+	                         	<div class="interval__radio__btn">
+	                         		<input type="radio" value="momo" id="momo" name="payment-method" required>
+	                         	</div>
+	                         	<div class="report__compiler__content">
+	                         		<span>Thanh toán bằng Ví MoMo</span>
+	                         	</div>
+	                        </div>
+    					</div>
+    				</div>
     			</div>
     		</div>
     		<div class="row">

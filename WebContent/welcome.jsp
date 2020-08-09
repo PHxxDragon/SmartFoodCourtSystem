@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/customer/main.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/logo/favicon.ico">
 </head>
 
 <body>
@@ -191,7 +194,7 @@
                     <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath}/img/hero/banner.jpg">
                         <div class="hero__text">
                             <span>MÓN MỚI</span>
-                            <h2>Vegetable <br />100% Organic</h2>
+                            <h2>Soufflé au chocolat <br />Le chocolat, l'esprit léger</h2>
                             <p>Miễn phí giao hàng</p>
                             <a href="${pageContext.request.contextPath}/login" class="primary-btn">ĐẶT NGAY</a>
                         </div>
@@ -232,17 +235,21 @@
                     <div class="featured__controls">
                         <ul>
                             <li class="active" data-filter="*">Tất cả</li>
-                            <li data-filter="*">Bữa sáng</li>
-                            <li data-filter="*">Bữa trưa</li>
-                            <li data-filter="*">Bữa tối</li>
-                            <li data-filter="*">Nước uống</li>
+                            <li data-filter=".breakfast">Bữa sáng</li>
+                            <li data-filter=".lunch">Bữa trưa</li>
+                            <li data-filter=".dinner">Bữa tối</li>
+                            <li data-filter=".drink">Nước uống</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="row featured__filter">
             	<c:forEach items="${mealList}" var="meal" varStatus="loop">
-                	<div class="col-lg-3 col-md-4 col-sm-6 mix breakfast fresh-meat">
+                	<!-- <div class="col-lg-3 col-md-4 col-sm-6 mix breakfast fresh-meat"> -->
+                	<c:forEach items="${meal.tag}" var="tag" varStatus="loop">
+             			<c:set var="tagstring" value="${tagstring} ${tag}"/>
+             		</c:forEach>
+                 	<div class="col-lg-3 col-md-6 col-sm-12 mix <c:out value="${tagstring}"/>" >
 	                    <div class="featured__item">
 	                        <div class="featured__item__pic set-bg" data-setbg=
 	                        "${pageContext.request.contextPath}${meal.imgSrc}">
@@ -256,6 +263,7 @@
 							</div>	
 	                    </div>
                	 	</div>
+               	 	<c:remove var="tagstring"/>
                  </c:forEach>
             </div>
         </div>

@@ -18,10 +18,6 @@ public class CompileReportCSV implements ICompileReport {
 	private User user;
 	private Vendor vendor;
 	
-	private final static char CSV_DELIMITER = ',';
-	private final static char CSV_ESCAPE_CHAR = '\"';
-	private final static char CSV_ENDLINE = '\n';
-	
 	private final static String[] report_label = {
 			"start date",
 			"end date",
@@ -32,8 +28,7 @@ public class CompileReportCSV implements ICompileReport {
 		this.user = user;
 		this.start_date = startDate;
 		this.end_date = endDate;
-		// this.vendor = VendorDao.getVendorByUserid(user.getUserID()).get(0);
-		this.vendor = null;
+		this.vendor = VendorDao.getVendorByUserid(user.getUserID()).get(0);
 		this.time_unit = timeUnit;
 	}
 	@Override
@@ -44,10 +39,10 @@ public class CompileReportCSV implements ICompileReport {
 		
 		for (int i = 0; i < report_label.length - 1; i++) {
 			result.append(report_label[i]);
-			result.append(CSV_DELIMITER);
+			result.append(CSVTokenType.DELIMITER.toString());
 		}
 		result.append(report_label[report_label.length - 1]);
-		result.append(CSV_ENDLINE);
+		result.append(CSVTokenType.ENDLINE.toString());
 		
 		for (LocalDate start_interval = parsed_start_date; start_interval.isBefore(parsed_end_date.plusDays(1)); 
 		start_interval = start_interval.plus(1, time_unit)) {
@@ -55,18 +50,16 @@ public class CompileReportCSV implements ICompileReport {
 			List<Order> orders = OrderDao.getOrderInTimeInterval(Date.valueOf(start_interval), 
 								Date.valueOf(end_interval));
 			result.append(start_interval);
-			result.append(CSV_DELIMITER);
+			result.append(CSVTokenType.DELIMITER.toString());
 			result.append(end_interval);
-			result.append(CSV_DELIMITER);
+			result.append(CSVTokenType.DELIMITER.toString());
 			
 			long totalPrice = 0;
 			for (Order order : orders) {
-				System.out.println(order.getOrderID());
 				totalPrice += order.getPrice();
 			}
-			System.out.println(totalPrice);
 			result.append(totalPrice);
-			result.append(CSV_ENDLINE);
+			result.append(CSVTokenType.ENDLINE.toString());
 		}
 		
 		return result;

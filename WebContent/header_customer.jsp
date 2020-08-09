@@ -6,6 +6,7 @@
 	<c:set var="opt_active_1" value=""/>
 	<c:set var="opt_active_2" value=""/>
 	<c:set var="opt_active_3" value=""/>
+	<c:set var="opt_active_4" value=""/>
 	
 	<c:choose>
 		<c:when test="${param.navbar_opt == 0}">
@@ -19,6 +20,9 @@
 		</c:when>
 		<c:when test="${param.navbar_opt == 3}">
 			<c:set var="opt_active_3" value="active"/>
+		</c:when>
+		<c:when test="${param.navbar_opt ==4}">
+			<c:set var="opt_active_4" value="active"/>
 		</c:when>
 	</c:choose>
 	
@@ -44,7 +48,7 @@
         -->
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <a href="./logout"><i class="fa fa-user"></i> Đăng xuất</a>
+                <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-user"></i> Đăng xuất</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -159,7 +163,7 @@
 		                <div class="col-lg-9">
 		                    <div class="hero__search">
 		                        <div class="hero__search__form">
-		                            <form action="${pageContext.request.contextPath }/customer/findItemController">
+		                            <form action="findItemController">
 		                                <input type="text" placeholder="Nhập từ khóa" name ="stringToFind">
 		                                <button type="submit" class="site-btn">TÌM KIẾM</button>
 		                            </form>
@@ -177,7 +181,7 @@
 		                    <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath}/img/hero/banner.jpg">
 		                        <div class="hero__text">
 		                            <span>MÓN MỚI</span>
-		                            <h2>Vegetable <br />100% Organic</h2>
+		                            <h2>Soufflé au chocolat <br />Le chocolat, l'esprit léger</h2>
 		                            <p>Miễn phí giao hàng</p>
 		                            <a href="#" class="primary-btn">ĐẶT NGAY</a>
 		                        </div>
@@ -186,6 +190,7 @@
 		            </div>
 		        </div>
 		    </section>
+		    <!-- Hero Section Main Page End -->
 	    </c:when>
 		<c:otherwise>
 			<!-- Hero Section Normal Pages Begin -->
@@ -208,7 +213,7 @@
 		                <div class="col-lg-9">
 		                    <div class="hero__search">
 		                        <div class="hero__search__form">
-		                            <form action="${pageContext.request.contextPath }/customer/findItemController">
+		                            <form action="${pageContext.request.contextPath}/customer/findItemController">
 		                                <input type="text" placeholder="Nhập từ khóa" name="stringToFind">
 		                                <button type="submit" class="site-btn">TÌM KIẾM</button>
 		                            </form>
@@ -227,6 +232,7 @@
 		            </div>
 		        </div>
 		    </section>
+		    <!-- Hero Section Normal Pages End -->
 		</c:otherwise>
     </c:choose>
     <!-- Hero Section End -->

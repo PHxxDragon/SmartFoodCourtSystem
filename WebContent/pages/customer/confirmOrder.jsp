@@ -161,11 +161,10 @@
 	      			<hr>
 	        		<form id="bank-info-form" action="validify" method="post">
 	          			<div class="form-group form-inline">
-	            			<label for="bank-name" class="col-form-label">Loại toài khoản: </label>
+	            			<label for="bank-name" class="col-form-label">Loại tài khoản: </label>
 	            			<select class="form-control" name="bankName" id="bank-name" required>
-	            				<option value="" selected disabled>--Chọn loại toài khoản--</option>
-							    <option value="SCFS">Người dùng Smart Food Court</option>
-							    
+	            				<option value="" selected disabled>--Chọn loại tài khoản--</option>
+							    <option value="SCFS">Người dùng Smart Food Court</option>  
 							</select>
 	          			</div>
 	          			

@@ -766,7 +766,7 @@ ol {
 }
 
 .hero__text h2 {
-	font-size: 46px;
+	font-size: 40px;
 	color: #252525;
 	line-height: 52px;
 	font-weight: 700;
@@ -2495,10 +2495,24 @@ ol {
 }
 
 /*---------------------
+	Report compiler
 -----------------------*/
+.report__compiler__interval {
+	display: flex;
+	flex-flow: column;
+	width: 100%;
+}
 
-.report__compiler__form > .report__compiler__input {
-	padding: 10px;
+.report__compiler__interval .report__compiler__interval__opt {
+	display: flex;
+	flex-flow: row;
+	width: 100%;
+	padding: 5px;
+	margin: 10px;
+}
+
+.report__compiler__interval__opt .interval__radio__btn {
+	
 }
 
 /*---------------------

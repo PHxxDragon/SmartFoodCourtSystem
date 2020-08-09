@@ -21,7 +21,7 @@ public class OrderDao {
 		//return OrderData.getInstance().getPendingOrders();
 		return getOrderByIsDone(1);
 	}
-	//Get order with userid and isDone value== 0
+	//Get order with user id and isDone value== 0
 	public static List<Order> getPaidOrders(long userID) {
 		//return OrderData.getInstance().getPendingOrders();
 		List<Order> orders = getOrderByUserIDisDone(userID, 1);
