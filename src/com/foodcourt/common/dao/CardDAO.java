@@ -1,13 +1,12 @@
 package com.foodcourt.common.dao;
 
-import java.util.List;
 import java.sql.*;
 
 public class CardDAO {
 	final private static String mysqlURL="jdbc:mysql://localhost:3306/";
 	final private static String mysqlUsrName="root";
-	// final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
-	final private static String mysqlPass="1234";
+	final private static String mysqlPass="8pJ-:G&b}aPUP9*6";
+	//final private static String mysqlPass="1234";
 	
 	
 	private static final String SELECT_CARD_BY_SERIAL = "SELECT * FROM sfcs_card WHERE Serial = ? ";

@@ -235,17 +235,21 @@
                     <div class="featured__controls">
                         <ul>
                             <li class="active" data-filter="*">Tất cả</li>
-                            <li data-filter="*">Bữa sáng</li>
-                            <li data-filter="*">Bữa trưa</li>
-                            <li data-filter="*">Bữa tối</li>
-                            <li data-filter="*">Nước uống</li>
+                            <li data-filter=".breakfast">Bữa sáng</li>
+                            <li data-filter=".lunch">Bữa trưa</li>
+                            <li data-filter=".dinner">Bữa tối</li>
+                            <li data-filter=".drink">Nước uống</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="row featured__filter">
             	<c:forEach items="${mealList}" var="meal" varStatus="loop">
-                	<div class="col-lg-3 col-md-4 col-sm-6 mix breakfast fresh-meat">
+                	<!-- <div class="col-lg-3 col-md-4 col-sm-6 mix breakfast fresh-meat"> -->
+                	<c:forEach items="${meal.tag}" var="tag" varStatus="loop">
+             			<c:set var="tagstring" value="${tagstring} ${tag}"/>
+             		</c:forEach>
+                 	<div class="col-lg-3 col-md-6 col-sm-12 mix <c:out value="${tagstring}"/>" >
 	                    <div class="featured__item">
 	                        <div class="featured__item__pic set-bg" data-setbg=
 	                        "${pageContext.request.contextPath}${meal.imgSrc}">
@@ -259,6 +263,7 @@
 							</div>	
 	                    </div>
                	 	</div>
+               	 	<c:remove var="tagstring"/>
                  </c:forEach>
             </div>
         </div>
